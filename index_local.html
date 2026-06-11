@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angelphilia / RealArtProject / VMF50 Library</title>
+  <style>
+    :root {
+      --ink: #202122;
+      --muted: #54595d;
+      --line: #a2a9b1;
+      --soft-line: #d8dee4;
+      --page: #ffffff;
+      --panel: #f8f9fa;
+      --link: #0645ad;
+      --deep: #0b2545;
+      --accent: #7a4f24;
+      --green: #2f6f5e;
+      --red: #9b3941;
+      --shadow: 0 8px 28px rgba(32, 33, 34, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font: 15px/1.65 Georgia, "Times New Roman", "Noto Serif SC", "Microsoft YaHei", serif;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      border-right: 1px solid var(--soft-line);
+      background: linear-gradient(180deg, #f8f9fa, #ffffff);
+      padding: 22px 18px;
+    }
+    .brand {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--soft-line);
+      margin-bottom: 18px;
+    }
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font: 700 11px/1.2 Verdana, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.15;
+      margin-top: 5px;
+      color: var(--deep);
+    }
+    .lang-switch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin: 14px 0 18px;
+    }
+    .lang-switch button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      padding: 5px 4px;
+      font: 12px/1.2 Verdana, "Microsoft YaHei", sans-serif;
+      cursor: pointer;
+    }
+    .lang-switch button.active {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: #fff;
+    }
+    nav a {
+      display: block;
+      padding: 6px 0;
+      border-bottom: 1px dotted #eaecf0;
+    }
+    .toc-card {
+      display: grid;
+      gap: 2px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eaecf0;
+    }
+    .toc-card span, .toc-card em {
+      color: var(--muted);
+      font: 12px/1.35 Verdana, sans-serif;
+      font-style: normal;
+    }
+    main {
+      min-width: 0;
+      padding: 30px clamp(18px, 3.5vw, 54px) 56px;
+    }
+    .article-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 28px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
+      font-weight: 700;
+      color: var(--deep);
+    }
+    .subtitle {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .infobox {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .infobox h2 {
+      margin: 0;
+      padding: 10px 12px;
+      background: #eaecf0;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+      text-align: center;
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      border-top: 1px solid #eaecf0;
+      min-height: 34px;
+    }
+    .info-row b {
+      padding: 7px 10px;
+      background: #f1f2f4;
+      font-size: 13px;
+    }
+    .info-row span {
+      padding: 7px 10px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .stat {
+      border: 1px solid var(--soft-line);
+      background: #fff;
+      padding: 12px 14px;
+      border-left: 4px solid var(--green);
+    }
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font: 12px/1.3 Verdana, sans-serif;
+    }
+    .stat strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 25px;
+      line-height: 1;
+      color: var(--deep);
+    }
+    section {
+      margin-top: 30px;
+      border-top: 1px solid var(--soft-line);
+      padding-top: 18px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      color: var(--deep);
+      font-family: "Linux Libertine", Georgia, "Times New Roman", "Noto Serif SC", serif;
+    }
+    .filters {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, minmax(140px, .45fr));
+      gap: 10px;
+      padding: 12px;
+      margin: 12px 0 18px;
+      background: rgba(248, 249, 250, .96);
+      border: 1px solid var(--soft-line);
+      backdrop-filter: blur(8px);
+    }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      padding: 9px 10px;
+      border-radius: 2px;
+      font: 14px/1.3 Verdana, "Microsoft YaHei", sans-serif;
+    }
+    .library-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 14px;
+    }
+    .entry {
+      border: 1px solid var(--soft-line);
+      background: #fff;
+      min-width: 0;
+      box-shadow: 0 2px 10px rgba(32, 33, 34, .05);
+    }
+    .thumb {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 3;
+      background:
+        linear-gradient(135deg, rgba(11,37,69,.08), rgba(47,111,94,.08)),
+        repeating-linear-gradient(45deg, #f8f9fa 0 12px, #eef1f3 12px 24px);
+      border-bottom: 1px solid var(--soft-line);
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #f8f9fa;
+    }
+    .placeholder {
+      color: var(--muted);
+      font: 700 12px/1.4 Verdana, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .entry-body { padding: 12px 13px 14px; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .pill {
+      border: 1px solid #c8ccd1;
+      background: #f8f9fa;
+      color: var(--muted);
+      padding: 2px 6px;
+      font: 11px/1.4 Verdana, sans-serif;
+      border-radius: 999px;
+    }
+    .pill.group-AngelPhilia { color: var(--deep); border-color: #9eb0c6; }
+    .pill.group-RealArtProject { color: var(--red); border-color: #d5a0a6; }
+    .pill.group-VMF50 { color: var(--accent); border-color: #c3a17e; }
+    .entry h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+      line-height: 1.25;
+      color: var(--deep);
+    }
+    .entry dl {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 2px 8px;
+      margin: 0;
+      font-size: 13px;
+    }
+    .entry dt { color: var(--muted); }
+    .entry dd {
+      margin: 0;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .entry-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      font: 13px/1.3 Verdana, "Microsoft YaHei", sans-serif;
+    }
+    .index-table-wrap {
+      overflow: auto;
+      border: 1px solid var(--soft-line);
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid #eaecf0;
+      padding: 7px 8px;
+      vertical-align: top;
+    }
+    th {
+      background: #eaecf0;
+      text-align: left;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    td { overflow-wrap: anywhere; }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: #fff8ea;
+      padding: 10px 12px;
+      margin: 14px 0;
+    }
+    footer {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      .page { grid-template-columns: 1fr; }
+      aside {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--soft-line);
+      }
+      .article-header { grid-template-columns: 1fr; }
+      .filters { grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      main { padding: 20px 12px 40px; }
+      .filters { grid-template-columns: 1fr; position: static; }
+      .stats { grid-template-columns: 1fr; }
+      .library-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside>
+      <div class="brand">
+        <small data-i18n="brandKicker">Library Index</small>
+        <strong>Angelphilia<br>RealArtProject<br>VMF50</strong>
+      </div>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="zh" class="active">中文</button>
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="ja">日本語</button>
+      </div>
+      <nav>
+        <a href="#summary" data-i18n="navSummary">项目速览</a>
+        <a href="#library" data-i18n="navLibrary">馆藏条目</a>
+        <a href="#full-index" data-i18n="navIndex">完整索引</a>
+        <a href="#repository" data-i18n="navRepo">仓库说明</a>
+      </nav>
+      <h2 style="font-size:16px;margin-top:22px" data-i18n="recentEntries">最近条目</h2>
+      <a class="toc-card" href="#library" data-jump="音夢(NEMU) スーパーホワイティ">
+            <span>2026</span>
+            <strong>音夢(NEMU) スーパーホワイティ</strong>
+            <em>AngelPhilia</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="MIU 再販版">
+            <span>未明</span>
+            <strong>MIU 再販版</strong>
+            <em>VMF50</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="MIU 褐色ver.">
+            <span>未明</span>
+            <strong>MIU 褐色ver.</strong>
+            <em>VMF50</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="RISA 褐色肌">
+            <span>未明</span>
+            <strong>RISA 褐色肌</strong>
+            <em>VMF50</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="リン・ミンメイ">
+            <span>未明</span>
+            <strong>リン・ミンメイ</strong>
+            <em>AngelPhilia</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="レイナ">
+            <span>未明</span>
+            <strong>レイナ</strong>
+            <em>AngelPhilia</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="紗友莉 SAYURI">
+            <span>未明</span>
+            <strong>紗友莉 SAYURI</strong>
+            <em>VMF50</em>
+        </a>
+<a class="toc-card" href="#library" data-jump="罹亞奈 RIANA">
+            <span>未明</span>
+            <strong>罹亞奈 RIANA</strong>
+            <em>VMF50</em>
+        </a>
+    </aside>
+
+    <main>
+      <header class="article-header" id="summary">
+        <div>
+          <h1 data-i18n="pageTitle">Angelphilia / RealArtProject / VMF50 图书馆</h1>
+          <p class="subtitle" data-i18n="subtitle">Angelphilia / RealArtProject / VMF50 收藏资料的便携索引，延续《Angel Philia / Pink Drops 整娃速览》的字段体系与 records 档案。保存到手机、平板或电脑后可直接打开；条目图片优先读取 records 目录中的本地图片文件。</p>
+          <div class="notice" data-i18n="notice">本页仅供资料查询、交流与个人收藏整理使用；规格、售价、库存、版权与销售信息以官方原页面为准。</div>
+        </div>
+        <div class="infobox">
+          <h2 data-i18n="metadata">Library metadata</h2>
+          <div class="info-row"><b data-i18n="organizer">整理人</b><span>影青(HeavyRain_3229)</span></div>
+          <div class="info-row"><b data-i18n="updated">更新时间</b><span>2026-06-10</span></div>
+          <div class="info-row"><b data-i18n="repository">仓库</b><span>github.com/jxa3229/angelphilia-library</span></div>
+          <div class="info-row"><b data-i18n="localEntry">本地入口</b><span>angelphilia/index_local.html</span></div>
+          <div class="info-row"><b data-i18n="scopeLabel">资料范围</b><span data-i18n="scopeValue">Angel Philia、Real Art Project / Pink Drops、VMF50 / YAMATO</span></div>
+        </div>
+      </header>
+
+      <div class="stats"><div class="stat"><span>总条目</span><strong>172</strong></div>
+<div class="stat"><span>AngelPhilia</span><strong>75</strong></div>
+<div class="stat"><span>RealArtProject</span><strong>78</strong></div>
+<div class="stat"><span>VMF50</span><strong>19</strong></div></div>
+
+      <section>
+        <h2 data-i18n="scopeHeading">范围说明</h2>
+        <p data-i18n="scopeText">本项目记录 Angel Philia 主线整娃、Real Art Project / Pink Drops 旧页补档、VMF50 / YAMATO 早期条目，以及部分联动和抽选记录。馆藏字段与速览文档保持一致，每条记录保留来源页、record.md 和可用的公开图片链接。</p>
+      </section>
+
+      <section id="library">
+        <h2 data-i18n="libraryHeading">馆藏条目</h2>
+        <div class="filters">
+          <input id="q" type="search" placeholder="搜索名字、编号、Body、肤色、目录..." data-i18n-placeholder="searchPlaceholder">
+          <select id="group"></select>
+          <select id="year"></select>
+          <select id="source"></select>
+        </div>
+        <p id="resultCount"></p>
+        <div class="library-grid" id="cards"></div>
+      </section>
+
+      <section id="full-index">
+        <h2 data-i18n="fullIndexHeading">完整索引</h2>
+        <div class="index-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="tableYear">年份</th><th data-i18n="tableGroup">馆别</th><th data-i18n="tableSeries">系列</th><th data-i18n="tableNumber">编号</th><th data-i18n="tableName">名字</th><th data-i18n="tableVariant">版本/区别</th><th data-i18n="tableHead">头</th><th data-i18n="tableBody">Body</th><th data-i18n="tableSkin">肤色</th><th data-i18n="tableSource">来源</th><th data-i18n="tableFolder">目录</th>
+              </tr>
+            </thead>
+            <tbody id="indexRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="repository">
+        <h2 data-i18n="repoHeading">仓库与部署说明</h2>
+        <p data-i18n-html="repoText">当前图书馆项目仓库为 <a href="https://github.com/jxa3229/angelphilia-library">jxa3229/angelphilia-library</a>。`ai-goofish-monitor` 已拆分为独立仓库 <a href="https://github.com/jxa3229/ai-goofish-monitor">jxa3229/ai-goofish-monitor</a>，不再作为本图书馆项目的一部分。</p>
+        <p data-i18n="openText">本页不依赖构建工具、服务器或外部 JS/CSS。直接打开 `angelphilia/index_local.html` 即可查看；本地图片随 records 目录一起保存。</p>
+      </section>
+
+      <footer data-i18n="footer">
+        Library index updated on 2026-06-10. Source material belongs to original rights holders.
+      </footer>
+    </main>
+  </div>
+
+  <script id="library-data" type="application/json">[{"year":"2008","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"呂蒙子明メイド服Ver.","title":"Ikkitousen Ryomou Shimei Maid Ver","variant":"ver.2","head":"呂蒙子明 角色联动款","body":"YAMATO 角色联动完成品","skin":"公開資料未完整確認","source":"官方","folder":"2008_Ikkitousen Ryomou Shimei Maid Ver","recordPath":"records/2008_Ikkitousen Ryomou Shimei Maid Ver/record.md","sourceUrl":"https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/","imageUrl":"records/2008_Ikkitousen Ryomou Shimei Maid Ver/01.jpg"},{"year":"2008","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"関羽雲長","title":"Ikkitousen Kanu Unchou 50cm figure","variant":"通常/未明","head":"関羽雲長 角色联动款","body":"vmf50 角色联动完成品","skin":"公開資料未完整確認","source":"官方","folder":"2008_Ikkitousen Kanu Unchou 50cm figure","recordPath":"records/2008_Ikkitousen Kanu Unchou 50cm figure/record.md","sourceUrl":"https://www.azone-int.co.jp/?sid=cct202","imageUrl":"records/2008_Ikkitousen Kanu Unchou 50cm figure/01.jpg"},{"year":"2009","group":"VMF50","series":"Angel Philia","number":"#1","name":"MIU","title":"VMF50 #1 MIU","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2009_VMF50 #1 MIU","recordPath":"records/2009_VMF50 #1 MIU/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91miu-664.html","imageUrl":"records/2009_VMF50 #1 MIU/01.jpg"},{"year":"2009","group":"VMF50","series":"Angel Philia","number":"#2","name":"RISA","title":"VMF50 #2 RISA","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2009_VMF50 #2 RISA","recordPath":"records/2009_VMF50 #2 RISA/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2009_VMF50 #2 RISA/01.jpg"},{"year":"2009","group":"VMF50","series":"Angel Philia","number":"#3","name":"MIKI","title":"VMF50 #3 MIKI","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2009_VMF50 #3 MIKI","recordPath":"records/2009_VMF50 #3 MIKI/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2009_VMF50 #3 MIKI/01.jpg"},{"year":"2009","group":"VMF50","series":"Angel Philia","number":"#4","name":"YUMI","title":"VMF50 #4 YUMI","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2009_VMF50 #4 YUMI","recordPath":"records/2009_VMF50 #4 YUMI/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2009_VMF50 #4 YUMI/01.jpg"},{"year":"2009","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"関羽雲長 ナース服Ver.","title":"Ikkitousen Kanu Unchou Nurse Ver","variant":"ver.2","head":"関羽雲長 角色联动款","body":"vmf50 角色联动完成品","skin":"公開資料未完整確認","source":"官方","folder":"2009_Ikkitousen Kanu Unchou Nurse Ver","recordPath":"records/2009_Ikkitousen Kanu Unchou Nurse Ver/record.md","sourceUrl":"https://www.suruga-ya.jp/kaitori/kaitori_detail/990003727","imageUrl":"records/2009_Ikkitousen Kanu Unchou Nurse Ver/01.jpg"},{"year":"2010","group":"VMF50","series":"Angel Philia","number":"#5","name":"AMI","title":"VMF50 #5 AMI","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2010_VMF50 #5 AMI","recordPath":"records/2010_VMF50 #5 AMI/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2010_VMF50 #5 AMI/01.jpg"},{"year":"2010","group":"VMF50","series":"Angel Philia","number":"#6","name":"NAO","title":"VMF50 #6 NAO","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2010_VMF50 #6 NAO","recordPath":"records/2010_VMF50 #6 NAO/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2010_VMF50 #6 NAO/01.jpg"},{"year":"2010","group":"VMF50","series":"Angel Philia","number":"#7","name":"MIHO","title":"VMF50 #7 MIHO","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2010_VMF50 #7 MIHO","recordPath":"records/2010_VMF50 #7 MIHO/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2010_VMF50 #7 MIHO/01.jpg"},{"year":"2010","group":"VMF50","series":"Angel Philia","number":"#8","name":"ERI","title":"VMF50 #8 ERI","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2010_VMF50 #8 ERI","recordPath":"records/2010_VMF50 #8 ERI/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2010_VMF50 #8 ERI/01.jpg"},{"year":"2011","group":"VMF50","series":"Angel Philia","number":"#10","name":"SAYO","title":"VMF50 #10 SAYO","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2011_VMF50 #10 SAYO","recordPath":"records/2011_VMF50 #10 SAYO/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2011_VMF50 #10 SAYO/01.jpg"},{"year":"2011","group":"VMF50","series":"Angel Philia","number":"#11","name":"MAKO","title":"VMF50 #11 MAKO","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2011_VMF50 #11 MAKO","recordPath":"records/2011_VMF50 #11 MAKO/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2011_VMF50 #11 MAKO/01.jpg"},{"year":"2011","group":"VMF50","series":"Angel Philia","number":"#9","name":"SHIHO","title":"VMF50 #9 SHIHO","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2011_VMF50 #9 SHIHO","recordPath":"records/2011_VMF50 #9 SHIHO/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2011_VMF50 #9 SHIHO/01.jpg"},{"year":"2011","group":"VMF50","series":"Angel Philia","number":"未记","name":"Sonico","title":"Sonico_VMF50 Tiger Parka set","variant":"通常/未明","head":"Sonico 角色联动款","body":"VMF50 系联动套装","skin":"公开资料未完整确认","source":"官方","folder":"2011_Sonico_VMF50 Tiger Parka set","recordPath":"records/2011_Sonico_VMF50 Tiger Parka set/record.md","sourceUrl":"https://myfigurecollection.net/item/83530","imageUrl":"records/2011_Sonico_VMF50 Tiger Parka set/01.jpg"},{"year":"2012","group":"RealArtProject","series":"Angel Philia","number":"#1","name":"伽琉羅 KARURA","title":"Dollcore Image Girl #1 伽琉羅 KARURA","variant":"通常/未明","head":"未明","body":"vmf50 / Dollcore 完成品","skin":"公開資料未完整確認","source":"官方","folder":"2012_Dollcore Image Girl #1 伽琉羅 KARURA","recordPath":"records/2012_Dollcore Image Girl #1 伽琉羅 KARURA/record.md","sourceUrl":"https://www.suruga-ya.jp/kaitori/kaitori_detail/990016103","imageUrl":"records/2012_Dollcore Image Girl #1 伽琉羅 KARURA/01.jpg"},{"year":"2012","group":"VMF50","series":"Angel Philia","number":"#12","name":"KANA","title":"VMF50 #12 KANA","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2012_VMF50 #12 KANA","recordPath":"records/2012_VMF50 #12 KANA/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2012_VMF50 #12 KANA/01.jpg"},{"year":"2012","group":"VMF50","series":"Angel Philia","number":"#13","name":"MIKO","title":"VMF50 #13 MIKO","variant":"通常/未明","head":"未明","body":"未明","skin":"公开资料未完整确认","source":"官方","folder":"2012_VMF50 #13 MIKO","recordPath":"records/2012_VMF50 #13 MIKO/record.md","sourceUrl":"https://myfigurecollection.net/entry/32014","imageUrl":"records/2012_VMF50 #13 MIKO/01.jpg"},{"year":"2012","group":"RealArtProject","series":"Angel Philia","number":"#2","name":"羅魅阿 LAMIA","title":"Dollcore Image Girl #2 羅魅阿 LAMIA","variant":"通常/未明","head":"K","body":"G","skin":"ノーマル肌","source":"官方","folder":"2012_Dollcore Image Girl #2 羅魅阿 LAMIA","recordPath":"records/2012_Dollcore Image Girl #2 羅魅阿 LAMIA/record.md","sourceUrl":"https://azoneosaka.blog.fc2.com/blog-entry-995.html?sp=","imageUrl":"records/2012_Dollcore Image Girl #2 羅魅阿 LAMIA/01.jpg"},{"year":"2012","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"Sonico","title":"Angel Philia Sonico Babydoll ver","variant":"ver.2","head":"Sonico 角色联动款","body":"Angel Philia 联动完成品","skin":"公开资料未完整确认","source":"官方","folder":"2012_Angel Philia Sonico Babydoll ver","recordPath":"records/2012_Angel Philia Sonico Babydoll ver/record.md","sourceUrl":"https://myfigurecollection.net/item/118096","imageUrl":"records/2012_Angel Philia Sonico Babydoll ver/01.jpg"},{"year":"2013","group":"RealArtProject","series":"Angel Philia","number":"#3","name":"紗鵺香 SAYAKA","title":"Dollcore Image Girl #3 紗鵺香 SAYAKA","variant":"通常/未明","head":"N","body":"G/未明/未明/未明","skin":"ノーマル肌","source":"官方","folder":"2013_Dollcore Image Girl #3 紗鵺香 SAYAKA","recordPath":"records/2013_Dollcore Image Girl #3 紗鵺香 SAYAKA/record.md","sourceUrl":"https://azoneakiba.blog.fc2.com/blog-entry-1496.html?sp=","imageUrl":"records/2013_Dollcore Image Girl #3 紗鵺香 SAYAKA/01.jpg"},{"year":"2013","group":"RealArtProject","series":"Angel Philia","number":"#4","name":"絽媚奈 ROMINA","title":"Dollcore Image Girl #4 絽媚奈 ROMINA","variant":"通常/未明","head":"K","body":"C3/未明/未明/未明","skin":"褐色肌","source":"官方","folder":"2013_Dollcore Image Girl #4 絽媚奈 ROMINA","recordPath":"records/2013_Dollcore Image Girl #4 絽媚奈 ROMINA/record.md","sourceUrl":"https://azoneakiba.blog.fc2.com/blog-category-16.html","imageUrl":"records/2013_Dollcore Image Girl #4 絽媚奈 ROMINA/01.jpg"},{"year":"2013","group":"RealArtProject","series":"Pink Drops","number":"#6","name":"紫織麗","title":"Pink Drops #6 紫織麗","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2013-11-23_Pink Drops #6 紫織麗","recordPath":"records/2013-11-23_Pink Drops #6 紫織麗/record.md","sourceUrl":"","imageUrl":"records/2013-11-23_Pink Drops #6 紫織麗/01.jpg"},{"year":"2014","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"Catwoman","title":"Angel Philia CATWOMAN DOLL","variant":"通常/未明","head":"CATWOMAN 角色联动款","body":"Angel Philia 联动完成品","skin":"ホワイティ","source":"官方","folder":"2014_Angel Philia CATWOMAN DOLL","recordPath":"records/2014_Angel Philia CATWOMAN DOLL/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%E3%80%90angel-philia%E3%80%91catwoman%E3%80%80doll-587.html","imageUrl":"records/2014_Angel Philia CATWOMAN DOLL/01.jpg"},{"year":"2014","group":"RealArtProject","series":"Pink Drops","number":"","name":"摩璃奈","title":"Pink Drops 摩璃奈","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2014-12-20_Pink Drops 摩璃奈","recordPath":"records/2014-12-20_Pink Drops 摩璃奈/record.md","sourceUrl":"","imageUrl":"records/2014-12-20_Pink Drops 摩璃奈/01.jpg"},{"year":"2014","group":"RealArtProject","series":"Pink Drops","number":"#10","name":"穂乃花","title":"Pink Drops #10 穂乃花","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2014-11-15_Pink Drops #10 穂乃花","recordPath":"records/2014-11-15_Pink Drops #10 穂乃花/record.md","sourceUrl":"","imageUrl":"records/2014-11-15_Pink Drops #10 穂乃花/01.jpg"},{"year":"2014","group":"RealArtProject","series":"Pink Drops","number":"#7","name":"摩雫媚","title":"Pink Drops #7 摩雫媚","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2014-03-25_Pink Drops #7 摩雫媚","recordPath":"records/2014-03-25_Pink Drops #7 摩雫媚/record.md","sourceUrl":"","imageUrl":"records/2014-03-25_Pink Drops #7 摩雫媚/01.jpg"},{"year":"2014","group":"RealArtProject","series":"Pink Drops","number":"#8","name":"伽栖魅","title":"Pink Drops #8 伽栖魅","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2014-06-01_Pink Drops #8 伽栖魅","recordPath":"records/2014-06-01_Pink Drops #8 伽栖魅/record.md","sourceUrl":"","imageUrl":"records/2014-06-01_Pink Drops #8 伽栖魅/01.jpg"},{"year":"2014","group":"RealArtProject","series":"Pink Drops","number":"#9","name":"紫珠紅","title":"Pink Drops #9 紫珠紅","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2014-09-02_Pink Drops #9 紫珠紅","recordPath":"records/2014-09-02_Pink Drops #9 紫珠紅/record.md","sourceUrl":"","imageUrl":"records/2014-09-02_Pink Drops #9 紫珠紅/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"CHICA","title":"【ANGEL PHILIA】CHICA","variant":"通常/未明","head":"J","body":"C5/C2/C/C","skin":"褐色","source":"官方","folder":"2015_CHICA","recordPath":"records/2015_CHICA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91chica-468.html","imageUrl":"records/2015_CHICA/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"MERU","title":"【ANGEL PHILIA】MERU","variant":"通常/未明","head":"G","body":"F/C/C/C","skin":"褐色肤（外装パーツは已上色）","source":"官方","folder":"2015_MERU","recordPath":"records/2015_MERU/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e3%80%90meru%e3%80%91-82.html","imageUrl":"records/2015_MERU/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"MIU","title":"【ANGEL PHILIA】MIU","variant":"通常/未明","head":"Obitsu50-01","body":"B/B/B/B","skin":"ホワイティ","source":"官方","folder":"2015_MIU","recordPath":"records/2015_MIU/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91miu-664.html","imageUrl":"records/2015_MIU/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"NEMU","title":"【ANGEL PHILIA】NEMU","variant":"通常/未明","head":"G","body":"F/C/C/C","skin":"白肌（外装パーツは已上色）","source":"官方","folder":"2015_NEMU","recordPath":"records/2015_NEMU/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia%e3%80%90nemu%e3%80%91-85.html","imageUrl":"records/2015_NEMU/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"小夜子〈SAYOKO〉","title":"【ANGEL PHILIA】Sayoko","variant":"通常/未明","head":"M","body":"H/H/H/C","skin":"ホワイティ","source":"官方","folder":"2015_小夜子〈SAYOKO〉","recordPath":"records/2015_小夜子〈SAYOKO〉/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91%e5%b0%8f%e5%a4%9c%e5%ad%90%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%8d%e3%83%bc%e3%83%88%e3%82%bb%e3%83%83%e3%83%88-1228.html","imageUrl":"records/2015_小夜子〈SAYOKO〉/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"小夜子コーディネートセット","title":"【ANGEL PHILIA】亲子坐标套装","variant":"通常/未明","head":"M","body":"H/H/H/C","skin":"ホワイティ","source":"官方","folder":"2015_小夜子コーディネートセット","recordPath":"records/2015_小夜子コーディネートセット/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91%e5%b0%8f%e5%a4%9c%e5%ad%90%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%8d%e3%83%bc%e3%83%88%e3%82%bb%e3%83%83%e3%83%88-3-658.html","imageUrl":"records/2015_小夜子コーディネートセット/01.jpg"},{"year":"2015","group":"AngelPhilia","series":"Angel Philia","number":"","name":"椛 HANA","title":"【ANGEL PHILIA】 椛 ★★受注予約商品★★","variant":"予約/Pre-order","head":"M","body":"H2/H/H/C","skin":"褐色","source":"官方","folder":"2015_椛 HANA","recordPath":"records/2015_椛 HANA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91-%e6%a4%9b-%e2%98%85%e5%8f%97%e6%b3%a8%e4%ba%88%e7%b4%84%e5%95%86%e5%93%81%e2%98%85-1626.html","imageUrl":"records/2015_椛 HANA/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#11","name":"紗鵺香","title":"Pink Drops #11 紗鵺香","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-01-31_Pink Drops #11 紗鵺香","recordPath":"records/2015-01-31_Pink Drops #11 紗鵺香/record.md","sourceUrl":"","imageUrl":"records/2015-01-31_Pink Drops #11 紗鵺香/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#12","name":"夜狐","title":"Pink Drops #12 夜狐","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-03-14_Pink Drops #12 夜狐","recordPath":"records/2015-03-14_Pink Drops #12 夜狐/record.md","sourceUrl":"","imageUrl":"records/2015-03-14_Pink Drops #12 夜狐/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#13","name":"桃香","title":"Pink Drops #13 桃香","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2015-04-18_Pink Drops #13 桃香","recordPath":"records/2015-04-18_Pink Drops #13 桃香/record.md","sourceUrl":"","imageUrl":"records/2015-04-18_Pink Drops #13 桃香/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#14","name":"恋麦","title":"Pink Drops #14 恋麦","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2015-06-20_Pink Drops #14 恋麦","recordPath":"records/2015-06-20_Pink Drops #14 恋麦/record.md","sourceUrl":"","imageUrl":"records/2015-06-20_Pink Drops #14 恋麦/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#15","name":"愛紅","title":"Pink Drops #15 愛紅","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-08-23_Pink Drops #15 愛紅","recordPath":"records/2015-08-23_Pink Drops #15 愛紅/record.md","sourceUrl":"","imageUrl":"records/2015-08-23_Pink Drops #15 愛紅/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#16","name":"伽琉羅","title":"Pink Drops #16 伽琉羅","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-09-26_Pink Drops #16 伽琉羅","recordPath":"records/2015-09-26_Pink Drops #16 伽琉羅/record.md","sourceUrl":"","imageUrl":"records/2015-09-26_Pink Drops #16 伽琉羅/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#17","name":"琴音","title":"Pink Drops #17 琴音","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-10-24_Pink Drops #17 琴音","recordPath":"records/2015-10-24_Pink Drops #17 琴音/record.md","sourceUrl":"","imageUrl":"records/2015-10-24_Pink Drops #17 琴音/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#18","name":"絽媚奈","title":"Pink Drops #18 絽媚奈","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2015-11-30_Pink Drops #18 絽媚奈","recordPath":"records/2015-11-30_Pink Drops #18 絽媚奈/record.md","sourceUrl":"","imageUrl":"records/2015-11-30_Pink Drops #18 絽媚奈/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#19","name":"MONICA","title":"Pink Drops #19 MONICA","variant":"通常/未明","head":"未明","body":"页面标题：グラマラスボディの「Pink Drops #19…","skin":"未明","source":"RAP/Moeyo","folder":"2015-12-26_Pink Drops #19 MONICA","recordPath":"records/2015-12-26_Pink Drops #19 MONICA/record.md","sourceUrl":"","imageUrl":"records/2015-12-26_Pink Drops #19 MONICA/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#4","name":"紗友莉","title":"Pink Drops #4 紗友莉","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-07-25_Pink Drops #4 紗友莉","recordPath":"records/2015-07-25_Pink Drops #4 紗友莉/record.md","sourceUrl":"","imageUrl":"records/2015-07-25_Pink Drops #4 紗友莉/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#9","name":"紫珠紅","title":"Pink Drops #9 紫珠紅","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-05-23_Pink Drops #9 紫珠紅","recordPath":"records/2015-05-23_Pink Drops #9 紫珠紅/record.md","sourceUrl":"","imageUrl":"records/2015-05-23_Pink Drops #9 紫珠紅/01.jpg"},{"year":"2015","group":"RealArtProject","series":"Pink Drops","number":"#9","name":"紫珠紅 SHIZUKU","title":"Pink Drops #9 紫珠紅 SHIZUKU","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2015-05-28_Pink Drops #9 紫珠紅 SHIZUKU","recordPath":"records/2015-05-28_Pink Drops #9 紫珠紅 SHIZUKU/record.md","sourceUrl":"","imageUrl":"records/2015-05-28_Pink Drops #9 紫珠紅 SHIZUKU/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"ONEセレクションドール_No24","title":"ONEセレクションドール_No24","variant":"通常/未明","head":"H","body":"H2/C/C/C","skin":"ホワイティ","source":"官方抽選","folder":"抽選/2016_ONEセレクションドール_No24","recordPath":"records/抽選/2016_ONEセレクションドール_No24/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/quarantotto1%e5%91%a8%e5%b9%b4%e7%89%b9%e5%88%a5%e4%bc%81%e7%94%bbangel-philiaxcode-noir-%e3%80%90one%e3%82%bb%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%89%e3%83%bc%e3%83%ab%e2%84%9624-2020.html","imageUrl":"records/抽選/2016_ONEセレクションドール_No24/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"ONEセレクションドール_No25","title":"ONEセレクションドール_No25","variant":"通常/未明","head":"O","body":"F/C2/C/C","skin":"White","source":"官方抽選","folder":"抽選/2016_ONEセレクションドール_No25","recordPath":"records/抽選/2016_ONEセレクションドール_No25/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/quarantotto1%e5%91%a8%e5%b9%b4%e7%89%b9%e5%88%a5%e4%bc%81%e7%94%bbangel-philiaxcode-noir-%e3%80%90one%e3%82%bb%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%89%e3%83%bc%e3%83%ab%e2%84%9624-2-2043.html","imageUrl":"records/抽選/2016_ONEセレクションドール_No25/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"ONEセレクションドール_No26","title":"ONEセレクションドール_No26","variant":"通常/未明","head":"J","body":"H2/H/H/C","skin":"White","source":"官方抽選","folder":"抽選/2016_ONEセレクションドール_No26","recordPath":"records/抽選/2016_ONEセレクションドール_No26/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/quarantotto1%e5%91%a8%e5%b9%b4%e7%89%b9%e5%88%a5%e4%bc%81%e7%94%bbangel-philiaxcode-noir-%e3%80%90one%e3%82%bb%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%89%e3%83%bc%e3%83%ab%e2%84%9626-2053.html","imageUrl":"records/抽選/2016_ONEセレクションドール_No26/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"ONEセレクションドール_No29","title":"ONEセレクションドール_No29","variant":"通常/未明","head":"J","body":"H/H/H/C","skin":"ホワイティ","source":"官方抽選","folder":"抽選/2016_ONEセレクションドール_No29","recordPath":"records/抽選/2016_ONEセレクションドール_No29/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/quarantotto1%e5%91%a8%e5%b9%b4%e7%89%b9%e5%88%a5%e4%bc%81%e7%94%bb%e7%ac%ac%e4%ba%8c%e5%bc%beangel-philiaxcode-noir-%e3%80%90one%e3%82%bb%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%89-2161.html","imageUrl":"records/抽選/2016_ONEセレクションドール_No29/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"ONEセレクションドール_No30","title":"ONEセレクションドール_No30","variant":"通常/未明","head":"H","body":"H/H/H/C","skin":"ホワイティ","source":"官方抽選","folder":"抽選/2016_ONEセレクションドール_No30","recordPath":"records/抽選/2016_ONEセレクションドール_No30/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/quarantotto1%e5%91%a8%e5%b9%b4%e7%89%b9%e5%88%a5%e4%bc%81%e7%94%bb%e7%ac%ac%ef%bc%92%e5%bc%beangel-philiaxcode-noir-%e3%80%90one%e3%82%bb%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%89-2174.html","imageUrl":"records/抽選/2016_ONEセレクションドール_No30/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"凛 Ｒｉｎ","title":"【ANGEL PHILIA】凛<Rin> ★限量版道具★","variant":"通常/未明","head":"J","body":"F/C/C/C","skin":"ホワイティ","source":"官方","folder":"2016_凛 Ｒｉｎ","recordPath":"records/2016_凛 Ｒｉｎ/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e5%87%9b-%e6%96%b0%e7%99%ba%e5%a3%b2%e2%98%85%e6%95%b0%e9%87%8f%e9%99%90%e5%ae%9a%e5%95%86%e5%93%81%e2%98%85-2273.html","imageUrl":"records/2016_凛 Ｒｉｎ/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"欄 RAN","title":"【ANGEL PHILIA】专栏<RAN> ★限量预购商品★","variant":"通常/未明","head":"J","body":"H/H/H/C","skin":"褐色","source":"官方","folder":"2016_欄 RAN","recordPath":"records/2016_欄 RAN/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91-%e6%ac%84-%e6%96%b0%e7%99%ba%e5%a3%b2-%e2%98%85%e6%95%b0%e9%87%8f%e9%99%90%e5%ae%9a%e5%8f%97%e6%b3%a8%e4%ba%88%e7%b4%84%e5%95%86%e5%93%81%e2%98%85-1896.html","imageUrl":"records/2016_欄 RAN/01.jpg"},{"year":"2016","group":"AngelPhilia","series":"Angel Philia","number":"","name":"玲奈 LENA","title":"玲奈 LENA","variant":"通常/未明","head":"M","body":"H/H/H/C","skin":"褐色","source":"官方","folder":"2016_玲奈 LENA","recordPath":"records/2016_玲奈 LENA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e7%8e%b2%e5%a5%88%e3%80%88lena%e3%80%89-%e6%96%b0%e7%99%ba%e5%a3%b2%e2%98%85%e6%95%b0%e9%87%8f%e9%99%90%e5%ae%9a%e5%95%86%e5%93%81%e2%98%85-2480.html","imageUrl":"records/2016_玲奈 LENA/01.jpg"},{"year":"2016","group":"RealArtProject","series":"Pink Drops","number":"#10","name":"穂乃花","title":"Pink Drops #10 穂乃花","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2016-05-29_Pink Drops #10 穂乃花","recordPath":"records/2016-05-29_Pink Drops #10 穂乃花/record.md","sourceUrl":"","imageUrl":"records/2016-05-29_Pink Drops #10 穂乃花/01.jpg"},{"year":"2016","group":"RealArtProject","series":"Pink Drops","number":"#17","name":"琴音","title":"Pink Drops #17 琴音 Soft Skin","variant":"SoftSkin","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2016-12-24_Pink Drops #17 琴音 Soft Skin","recordPath":"records/2016-12-24_Pink Drops #17 琴音 Soft Skin/record.md","sourceUrl":"","imageUrl":"records/2016-12-24_Pink Drops #17 琴音 Soft Skin/01.jpg"},{"year":"2016","group":"RealArtProject","series":"Pink Drops","number":"#23","name":"胡桃","title":"Pink Drops #23 胡桃","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2016-07-30_Pink Drops #23 胡桃","recordPath":"records/2016-07-30_Pink Drops #23 胡桃/record.md","sourceUrl":"","imageUrl":"records/2016-07-30_Pink Drops #23 胡桃/01.jpg"},{"year":"2016","group":"RealArtProject","series":"Pink Drops","number":"#7","name":"摩雫媚","title":"Pink Drops #7 摩雫媚","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2016-01-30_Pink Drops #7 摩雫媚","recordPath":"records/2016-01-30_Pink Drops #7 摩雫媚/record.md","sourceUrl":"","imageUrl":"records/2016-01-30_Pink Drops #7 摩雫媚/01.jpg"},{"year":"2016","group":"RealArtProject","series":"Pink Drops","number":"#8","name":"伽栖魅","title":"Pink Drops #8 伽栖魅","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2016-02-27_Pink Drops #8 伽栖魅","recordPath":"records/2016-02-27_Pink Drops #8 伽栖魅/record.md","sourceUrl":"","imageUrl":"records/2016-02-27_Pink Drops #8 伽栖魅/01.jpg"},{"year":"2016","group":"RealArtProject","series":"Pink Drops","number":"#9","name":"紫珠紅","title":"Pink Drops #9 紫珠紅 ver.2","variant":"SoftSkin / ver.2 / 予約/Pre-order","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2016-10-29_Pink Drops #9 紫珠紅 ver.2","recordPath":"records/2016-10-29_Pink Drops #9 紫珠紅 ver.2/record.md","sourceUrl":"","imageUrl":"records/2016-10-29_Pink Drops #9 紫珠紅 ver.2/01.jpg"},{"year":"2017","group":"AngelPhilia","series":"Angel Philia","number":"","name":"AKI","title":"AKI","variant":"ver.2","head":"L","body":"H/H/H/C","skin":"褐色","source":"官方","folder":"2017_AKI","recordPath":"records/2017_AKI/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-aki-ver-2-%e3%80%90%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e3%82%b7%e3%83%a7%e3%83%83%e3%83%97%e9%99%90%e5%ae%9a%e5%95%86%e5%93%81%e3%80%91-3457.html","imageUrl":"records/2017_AKI/01.jpg"},{"year":"2017","group":"AngelPhilia","series":"Angel Philia","number":"","name":"小夜子","title":"小夜子","variant":"SoftSkin","head":"M","body":"H2/H/H/C","skin":"白肌","source":"官方","folder":"2017_小夜子","recordPath":"records/2017_小夜子/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%83%9c%e3%83%96%e3%82%a6%e3%82%a3%e3%83%83%e3%82%b0-%e3%83%96%e3%83%ad%e3%83%b3%e3%83%89-2892.html","imageUrl":"records/2017_小夜子/01.jpg"},{"year":"2017","group":"RealArtProject","series":"Pink Drops","number":"#3","name":"綺亞羅","title":"Pink Drops #3 綺亞羅 Soft Skin","variant":"SoftSkin","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2017-08-27_Pink Drops #3 綺亞羅 Soft Skin","recordPath":"records/2017-08-27_Pink Drops #3 綺亞羅 Soft Skin/record.md","sourceUrl":"","imageUrl":"records/2017-08-27_Pink Drops #3 綺亞羅 Soft Skin/01.jpg"},{"year":"2018","group":"AngelPhilia","series":"Angel Philia","number":"","name":"EMMA","title":"EMMA","variant":"SoftSkin","head":"J","body":"H/H/H/C","skin":"褐色","source":"官方","folder":"2018_EMMA","recordPath":"records/2018_EMMA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-emma-soft-skin-ver-4228.html","imageUrl":"records/2018_EMMA/01.jpg"},{"year":"2018","group":"AngelPhilia","series":"Angel Philia","number":"","name":"SAYO","title":"SAYO","variant":"SoftSkin","head":"M","body":"H/H/H/C","skin":"ホワイティ","source":"官方","folder":"2018_SAYO","recordPath":"records/2018_SAYO/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-sayo-soft-skin-ver-4165.html","imageUrl":"records/2018_SAYO/01.jpg"},{"year":"2018","group":"AngelPhilia","series":"Angel Philia","number":"","name":"葵","title":"葵","variant":"SoftSkin","head":"M","body":"H2/H/H/C","skin":"褐色","source":"官方","folder":"2018_葵","recordPath":"records/2018_葵/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e8%91%b5-3702.html","imageUrl":"records/2018_葵/01.jpg"},{"year":"2018","group":"AngelPhilia","series":"Angel Philia","number":"","name":"薫","title":"薫","variant":"SoftSkin","head":"M","body":"C3/H/H/C","skin":"褐色","source":"官方","folder":"2018_薫","recordPath":"records/2018_薫/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e8%96%ab-soft-skin-ver-4528.html","imageUrl":"records/2018_薫/01.jpg"},{"year":"2018","group":"RealArtProject","series":"Pink Drops","number":"#10","name":"穂乃花","title":"Pink Drops #10 穂乃花","variant":"SoftSkin","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2018-03-24_Pink Drops #10 穂乃花","recordPath":"records/2018-03-24_Pink Drops #10 穂乃花/record.md","sourceUrl":"","imageUrl":"records/2018-03-24_Pink Drops #10 穂乃花/01.jpg"},{"year":"2018","group":"RealArtProject","series":"Pink Drops","number":"#23","name":"胡桃","title":"Pink Drops #23 胡桃","variant":"SoftSkin","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2018-04-28_Pink Drops #23 胡桃","recordPath":"records/2018-04-28_Pink Drops #23 胡桃/record.md","sourceUrl":"","imageUrl":"records/2018-04-28_Pink Drops #23 胡桃/01.jpg"},{"year":"2018","group":"RealArtProject","series":"Pink Drops","number":"#9","name":"紫珠紅","title":"Pink Drops #9 紫珠紅 ver.3","variant":"ver.3 / 予約/Pre-order","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2018-08-26_Pink Drops #9 紫珠紅 ver.3","recordPath":"records/2018-08-26_Pink Drops #9 紫珠紅 ver.3/record.md","sourceUrl":"","imageUrl":"records/2018-08-26_Pink Drops #9 紫珠紅 ver.3/01.jpg"},{"year":"2019","group":"AngelPhilia","series":"Angel Philia","number":"","name":"EMMY","title":"EMMY","variant":"SoftSkin","head":"J","body":"H/H/H/C","skin":"ホワイティ","source":"官方","folder":"2019_EMMY","recordPath":"records/2019_EMMY/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-emmy-soft-skin-ver-5027.html","imageUrl":"records/2019_EMMY/01.jpg"},{"year":"2019","group":"AngelPhilia","series":"Angel Philia","number":"","name":"LENA","title":"LENA","variant":"SoftSkin","head":"M","body":"C5/C/C/C","skin":"褐色","source":"官方","folder":"2019_LENA","recordPath":"records/2019_LENA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-lena-soft-skin-ver-5763.html","imageUrl":"records/2019_LENA/01.jpg"},{"year":"2019","group":"AngelPhilia","series":"Angel Philia","number":"","name":"エル","title":"エル","variant":"SoftSkin","head":"未明","body":"H2/H/H/C","skin":"褐色","source":"官方","folder":"2019_エル","recordPath":"records/2019_エル/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e3%82%a8%e3%83%ab-4765.html","imageUrl":"records/2019_エル/01.jpg"},{"year":"2019","group":"AngelPhilia","series":"Angel Philia","number":"","name":"愛菜","title":"愛菜","variant":"通常/未明","head":"H","body":"H2/H/H/C","skin":"白肌","source":"官方","folder":"2019_愛菜","recordPath":"records/2019_愛菜/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e6%84%9b%e8%8f%9c-soft-skin-ver-5255.html","imageUrl":"records/2019_愛菜/01.jpg"},{"year":"2019","group":"RealArtProject","series":"Pink Drops","number":"#17","name":"琴音","title":"Pink Drops #17 琴音 ｿﾌﾄｽｷﾝver.","variant":"SoftSkin / ver.2","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2019-03-09_Pink Drops #17 琴音 ｿﾌﾄｽｷﾝver","recordPath":"records/2019-03-09_Pink Drops #17 琴音 ｿﾌﾄｽｷﾝver/record.md","sourceUrl":"","imageUrl":"records/2019-03-09_Pink Drops #17 琴音 ｿﾌﾄｽｷﾝver/01.jpg"},{"year":"2019","group":"RealArtProject","series":"Pink Drops","number":"#6","name":"紫織麗","title":"Pink Drops #6 紫織麗 SoftSkin","variant":"SoftSkin / 予約/Pre-order","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2019-09-29_Pink Drops #6 紫織麗 SoftSkin","recordPath":"records/2019-09-29_Pink Drops #6 紫織麗 SoftSkin/record.md","sourceUrl":"","imageUrl":"records/2019-09-29_Pink Drops #6 紫織麗 SoftSkin/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"A 柑奈","title":"A 柑奈 20200512","variant":"A","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2020-05-12_A 柑奈","recordPath":"records/2020-05-12_A 柑奈/record.md","sourceUrl":"","imageUrl":"records/2020-05-12_A 柑奈/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"B 柑奈","title":"B 柑奈 20200512","variant":"B","head":"未明","body":"ひとつのヘッドでペチャ胸ボディと巨乳ボディがお楽しみいただ…","skin":"未明","source":"RAP/Moeyo","folder":"2020-05-12_B 柑奈","recordPath":"records/2020-05-12_B 柑奈/record.md","sourceUrl":"","imageUrl":"records/2020-05-12_B 柑奈/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Cボディ＆紗鵺香","title":"Cボディ＆紗鵺香 20201108","variant":"通常/未明","head":"未明","body":"Cボディ＆紗鵺香 20201108 / 来源类型：RAP_…","skin":"未明","source":"RAP/Moeyo","folder":"2020-11-08_Cボディ＆紗鵺香","recordPath":"records/2020-11-08_Cボディ＆紗鵺香/record.md","sourceUrl":"","imageUrl":"records/2020-11-08_Cボディ＆紗鵺香/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Full Coordinate Doll Type-EMMA","title":"Full Coordinate Doll Type-EMMA","variant":"通常/未明","head":"J","body":"未明/G/G/B","skin":"褐色","source":"官方抽選","folder":"抽選/2020_Full Coordinate Doll Type-EMMA","recordPath":"records/抽選/2020_Full Coordinate Doll Type-EMMA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/full-coordonate-doll-emma-6318.html","imageUrl":"records/抽選/2020_Full Coordinate Doll Type-EMMA/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Full Coordinate Doll Type-LENA","title":"Full Coordinate Doll Type-LENA","variant":"通常/未明","head":"M","body":"未明/H/H/C","skin":"褐色","source":"官方抽選","folder":"抽選/2020_Full Coordinate Doll Type-LENA","recordPath":"records/抽選/2020_Full Coordinate Doll Type-LENA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/full-coordonate-doll-lena-6313.html","imageUrl":"records/抽選/2020_Full Coordinate Doll Type-LENA/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Full Coordinate Doll _ ANGEL PHILIA Elle","title":"Full Coordinate Doll _ ANGEL PHILIA Elle","variant":"SoftSkin / B","head":"Obitsu50-04","body":"H2/H/H/C","skin":"褐色、 ＊上身・下身：スーパー白肌 注：外皮零件为已上色","source":"官方抽選","folder":"抽選/2020_Full Coordinate Doll _ ANGEL PHILIA Elle","recordPath":"records/抽選/2020_Full Coordinate Doll _ ANGEL PHILIA Elle/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90kura-dashi-broom%e3%80%91-%e5%8f%aa%e4%bb%8a%e3%81%ae%e6%83%85%e5%a0%b1%e3%81%af%e3%81%82%e3%82%8a%e3%81%be%e3%81%9b%e3%82%93%e3%80%82-6801.html","imageUrl":"records/抽選/2020_Full Coordinate Doll _ ANGEL PHILIA Elle/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Full Coordinate Doll _ ANGEL PHILIA Kurumi","title":"Full Coordinate Doll _ ANGEL PHILIA Kurumi","variant":"SoftSkin / A","head":"S","body":"H2/H/H/C","skin":"白肌 ■外皮身体为已化妆","source":"官方抽選","folder":"抽選/2020_Full Coordinate Doll _ ANGEL PHILIA Kurumi","recordPath":"records/抽選/2020_Full Coordinate Doll _ ANGEL PHILIA Kurumi/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/%e3%80%90kura-dashi-aroom%e3%80%91-%e5%8f%aa%e4%bb%8a%e3%81%ae%e6%83%85%e5%a0%b1%e3%81%af%e3%81%82%e3%82%8a%e3%81%be%e3%81%9b%e3%82%93%e3%80%82-6797.html","imageUrl":"records/抽選/2020_Full Coordinate Doll _ ANGEL PHILIA Kurumi/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"KAORU","title":"KAORU","variant":"SoftSkin","head":"M","body":"未明/C2/H/未明","skin":"ホワイティ","source":"官方","folder":"2020_KAORU","recordPath":"records/2020_KAORU/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-kaoru-soft-skin-online-shop-exclusive-ver-%e2%80%bb%e6%95%b0%e9%87%8f%e9%99%90%e5%ae%9a-%e2%98%854%e6%9c%8810%e6%97%a5%e9%87%9118%e6%99%82%e3%82%88%e3%82%8a%e5%8f%97%e6%b3%a8%e9%96%8b-6359.html","imageUrl":"records/2020_KAORU/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Lena","title":"Lena","variant":"SoftSkin / ver.2","head":"M","body":"C5/C2/H/未明","skin":"白肌","source":"官方","folder":"2020_Lena","recordPath":"records/2020_Lena/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-lena-soft-skin-ver-2-6902.html","imageUrl":"records/2020_Lena/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"MAYA","title":"MAYA","variant":"SoftSkin","head":"L","body":"C5/C2/H/C","skin":"白肌","source":"官方","folder":"2020_MAYA","recordPath":"records/2020_MAYA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-maya-soft-skin-ver-6144.html","imageUrl":"records/2020_MAYA/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"MONA 02","title":"MONA 02","variant":"SoftSkin / Super Whity","head":"M","body":"H/H/H/未明","skin":"スーパーホワイティ","source":"官方","folder":"2020_MONA 02","recordPath":"records/2020_MONA 02/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-mona-02-soft-skin-6828.html","imageUrl":"records/2020_MONA 02/01.jpg"},{"year":"2020","group":"AngelPhilia","series":"Angel Philia","number":"","name":"葵","title":"葵","variant":"SoftSkin / ver.2","head":"M","body":"H2/C2/H/未明","skin":"褐色","source":"官方","folder":"2020_葵","recordPath":"records/2020_葵/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e8%91%b5-soft-skin-ver-2-6370.html","imageUrl":"records/2020_葵/01.jpg"},{"year":"2020","group":"RealArtProject","series":"Pink Drops","number":"#3","name":"綺亞羅","title":"Pink Drops #3 綺亞羅 ver.2","variant":"SoftSkin / ver.2 / 予約/Pre-order","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2020-03-14_Pink Drops #3 綺亞羅 ver.2","recordPath":"records/2020-03-14_Pink Drops #3 綺亞羅 ver.2/record.md","sourceUrl":"","imageUrl":"records/2020-03-14_Pink Drops #3 綺亞羅 ver.2/01.jpg"},{"year":"2020","group":"RealArtProject","series":"Pink Drops","number":"#52","name":"友梨奈","title":"Pink Drops #52 友梨奈：SoftSkin 20201111","variant":"SoftSkin","head":"未明","body":"ボディ構成においては人気の高い外皮ボディパーツから新たにチ…","skin":"褐色","source":"RAP/Moeyo","folder":"2020-11-11_Pink Drops #52 友梨奈：SoftSkin","recordPath":"records/2020-11-11_Pink Drops #52 友梨奈：SoftSkin/record.md","sourceUrl":"","imageUrl":"records/2020-11-11_Pink Drops #52 友梨奈：SoftSkin/01.jpg"},{"year":"2020","group":"RealArtProject","series":"Pink Drops","number":"#53","name":"朱里：日焼け跡ボディ","title":"Pink Drops #53 朱里：日焼け跡ボディ 20201210","variant":"日焼け跡","head":"未明","body":"Pink Drops #53 朱里：日焼け跡ボディ 202…","skin":"褐色","source":"RAP/Moeyo","folder":"2020-12-10_Pink Drops #53 朱里：日焼け跡ボディ","recordPath":"records/2020-12-10_Pink Drops #53 朱里：日焼け跡ボディ/record.md","sourceUrl":"","imageUrl":"records/2020-12-10_Pink Drops #53 朱里：日焼け跡ボディ/01.jpg"},{"year":"2021","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Elle(エル)ぷちっリニューアルタイプ0.5","title":"Elle(エル)ぷちっリニューアルタイプ0.5","variant":"SoftSkin / 0.5","head":"Obitsu50-04","body":"H2/C2/H/C","skin":"褐色","source":"官方","folder":"2021_Elle(エル)ぷちっリニューアルタイプ0.5","recordPath":"records/2021_Elle(エル)ぷちっリニューアルタイプ0.5/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-elle%e3%82%a8%e3%83%ab%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%82%bf%e3%82%a4%e3%83%970-5-soft-skin%e3%80%90%e5%85%88%e8%a1%8c%e8%b2%a9-7375.html","imageUrl":"records/2021_Elle(エル)ぷちっリニューアルタイプ0.5/01.jpg"},{"year":"2021","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Emmy","title":"Emmy","variant":"SoftSkin","head":"J","body":"H/H/H/C","skin":"白肌","source":"官方","folder":"2021_Emmy","recordPath":"records/2021_Emmy/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-emmy-soft-skin-glass-eye-ver-7171.html","imageUrl":"records/2021_Emmy/01.jpg"},{"year":"2021","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Kumi","title":"Kumi","variant":"SoftSkin","head":"S","body":"H/H/H/C","skin":"白肌","source":"官方","folder":"2021_Kumi","recordPath":"records/2021_Kumi/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-kumi-soft-skin-ver-7124.html","imageUrl":"records/2021_Kumi/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#10","name":"穂乃花：A","title":"Pink Drops #10 穂乃花：A20210707","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-07-07_Pink Drops #10 穂乃花：A","recordPath":"records/2021-07-07_Pink Drops #10 穂乃花：A/record.md","sourceUrl":"","imageUrl":"records/2021-07-07_Pink Drops #10 穂乃花：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#10","name":"穂乃花：B","title":"Pink Drops #10 穂乃花：B20210707","variant":"通常/未明","head":"未明","body":"人気のむっちり大福胸（上胴/Type-Ｈ5褐色ver.2：…","skin":"褐色","source":"RAP/Moeyo","folder":"2021-07-07_Pink Drops #10 穂乃花：B","recordPath":"records/2021-07-07_Pink Drops #10 穂乃花：B/record.md","sourceUrl":"","imageUrl":"records/2021-07-07_Pink Drops #10 穂乃花：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#3","name":"綺亞羅","title":"Pink Drops #3 綺亞羅：20210315","variant":"通常/未明","head":"未明","body":"ナチュラルメイクのおとなしい表情とボディのアンバランスが魅…","skin":"未明","source":"RAP/Moeyo","folder":"2021-03-15_Pink Drops #3 綺亞羅","recordPath":"records/2021-03-15_Pink Drops #3 綺亞羅/record.md","sourceUrl":"","imageUrl":"records/2021-03-15_Pink Drops #3 綺亞羅/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#35","name":"真由美：A","title":"Pink Drops #35 真由美：A20210408","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-04-08_Pink Drops #35 真由美：A","recordPath":"records/2021-04-08_Pink Drops #35 真由美：A/record.md","sourceUrl":"","imageUrl":"records/2021-04-08_Pink Drops #35 真由美：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#35","name":"真由美：B","title":"Pink Drops #35 真由美：B20210408","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-04-08_Pink Drops #35 真由美：B","recordPath":"records/2021-04-08_Pink Drops #35 真由美：B/record.md","sourceUrl":"","imageUrl":"records/2021-04-08_Pink Drops #35 真由美：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#54","name":"楓：A","title":"Pink Drops #54 楓：A 20210112","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2021-01-12_Pink Drops #54 楓：A","recordPath":"records/2021-01-12_Pink Drops #54 楓：A/record.md","sourceUrl":"","imageUrl":"records/2021-01-12_Pink Drops #54 楓：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#54","name":"楓：B","title":"Pink Drops #54 楓：B 20210112","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-01-12_Pink Drops #54 楓：B","recordPath":"records/2021-01-12_Pink Drops #54 楓：B/record.md","sourceUrl":"","imageUrl":"records/2021-01-12_Pink Drops #54 楓：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#55","name":"七瀬：スーパーホワイティボディ","title":"Pink Drops #55 七瀬：スーパーホワイティボディ 20210212","variant":"Super Whity","head":"未明","body":"Pink Drops #55 七瀬：スーパーホワイティボデ…","skin":"スーパーホワイティ","source":"RAP/Moeyo","folder":"2021-02-12_Pink Drops #55 七瀬：スーパーホワイティボディ","recordPath":"records/2021-02-12_Pink Drops #55 七瀬：スーパーホワイティボディ/record.md","sourceUrl":"","imageUrl":"records/2021-02-12_Pink Drops #55 七瀬：スーパーホワイティボディ/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#55","name":"七瀬：スーパーホワイティボディ","title":"Pink Drops #55 七瀬：スーパーホワイティボディ 20210823","variant":"Super Whity","head":"未明","body":"Pink Drops #55 七瀬：スーパーホワイティボデ…","skin":"スーパーホワイティ","source":"RAP/Moeyo","folder":"2021-08-23_Pink Drops #55 七瀬：スーパーホワイティボディ","recordPath":"records/2021-08-23_Pink Drops #55 七瀬：スーパーホワイティボディ/record.md","sourceUrl":"","imageUrl":"records/2021-08-23_Pink Drops #55 七瀬：スーパーホワイティボディ/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#56","name":"結花：A","title":"Pink Drops #56 結花：A 20210310","variant":"通常/未明","head":"未明","body":"キュートな表情と小胸＆デカ尻ボディ / 妄想MAXのオンナ…","skin":"未明","source":"RAP/Moeyo","folder":"2021-03-10_Pink Drops #56 結花：A","recordPath":"records/2021-03-10_Pink Drops #56 結花：A/record.md","sourceUrl":"","imageUrl":"records/2021-03-10_Pink Drops #56 結花：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#56","name":"結花：B","title":"Pink Drops #56 結花：B 20210310","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-03-10_Pink Drops #56 結花：B","recordPath":"records/2021-03-10_Pink Drops #56 結花：B/record.md","sourceUrl":"","imageUrl":"records/2021-03-10_Pink Drops #56 結花：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#57","name":"涼香：A","title":"Pink Drops #57 涼香：A20210507","variant":"通常/未明","head":"未明","body":"まさに妄想MAXのボディですｗ！ / 整理说明 / 本记录…","skin":"スーパーホワイティ","source":"RAP/Moeyo","folder":"2021-05-07_Pink Drops #57 涼香：A","recordPath":"records/2021-05-07_Pink Drops #57 涼香：A/record.md","sourceUrl":"","imageUrl":"records/2021-05-07_Pink Drops #57 涼香：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#57","name":"涼香：B","title":"Pink Drops #57 涼香：B20210507","variant":"通常/未明","head":"未明","body":"クビレのきいた少し腰を引いたボディラインや、 / 合わせ目…","skin":"未明","source":"RAP/Moeyo","folder":"2021-05-07_Pink Drops #57 涼香：B","recordPath":"records/2021-05-07_Pink Drops #57 涼香：B/record.md","sourceUrl":"","imageUrl":"records/2021-05-07_Pink Drops #57 涼香：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#58","name":"翼","title":"Pink Drops #58 翼：20210607","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-06-07_Pink Drops #58 翼","recordPath":"records/2021-06-07_Pink Drops #58 翼/record.md","sourceUrl":"","imageUrl":"records/2021-06-07_Pink Drops #58 翼/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#59","name":"小夏：A","title":"Pink Drops #59 小夏：A 20210906","variant":"通常/未明","head":"未明","body":"むっちり下半身の褐色ボディ! 小夏(コナツ)chanデスｗ…","skin":"褐色","source":"RAP/Moeyo","folder":"2021-09-06_Pink Drops #59 小夏：A","recordPath":"records/2021-09-06_Pink Drops #59 小夏：A/record.md","sourceUrl":"","imageUrl":"records/2021-09-06_Pink Drops #59 小夏：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#59","name":"小夏：B","title":"Pink Drops #59 小夏：B 20210906","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-09-06_Pink Drops #59 小夏：B","recordPath":"records/2021-09-06_Pink Drops #59 小夏：B/record.md","sourceUrl":"","imageUrl":"records/2021-09-06_Pink Drops #59 小夏：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#60","name":"悠里：A","title":"Pink Drops #60 悠里：A 20211004","variant":"通常/未明","head":"未明","body":"PinkDropsシリーズならではのミラクルボディ！ /…","skin":"未明","source":"RAP/Moeyo","folder":"2021-10-04_Pink Drops #60 悠里：A","recordPath":"records/2021-10-04_Pink Drops #60 悠里：A/record.md","sourceUrl":"","imageUrl":"records/2021-10-04_Pink Drops #60 悠里：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#60","name":"悠里：B","title":"Pink Drops #60 悠里：B 20211004","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-10-04_Pink Drops #60 悠里：B","recordPath":"records/2021-10-04_Pink Drops #60 悠里：B/record.md","sourceUrl":"","imageUrl":"records/2021-10-04_Pink Drops #60 悠里：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#61","name":"水姫：A","title":"Pink Drops #61 水姫：A 20211108","variant":"通常/未明","head":"未明","body":"H4/未明/未明/未明","skin":"褐色","source":"RAP/Moeyo","folder":"2021-11-08_Pink Drops #61 水姫：A","recordPath":"records/2021-11-08_Pink Drops #61 水姫：A/record.md","sourceUrl":"","imageUrl":"records/2021-11-08_Pink Drops #61 水姫：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#61","name":"水姫：B","title":"Pink Drops #61 水姫：B 20211108","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-11-08_Pink Drops #61 水姫：B","recordPath":"records/2021-11-08_Pink Drops #61 水姫：B/record.md","sourceUrl":"","imageUrl":"records/2021-11-08_Pink Drops #61 水姫：B/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#62","name":"梓","title":"Pink Drops #62 梓：20211206","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-12-06_Pink Drops #62 梓","recordPath":"records/2021-12-06_Pink Drops #62 梓/record.md","sourceUrl":"","imageUrl":"records/2021-12-06_Pink Drops #62 梓/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#7","name":"摩雫媚：A","title":"Pink Drops #7 摩雫媚：A20210810","variant":"通常/未明","head":"未明","body":"カワユイ褐色ボディの摩雫媚(マナミ)chanデスｗ！ /…","skin":"褐色","source":"RAP/Moeyo","folder":"2021-08-10_Pink Drops #7 摩雫媚：A","recordPath":"records/2021-08-10_Pink Drops #7 摩雫媚：A/record.md","sourceUrl":"","imageUrl":"records/2021-08-10_Pink Drops #7 摩雫媚：A/01.jpg"},{"year":"2021","group":"RealArtProject","series":"Pink Drops","number":"#7","name":"摩雫媚：B","title":"Pink Drops #7 摩雫媚：B20210810","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2021-08-10_Pink Drops #7 摩雫媚：B","recordPath":"records/2021-08-10_Pink Drops #7 摩雫媚：B/record.md","sourceUrl":"","imageUrl":"records/2021-08-10_Pink Drops #7 摩雫媚：B/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Elle","title":"Elle","variant":"SoftSkin","head":"Obitsu50-04","body":"H2/H/H/C","skin":"褐色","source":"官方","folder":"2022_Elle","recordPath":"records/2022_Elle/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-elle-%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%82%bf%e3%82%a4%e3%83%97-soft-skin-8495.html","imageUrl":"records/2022_Elle/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Ellie","title":"Ellie","variant":"SoftSkin","head":"Obitsu50-04","body":"H2/H/H/C","skin":"白肌","source":"官方","folder":"2022_Ellie","recordPath":"records/2022_Ellie/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-ellie%e3%82%a8%e3%83%aa%e3%83%bc-soft-skin-%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%81%9f%e3%81%84%e3%81%b7-%e2%99%a5-8285.html","imageUrl":"records/2022_Ellie/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Ellie_2","title":"Ellie_2","variant":"SoftSkin","head":"Obitsu50-04","body":"H2/H/H/C","skin":"スーパーホワイティ ※外皮ソフビパーツはすべてメイク(彩色)済みです。","source":"官方","folder":"2022_Ellie_2","recordPath":"records/2022_Ellie_2/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-ellie-soft-skin-winter-ver-limited-edition-7789.html","imageUrl":"records/2022_Ellie_2/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Emma","title":"Emma","variant":"SoftSkin","head":"J","body":"H/H/H/C","skin":"褐色","source":"官方","folder":"2022_Emma","recordPath":"records/2022_Emma/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-emma-%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%81%9f%e3%81%84%e3%81%b7-soft-skin-8406.html","imageUrl":"records/2022_Emma/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Kumi","title":"Kumi","variant":"SoftSkin / ver.2","head":"S","body":"C3/H/H/C","skin":"白肌","source":"官方","folder":"2022_Kumi","recordPath":"records/2022_Kumi/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-kumi-ver-2-soft-skin-ver-8119.html","imageUrl":"records/2022_Kumi/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Mikako","title":"Mikako","variant":"SoftSkin","head":"R","body":"H2/H/H/C","skin":"褐色 ※外皮ソフビパーツはすべてメイク(彩色)済みです。","source":"官方","folder":"2022_Mikako","recordPath":"records/2022_Mikako/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-mikako-soft-skin-8714.html","imageUrl":"records/2022_Mikako/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Riko","title":"Riko","variant":"SoftSkin","head":"S","body":"H2/H/H/C","skin":"褐色","source":"官方","folder":"2022_Riko","recordPath":"records/2022_Riko/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-riko-soft-skin-ver-7905.html","imageUrl":"records/2022_Riko/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"White Ellie 2022","title":"White Ellie 2022","variant":"SoftSkin / Super Whity / 0.5","head":"Obitsu50-04","body":"H2/C2/C/C","skin":"スーパーホワイティ ※外皮ソフビパーツはすべてメイク(彩色)済みです。","source":"官方","folder":"2022_White Ellie 2022","recordPath":"records/2022_White Ellie 2022/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-white-ellie-2022-winter-ver-%e3%80%9cellie-0-5-petit-renewal-type-soft-skin-%e3%82%b9%e3%83%bc%e3%83%91%e3%83%bc%e3%83%9b%e3%83%af%e3%82%a4%e3%83%86%e3%82%a3%e3%80%9c-8666.html","imageUrl":"records/2022_White Ellie 2022/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"葵","title":"葵","variant":"SoftSkin","head":"M","body":"C5/H/H/C","skin":"褐色","source":"官方","folder":"2022_葵","recordPath":"records/2022_葵/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e8%91%b5-%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%82%bf%e3%82%a4%e3%83%97-soft-skin-with-type-h2-%e4%b8%8b%e8%83%b4%e3%83%91%e3%83%bc%e3%83%84-8602.html","imageUrl":"records/2022_葵/01.jpg"},{"year":"2022","group":"AngelPhilia","series":"Angel Philia","number":"","name":"薫","title":"薫","variant":"SoftSkin / ver.3","head":"M","body":"G/H/H/C","skin":"白肌","source":"官方","folder":"2022_薫","recordPath":"records/2022_薫/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e8%96%ab-soft-skin-glass-eye-ver-8037.html","imageUrl":"records/2022_薫/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#10","name":"穂乃花","title":"Pink Drops #10 穂乃花ver.2：20220810","variant":"ver.2","head":"未明","body":"むっちり下半身の褐色ボディ! 穂乃花(ホノカ)chanデス…","skin":"褐色","source":"RAP/Moeyo","folder":"2022-08-10_Pink Drops #10 穂乃花ver.2","recordPath":"records/2022-08-10_Pink Drops #10 穂乃花ver.2/record.md","sourceUrl":"","imageUrl":"records/2022-08-10_Pink Drops #10 穂乃花ver.2/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#15","name":"愛紅.","title":"Pink Drops #15 愛紅ver2.：20221209","variant":"ver.2","head":"未明","body":"G","skin":"未明","source":"RAP/Moeyo","folder":"2022-12-09_Pink Drops #15 愛紅ver2","recordPath":"records/2022-12-09_Pink Drops #15 愛紅ver2/record.md","sourceUrl":"","imageUrl":"records/2022-12-09_Pink Drops #15 愛紅ver2/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#30","name":"愛実","title":"Pink Drops #30 愛実ver.2：20220606","variant":"ver.2","head":"O","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2022-06-06_Pink Drops #30 愛実ver.2","recordPath":"records/2022-06-06_Pink Drops #30 愛実ver.2/record.md","sourceUrl":"","imageUrl":"records/2022-06-06_Pink Drops #30 愛実ver.2/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#32","name":"静香プチリニューアルver","title":"Pink Drops #32 静香プチリニューアルver：20220907","variant":"通常/未明","head":"未明","body":"クール＆キュートなメイクにボディはいろんな装いも可能な小胸…","skin":"未明","source":"RAP/Moeyo","folder":"2022-09-07_Pink Drops #32 静香プチリニューアルver","recordPath":"records/2022-09-07_Pink Drops #32 静香プチリニューアルver/record.md","sourceUrl":"","imageUrl":"records/2022-09-07_Pink Drops #32 静香プチリニューアルver/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#56","name":"結花プチリニューアルver.","title":"Pink Drops #56 結花プチリニューアルver.：20221107","variant":"通常/未明","head":"未明","body":"キュートな表情と小胸＆デカ尻ボディ / 妄想MAXのオンナ…","skin":"未明","source":"RAP/Moeyo","folder":"2022-11-07_Pink Drops #56 結花プチリニューアルver","recordPath":"records/2022-11-07_Pink Drops #56 結花プチリニューアルver/record.md","sourceUrl":"","imageUrl":"records/2022-11-07_Pink Drops #56 結花プチリニューアルver/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#63","name":"麗香","title":"Pink Drops #63 麗香：20220111","variant":"通常/未明","head":"未明","body":"未明","skin":"未明","source":"RAP/Moeyo","folder":"2022-01-11_Pink Drops #63 麗香","recordPath":"records/2022-01-11_Pink Drops #63 麗香/record.md","sourceUrl":"","imageUrl":"records/2022-01-11_Pink Drops #63 麗香/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#64","name":"真登香","title":"Pink Drops #64 真登香：20220207","variant":"通常/未明","head":"未明","body":"Pink Dropsのオンナノコならではのアメイジングボデ…","skin":"ホワイティ","source":"RAP/Moeyo","folder":"2022-02-07_Pink Drops #64 真登香","recordPath":"records/2022-02-07_Pink Drops #64 真登香/record.md","sourceUrl":"","imageUrl":"records/2022-02-07_Pink Drops #64 真登香/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#65","name":"里美","title":"Pink Drops #65 里美：20220704","variant":"通常/未明","head":"未明","body":"未明","skin":"褐色","source":"RAP/Moeyo","folder":"2022-07-04_Pink Drops #65 里美","recordPath":"records/2022-07-04_Pink Drops #65 里美/record.md","sourceUrl":"","imageUrl":"records/2022-07-04_Pink Drops #65 里美/01.jpg"},{"year":"2022","group":"RealArtProject","series":"Pink Drops","number":"#66","name":"里緒奈スーパーホワイティ","title":"Pink Drops #66 里緒奈スーパーホワイティ：20221006","variant":"Super Whity","head":"未明","body":"未明","skin":"スーパーホワイティ","source":"RAP/Moeyo","folder":"2022-10-06_Pink Drops #66 里緒奈スーパーホワイティ","recordPath":"records/2022-10-06_Pink Drops #66 里緒奈スーパーホワイティ/record.md","sourceUrl":"","imageUrl":"records/2022-10-06_Pink Drops #66 里緒奈スーパーホワイティ/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"AKO","title":"AKO","variant":"SoftSkin","head":"G","body":"H2/H/H/C","skin":"白肌","source":"官方","folder":"2023_AKO","recordPath":"records/2023_AKO/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-ako-soft-skin-9253.html","imageUrl":"records/2023_AKO/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"AP Type-Iボディ 褐色","title":"AP Type-Iボディ 褐色","variant":"SoftSkin","head":"I","body":"I/I/I/I","skin":"褐色身体为已化妆","source":"官方","folder":"2023_AP Type-Iボディ 褐色","recordPath":"records/2023_AP Type-Iボディ 褐色/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/type-i%e3%83%9c%e3%83%87%e3%82%a3-%e8%a4%90%e8%89%b2-soft-skin-%e3%80%9ccase-of-emma%e3%80%9c%e3%80%80%ef%bc%9c%e5%bd%a9%e8%89%b2%e6%b8%88%e3%81%bfp-01%ef%bc%9e-9461.html","imageUrl":"records/2023_AP Type-Iボディ 褐色/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Ellie 0.5","title":"Ellie 0.5","variant":"SoftSkin / 0.5","head":"Obitsu50-04","body":"H/H/H/C","skin":"白肌","source":"官方","folder":"2023_Ellie 0.5","recordPath":"records/2023_Ellie 0.5/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-ellie-0-5-%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%82%bf%e3%82%a4%e3%83%97-soft-skin-9026.html","imageUrl":"records/2023_Ellie 0.5/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"HANA","title":"HANA","variant":"SoftSkin","head":"M","body":"C5/H/H/C","skin":"褐色 ※ 外皮ボディパーツはすべてメイク(彩色)済みです。","source":"官方","folder":"2023_HANA","recordPath":"records/2023_HANA/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-hana-soft-skin-8957.html","imageUrl":"records/2023_HANA/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"LENA 0.5","title":"LENA 0.5","variant":"SoftSkin / 0.5","head":"M","body":"C3/H/H/C","skin":"褐色","source":"官方","folder":"2023_LENA 0.5","recordPath":"records/2023_LENA 0.5/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-lena-0-5-soft-skin-%e3%80%90online-shop-limited-style%e3%80%91-9402.html","imageUrl":"records/2023_LENA 0.5/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Noa","title":"Noa","variant":"SoftSkin","head":"G","body":"C5/H/H/C","skin":"褐色","source":"官方","folder":"2023_Noa","recordPath":"records/2023_Noa/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-noa-soft-skin-9601.html","imageUrl":"records/2023_Noa/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Yuri","title":"Yuri","variant":"SoftSkin","head":"H","body":"C3/H/H/C","skin":"褐色 ※ボディはすべてメイク(彩色)済みです","source":"官方","folder":"2023_Yuri","recordPath":"records/2023_Yuri/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-yuri%e3%82%86%e3%82%8a-soft-skin-9316.html","imageUrl":"records/2023_Yuri/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"乃音(NONO)","title":"乃音(NONO)","variant":"SoftSkin","head":"T","body":"H2/H/H/未明","skin":"白肌 外皮身体为已化妆","source":"官方","folder":"2023_乃音(NONO)","recordPath":"records/2023_乃音(NONO)/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e4%b9%83%e9%9f%b3nono-soft-skin-9630.html","imageUrl":"records/2023_乃音(NONO)/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"小夜","title":"小夜","variant":"SoftSkin","head":"M","body":"F/C/C/C","skin":"ホワイティ ※外皮ソフビパーツはすべてメイク(彩色)済みです。","source":"官方","folder":"2023_小夜","recordPath":"records/2023_小夜/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e5%b0%8f%e5%a4%9c-soft-skin-classic-ver-8749.html","imageUrl":"records/2023_小夜/01.jpg"},{"year":"2023","group":"AngelPhilia","series":"Angel Philia","number":"","name":"愛菜","title":"愛菜","variant":"SoftSkin","head":"H","body":"H2/H/H/C","skin":"ホワイティ ※ボディはすべてメイク(彩色)済みです","source":"官方","folder":"2023_愛菜","recordPath":"records/2023_愛菜/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e6%84%9b%e8%8f%9c-%e3%81%b7%e3%81%a1%e3%83%83%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%81%9f%e3%81%84%e3%81%b7-soft-skin-8888.html","imageUrl":"records/2023_愛菜/01.jpg"},{"year":"2024","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Elle","title":"Elle","variant":"SoftSkin / 0.5","head":"Obitsu50-04","body":"H2/H/H/C","skin":"褐色","source":"官方","folder":"2024_Elle","recordPath":"records/2024_Elle/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-elle%e3%82%a8%e3%83%ab%e3%81%b7%e3%81%a1%e3%81%a3%e3%83%aa%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%a2%e3%83%ab%e3%82%bf%e3%82%a4%e3%83%970-5-soft-skin-10154.html","imageUrl":"records/2024_Elle/01.jpg"},{"year":"2024","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Kumi","title":"Kumi","variant":"SoftSkin / Super Whity","head":"S","body":"H2/H/H/未明","skin":"スーパー白肌 外皮身体パーツ为已化妆","source":"官方","folder":"2024_Kumi","recordPath":"records/2024_Kumi/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-kumi-super-whity-soft-skin-9679.html","imageUrl":"records/2024_Kumi/01.jpg"},{"year":"2024","group":"AngelPhilia","series":"Angel Philia","number":"","name":"RIKO","title":"RIKO","variant":"SoftSkin","head":"S","body":"H/H/H/C","skin":"褐色","source":"官方","folder":"2024_RIKO","recordPath":"records/2024_RIKO/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-riko-soft-skin-9913.html","imageUrl":"records/2024_RIKO/01.jpg"},{"year":"2024","group":"AngelPhilia","series":"Angel Philia","number":"","name":"Type-Iボディ ホワイティ","title":"Type-Iボディ ホワイティ","variant":"SoftSkin","head":"M","body":"I/I/I/I","skin":"白肌 ＊已化妆","source":"官方","folder":"2024_Type-Iボディ ホワイティ","recordPath":"records/2024_Type-Iボディ ホワイティ/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/type-i%e3%83%9c%e3%83%87%e3%82%a3-%e3%83%9b%e3%83%af%e3%82%a4%e3%83%86%e3%82%a3-soft-skin-%e3%80%9ccase-of-lena%e3%80%9c%e3%80%80%ef%bc%9c%e5%bd%a9%e8%89%b2%e6%b8%88%e3%81%bfp-01%ef%bc%9e-9828.html","imageUrl":"records/2024_Type-Iボディ ホワイティ/01.jpg"},{"year":"2024","group":"AngelPhilia","series":"Angel Philia","number":"","name":"瑠音(RURU)","title":"瑠音(RURU)","variant":"SoftSkin","head":"T","body":"H/H/H/未明","skin":"褐色＊外皮身体为已化妆","source":"官方","folder":"2024_瑠音(RURU)","recordPath":"records/2024_瑠音(RURU)/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e7%91%a0%e9%9f%b3ruru-soft-skin-10052.html","imageUrl":"records/2024_瑠音(RURU)/01.jpg"},{"year":"2024","group":"RealArtProject","series":"Pink Drops","number":"#76","name":"MIKURU","title":"【Angel Philia】Pink Drops #76 MIKURU Soft Skin 予約受付中","variant":"SoftSkin / 予約/Pre-order","head":"J","body":"ボディメイクはボディとハンドの両方に含まれます。 / 材質…","skin":"スーパーホワイティ","source":"JiWu","folder":"2024_JiWu_【Angel Philia】Pink Drops #76 MIKURU Soft Skin 予約受付中","recordPath":"records/2024_JiWu_【Angel Philia】Pink Drops #76 MIKURU Soft Skin 予約受付中/record.md","sourceUrl":"","imageUrl":"records/2024_JiWu_【Angel Philia】Pink Drops #76 MIKURU Soft Skin 予約受付中/01.jpg"},{"year":"2025","group":"AngelPhilia","series":"Angel Philia","number":"","name":"乃音(NONO)0.5","title":"乃音(NONO)0.5","variant":"SoftSkin / 0.5","head":"T","body":"I/I/I/I","skin":"白肌外皮身体为已化妆","source":"官方","folder":"2025_乃音(NONO)0.5","recordPath":"records/2025_乃音(NONO)0.5/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e4%b9%83%e9%9f%b3nono0-5-%e3%81%82%e3%81%b6%e3%81%ae%e3%83%bc%e3%81%be%e3%82%8bver-10627.html","imageUrl":"records/2025_乃音(NONO)0.5/01.jpg"},{"year":"2025","group":"AngelPhilia","series":"Angel Philia","number":"","name":"瑠音(RURU)0.5","title":"瑠音(RURU)0.5","variant":"SoftSkin / 0.5","head":"T","body":"I/I/I/I","skin":"褐色 外皮身体为已化妆","source":"官方","folder":"2025_瑠音(RURU)0.5","recordPath":"records/2025_瑠音(RURU)0.5/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e7%91%a0%e9%9f%b3ruru0-5-%e3%81%82%e3%81%b6%e3%81%ae%e3%83%bc%e3%81%be%e3%82%8bver-10884.html","imageUrl":"records/2025_瑠音(RURU)0.5/01.jpg"},{"year":"2025","group":"RealArtProject","series":"Pink Drops","number":"","name":"メアリ","title":"【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売","variant":"SoftSkin / 予約/Pre-order","head":"未明","body":"ボディメイクには体と手の両方が含まれます。 / 材質：外皮…","skin":"未明","source":"JiWu","folder":"2025_JiWu_【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売","recordPath":"records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売/record.md","sourceUrl":"","imageUrl":"records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売/01.jpg"},{"year":"2025","group":"RealArtProject","series":"Pink Drops","number":"","name":"小夢","title":"【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売","variant":"SoftSkin / 予約/Pre-order","head":"未明","body":"ボディメイクには体と手の両方が含まれます。 / 材質：外皮…","skin":"未明","source":"JiWu","folder":"2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売","recordPath":"records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売/record.md","sourceUrl":"","imageUrl":"records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売/01.jpg"},{"year":"2025","group":"RealArtProject","series":"Pink Drops","number":"#81","name":"HIMARI","title":"【Angel Philia】Pink Drops #81 HIMARI Soft Skin Pre-order","variant":"SoftSkin / 予約/Pre-order","head":"M","body":"H/H/C/C","skin":"White","source":"JiWu","folder":"2025_JiWu_【Angel Philia】Pink Drops #81 HIMARI Soft Skin Pre-order","recordPath":"records/2025_JiWu_【Angel Philia】Pink Drops #81 HIMARI Soft Skin Pre-order/record.md","sourceUrl":"","imageUrl":"records/2025_JiWu_【Angel Philia】Pink Drops #81 HIMARI Soft Skin Pre-order/01.jpg"},{"year":"2025","group":"RealArtProject","series":"Pink Drops","number":"#82","name":"RINA","title":"【Angel Philia】Pink Drops #82 RINA Soft Skin Pre-order","variant":"SoftSkin / 予約/Pre-order","head":"N","body":"G/G/G/B","skin":"Super Whitey","source":"JiWu","folder":"2025_JiWu_【Angel Philia】Pink Drops #82 RINA Soft Skin Pre-order","recordPath":"records/2025_JiWu_【Angel Philia】Pink Drops #82 RINA Soft Skin Pre-order/record.md","sourceUrl":"","imageUrl":"records/2025_JiWu_【Angel Philia】Pink Drops #82 RINA Soft Skin Pre-order/01.jpg"},{"year":"2025","group":"RealArtProject","series":"Pink Drops","number":"#83","name":"MITSUKI","title":"【Angel Philia】Pink Drops #83 MITSUKI Soft Skin Pre-order","variant":"SoftSkin / 予約/Pre-order","head":"M","body":"H/H/H/C","skin":"Tan","source":"JiWu","folder":"2025_JiWu_【Angel Philia】Pink Drops #83 MITSUKI Soft Skin Pre-order","recordPath":"records/2025_JiWu_【Angel Philia】Pink Drops #83 MITSUKI Soft Skin Pre-order/record.md","sourceUrl":"","imageUrl":"records/2025_JiWu_【Angel Philia】Pink Drops #83 MITSUKI Soft Skin Pre-order/01.jpg"},{"year":"2026","group":"AngelPhilia","series":"Angel Philia","number":"","name":"音夢(NEMU) スーパーホワイティ","title":"音夢(NEMU) スーパーホワイティ","variant":"SoftSkin / Super Whity","head":"M","body":"I/I/I/I","skin":"スーパー白肌 (注：外皮身体：已化妆)","source":"官方","folder":"2026_音夢(NEMU) スーパーホワイティ","recordPath":"records/2026_音夢(NEMU) スーパーホワイティ/record.md","sourceUrl":"https://quarantotto.biz/angelphilia/angel-philia-%e9%9f%b3%e5%a4%a2nemu-%e3%82%b9%e3%83%bc%e3%83%91%e3%83%bc%e3%83%9b%e3%83%af%e3%82%a4%e3%83%86%e3%82%a3-soft-skin-11282.html","imageUrl":"records/2026_音夢(NEMU) スーパーホワイティ/01.jpg"},{"year":"2026","group":"RealArtProject","series":"Pink Drops","number":"#11","name":"紗鵺香","title":"【Angel Philia】Pink Drops #11 紗鵺香（SAYAKA）Soft Skin 預購","variant":"SoftSkin / 予約/Pre-order","head":"未明","body":"未明","skin":"未明","source":"JiWu","folder":"2026_JiWu_【Angel Philia】Pink Drops #11 紗鵺香（SAYAKA）Soft Skin 預購","recordPath":"records/2026_JiWu_【Angel Philia】Pink Drops #11 紗鵺香（SAYAKA）Soft Skin 預購/record.md","sourceUrl":"","imageUrl":"records/2026_JiWu_【Angel Philia】Pink Drops #11 紗鵺香（SAYAKA）Soft Skin 預購/01.jpg"},{"year":"2026","group":"RealArtProject","series":"Pink Drops","number":"#37","name":"優姬奈","title":"【Angel Philia】Pink Drops #37 優姬奈（YUKINA）Soft Skin 預購","variant":"SoftSkin / 予約/Pre-order","head":"未明","body":"未明","skin":"White","source":"JiWu","folder":"2026_JiWu_【Angel Philia】Pink Drops #37 優姬奈（YUKINA）Soft Skin 預購","recordPath":"records/2026_JiWu_【Angel Philia】Pink Drops #37 優姬奈（YUKINA）Soft Skin 預購/record.md","sourceUrl":"","imageUrl":"records/2026_JiWu_【Angel Philia】Pink Drops #37 優姬奈（YUKINA）Soft Skin 預購/01.jpg"},{"year":"2026","group":"RealArtProject","series":"Pink Drops","number":"#84","name":"MIKU","title":"[Angel Philia] Pink Drops #84 MIKU Soft Skin Pre-order","variant":"SoftSkin / 予約/Pre-order","head":"K","body":"G/G/G/B","skin":"Whitey","source":"JiWu","folder":"2026_JiWu_[Angel Philia] Pink Drops #84 MIKU Soft Skin Pre-order","recordPath":"records/2026_JiWu_[Angel Philia] Pink Drops #84 MIKU Soft Skin Pre-order/record.md","sourceUrl":"","imageUrl":"records/2026_JiWu_[Angel Philia] Pink Drops #84 MIKU Soft Skin Pre-order/01.jpg"},{"year":"未明","group":"VMF50","series":"Angel Philia","number":"#1","name":"MIU 再販版","title":"YAMATO_VMF50 #1 MIU Reissue","variant":"通常/未明","head":"未明","body":"VMF50 Original Image Girl 变体","skin":"公開資料未完整確認","source":"官方","folder":"YAMATO_VMF50 #1 MIU Reissue","recordPath":"records/YAMATO_VMF50 #1 MIU Reissue/record.md","sourceUrl":"https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/","imageUrl":"records/YAMATO_VMF50 #1 MIU Reissue/01.jpg"},{"year":"未明","group":"VMF50","series":"Angel Philia","number":"#1","name":"MIU 褐色ver.","title":"YAMATO_VMF50 #1 MIU Tan Skin","variant":"通常/未明","head":"未明","body":"VMF50 Original Image Girl 变体","skin":"褐色","source":"官方","folder":"YAMATO_VMF50 #1 MIU Tan Skin","recordPath":"records/YAMATO_VMF50 #1 MIU Tan Skin/record.md","sourceUrl":"https://www.suruga-ya.jp/kaitori/kaitori_detail/990008201","imageUrl":"records/YAMATO_VMF50 #1 MIU Tan Skin/01.jpg"},{"year":"未明","group":"VMF50","series":"Angel Philia","number":"#2","name":"RISA 褐色肌","title":"YAMATO_VMF50 #2 RISA Tan Skin","variant":"通常/未明","head":"未明","body":"VMF50 Original Image Girl 变体","skin":"褐色","source":"官方","folder":"YAMATO_VMF50 #2 RISA Tan Skin","recordPath":"records/YAMATO_VMF50 #2 RISA Tan Skin/record.md","sourceUrl":"https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/","imageUrl":"records/YAMATO_VMF50 #2 RISA Tan Skin/01.jpg"},{"year":"未明","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"リン・ミンメイ","title":"Macross Lynn Minmay 50cm figure","variant":"通常/未明","head":"リン・ミンメイ 角色联动款","body":"vmf50 角色联动完成品","skin":"公開資料未完整確認","source":"官方","folder":"2009_Macross Lynn Minmay 50cm figure","recordPath":"records/2009_Macross Lynn Minmay 50cm figure/record.md","sourceUrl":"https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/","imageUrl":"records/2009_Macross Lynn Minmay 50cm figure/01.jpg"},{"year":"未明","group":"AngelPhilia","series":"Angel Philia","number":"未记","name":"レイナ","title":"Queens Blade Reina action figure","variant":"通常/未明","head":"レイナ 角色联动款","body":"YAMATO / vmf 系角色联动完成品","skin":"公開資料未完整確認","source":"官方","folder":"2010_Queens Blade Reina action figure","recordPath":"records/2010_Queens Blade Reina action figure/record.md","sourceUrl":"https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/","imageUrl":"records/2010_Queens Blade Reina action figure/01.jpg"},{"year":"未明","group":"VMF50","series":"Pink Drops","number":"#4","name":"紗友莉 SAYURI","title":"YAMATO_Pink Drops #4 紗友莉 SAYURI VMF50 old entry","variant":"通常/未明","head":"未明","body":"YAMATO / vmf50 旧 Pink Drops","skin":"公開資料未完整確認","source":"RAP/Moeyo","folder":"YAMATO_Pink Drops #4 紗友莉 SAYURI VMF50 old entry","recordPath":"records/YAMATO_Pink Drops #4 紗友莉 SAYURI VMF50 old entry/record.md","sourceUrl":"https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/","imageUrl":"records/YAMATO_Pink Drops #4 紗友莉 SAYURI VMF50 old entry/01.jpg"},{"year":"未明","group":"VMF50","series":"Pink Drops","number":"#5","name":"罹亞奈 RIANA","title":"YAMATO_Pink Drops #5 罹亞奈 RIANA VMF50 old entry","variant":"通常/未明","head":"未明","body":"YAMATO / vmf50 旧 Pink Drops","skin":"公開資料未完整確認","source":"RAP/Moeyo","folder":"YAMATO_Pink Drops #5 罹亞奈 RIANA VMF50 old entry","recordPath":"records/YAMATO_Pink Drops #5 罹亞奈 RIANA VMF50 old entry/record.md","sourceUrl":"https://www.worthpoint.com/worthopedia/pink-drops-liana-hybrid-bust-version-1795613469","imageUrl":""}]</script>
+  <script>
+    const records = JSON.parse(document.getElementById('library-data').textContent);
+    const useLocalImageFallback = true;
+    const years = ["2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "未明"];
+    const groups = ["AngelPhilia", "RealArtProject", "VMF50"];
+    const updatedAt = "2026-06-10";
+    const q = document.getElementById('q');
+    const group = document.getElementById('group');
+    const year = document.getElementById('year');
+    const source = document.getElementById('source');
+    const cards = document.getElementById('cards');
+    const resultCount = document.getElementById('resultCount');
+    const indexRows = document.getElementById('indexRows');
+    const sourceOptions = [
+      ['', 'allSources'],
+      ['官方', 'sourceOfficial'],
+      ['官方抽選', 'sourceLottery'],
+      ['RAP/Moeyo', 'sourceRap'],
+      ['JiWu', 'sourceJiwu']
+    ];
+    const translations = {
+      zh: {
+        brandKicker: 'Library Index',
+        navSummary: '项目速览',
+        navLibrary: '馆藏条目',
+        navIndex: '完整索引',
+        navRepo: '仓库说明',
+        recentEntries: '最近条目',
+        pageTitle: 'Angelphilia / RealArtProject / VMF50 图书馆',
+        subtitle: 'Angelphilia / RealArtProject / VMF50 收藏资料的便携索引，延续《Angel Philia / Pink Drops 整娃速览》的字段体系与 records 档案。保存到手机、平板或电脑后可直接打开；条目图片优先读取 records 目录中的本地图片文件。',
+        notice: '本页仅供资料查询、交流与个人收藏整理使用；规格、售价、库存、版权与销售信息以官方原页面为准。',
+        metadata: 'Library metadata',
+        organizer: '整理人',
+        updated: '更新时间',
+        repository: '仓库',
+        localEntry: '本地入口',
+        scopeLabel: '资料范围',
+        scopeValue: 'Angel Philia、Real Art Project / Pink Drops、VMF50 / YAMATO',
+        scopeHeading: '范围说明',
+        scopeText: '本项目记录 Angel Philia 主线整娃、Real Art Project / Pink Drops 旧页补档、VMF50 / YAMATO 早期条目，以及部分联动和抽选记录。馆藏字段与速览文档保持一致，每条记录保留来源页、record.md 和可用的公开图片链接。',
+        libraryHeading: '馆藏条目',
+        searchPlaceholder: '搜索名字、编号、Body、肤色、目录...',
+        allGroups: '全部馆别',
+        allYears: '全部年份',
+        allSources: '全部来源',
+        sourceOfficial: '官方',
+        sourceLottery: '官方抽選',
+        sourceRap: 'RAP/Moeyo',
+        sourceJiwu: 'JiWu',
+        resultCount: '当前显示 {shown} / {total} 条',
+        fullIndexHeading: '完整索引',
+        tableYear: '年份',
+        tableGroup: '馆别',
+        tableSeries: '系列',
+        tableNumber: '编号',
+        tableName: '名字',
+        tableVariant: '版本/区别',
+        tableHead: '头',
+        tableBody: 'Body',
+        tableSkin: '肤色',
+        tableSource: '来源',
+        tableFolder: '目录',
+        repoHeading: '仓库与部署说明',
+        repoText: '当前图书馆项目仓库为 <a href="https://github.com/jxa3229/angelphilia-library">jxa3229/angelphilia-library</a>。`ai-goofish-monitor` 已拆分为独立仓库 <a href="https://github.com/jxa3229/ai-goofish-monitor">jxa3229/ai-goofish-monitor</a>，不再作为本图书馆项目的一部分。',
+        openText: '本页不依赖构建工具、服务器或外部 JS/CSS。直接打开 `angelphilia/index_local.html` 即可查看；本地图片随 records 目录一起保存。',
+        footer: 'Library index updated on {updated}. Source material belongs to original rights holders.',
+        noImage: 'No local image',
+        sourcePage: '来源页',
+        recordFile: 'record.md',
+        fieldSeries: '系列',
+        fieldVariant: '版本',
+        fieldHead: '头',
+        fieldBody: 'Body',
+        fieldSkin: '肤色'
+      },
+      en: {
+        brandKicker: 'Library Index',
+        navSummary: 'Overview',
+        navLibrary: 'Collection',
+        navIndex: 'Full index',
+        navRepo: 'Repository',
+        recentEntries: 'Recent entries',
+        pageTitle: 'Angelphilia / RealArtProject / VMF50 Library',
+        subtitle: 'A portable catalogue for Angelphilia, RealArtProject, and VMF50 reference records, following the field system of the Angel Philia / Pink Drops overview and the records archive. Save this file to a phone, tablet, or computer and open it directly; Entry images load from local files under the records directory when available.',
+        notice: 'For reference, research, and personal collection use only. Specifications, prices, stock, copyright, and sales details should be checked against the original official pages.',
+        metadata: 'Library metadata',
+        organizer: 'Curator',
+        updated: 'Updated',
+        repository: 'Repository',
+        localEntry: 'Local entry',
+        scopeLabel: 'Scope',
+        scopeValue: 'Angel Philia, Real Art Project / Pink Drops, VMF50 / YAMATO',
+        scopeHeading: 'Scope notes',
+        scopeText: 'The library covers Angel Philia main-line dolls, Real Art Project / Pink Drops archived pages, VMF50 / YAMATO early entries, plus selected collaboration and lottery records. Fields stay aligned with the overview document, and each entry keeps its source page, record.md, and available public image links.',
+        libraryHeading: 'Collection entries',
+        searchPlaceholder: 'Search name, number, body, skin, folder...',
+        allGroups: 'All groups',
+        allYears: 'All years',
+        allSources: 'All sources',
+        sourceOfficial: 'Official',
+        sourceLottery: 'Official lottery',
+        sourceRap: 'RAP/Moeyo',
+        sourceJiwu: 'JiWu',
+        resultCount: 'Showing {shown} / {total} entries',
+        fullIndexHeading: 'Full index',
+        tableYear: 'Year',
+        tableGroup: 'Group',
+        tableSeries: 'Series',
+        tableNumber: 'No.',
+        tableName: 'Name',
+        tableVariant: 'Variant',
+        tableHead: 'Head',
+        tableBody: 'Body',
+        tableSkin: 'Skin',
+        tableSource: 'Source',
+        tableFolder: 'Folder',
+        repoHeading: 'Repository and local use',
+        repoText: 'The library repository is <a href="https://github.com/jxa3229/angelphilia-library">jxa3229/angelphilia-library</a>. `ai-goofish-monitor` has been separated into <a href="https://github.com/jxa3229/ai-goofish-monitor">jxa3229/ai-goofish-monitor</a> and is no longer part of this library project.',
+        openText: 'This page does not require a build tool, server, or external JS/CSS. Open `angelphilia/index_local.html` directly; local images are read from the records directory.',
+        footer: 'Library index updated on {updated}. Source material belongs to original rights holders.',
+        noImage: 'No local image',
+        sourcePage: 'Source page',
+        recordFile: 'record.md',
+        fieldSeries: 'Series',
+        fieldVariant: 'Variant',
+        fieldHead: 'Head',
+        fieldBody: 'Body',
+        fieldSkin: 'Skin'
+      },
+      ja: {
+        brandKicker: 'Library Index',
+        navSummary: '概要',
+        navLibrary: '収蔵項目',
+        navIndex: '総索引',
+        navRepo: 'リポジトリ',
+        recentEntries: '最近の項目',
+        pageTitle: 'Angelphilia / RealArtProject / VMF50 図書館',
+        subtitle: 'Angelphilia、RealArtProject、VMF50 の参考資料を持ち運びやすく整理した索引です。Angel Philia / Pink Drops の速覧表と records アーカイブの項目体系に沿っています。スマートフォン、タブレット、PC に保存して直接開けます。画像は利用可能な場合、records ディレクトリ内のローカルファイルを優先して表示します。',
+        notice: '本ページは資料確認、交流、個人コレクション整理のためのものです。仕様、価格、在庫、著作権、販売情報は必ず元の公式ページを確認してください。',
+        metadata: 'Library metadata',
+        organizer: '整理者',
+        updated: '更新日',
+        repository: 'リポジトリ',
+        localEntry: 'ローカル入口',
+        scopeLabel: '資料範囲',
+        scopeValue: 'Angel Philia、Real Art Project / Pink Drops、VMF50 / YAMATO',
+        scopeHeading: '範囲メモ',
+        scopeText: 'Angel Philia の主ライン、Real Art Project / Pink Drops の旧ページ補完、VMF50 / YAMATO の初期項目、一部のコラボ・抽選記録を収録しています。項目フィールドは速覧文書と合わせ、各レコードには出典ページ、record.md、利用可能な公開画像リンクを残しています。',
+        libraryHeading: '収蔵項目',
+        searchPlaceholder: '名前、番号、Body、肌色、フォルダを検索...',
+        allGroups: 'すべての館別',
+        allYears: 'すべての年',
+        allSources: 'すべての出典',
+        sourceOfficial: '公式',
+        sourceLottery: '公式抽選',
+        sourceRap: 'RAP/Moeyo',
+        sourceJiwu: 'JiWu',
+        resultCount: '{shown} / {total} 件を表示',
+        fullIndexHeading: '総索引',
+        tableYear: '年',
+        tableGroup: '館別',
+        tableSeries: 'シリーズ',
+        tableNumber: '番号',
+        tableName: '名前',
+        tableVariant: '版/差分',
+        tableHead: 'ヘッド',
+        tableBody: 'Body',
+        tableSkin: '肌色',
+        tableSource: '出典',
+        tableFolder: 'フォルダ',
+        repoHeading: 'リポジトリと利用方法',
+        repoText: 'この図書館プロジェクトのリポジトリは <a href="https://github.com/jxa3229/angelphilia-library">jxa3229/angelphilia-library</a> です。`ai-goofish-monitor` は <a href="https://github.com/jxa3229/ai-goofish-monitor">jxa3229/ai-goofish-monitor</a> として分離され、本図書館プロジェクトには含まれません。',
+        openText: 'このページはビルドツール、サーバー、外部 JS/CSS を必要としません。`angelphilia/index_local.html` を直接開けます。ローカル画像は records ディレクトリから読み込みます。',
+        footer: 'Library index updated on {updated}. Source material belongs to original rights holders.',
+        noImage: 'No local image',
+        sourcePage: '出典ページ',
+        recordFile: 'record.md',
+        fieldSeries: 'シリーズ',
+        fieldVariant: '版',
+        fieldHead: 'ヘッド',
+        fieldBody: 'Body',
+        fieldSkin: '肌色'
+      }
+    };
+    let currentLang = 'zh';
+
+    function t(key) {
+      return translations[currentLang][key] || translations.zh[key] || key;
+    }
+
+    function option(select, value, label) {
+      const node = document.createElement('option');
+      node.value = value;
+      node.textContent = label;
+      select.appendChild(node);
+    }
+
+    function populateFilters() {
+      const selectedGroup = group.value;
+      const selectedYear = year.value;
+      const selectedSource = source.value;
+      group.innerHTML = '';
+      year.innerHTML = '';
+      source.innerHTML = '';
+      option(group, '', t('allGroups'));
+      groups.forEach(item => option(group, item, item));
+      option(year, '', t('allYears'));
+      years.forEach(item => option(year, item, item));
+      sourceOptions.forEach(([value, labelKey]) => option(source, value, t(labelKey)));
+      group.value = selectedGroup;
+      year.value = selectedYear;
+      source.value = selectedSource;
+    }
+
+    function applyLang(lang) {
+      currentLang = translations[lang] ? lang : 'zh';
+      document.documentElement.lang = currentLang === 'zh' ? 'zh-Hans' : currentLang;
+      document.querySelectorAll('[data-i18n]').forEach(node => {
+        node.textContent = t(node.dataset.i18n).replace('{updated}', updatedAt);
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(node => {
+        node.innerHTML = t(node.dataset.i18nHtml).replace('{updated}', updatedAt);
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(node => {
+        node.placeholder = t(node.dataset.i18nPlaceholder);
+      });
+      document.querySelectorAll('[data-lang]').forEach(node => {
+        node.classList.toggle('active', node.dataset.lang === currentLang);
+      });
+      populateFilters();
+      render();
+    }
+
+    function matches(record) {
+      const text = [
+        record.year, record.group, record.series, record.number, record.name,
+        record.title, record.variant, record.head, record.body, record.skin,
+        record.source, record.folder
+      ].join(' ').toLowerCase();
+      const query = q.value.trim().toLowerCase();
+      return (!query || text.includes(query))
+        && (!group.value || record.group === group.value)
+        && (!year.value || record.year === year.value)
+        && (!source.value || record.source === source.value);
+    }
+
+    function render() {
+      const filtered = records.filter(matches);
+      resultCount.textContent = t('resultCount')
+        .replace('{shown}', filtered.length)
+        .replace('{total}', records.length);
+      cards.innerHTML = filtered.map(cardHtml).join('');
+      bindImageFallbacks();
+      indexRows.innerHTML = filtered.map(rowHtml).join('');
+    }
+
+    function safe(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      }[char]));
+    }
+
+    function localHref(value) {
+      const text = String(value ?? '');
+      if (!text || /^[a-z][a-z0-9+.-]*:/i.test(text)) {
+        return text;
+      }
+      return text.split('/').map(encodeURIComponent).join('/');
+    }
+
+    function imageUrlFor(record) {
+      return record.imageUrl || (useLocalImageFallback ? `records/${record.folder}/01.jpg` : '');
+    }
+
+    function bindImageFallbacks() {
+      cards.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', () => {
+          const placeholder = document.createElement('span');
+          placeholder.className = 'placeholder';
+          placeholder.textContent = t('noImage');
+          img.replaceWith(placeholder);
+        }, { once: true });
+      });
+    }
+
+    function cardHtml(record) {
+      const imageUrl = imageUrlFor(record);
+      const image = imageUrl
+        ? `<img loading="lazy" src="${safe(localHref(imageUrl))}" alt="${safe(record.name)}">`
+        : `<span class="placeholder">${safe(t('noImage'))}</span>`;
+      const sourceLink = record.sourceUrl ? `<a href="${safe(record.sourceUrl)}">${safe(t('sourcePage'))}</a>` : '';
+      const recordLink = localHref(record.recordPath);
+      return `<article class="entry">
+        <div class="thumb">${image}</div>
+        <div class="entry-body">
+          <div class="meta">
+            <span class="pill group-${safe(record.group)}">${safe(record.group)}</span>
+            <span class="pill">${safe(record.year)}</span>
+            <span class="pill">${safe(record.source)}</span>
+          </div>
+          <h3>${safe([record.number, record.name].filter(Boolean).join(' '))}</h3>
+          <dl>
+            <dt>${safe(t('fieldSeries'))}</dt><dd>${safe(record.series)}</dd>
+            <dt>${safe(t('fieldVariant'))}</dt><dd>${safe(record.variant)}</dd>
+            <dt>${safe(t('fieldHead'))}</dt><dd>${safe(record.head)}</dd>
+            <dt>${safe(t('fieldBody'))}</dt><dd>${safe(record.body)}</dd>
+            <dt>${safe(t('fieldSkin'))}</dt><dd>${safe(record.skin)}</dd>
+          </dl>
+          <div class="entry-actions">
+            ${sourceLink}
+            <a href="${safe(recordLink)}">${safe(t('recordFile'))}</a>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function rowHtml(record) {
+      const name = record.sourceUrl
+        ? `<a href="${safe(record.sourceUrl)}">${safe(record.name)}</a>`
+        : safe(record.name);
+      return `<tr>
+        <td>${safe(record.year)}</td>
+        <td>${safe(record.group)}</td>
+        <td>${safe(record.series)}</td>
+        <td>${safe(record.number || '-')}</td>
+        <td>${name}</td>
+        <td>${safe(record.variant)}</td>
+        <td>${safe(record.head)}</td>
+        <td>${safe(record.body)}</td>
+        <td>${safe(record.skin)}</td>
+        <td>${safe(record.source)}</td>
+        <td><a href="${safe(localHref(record.recordPath))}">${safe(record.folder)}</a></td>
+      </tr>`;
+    }
+
+    [q, group, year, source].forEach(node => node.addEventListener('input', render));
+    document.querySelectorAll('[data-lang]').forEach(node => {
+      node.addEventListener('click', () => applyLang(node.dataset.lang));
+    });
+    document.querySelectorAll('[data-jump]').forEach(node => {
+      node.addEventListener('click', () => {
+        q.value = node.dataset.jump;
+        group.value = '';
+        year.value = '';
+        source.value = '';
+        render();
+      });
+    });
+    applyLang('zh');
+  </script>
+</body>
+</html>

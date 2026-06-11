@@ -2,6 +2,7 @@ node_modules/
 dist/
 public/records/
 public/media/
+public/details/
 public/details.json
 *.log
 .DS_Store

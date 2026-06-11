@@ -22,8 +22,8 @@
 ## 核心业务流程
 
 1. 维护者更新 `records/` 档案或 `index_local.html` 中的条目数据。
-2. 构建脚本生成 `src/data/records.json`、复制静态资源并生成 `public/details.json`。
-3. Vue 单页应用读取 `records.json` 展示馆藏、索引和详情页；详情页按 `detailKey` 从 `details.json` 取 docx HTML。
+2. 构建脚本生成 `src/data/records.json`、复制静态资源并生成 `public/details/{detailKey}.html`。
+3. Vue Router 单页应用读取 `records.json` 展示馆藏、索引和详情页；详情页按 `detailKey` 从 `details/{detailKey}.html` 取正文 HTML。
 4. GitHub Pages 发布 `dist/`，用户通过浏览器访问静态站点。
 
 ---

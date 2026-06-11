@@ -16,7 +16,7 @@
 ## 详情页
 
 - **图片轮播:** 从 `record.safeImages` 或 `safeImageUrl` 读取 `public/media/` 静态图片。
-- **docx 正文:** 从 `public/details.json` 按 `detailKey` 读取由 `record.docx` 提取出的 HTML。
+- **正文详情:** 从 `public/details/{detailKey}.html` 按 `detailKey` 读取由 `record.md` 转换出的 HTML。
 - **返回状态:** 进入详情前保存列表滚动位置，返回后恢复。
 
 ## 主题与多语言
@@ -27,7 +27,7 @@
 ## 数据与部署
 
 - **馆藏数据同步:** `npm run sync:data` 从 `index_local.html` 生成 `src/data/records.json`。
-- **详情数据同步:** `npm run sync:details` 从每个 `record.docx` 生成 `public/details.json`。
+- **详情数据同步:** `npm run sync:details` 从每个 `record.md` 生成 `public/details/{detailKey}.html`。
 - **静态资源准备:** `npm run prepare:public` 复制 records 图片到 `public/media/`。
 - **GitHub Pages:** `.github/workflows/pages.yml` 自动构建并发布静态站点。
 

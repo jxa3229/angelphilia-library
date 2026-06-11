@@ -228,16 +228,15 @@ button {
 }
 
 .main-panel.route-overview {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto minmax(90px, auto) auto;
-  gap: 14px;
+  display: block;
+  overflow: auto;
 }
 
 .masthead {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
   gap: 22px;
-  align-items: stretch;
+  align-items: start;
   min-height: 0;
 }
 
@@ -254,11 +253,11 @@ button {
 }
 
 .masthead-copy {
-  min-height: 0;
+  min-height: clamp(360px, 44vh, 520px);
   padding: clamp(22px, 4vh, 42px) clamp(28px, 5vw, 56px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--surface-strong) 70%, transparent), color-mix(in srgb, var(--primary-soft) 70%, transparent)),
     var(--surface);
@@ -268,9 +267,10 @@ button {
   max-width: 820px;
   margin: 8px 0 18px;
   font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
-  font-size: clamp(36px, 6vw, 72px);
-  line-height: 1.02;
+  font-size: clamp(32px, 3.6vw, 54px);
+  line-height: 1.06;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .notice {
@@ -289,6 +289,7 @@ button {
 .metadata-panel {
   padding: clamp(18px, 3vh, 24px);
   min-height: 0;
+  min-width: 0;
 }
 
 .metadata-panel h2,
@@ -314,6 +315,7 @@ button {
 .compact-fields div {
   display: grid;
   gap: 4px;
+  min-width: 0;
 }
 
 dt {
@@ -326,16 +328,18 @@ dt {
 dd {
   margin: 0;
   color: var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .stat-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
-  margin: 0;
+  margin: 14px 0 0;
 }
 
 .stat-strip div {
+  min-width: 0;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -353,9 +357,11 @@ dd {
   margin-top: 8px;
   color: var(--primary);
   font-size: 28px;
+  overflow-wrap: anywhere;
 }
 
 .scope-text,
+.notice-panel,
 .library-section,
 .index-section,
 .repo-section {
@@ -368,11 +374,84 @@ dd {
   margin-top: 0;
 }
 
+.scope-text,
+.notice-panel {
+  margin-top: 14px;
+}
+
 .scope-text p,
+.notice-panel p,
 .section-head p,
 .repo-section p {
   margin: 10px 0 0;
   color: var(--muted);
+}
+
+.notice-panel {
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 82%, var(--accent)), var(--surface));
+  box-shadow: var(--shadow);
+}
+
+.notice-panel span {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notice-panel h2,
+.notice-panel h3,
+.relation-panel h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+  font-size: 22px;
+  letter-spacing: 0;
+}
+
+.overview-notice {
+  display: grid;
+  align-content: start;
+}
+
+.repo-disclosure {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.relation-panel {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.relation-panel p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.relation-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.relation-list div {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
 }
 
 .section-head {
@@ -696,6 +775,24 @@ footer {
   background: #111;
 }
 
+@media (max-width: 1280px) {
+  .masthead {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead-copy {
+    justify-content: flex-start;
+  }
+
+  .masthead-copy h1 {
+    font-size: clamp(32px, 5vw, 54px);
+  }
+
+  .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1080px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -768,6 +865,112 @@ footer {
   }
 }
 
+@media (min-width: 721px) and (max-width: 1080px) {
+  .side-nav {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(188px, auto) 114px;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px 12px;
+  }
+
+  .brand-block {
+    min-width: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .brand-block span {
+    font-size: 10px;
+  }
+
+  .brand-block strong {
+    max-width: 100%;
+    margin-top: 2px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .segmented,
+  .theme-row,
+  .toc {
+    margin-top: 0;
+  }
+
+  .segmented {
+    grid-template-columns: repeat(3, minmax(58px, 1fr));
+  }
+
+  .theme-row {
+    grid-template-columns: repeat(3, 34px);
+    justify-content: end;
+  }
+
+  .segmented button,
+  .theme-row button,
+  .toc a {
+    min-height: 38px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
+
+  .toc {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .toc a {
+    overflow: hidden;
+    padding: 8px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .main-panel {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .main-panel.route-overview,
+  .main-panel.route-index,
+  .main-panel.route-repository {
+    overflow: auto;
+  }
+
+  .main-panel.route-overview {
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .masthead {
+    grid-template-rows: auto auto;
+    min-height: auto;
+  }
+
+  .masthead-copy {
+    justify-content: flex-start;
+  }
+
+  .masthead-copy h1 {
+    font-size: clamp(34px, 5vw, 54px);
+  }
+
+  .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-strip div {
+    min-width: 0;
+  }
+}
+
 @media (max-width: 720px) {
   .app-shell {
     height: auto;
@@ -798,10 +1001,16 @@ footer {
   .masthead-copy,
   .metadata-panel,
   .scope-text,
+  .notice-panel,
+  .relation-panel,
   .library-section,
   .index-section,
   .repo-section {
     padding: 18px;
+  }
+
+  .relation-list {
+    grid-template-columns: 1fr;
   }
 
   .stat-strip {

@@ -13,7 +13,9 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：https://hokkaido.hs-tamtam.co.jp/images/public/products/30283_1.jpg
+- [03.jpg](03.jpg) ｜ 图片来源：https://hokkaido.hs-tamtam.co.jp/images/public/products/30283_2.jpg
 
 ### 商品页面正文
 标题：クイーンズブレイド レイナ アクションフィギュア
@@ -24,6 +26,10 @@
 ### 来源说明
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [大阪TOP YAMATO 買取例](https://osaka-doll-kaitori.com/?page_id=160)
+- [TamTam やまと vmf クイーンズブレイド 流浪の戦士 レイナ アクションフィギュア](https://hokkaido.hs-tamtam.co.jp/product/detail/30342/)
+- [駿河屋 クイーンズブレイド レイナ アクションフィギュア](https://www.suruga-ya.jp/kaitori/kaitori_detail/602004711)
+- 未采纳候选：Suruga-ya `602004711m.jpg.webp` 为低清缩略图；TamTam 商品页虽页面 ID 为 `30342`，源码明确引用 `30283_1.jpg` / `30283_2.jpg` 且标题匹配レイナ。
+- 检索词：`"クイーンズブレイド" "レイナ" "アクションフィギュア" "やまと"`、`"vmf" "レイナ" "TamTam"`、`30283_1.jpg`
 
 ## 原文（日文）
 
@@ -38,7 +44,9 @@
 - 成型色：公開資料未完整確認
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：https://hokkaido.hs-tamtam.co.jp/images/public/products/30283_1.jpg
+- [03.jpg](03.jpg) ｜ 画像出典：https://hokkaido.hs-tamtam.co.jp/images/public/products/30283_2.jpg
 
 ### 商品ページ本文
 タイトル：クイーンズブレイド レイナ アクションフィギュア
@@ -49,3 +57,7 @@
 ### 出典
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [大阪TOP YAMATO 買取例](https://osaka-doll-kaitori.com/?page_id=160)
+- [TamTam やまと vmf クイーンズブレイド 流浪の戦士 レイナ アクションフィギュア](https://hokkaido.hs-tamtam.co.jp/product/detail/30342/)
+- [駿河屋 クイーンズブレイド レイナ アクションフィギュア](https://www.suruga-ya.jp/kaitori/kaitori_detail/602004711)
+- 採用しなかった候補：Suruga-ya `602004711m.jpg.webp` は低解像度サムネイル。TamTam 商品ページはページ ID `30342` だが、HTML 内で `30283_1.jpg` / `30283_2.jpg` を参照し、タイトルもレイナに一致。
+- 検索語：`"クイーンズブレイド" "レイナ" "アクションフィギュア" "やまと"`、`"vmf" "レイナ" "TamTam"`、`30283_1.jpg`

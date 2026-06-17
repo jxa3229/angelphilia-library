@@ -13,8 +13,9 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 已保存本地图片：`01.jpg`
-- 图片来源：[Azone 官方图片 4535255090255_1.jpg](https://www.azone-int.co.jp/image/4535255090255_1.jpg)
+- [01.jpg](01.jpg) ｜ 图片来源：[Azone 官方图片 4535255090255_1.jpg](https://www.azone-int.co.jp/image/4535255090255_1.jpg)
+- [02.jpg](02.jpg) ｜ 图片来源：[Azone 官方图片 4535255090255_2.jpg](https://www.azone-int.co.jp/image/4535255090255_2.jpg)
+- [03.jpg](03.jpg) ｜ 图片来源：[Azone 官方图片 4535255090255_3.jpg](https://www.azone-int.co.jp/image/4535255090255_3.jpg)
 
 ### 商品页面正文
 标题：vmf50 一騎当千 Dragon Destiny 関羽雲長 50cmフィギュア
@@ -25,7 +26,9 @@
 ### 来源说明
 - [Azone 他社商品一覧](https://www.azone-int.co.jp/?sid=cct202)
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
-
+- [Azone vmf50:一騎当千 Dragon Destiny/関羽 雲長 50cmフィギュア](https://www.azone-int.co.jp/?sid=cct203&jcd=4535255090255)
+- 未采纳候选：JohnnyJoy 页面作为旧款列表线索，不下载列表图。
+- 检索词：`4535255090255`、`vmf50 関羽 雲長 50cmフィギュア`
 ## 原文（日文）
 
 # vmf50 一騎当千 Dragon Destiny 関羽雲長 50cmフィギュア
@@ -39,8 +42,9 @@
 - 成型色：公開資料未完整確認
 
 ### 画像
-- ローカル画像を保存済み：`01.jpg`
-- 画像出典：[Azone 官方图片 4535255090255_1.jpg](https://www.azone-int.co.jp/image/4535255090255_1.jpg)
+- [01.jpg](01.jpg) ｜ 画像出典：[Azone 公式画像 4535255090255_1.jpg](https://www.azone-int.co.jp/image/4535255090255_1.jpg)
+- [02.jpg](02.jpg) ｜ 画像出典：[Azone 公式画像 4535255090255_2.jpg](https://www.azone-int.co.jp/image/4535255090255_2.jpg)
+- [03.jpg](03.jpg) ｜ 画像出典：[Azone 公式画像 4535255090255_3.jpg](https://www.azone-int.co.jp/image/4535255090255_3.jpg)
 
 ### 商品ページ本文
 タイトル：vmf50 一騎当千 Dragon Destiny 関羽雲長 50cmフィギュア
@@ -51,3 +55,6 @@
 ### 出典
 - [Azone 他社商品一覧](https://www.azone-int.co.jp/?sid=cct202)
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
+- [Azone vmf50:一騎当千 Dragon Destiny/関羽 雲長 50cmフィギュア](https://www.azone-int.co.jp/?sid=cct203&jcd=4535255090255)
+- 採用しなかった候補：JohnnyJoy は旧商品リスト線索として保持し、一覧画像は保存しない。
+- 検索語：`4535255090255`、`vmf50 関羽 雲長 50cmフィギュア`

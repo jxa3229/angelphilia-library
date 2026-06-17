@@ -13,7 +13,8 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页仍可作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：[Azone Osaka PH1326353039.jpg](https://blog-imgs-49-origin.fc2.com/a/z/o/azoneosaka/PH1326353039.jpg)
 
 ### 商品页面正文
 标题：Yamato VMF50 Original Concept Image Girl #9 SHIHO
@@ -22,6 +23,10 @@
 
 ### 来源说明
 - [https://myfigurecollection.net/entry/32014](https://myfigurecollection.net/entry/32014)
+- [Azone Osaka：YAMATO vmf50 Original Concept Image Girl #9 SHIHO 入荷のお知らせ](https://azoneosaka.blog.fc2.com/blog-entry-900.html?sp=)
+- [Azone Akihabara：YAMATO vmf50 Original Concept Image Girl #9 SHIHO 入荷のお知らせ](https://azoneakiba.blog.fc2.com/blog-entry-969.html?sp=)
+- 未采纳候选：Azone Akihabara 页面复用了 Osaka 图片缩略路径，未重复下载；其他页面噪声图未采纳。
+- 检索词：`"VMF50" "#9 SHIHO" "Azone"`、`"YAMATO vmf50 Original Concept Image Girl #9 SHIHO"`
 
 ## 原文（日文）
 
@@ -36,7 +41,8 @@
 - 成型色：公开资料未完整确认
 
 ### 画像
-- 画像は未保存。公開ソースは検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：[Azone Osaka PH1326353039.jpg](https://blog-imgs-49-origin.fc2.com/a/z/o/azoneosaka/PH1326353039.jpg)
 
 ### 商品ページ本文
 タイトル：Yamato VMF50 Original Concept Image Girl #9 SHIHO
@@ -45,3 +51,7 @@
 
 ### 出典
 - [https://myfigurecollection.net/entry/32014](https://myfigurecollection.net/entry/32014)
+- [Azone Osaka：YAMATO vmf50 Original Concept Image Girl #9 SHIHO 入荷のお知らせ](https://azoneosaka.blog.fc2.com/blog-entry-900.html?sp=)
+- [Azone Akihabara：YAMATO vmf50 Original Concept Image Girl #9 SHIHO 入荷のお知らせ](https://azoneakiba.blog.fc2.com/blog-entry-969.html?sp=)
+- 採用しなかった候補：Azone Akihabara ページは Osaka 画像の縮小版パスを再利用しているため重複保存しない。その他のノイズ画像は未採用。
+- 検索語：`"VMF50" "#9 SHIHO" "Azone"`、`"YAMATO vmf50 Original Concept Image Girl #9 SHIHO"`

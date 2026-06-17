@@ -13,7 +13,12 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 相关商品页图片来源：[Azone 4571275070471_1.jpg](https://www.azone-int.co.jp/image/4571275070471_1.jpg)
+- [03.jpg](03.jpg) ｜ 相关商品页图片来源：[Azone 4571275070471_2.jpg](https://www.azone-int.co.jp/image/4571275070471_2.jpg)
+- [04.jpg](04.jpg) ｜ 相关商品页图片来源：[Azone 4571275070471_3.jpg](https://www.azone-int.co.jp/image/4571275070471_3.jpg)
+- [05.jpg](05.jpg) ｜ 相关商品页图片来源：[Azone 4571275070471_4.jpg](https://www.azone-int.co.jp/image/4571275070471_4.jpg)
+- 说明：Azone 页面为 `一騎当千/呂蒙 子明 60cmドールフィギュア`，与本条 `呂蒙子明メイド服Ver.` 的联动脉络相关；尺寸/版本仍需后续复核。
 
 ### 商品页面正文
 标题：一騎当千 呂蒙子明メイド服Ver.
@@ -24,7 +29,9 @@
 ### 来源说明
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [Azone 他社商品一覧](https://www.azone-int.co.jp/?sid=cct202)
-
+- [Azone 一騎当千/呂蒙 子明 60cmドールフィギュア](https://www.azone-int.co.jp/?sid=cct203&jcd=4571275070471)
+- 未采纳候选：JohnnyJoy 页面作为旧款列表线索，不下载列表图。
+- 检索词：`4571275070471`、`一騎当千 呂蒙 子明 60cmドールフィギュア`、`呂蒙子明メイド服Ver.`
 ## 原文（日文）
 
 # 一騎当千 呂蒙子明メイド服Ver.
@@ -38,7 +45,12 @@
 - 成型色：公開資料未完整確認
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 関連商品ページ画像出典：[Azone 4571275070471_1.jpg](https://www.azone-int.co.jp/image/4571275070471_1.jpg)
+- [03.jpg](03.jpg) ｜ 関連商品ページ画像出典：[Azone 4571275070471_2.jpg](https://www.azone-int.co.jp/image/4571275070471_2.jpg)
+- [04.jpg](04.jpg) ｜ 関連商品ページ画像出典：[Azone 4571275070471_3.jpg](https://www.azone-int.co.jp/image/4571275070471_3.jpg)
+- [05.jpg](05.jpg) ｜ 関連商品ページ画像出典：[Azone 4571275070471_4.jpg](https://www.azone-int.co.jp/image/4571275070471_4.jpg)
+- 注記：Azone ページは `一騎当千/呂蒙 子明 60cmドールフィギュア`。本条 `呂蒙子明メイド服Ver.` の連動資料として保存し、寸法/版差は後続確認対象。
 
 ### 商品ページ本文
 タイトル：一騎当千 呂蒙子明メイド服Ver.
@@ -49,3 +61,6 @@
 ### 出典
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [Azone 他社商品一覧](https://www.azone-int.co.jp/?sid=cct202)
+- [Azone 一騎当千/呂蒙 子明 60cmドールフィギュア](https://www.azone-int.co.jp/?sid=cct203&jcd=4571275070471)
+- 採用しなかった候補：JohnnyJoy は旧商品リスト線索として保持し、一覧画像は保存しない。
+- 検索語：`4571275070471`、`一騎当千 呂蒙 子明 60cmドールフィギュア`、`呂蒙子明メイド服Ver.`

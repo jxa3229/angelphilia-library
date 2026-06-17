@@ -13,7 +13,9 @@
 - 肤色：褐色肌
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：[Azone Akiba r008.jpg](https://blog-imgs-47.fc2.com/a/z/o/azoneakiba/r008.jpg)
+- [03.jpg](03.jpg) ｜ 图片来源：[Azone Akiba r007.jpg](https://blog-imgs-47.fc2.com/a/z/o/azoneakiba/r007.jpg)
 
 ### 商品页面正文
 标题：vmf50 Dollcore Image Girl #04 絽媚奈～ROMINA～
@@ -23,7 +25,11 @@
 
 ### 来源说明
 - [Azone Akiba やまと vmf50 カテゴリ](https://azoneakiba.blog.fc2.com/blog-category-16.html)
+- [Azone Akiba vmf50「dollcore image girl #4 絽媚奈(ロミナ)」入荷のお知らせ](https://azoneakiba.blog.fc2.com/blog-entry-1483.html?sp=)
+- [Azone Akiba dollcore image girl #3 / #4 入荷のお知らせ](https://azoneakiba.blog.fc2.com/blog-entry-1496.html?sp=)
 - [駿河屋 Dollcore Image Girl #04 絽媚奈](https://www.suruga-ya.jp/kaitori/kaitori_detail/990013132)
+- 未采纳候选：Suruga-ya 与 AmiAmi 页面可作商品确认，但当前页面/图片直链受访问限制或返回 403/404。
+- 检索词：`"Dollcore Image Girl #04" "絽媚奈"`、`"vmf50" "絽媚奈" "AmiAmi"`、`990013132`
 
 ## 原文（日文）
 
@@ -38,7 +44,9 @@
 - 成型色：褐色肌
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：[Azone Akiba r008.jpg](https://blog-imgs-47.fc2.com/a/z/o/azoneakiba/r008.jpg)
+- [03.jpg](03.jpg) ｜ 画像出典：[Azone Akiba r007.jpg](https://blog-imgs-47.fc2.com/a/z/o/azoneakiba/r007.jpg)
 
 ### 商品ページ本文
 タイトル：vmf50 Dollcore Image Girl #04 絽媚奈～ROMINA～
@@ -48,4 +56,8 @@
 
 ### 出典
 - [Azone Akiba やまと vmf50 カテゴリ](https://azoneakiba.blog.fc2.com/blog-category-16.html)
+- [Azone Akiba vmf50「dollcore image girl #4 絽媚奈(ロミナ)」入荷のお知らせ](https://azoneakiba.blog.fc2.com/blog-entry-1483.html?sp=)
+- [Azone Akiba dollcore image girl #3 / #4 入荷のお知らせ](https://azoneakiba.blog.fc2.com/blog-entry-1496.html?sp=)
 - [駿河屋 Dollcore Image Girl #04 絽媚奈](https://www.suruga-ya.jp/kaitori/kaitori_detail/990013132)
+- 採用しなかった候補：Suruga-ya と AmiAmi は商品確認用に保持。現時点でページまたは画像直リンクは 403/404 のため保存しない。
+- 検索語：`"Dollcore Image Girl #04" "絽媚奈"`、`"vmf50" "絽媚奈" "AmiAmi"`、`990013132`

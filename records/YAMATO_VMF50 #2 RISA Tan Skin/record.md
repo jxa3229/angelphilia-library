@@ -13,7 +13,8 @@
 - 肤色：褐色
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：https://blog-imgs-49-origin.fc2.com/a/z/o/azoneosaka/201112171541332e7.jpg
 
 ### 商品页面正文
 标题：vmf50 Original Image Girl #2 RISA 褐色肌
@@ -24,6 +25,9 @@
 ### 来源说明
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [駿河屋 vmf50 RISA #2](https://www.suruga-ya.jp/kaitori/kaitori_detail/990008050)
+- [Azone Osaka YAMATO vmf50【girl*holic】商品入荷のお知らせ](https://azoneosaka.blog.fc2.com/blog-entry-862.html)
+- 未采纳候选：Azone Akihabara `blog-entry-1353.html` 是普通 RISA 再入荷页，未标注褐色ver.；同一图片的 `201112171541332e7s.jpg` 为缩略图。
+- 检索词：`"vmf50 Original Concept Image Girl #2 RISA 褐色ver."`、`"RISA" "褐色" "vmf50"`、`201112171541332e7`
 
 ## 原文（日文）
 
@@ -38,7 +42,8 @@
 - 成型色：褐色
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：https://blog-imgs-49-origin.fc2.com/a/z/o/azoneosaka/201112171541332e7.jpg
 
 ### 商品ページ本文
 タイトル：vmf50 Original Image Girl #2 RISA 褐色肌
@@ -49,3 +54,6 @@
 ### 出典
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [駿河屋 vmf50 RISA #2](https://www.suruga-ya.jp/kaitori/kaitori_detail/990008050)
+- [Azone Osaka YAMATO vmf50【girl*holic】商品入荷のお知らせ](https://azoneosaka.blog.fc2.com/blog-entry-862.html)
+- 採用しなかった候補：Azone Akihabara `blog-entry-1353.html` は通常 RISA の再入荷ページで、褐色ver. の記載なし。同一画像の `201112171541332e7s.jpg` はサムネイル。
+- 検索語：`"vmf50 Original Concept Image Girl #2 RISA 褐色ver."`、`"RISA" "褐色" "vmf50"`、`201112171541332e7`

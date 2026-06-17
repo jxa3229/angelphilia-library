@@ -13,7 +13,10 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：https://images.keizai.biz/akiba_keizai/headline/1207651627_photo.jpg
+- [03.jpg](03.jpg) ｜ 图片来源：https://images.keizai.biz/akiba_keizai/photonews/1207651851_b.jpg
+- [04.jpg](04.jpg) ｜ 图片来源：https://images.keizai.biz/akiba_keizai/photonews/1207651781_b.jpg
 
 ### 商品页面正文
 标题：vmf50 超時空要塞マクロス リン・ミンメイ 50cmフィギュア
@@ -24,6 +27,10 @@
 ### 来源说明
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [Azone リン・ミンメイ対応チャイナドレスセット](https://www.azone-int.co.jp/?jcd=4535255090286&sid=cct203)
+- [アキバ経済新聞 やまと「vmf50 リン・ミンメイ 50cmフィギュア」受注受付](https://akiba.keizai.biz/headline/910/)
+- [アキバ経済新聞 やまと「ミンメイ」ドール](https://akiba.keizai.biz/photoflash/267/)
+- 未采纳候选：Azone チャイナドレスセット页面为服装配件图，仅用于确认本体名称；未下载服装单品图。
+- 检索词：`"vmf50 リン・ミンメイ 50cmフィギュア"`、`"Macross" "Lynn Minmay" "vmf50"`、`1207651627_photo`
 
 ## 原文（日文）
 
@@ -38,7 +45,10 @@
 - 成型色：公開資料未完整確認
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：https://images.keizai.biz/akiba_keizai/headline/1207651627_photo.jpg
+- [03.jpg](03.jpg) ｜ 画像出典：https://images.keizai.biz/akiba_keizai/photonews/1207651851_b.jpg
+- [04.jpg](04.jpg) ｜ 画像出典：https://images.keizai.biz/akiba_keizai/photonews/1207651781_b.jpg
 
 ### 商品ページ本文
 タイトル：vmf50 超時空要塞マクロス リン・ミンメイ 50cmフィギュア
@@ -49,3 +59,7 @@
 ### 出典
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
 - [Azone リン・ミンメイ対応チャイナドレスセット](https://www.azone-int.co.jp/?jcd=4535255090286&sid=cct203)
+- [アキバ経済新聞 やまと「vmf50 リン・ミンメイ 50cmフィギュア」受注受付](https://akiba.keizai.biz/headline/910/)
+- [アキバ経済新聞 やまと「ミンメイ」ドール](https://akiba.keizai.biz/photoflash/267/)
+- 採用しなかった候補：Azone チャイナドレスセットページは衣装単品の確認用。本体画像としては採用しない。
+- 検索語：`"vmf50 リン・ミンメイ 50cmフィギュア"`、`"Macross" "Lynn Minmay" "vmf50"`、`1207651627_photo`

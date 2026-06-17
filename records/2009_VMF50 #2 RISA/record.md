@@ -13,7 +13,12 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页仍可作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：[HLJ ymt34785_0.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_0.jpg)
+- [03.jpg](03.jpg) ｜ 图片来源：[HLJ ymt34785_1.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_1.jpg)
+- [04.jpg](04.jpg) ｜ 图片来源：[HLJ ymt34785_2.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_2.jpg)
+- [05.jpg](05.jpg) ｜ 图片来源：[HLJ ymt34785_3.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_3.jpg)
+- [06.jpg](06.jpg) ｜ 图片来源：[HLJ ymt34785_4.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_4.jpg)
 
 ### 商品页面正文
 标题：Yamato VMF50 Original Concept Image Girl #2 RISA
@@ -22,6 +27,9 @@
 
 ### 来源说明
 - [VMF50 - Classifications — MyFigureCollection.net](https://myfigurecollection.net/entry/32014)
+- [HLJ vmf50 Original Concept Image Girl #2: RISA](https://www.hlj.com/vmf50-original-concept-image-girl-2-risa-ymt34785)
+- 未采纳候选：MFC 分类页可作索引但不提供本条稳定商品图；Azone 旧博客可作交叉线索，图片未优先采用。
+- 检索词：`"VMF50 #2 RISA"`、`"Yamato VMF50" "#2 RISA"`、`ymt34785`
 
 ## 原文（日文）
 
@@ -36,7 +44,12 @@
 - 成型色：公开资料未完整确认
 
 ### 画像
-- 画像は未保存。公開ソースは検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：[HLJ ymt34785_0.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_0.jpg)
+- [03.jpg](03.jpg) ｜ 画像出典：[HLJ ymt34785_1.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_1.jpg)
+- [04.jpg](04.jpg) ｜ 画像出典：[HLJ ymt34785_2.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_2.jpg)
+- [05.jpg](05.jpg) ｜ 画像出典：[HLJ ymt34785_3.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_3.jpg)
+- [06.jpg](06.jpg) ｜ 画像出典：[HLJ ymt34785_4.jpg](https://www.hlj.com/productthumbs/ymt/ymt34785_4.jpg)
 
 ### 商品ページ本文
 タイトル：Yamato VMF50 Original Concept Image Girl #2 RISA
@@ -45,3 +58,6 @@
 
 ### 出典
 - [VMF50 - Classifications — MyFigureCollection.net](https://myfigurecollection.net/entry/32014)
+- [HLJ vmf50 Original Concept Image Girl #2: RISA](https://www.hlj.com/vmf50-original-concept-image-girl-2-risa-ymt34785)
+- 採用しなかった候補：MFC 分類ページは索引として保持。Azone 旧ブログは交差確認用で、今回は HLJ 商品画像を優先。
+- 検索語：`"VMF50 #2 RISA"`、`"Yamato VMF50" "#2 RISA"`、`ymt34785`

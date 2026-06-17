@@ -13,7 +13,8 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：https://blog-imgs-51-origin.fc2.com/a/z/o/azoneosaka/PH1352958758.jpg
 
 ### 商品页面正文
 标题：vmf50 Original Image Girl #1 MIU 再販版
@@ -23,6 +24,9 @@
 
 ### 来源说明
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
+- [Azone Osaka YAMATO 『vmf50 Original Concept Image Girl #1 MIU』 再入荷のお知らせ](https://azoneosaka.blog.fc2.com/blog-entry-1261.html)
+- 未采纳候选：`PH1352958758s.jpg` 为同图缩略图；普通 MIU 的 Quarantotto 商品图不用于本再販版条目。
+- 检索词：`"vmf50 Original Concept Image Girl #1 MIU" "再入荷"`、`"MIU" "再販版" "vmf50"`、`PH1352958758`
 
 ## 原文（日文）
 
@@ -37,7 +41,8 @@
 - 成型色：公開資料未完整確認
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：https://blog-imgs-51-origin.fc2.com/a/z/o/azoneosaka/PH1352958758.jpg
 
 ### 商品ページ本文
 タイトル：vmf50 Original Image Girl #1 MIU 再販版
@@ -47,3 +52,6 @@
 
 ### 出典
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
+- [Azone Osaka YAMATO 『vmf50 Original Concept Image Girl #1 MIU』 再入荷のお知らせ](https://azoneosaka.blog.fc2.com/blog-entry-1261.html)
+- 採用しなかった候補：`PH1352958758s.jpg` は同一画像のサムネイル。通常 MIU の Quarantotto 商品画像は本再販版には採用しない。
+- 検索語：`"vmf50 Original Concept Image Girl #1 MIU" "再入荷"`、`"MIU" "再販版" "vmf50"`、`PH1352958758`

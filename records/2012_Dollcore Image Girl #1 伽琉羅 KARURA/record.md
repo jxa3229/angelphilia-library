@@ -13,7 +13,8 @@
 - 肤色：公开资料未完整确认
 
 ### 图片
-- 未下载图片；公开来源页作为查询入口。
+- [01.jpg](01.jpg) ｜ 既有本地图片，来源待复核。
+- [02.jpg](02.jpg) ｜ 图片来源：[Azone Osaka KARURA.jpg](https://blog-imgs-51-origin.fc2.com/a/z/o/azoneosaka/KARURA.jpg)
 
 ### 商品页面正文
 标题：vmf50 Dollcore Image Girl #1 伽琉羅～KARURA～
@@ -24,6 +25,8 @@
 ### 来源说明
 - [駿河屋 vmf50 Dollcore Image Girl #1 伽琉羅](https://www.suruga-ya.jp/kaitori/kaitori_detail/990016103)
 - [Azone Osaka DOLL*HOLIC ぷち in 大阪](https://azoneosaka.blog.fc2.com/blog-entry-1221.html)
+- 未采纳候选：Suruga-ya 页面仅取得低清二手商品缩略图，保留为来源线索但不下载入库；Azone 页面正文明确 `dollcore image girl #1 伽琉羅`，优先采纳 Azone 商品/参考图。
+- 检索词：`"Dollcore Image Girl #1" "KARURA"`、`"伽琉羅" "Azone" "vmf50"`、`"KARURA.jpg" "azoneosaka"`
 
 ## 原文（日文）
 
@@ -38,7 +41,8 @@
 - 成型色：公開資料未完整確認
 
 ### 画像
-- 画像は未保存。公開ソースを検索入口として残す。
+- [01.jpg](01.jpg) ｜ 既存ローカル画像。出典は再確認対象。
+- [02.jpg](02.jpg) ｜ 画像出典：[Azone Osaka KARURA.jpg](https://blog-imgs-51-origin.fc2.com/a/z/o/azoneosaka/KARURA.jpg)
 
 ### 商品ページ本文
 タイトル：vmf50 Dollcore Image Girl #1 伽琉羅～KARURA～
@@ -49,3 +53,5 @@
 ### 出典
 - [駿河屋 vmf50 Dollcore Image Girl #1 伽琉羅](https://www.suruga-ya.jp/kaitori/kaitori_detail/990016103)
 - [Azone Osaka DOLL*HOLIC ぷち in 大阪](https://azoneosaka.blog.fc2.com/blog-entry-1221.html)
+- 採用しなかった候補：Suruga-ya ページからは低解像度の中古商品サムネイルのみ取得できたため、出典線索として保持し、入庫しない。Azone ページ本文が `dollcore image girl #1 伽琉羅` と一致するため Azone 画像を優先採用。
+- 検索語：`"Dollcore Image Girl #1" "KARURA"`、`"伽琉羅" "Azone" "vmf50"`、`"KARURA.jpg" "azoneosaka"`

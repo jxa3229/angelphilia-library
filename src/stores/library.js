@@ -38,8 +38,7 @@ export const useLibraryStore = defineStore('library', () => {
         record.head,
         record.body,
         record.skin,
-        record.source,
-        record.folder
+        record.source
       ].join(' ').toLowerCase()
 
       return (!keyword || haystack.includes(keyword))

@@ -35,6 +35,8 @@
 - **命名约定:** `records.json` 中条目使用 `safeFolder` 和 `detailKey` 关联 `public/media/` 与 `public/details/{detailKey}.html`。
 - **文件组织:** 新增数据生成能力优先放入 `scripts/`，不要把 docx 转换逻辑放到浏览器运行时。
 - **资源路径:** 所有运行时图片路径应指向 `media/{safeFolder}/...`，并通过 `assetUrl()` 结合 `import.meta.env.BASE_URL` 生成部署路径。
+- **配件阁数据:** `bodyParts.json`、`headParts.json` 和 `part网络数据s.json` 必须保持静态可打包，所有非空尺寸值必须为 number、单位必须为 `cm` 且必须有泛化 `sourceId`。
+- **来源脱敏:** 配件阁 UI、JSON、spec 和复制内容不得保存或展示具体来源 URL、平台、作者或截图说明；用户可见来源统一为“网络数据”。`Obitsu` 仅可作为配件体系名称或默认件名称出现。
 
 ## 部署方式
 
@@ -47,6 +49,7 @@
 - **内容来源:** 页面展示本地维护的档案内容和外部来源链接；外链使用 `target="_blank"` 时必须保留 `rel="noopener noreferrer"`。
 - **HTML 渲染:** 全仓库仅详情页保留一个受控 `v-html` 入口，渲染前必须通过 `sanitizeHtml()` 白名单过滤；仓库说明等普通链接不得通过 HTML 字符串渲染。
 - **静态构建:** 不在仓库提交 `dist/`、`public/media/`、`public/records/` 等生成产物。
+- **配件阁校验:** 发布前运行 `npm run validate:body-parts`，阻断具体来源文本、缺失 `sourceId`、非 `cm` 单位和 P 型 eye size 误补。
 
 ---
-*最后更新: 2026-06-11 — 初始化生成*
+*最后更新: 2026-06-18 — 增加配件阁来源脱敏和数据校验约束*

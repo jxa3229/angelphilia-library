@@ -11,6 +11,7 @@ export const usePreferencesStore = defineStore('preferences', () => {
   const navItems = computed(() => [
     { route: 'overview', label: copy.value.navSummary },
     { route: 'library', label: copy.value.navLibrary },
+    { route: 'body-builder', label: copy.value.navBodyBuilder, bubble: copy.value.bodyBuilderBubble },
     { route: 'index', label: copy.value.navIndex },
     { route: 'repository', label: copy.value.navRepo }
   ])

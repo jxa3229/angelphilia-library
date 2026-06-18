@@ -16,7 +16,8 @@
         :class="{ active: route.name === item.route }"
         @click="handleNav(item.route)"
       >
-        {{ item.label }}
+        <span>{{ item.label }}</span>
+        <strong v-if="item.bubble" class="comic-bubble">{{ item.bubble }}</strong>
       </RouterLink>
     </nav>
 

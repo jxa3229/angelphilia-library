@@ -1,0 +1,352 @@
+{
+  "measurementFields": [
+    { "key": "height", "label": "身长", "slot": "frame" },
+    { "key": "neckCircumference", "label": "脖围", "slot": "frame" },
+    { "key": "shoulderWidth", "label": "肩宽", "slot": "frame" },
+    { "key": "bustCircumference", "label": "胸围", "slot": "upperTorso" },
+    { "key": "waistCircumference", "label": "腰围", "slot": "lowerTorso" },
+    { "key": "hipCircumference", "label": "臀围", "slot": "lowerTorso" },
+    { "key": "thighCircumference", "label": "大腿围", "slot": "thigh" },
+    { "key": "calfCircumference", "label": "小腿围", "slot": "shin" },
+    { "key": "upperArmCircumference", "label": "上臂围", "slot": "upperArm" },
+    { "key": "forearmCircumference", "label": "下臂围", "slot": "forearm" },
+    { "key": "footLength", "label": "脚长", "slot": "foot" }
+  ],
+  "bodyCodes": {
+    "primaryPattern": ["upperTorso", "lowerTorso", "thigh"],
+    "defaultCode": "GHH",
+    "example": "HHC"
+  },
+  "defaults": {
+    "frame": "frame-obitsu-50-network",
+    "initialSelection": {
+      "upperTorso": "upper-g-network",
+      "lowerTorso": "lower-h-network",
+      "thigh": "thigh-h-network",
+      "head": null,
+      "includeHeadMeasurements": false
+    },
+    "shin": "shin-obitsu-50-network",
+    "upperArm": "upper-arm-obitsu-50-network",
+    "forearm": "forearm-obitsu-50-network",
+    "hand": "hand-obitsu-50-network",
+    "foot": "foot-obitsu-50-network"
+  },
+  "presets": [
+    {
+      "id": "default-current-ghh",
+      "label": "GHH 当前默认",
+      "code": "GHH",
+      "parts": {
+        "upperTorso": "upper-g-network",
+        "lowerTorso": "lower-h-network",
+        "thigh": "thigh-h-network"
+      }
+    },
+    {
+      "id": "archive-gcc",
+      "label": "GCC",
+      "code": "GCC",
+      "fallbackDescription": "暂无精确档案例，按尺寸表试配",
+      "parts": {
+        "upperTorso": "upper-g-network",
+        "lowerTorso": "lower-c-network",
+        "thigh": "thigh-c-network"
+      }
+    },
+    {
+      "id": "archive-hhh",
+      "label": "HHH",
+      "code": "HHH",
+      "fallbackDescription": "档案示例：MITSUKI、RIKO、瑠音(RURU)",
+      "parts": {
+        "upperTorso": "upper-h-network",
+        "lowerTorso": "lower-h-network",
+        "thigh": "thigh-h-network"
+      }
+    }
+  ],
+  "parts": [
+    {
+      "id": "frame-obitsu-50-network",
+      "type": "Obitsu",
+      "category": "frame",
+      "label": "Obitsu 50 frame",
+      "isDefault": true,
+      "measurements": {
+        "height": { "value": 50, "unit": "cm", "sourceId": "network-obitsu-baseline" },
+        "shoulderWidth": { "value": 7, "unit": "cm", "sourceId": "network-obitsu-baseline" }
+      }
+    },
+    {
+      "id": "upper-c1-network",
+      "type": "C1",
+      "category": "upperTorso",
+      "label": "Type-C1 胸",
+      "measurements": {
+        "bustCircumference": { "value": 16.8, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-c2-network",
+      "type": "C2",
+      "category": "upperTorso",
+      "label": "Type-C2 胸",
+      "measurements": {
+        "bustCircumference": { "value": 23, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-c3-network",
+      "type": "C3",
+      "category": "upperTorso",
+      "label": "Type-C3 胸",
+      "measurements": {
+        "bustCircumference": { "value": 23, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-c4-network",
+      "type": "C4",
+      "category": "upperTorso",
+      "label": "Type-C4 胸",
+      "measurements": {
+        "bustCircumference": { "value": 30.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-c5-network",
+      "type": "C5",
+      "category": "upperTorso",
+      "label": "Type-C5 胸",
+      "measurements": {
+        "bustCircumference": { "value": 21, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-c6-network",
+      "type": "C6",
+      "category": "upperTorso",
+      "label": "Type-C6 胸",
+      "measurements": {
+        "bustCircumference": { "value": 21.1, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-f-network",
+      "type": "F",
+      "category": "upperTorso",
+      "label": "Type-F 胸",
+      "measurements": {
+        "bustCircumference": { "value": 19.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-g-network",
+      "type": "G",
+      "category": "upperTorso",
+      "label": "Type-G 胸",
+      "measurements": {
+        "bustCircumference": { "value": 25, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-h-network",
+      "type": "H",
+      "category": "upperTorso",
+      "label": "Type-H 胸",
+      "measurements": {
+        "bustCircumference": { "value": 19.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-h2-network",
+      "type": "H2",
+      "category": "upperTorso",
+      "label": "Type-H2 胸",
+      "measurements": {
+        "bustCircumference": { "value": 17.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      },
+      "notes": "仅有胸围数据"
+    },
+    {
+      "id": "upper-h3-network",
+      "type": "H3",
+      "category": "upperTorso",
+      "label": "Type-H3 胸",
+      "measurements": {
+        "bustCircumference": { "value": 29, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-h4-network",
+      "type": "H4",
+      "category": "upperTorso",
+      "label": "Type-H4 胸",
+      "measurements": {
+        "bustCircumference": { "value": 26.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-h5-network",
+      "type": "H5",
+      "category": "upperTorso",
+      "label": "Type-H5 胸",
+      "measurements": {
+        "bustCircumference": { "value": 29, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "upper-i-network",
+      "type": "I",
+      "category": "upperTorso",
+      "label": "Type-I 胸",
+      "measurements": {
+        "bustCircumference": { "value": 20, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "lower-c-network",
+      "type": "C",
+      "category": "lowerTorso",
+      "label": "Type-C 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 13.1, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 21.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "lower-c1-network",
+      "type": "C1",
+      "category": "lowerTorso",
+      "label": "Type-C1 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 13.1, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 21.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "lower-g-network",
+      "type": "G",
+      "category": "lowerTorso",
+      "label": "Type-G 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 13, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 22.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "lower-h-network",
+      "type": "H",
+      "category": "lowerTorso",
+      "label": "Type-H 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 15, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 24, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "lower-i-network",
+      "type": "I",
+      "category": "lowerTorso",
+      "label": "Type-I 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 20, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 25, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "thigh-c-network",
+      "type": "C",
+      "category": "thigh",
+      "label": "Type-C 大腿",
+      "measurements": {
+        "thighCircumference": { "value": 13.6, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "thigh-c1-network",
+      "type": "C1",
+      "category": "thigh",
+      "label": "Type-C1 大腿",
+      "measurements": {
+        "thighCircumference": { "value": 13.6, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "thigh-g-network",
+      "type": "G",
+      "category": "thigh",
+      "label": "Type-G 大腿",
+      "measurements": {
+        "thighCircumference": { "value": 14.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "thigh-h-network",
+      "type": "H",
+      "category": "thigh",
+      "label": "Type-H 大腿",
+      "measurements": {
+        "thighCircumference": { "value": 16.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "thigh-i-network",
+      "type": "I",
+      "category": "thigh",
+      "label": "Type-I 大腿",
+      "measurements": {
+        "thighCircumference": { "value": 16.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      }
+    },
+    {
+      "id": "shin-obitsu-50-network",
+      "type": "Obitsu",
+      "category": "shin",
+      "label": "Obitsu default 小腿",
+      "isDefault": true,
+      "measurements": {
+        "calfCircumference": { "value": 9, "unit": "cm", "sourceId": "network-obitsu-baseline" }
+      }
+    },
+    {
+      "id": "upper-arm-obitsu-50-network",
+      "type": "Obitsu",
+      "category": "upperArm",
+      "label": "Obitsu default 上臂",
+      "isDefault": true,
+      "measurements": {
+        "upperArmCircumference": { "value": 6.3, "unit": "cm", "sourceId": "network-obitsu-baseline" }
+      }
+    },
+    {
+      "id": "forearm-obitsu-50-network",
+      "type": "Obitsu",
+      "category": "forearm",
+      "label": "Obitsu default 下臂",
+      "isDefault": true,
+      "measurements": {
+        "forearmCircumference": { "value": 5.9, "unit": "cm", "sourceId": "network-obitsu-baseline" }
+      }
+    },
+    {
+      "id": "hand-obitsu-50-network",
+      "type": "Obitsu",
+      "category": "hand",
+      "label": "Obitsu default 手",
+      "isDefault": true,
+      "measurements": {}
+    },
+    {
+      "id": "foot-obitsu-50-network",
+      "type": "Obitsu",
+      "category": "foot",
+      "label": "Obitsu default 脚",
+      "isDefault": true,
+      "measurements": {
+        "footLength": { "value": 5.7, "unit": "cm", "sourceId": "network-obitsu-baseline" }
+      }
+    }
+  ]
+}

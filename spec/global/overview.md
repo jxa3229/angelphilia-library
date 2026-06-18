@@ -17,7 +17,7 @@
 - **本地 records 档案:** 作为图片与 `record.docx` 的源数据，构建时复制到 `public/media/`。
 - **`index_local.html`:** 作为馆藏结构化 JSON 的源文件，`scripts/extract-library-data.mjs` 从其中提取 `src/data/records.json`。
 - **GitHub Pages:** 通过 `.github/workflows/pages.yml` 执行 `npm ci` 和 `npm run build`，发布 `dist/`。
-- **外部官方页面:** 仅作为记录中的引用链接，运行时不依赖实时外部请求。
+- **外部网络数据页面:** 仅作为记录中的引用链接，运行时不依赖实时外部请求。
 
 ## 核心业务流程
 

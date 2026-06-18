@@ -1,0 +1,157 @@
+[
+  {
+    "id": "head-g-network",
+    "type": "G",
+    "label": "Type-G",
+    "measurements": {
+      "headCircumference": { "value": 17.4, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" },
+      { "raw": "14/8", "outerDiameterMm": 14, "irisDiameterMm": 8, "sourceId": "network-eye-size-chart" },
+      { "raw": "16/8", "outerDiameterMm": 16, "irisDiameterMm": 8, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-h-network",
+    "type": "H",
+    "label": "Type-H",
+    "measurements": {
+      "headCircumference": { "value": 17.8, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" },
+      { "raw": "14/8", "outerDiameterMm": 14, "irisDiameterMm": 8, "sourceId": "network-eye-size-chart" },
+      { "raw": "16/8", "outerDiameterMm": 16, "irisDiameterMm": 8, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-j-network",
+    "type": "J",
+    "label": "Type-J",
+    "measurements": {
+      "headCircumference": { "value": 17.3, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/8", "outerDiameterMm": 14, "irisDiameterMm": 8, "sourceId": "network-eye-size-chart" },
+      { "raw": "16/8", "outerDiameterMm": 16, "irisDiameterMm": 8, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-k-network",
+    "type": "K",
+    "label": "Type-K",
+    "measurements": {
+      "headCircumference": { "value": 17.5, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-l-network",
+    "type": "L",
+    "label": "Type-L",
+    "measurements": {
+      "headCircumference": { "value": 17.6, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/6", "outerDiameterMm": 14, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" },
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-m-network",
+    "type": "M",
+    "label": "Type-M",
+    "measurements": {
+      "headCircumference": { "value": 17.4, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "12/6", "outerDiameterMm": 12, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" },
+      { "raw": "14/6", "outerDiameterMm": 14, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" },
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "new-mold-2022-2023"
+  },
+  {
+    "id": "head-n-network",
+    "type": "N",
+    "label": "Type-N",
+    "measurements": {
+      "headCircumference": { "value": 17.1, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/6", "outerDiameterMm": 14, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" },
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "new-mold-2022-2023"
+  },
+  {
+    "id": "head-o-network",
+    "type": "O",
+    "label": "Type-O",
+    "measurements": {
+      "headCircumference": { "value": 16.8, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "12/5", "outerDiameterMm": 12, "irisDiameterMm": 5, "sourceId": "network-eye-size-chart" },
+      { "raw": "12/6", "outerDiameterMm": 12, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "new-mold-2022-2023"
+  },
+  {
+    "id": "head-p-network",
+    "type": "P",
+    "label": "Type-P",
+    "measurements": {
+      "headCircumference": { "value": 17.2, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [],
+    "eyeSizeStatus": "pending",
+    "revision": "standard"
+  },
+  {
+    "id": "head-q-network",
+    "type": "Q",
+    "label": "Type-Q",
+    "measurements": {
+      "headCircumference": { "value": 17.3, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "12/5", "outerDiameterMm": 12, "irisDiameterMm": 5, "sourceId": "network-eye-size-chart" },
+      { "raw": "12/6", "outerDiameterMm": 12, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-r-network",
+    "type": "R",
+    "label": "Type-R",
+    "measurements": {
+      "headCircumference": { "value": 16.7, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "12/5", "outerDiameterMm": 12, "irisDiameterMm": 5, "sourceId": "network-eye-size-chart" },
+      { "raw": "12/6", "outerDiameterMm": 12, "irisDiameterMm": 6, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  },
+  {
+    "id": "head-s-network",
+    "type": "S",
+    "label": "Type-S",
+    "measurements": {
+      "headCircumference": { "value": 17.4, "unit": "cm", "sourceId": "network-head-girth-chart", "toleranceCm": 0.5 }
+    },
+    "eyeSizeOptions": [
+      { "raw": "14/7", "outerDiameterMm": 14, "irisDiameterMm": 7, "sourceId": "network-eye-size-chart" }
+    ],
+    "revision": "standard"
+  }
+]

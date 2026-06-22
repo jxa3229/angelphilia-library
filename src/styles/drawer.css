@@ -1,0 +1,55 @@
+.drawer-content {
+  display: grid;
+  gap: 18px;
+  color: var(--ink);
+}
+
+.detail-carousel,
+.drawer-empty-image {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+
+.detail-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #111;
+}
+
+.drawer-empty-image {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.drawer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.el-drawer {
+  background: var(--surface) !important;
+  color: var(--ink);
+}
+
+.el-drawer__header {
+  margin-bottom: 0;
+  padding-bottom: 18px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.el-drawer__body {
+  color: var(--ink);
+}
+
+.el-carousel__container {
+  background: #111;
+}
+

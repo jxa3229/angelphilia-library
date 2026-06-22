@@ -1,10 +1,10 @@
-# Package 依赖清理计划（待实施）
+# Package 依赖清理计划（已实施）
 
 ## 背景
 
 当前 `package.json` 的直接依赖并不多，`node_modules` 中看起来“很多”的包主要来自 `vite`、`vue`、`element-plus` 等正常传递依赖。依赖清理不建议直接删除 `node_modules` 里的传递包，而应从 `package.json` 的直接依赖入手，再通过 `npm install` 重新生成 `package-lock.json`。
 
-本计划只记录待实施方案，本轮不直接修改 `package.json` / `package-lock.json`。
+本计划原用于记录待实施方案；当前已完成 `mammoth` 清理，并保留图标按需优化记录。
 
 ## 当前直接依赖
 
@@ -14,8 +14,8 @@
 |---|---|---|
 | `vue` | 保留 | `src/main.js`、`src/App.vue` 直接使用 Vue 3。 |
 | `element-plus` | 保留 | 页面大量使用 `el-button`、`el-table`、`el-select`、`el-carousel`、`el-empty`、`el-tag` 等 Element Plus 组件。 |
-| `@element-plus/icons-vue` | 保留 | `src/main.js` 全量注册图标，`src/App.vue` 直接 import `Back`、`Monitor`、`Moon`、`Refresh`、`Right`、`Search`、`Sunny`。虽然它也是 `element-plus` 的传递依赖，但项目直接 import，应继续显式声明。 |
-| `mammoth` | 待清理候选 | 当前源码和脚本未发现任何 `mammoth` import / require；`scripts/extract-docx-details.mjs` 已改为读取 `record.md` 并转换 HTML，不再解析 `.docx`。 |
+| `@element-plus/icons-vue` | 保留 | 组件按需 import `Back`、`Monitor`、`Moon`、`Refresh`、`Right`、`Search`、`CopyDocument` 等图标；项目直接 import，应继续显式声明。 |
+| `mammoth` | 已清理 | 当前源码和脚本未发现任何 `mammoth` import / require；`scripts/extract-docx-details.mjs` 已改为读取 `record.md` 并转换 HTML，不再解析 `.docx`。 |
 
 ### devDependencies
 
@@ -26,7 +26,7 @@
 
 ## 推荐清理项
 
-### P1：移除未使用的 `mammoth`
+### P1：移除未使用的 `mammoth`（已完成）
 
 判断：可以清理，但建议先作为独立小提交实施。
 
@@ -36,7 +36,7 @@
 - `rg` 扫描 `src/`、`scripts/`、`vite.config.js` 未发现使用。
 - 当前详情生成链路是 `record.md -> public/details/*.html`，不是 `record.docx -> html`。
 
-待执行命令：
+已执行命令：
 
 ```powershell
 npm.cmd uninstall mammoth
@@ -82,16 +82,15 @@ npm.cmd install mammoth
 
 构建工具链必需，不能清理。
 
-## 待实施步骤
+## 已实施步骤
 
-1. 建立独立分支或独立提交，仅处理依赖清理。
-2. 执行 `npm.cmd uninstall mammoth`。
+1. 执行 `npm.cmd uninstall mammoth`。
+2. 确认 `package.json` 和 `package-lock.json` 不再包含 `mammoth`。
 3. 执行 `npm.cmd run build`。
-4. 检查 `dist/` 构建输出、`public/details/` 详情文件和页面详情加载行为。
-5. 如 build 通过，再决定是否进入第二阶段：图标按需注册优化。
+4. 图标优化已移除 `src/main.js` 中的全量注册，组件继续按需 import 图标。
 
 ## 风险
 
 - 如果后续重新启用 `.docx` 直接解析，可能需要恢复 `mammoth` 或改为 devDependency。
 - 当前 `record.docx` 文件仍存在，但构建脚本实际读取的是 `record.md`，因此删除 `mammoth` 不应影响现有构建。
-- 图标全量注册会影响 bundle 体积，但清理方式是改代码，不是删除 package，需另开任务验证。
+- 图标全量注册已移除；后续若继续优化 bundle，可再评估 Element Plus 组件按需导入。

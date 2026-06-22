@@ -14,7 +14,7 @@
 - **缓存:** （未检测到）。
 - **构建工具:** Vite 6。
 - **包管理器:** npm，使用 `package-lock.json` 固定依赖。
-- **文档转换:** `mammoth` 用于 docx 转 HTML。
+- **文档转换:** `scripts/extract-docx-details.mjs` 读取 `record.md` 并生成 `public/details/{detailKey}.html`，当前不再依赖 `mammoth` 解析 `.docx`。
 
 ## 架构决策
 
@@ -35,7 +35,7 @@
 - **命名约定:** `records.json` 中条目使用 `safeFolder` 和 `detailKey` 关联 `public/media/` 与 `public/details/{detailKey}.html`。
 - **文件组织:** 新增数据生成能力优先放入 `scripts/`，不要把 docx 转换逻辑放到浏览器运行时。
 - **资源路径:** 所有运行时图片路径应指向 `media/{safeFolder}/...`，并通过 `assetUrl()` 结合 `import.meta.env.BASE_URL` 生成部署路径。
-- **配件阁数据:** `bodyParts.json`、`headParts.json` 和 `part网络数据s.json` 必须保持静态可打包，所有非空尺寸值必须为 number、单位必须为 `cm` 且必须有泛化 `sourceId`。
+- **配件阁数据:** `bodyParts.json`、`headParts.json` 和 `partSources.json` 必须保持静态可打包，所有非空尺寸值必须为 number、单位必须为 `cm` 且必须有泛化 `sourceId`。
 - **来源脱敏:** 配件阁 UI、JSON、spec 和复制内容不得保存或展示具体来源 URL、平台、作者或截图说明；用户可见来源统一为“网络数据”。`Obitsu` 仅可作为配件体系名称或默认件名称出现。
 
 ## 部署方式

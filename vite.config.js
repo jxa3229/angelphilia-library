@@ -8,11 +8,11 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    chunkSizeWarningLimit: 550,
     rollupOptions: {
       output: {
         manualChunks: {
-          vue: ['vue'],
-          elementPlus: ['element-plus', '@element-plus/icons-vue']
+          vue: ['vue']
         }
       }
     }

@@ -207,7 +207,7 @@ export const dictionary = {
     presetSelect: 'Preset',
     selectedParts: 'Selected parts',
     measurementSummary: 'Measurements',
-    sourceSummary: '网络数据s',
+    sourceSummary: 'Sources',
     partsAtelier: 'Parts Atelier',
     headData: 'Head data',
     missingData: 'Missing data'

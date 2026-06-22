@@ -13,13 +13,13 @@
 **涉及文件:**
 - 新建: `src/data/bodyParts.json`
 - 新建: `src/data/headParts.json`
-- 新建: `src/data/part网络数据s.json`
+- 新建: `src/data/partSources.json`
 - 新建: `scripts/validate-body-parts.mjs`
 - 修改: `package.json`
 - 修改: `spec/feature_20260618_F001_mjd-body-builder/research-notes.md`
 
 **执行步骤:**
-- [x] 建立 `part网络数据s.json`，仅保留泛化 `sourceId`、`label: "网络数据"`、`level`、`note` 和误差。
+- [x] 建立 `partSources.json`，仅保留泛化 `sourceId`、`label: "网络数据"`、`level`、`note` 和误差。
 - [x] 建立 `bodyParts.json`，包含身体配件、默认 `GHH`、Obitsu default、尺寸字段和身体 preset。
 - [x] 固定默认选择：G 胸、H 腰臀、H 大腿，`head=null`，`includeHeadMeasurements=false`。
 - [x] 录入 Obitsu default frame、小腿、上臂、下臂、手、脚等默认槽位。
@@ -31,7 +31,7 @@
 
 **检查步骤:**
 - [x] `npm run validate:body-parts` 输出校验通过。
-- [x] `part网络数据s.json` 中所有 `label` 都是“网络数据”。
+- [x] `partSources.json` 中所有 `label` 都是“网络数据”。
 - [x] `bodyCodes.defaultCode === "GHH"`。
 - [x] P 型 eye size 为 pending / empty。
 
@@ -45,7 +45,7 @@
 
 **执行步骤:**
 - [x] 实现 `buildMeasurementSummary`，合并当前身体选择、默认槽位和头部开关。
-- [x] 实现 `build网络数据Rows` 和 `buildMissingRows`，来源仅显示“网络数据”、误差或“待补充”。
+- [x] 实现 `buildSourceRows` 和 `buildMissingRows`，来源仅显示“网络数据”、误差或“待补充”。
 - [x] 实现 `generateBodyCode`、`parseBodyCode` 和 `buildInitialSelection`。
 - [x] 实现一键复制摘要：默认 no head data；插入头型后追加 head girth / eye。
 
@@ -83,10 +83,10 @@
 - 新建: `src/components/body-builder/PartsAtelier.vue`
 - 新建: `src/components/body-builder/HeadPartSelector.vue`
 - 新建: `src/components/body-builder/MeasurementSummary.vue`
-- 新建: `src/components/body-builder/Measurement网络数据s.vue`
+- 新建: `src/components/body-builder/MeasurementSources.vue`
 - 新建: `src/components/body-builder/BodyCodeCopy.vue`
 - 修改: `src/pages/BodyBuilderPage.vue`
-- 修改: `src/styles.css`
+- 修改: `src/styles/`
 
 **执行步骤:**
 - [x] 实现默认 `GHH` 首屏和“当前”标注。

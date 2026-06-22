@@ -39,7 +39,7 @@
 - **详情数据同步:** `npm run sync:details` 从每个 `record.md` 生成 `public/details/{detailKey}.html`。
 - **静态资源准备:** `npm run prepare:public` 复制 records 图片到 `public/media/`。
 - **GitHub Pages:** `.github/workflows/pages.yml` 自动构建并发布静态站点。
-- **配件资料校验:** `npm run validate:body-parts` 校验 `bodyParts.json`、`headParts.json` 和 `part网络数据s.json` 的引用、单位、默认值和来源脱敏。
+- **配件资料校验:** `npm run validate:body-parts` 校验 `bodyParts.json`、`headParts.json` 和 `partSources.json` 的引用、单位、默认值和来源脱敏。
 
 ---
 *最后更新: 2026-06-18 — 增加配件阁 / 拼娃尺寸*

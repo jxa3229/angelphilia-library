@@ -92,8 +92,8 @@
 目标：降低 `src/styles.css` 的维护成本。
 
 任务：
-- 新建 `src/styles/index.css` 汇总引入。
-- 当前先通过 `src/styles/index.css` 聚合旧 `src/styles.css`，后续再拆分 `tokens.css`、`base.css`、`layout.css`、`components.css`、`pages.css`、`responsive.css`。
+- [x] 新建 `src/styles/index.css` 汇总引入。
+- [x] 将旧 `src/styles.css` 拆分为 `tokens.css`、`base.css`、`layout.css`、`pages.css`、`detail.css`、`body-builder.css`、`footer.css`、`drawer.css`、`responsive.css`。
 - 保持 class 名与 DOM 结构不变。
 
 验收：
@@ -107,8 +107,10 @@
 目标：让后续优化有稳定回归手段。
 
 任务：
-- 增加最小 Playwright 或 Vitest 检查：页面加载、筛选、详情打开、语言切换、主题切换。
-- 更新 `spec/global/architecture.md` 与 `spec/global/constraints.md`，记录拆分后的架构。
+- [x] 增加最小 Playwright 检查：页面加载、筛选、详情打开、语言切换、主题切换。
+- [x] 更新 `spec/global/architecture.md` 与 `spec/global/constraints.md`，记录拆分后的架构。
+- [x] GitHub Pages CI 增加 `npm audit --audit-level=moderate`、`validate:body-parts` 和 Playwright smoke。
+- [x] 移除 Element Plus icons 全量注册，页面路由改为 lazy imports，主 JS chunk 由约 1072KB 降至约 502KB；当前静态数据站点阈值设为 550KB。
 - 视实际情况把本方案沉淀为正式 feature spec。
 
 验收：

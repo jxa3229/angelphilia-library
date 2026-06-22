@@ -8,7 +8,7 @@
 - `src/router/`：管理 `overview`、`library`、`index`、`repository` hash 路由。
 - `src/stores/`：管理语言/主题偏好、馆藏筛选、详情缓存、图片失败状态。
 - `src/pages/` 与 `src/components/`：承载页面模板和复用组件。
-- `src/styles.css`：约 859 行，包含全局主题、布局、卡片、详情页、表格与响应式样式。
+- `src/styles/`：分层保存 tokens、base、layout、pages、detail、body-builder、footer、drawer 和 responsive 样式，由 `src/styles/index.css` 汇总。
 - `src/data/records.json`：约 242 KB，是构建期生成的馆藏索引数据。
 
 这种结构适合早期快速交付，但随着页面、语言、数据处理和安全要求增加，会降低可维护性、测试颗粒度和安全审查效率。

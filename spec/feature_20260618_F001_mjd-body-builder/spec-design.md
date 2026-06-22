@@ -33,9 +33,9 @@
 
 - `src/data/bodyParts.json`：身体配件、默认 `GHH`、Obitsu default、尺寸字段。
 - `src/data/headParts.json`：头型、头围和 eye size。
-- `src/data/part网络数据s.json`：泛化来源元数据。
+- `src/data/partSources.json`：泛化来源元数据。
 
-`part网络数据s.json` 结构：
+`partSources.json` 结构：
 
 ```json
 {
@@ -89,7 +89,7 @@
 - `BodyPartSelector.vue`：按槽位选择身体部件并标注当前项。
 - `HeadPartSelector.vue`：选择头型、显示头围和 eye size，控制是否插入头部数据。
 - `MeasurementSummary.vue`：当前配置尺寸汇总。
-- `Measurement网络数据s.vue`：来源脱敏展示和缺失项。
+- `MeasurementSources.vue`：来源脱敏展示和缺失项。
 - `PartsAtelier.vue`：配件阁卡片，展示所有可选配件和已知尺寸。
 - `BodyCodeCopy.vue`：组合码、一键复制和剪贴板 fallback。
 

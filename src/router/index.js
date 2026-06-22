@@ -1,9 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import OverviewPage from '../pages/OverviewPage.vue'
-import LibraryPage from '../pages/LibraryPage.vue'
-import IndexPage from '../pages/IndexPage.vue'
-import RepositoryPage from '../pages/RepositoryPage.vue'
-import BodyBuilderPage from '../pages/BodyBuilderPage.vue'
+
+const OverviewPage = () => import('../pages/OverviewPage.vue')
+const LibraryPage = () => import('../pages/LibraryPage.vue')
+const IndexPage = () => import('../pages/IndexPage.vue')
+const RepositoryPage = () => import('../pages/RepositoryPage.vue')
+const BodyBuilderPage = () => import('../pages/BodyBuilderPage.vue')
 
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

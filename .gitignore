@@ -6,4 +6,6 @@ public/media/
 public/details/
 public/details.json
 *.log
+test-results/
+playwright-report/
 .DS_Store

@@ -1,5 +1,5 @@
 <template>
-  <section class="builder-panel">
+  <section class="builder-panel measurement-panel">
     <div class="panel-title">
       <h3>{{ copy.measurementSummary }}</h3>
       <span>cm</span>

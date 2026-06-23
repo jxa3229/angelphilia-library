@@ -51,7 +51,7 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
-    margin: 14px 0 0;
+    margin: 14px 0 10px;
   }
 
   .toc a {
@@ -96,6 +96,37 @@
     overflow: visible;
     padding-right: 0;
   }
+
+  .builder-measurements,
+  .builder-status,
+  .builder-controls {
+    display: contents;
+  }
+
+  .code-panel {
+    order: 1;
+  }
+
+  .selector-panel {
+    order: 2;
+  }
+
+  .measurement-panel {
+    order: 3;
+  }
+
+  .preset-panel {
+    order: 4;
+  }
+
+  .head-panel {
+    order: 5;
+  }
+
+  .atelier-panel {
+    order: 6;
+  }
+
 }
 
 @media (min-width: 721px) and (max-width: 1280px) {
@@ -276,12 +307,142 @@
     grid-template-columns: 1fr;
   }
 
-  .source-list div {
+  .atelier-grid {
     grid-template-columns: 1fr;
   }
 
-  .atelier-grid {
-    grid-template-columns: 1fr;
+  .body-builder-page {
+    gap: 12px;
+    padding-bottom: 24px;
+  }
+
+  .builder-hero {
+    padding: 16px;
+  }
+
+  .builder-hero h2 {
+    margin-bottom: 6px;
+    font-size: 30px;
+    line-height: 1.12;
+  }
+
+  .builder-hero p {
+    display: none;
+  }
+
+  .builder-workspace,
+  .builder-column {
+    gap: 12px;
+  }
+
+  .builder-panel,
+  .code-panel {
+    padding: 14px;
+  }
+
+  .code-panel {
+    gap: 10px;
+  }
+
+  .code-panel strong {
+    font-size: 42px;
+  }
+
+  .copy-preview {
+    max-height: 4.8em;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .panel-title {
+    margin-bottom: 10px;
+  }
+
+  .panel-title h3 {
+    font-size: 18px;
+  }
+
+  .part-selector-grid {
+    gap: 10px;
+  }
+
+  .part-control > span {
+    font-size: 12px;
+  }
+
+  .measurement-panel {
+    overflow: hidden;
+  }
+
+  .builder-measurements .builder-panel:first-child {
+    min-height: auto;
+  }
+
+  .measurement-table {
+    font-size: 13px;
+  }
+
+  .measurement-table th.el-table__cell,
+  .measurement-table td.el-table__cell {
+    padding: 8px 6px;
+  }
+
+  .measurement-table .el-table__header-wrapper th:nth-child(4),
+  .measurement-table .el-table__body-wrapper td:nth-child(4) {
+    display: none;
+  }
+
+  .measurement-table .el-tag {
+    display: block;
+    width: max-content;
+    margin: 4px 0 0;
+  }
+
+  .preset-note,
+  .head-facts {
+    font-size: 12px;
+  }
+
+  .atelier-panel {
+    display: none;
+  }
+
+  .changelog-trigger {
+    grid-column: 1 / -1;
+    width: fit-content;
+    margin-top: 0;
+    padding: 0;
+    border-top: 0;
+  }
+}
+
+@media (max-width: 1080px) {
+  .toc a {
+    overflow: visible;
+  }
+
+  .toc a:hover,
+  .toc a:focus-visible {
+    z-index: 40;
+  }
+
+  .comic-bubble {
+    left: 50%;
+    top: calc(100% + 12px);
+    max-width: min(230px, calc(100vw - 32px));
+    transform: translate(-50%, 8px) rotate(-2deg) scale(0.96);
+  }
+
+  .comic-bubble::before {
+    left: 50%;
+    top: -11px;
+    transform: translateX(-50%) rotate(135deg);
+  }
+
+  .toc a:hover .comic-bubble,
+  .toc a:focus-visible .comic-bubble {
+    transform: translate(-50%, 0) rotate(-2deg) scale(1);
   }
 }
 

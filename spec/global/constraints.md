@@ -36,7 +36,7 @@
 - **文件组织:** 新增数据生成能力优先放入 `scripts/`，不要把 docx 转换逻辑放到浏览器运行时。
 - **资源路径:** 所有运行时图片路径应指向 `media/{safeFolder}/...`，并通过 `assetUrl()` 结合 `import.meta.env.BASE_URL` 生成部署路径。
 - **配件阁数据:** `bodyParts.json`、`headParts.json` 和 `partSources.json` 必须保持静态可打包，所有非空尺寸值必须为 number、单位必须为 `cm` 且必须有泛化 `sourceId`。
-- **来源脱敏:** 配件阁 UI、JSON、spec 和复制内容不得保存或展示具体来源 URL、平台、作者或截图说明；用户可见来源统一为“网络数据”。`Obitsu` 仅可作为配件体系名称或默认件名称出现。
+- **来源脱敏:** 配件阁网页 UI 和复制内容不得展示具体来源 URL、平台、作者、截图说明或“来源说明”面板；具体数据来源只允许单独记录在维护用 Markdown（当前为 `spec/feature_20260618_F001_mjd-body-builder/part-sources.md`）。`bodyParts.json`、`headParts.json` 仅保留泛化 `sourceId` 供校验；`Obitsu` 仅可作为配件体系名称或默认件名称出现。
 - **更新日志 UI:** 侧栏只保留低干扰入口；点击后必须在站内弹窗查看。弹窗默认只展示最近 3 条；“完整更新记录”只能在同一弹窗内切换全量列表，并使用弹窗内部滚动，不得跳转或外链到 Markdown 文件作为主要查看路径。
 
 ## 部署方式
@@ -53,4 +53,4 @@
 - **配件阁校验:** 发布前运行 `npm run validate:body-parts`，阻断具体来源文本、缺失 `sourceId`、非 `cm` 单位和 P 型 eye size 误补。
 
 ---
-*最后更新: 2026-06-23 — 增加更新日志弹窗展示与完整记录滚动约束*
+*最后更新: 2026-06-23 — 增加更新日志弹窗约束，并约束配件来源仅在 Markdown 维护*

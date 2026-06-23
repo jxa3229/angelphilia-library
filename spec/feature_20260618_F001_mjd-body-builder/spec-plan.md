@@ -1,6 +1,6 @@
 # 配件阁 / MJD Body Builder 执行计划
 
-**目标:** 在导航栏新增“配件阁”工具，支持自选 MJD 身体配件，按 cm 汇总尺寸，并将所有来源统一脱敏为“网络数据”。
+**目标:** 在导航栏新增“配件阁”工具，支持自选 MJD 身体配件，按 cm 汇总尺寸；配件数据来源单独记录在 Markdown，网页不展示来源说明。
 
 **技术栈:** Vue 3.5、Vue Router 4、Pinia、Element Plus、Vite 6、静态 JSON。
 
@@ -45,7 +45,7 @@
 
 **执行步骤:**
 - [x] 实现 `buildMeasurementSummary`，合并当前身体选择、默认槽位和头部开关。
-- [x] 实现 `buildSourceRows` 和 `buildMissingRows`，来源仅显示“网络数据”、误差或“待补充”。
+- [x] 实现 `buildMissingRows`，网页仅处理缺失项和误差备注，不展示来源说明。
 - [x] 实现 `generateBodyCode`、`parseBodyCode` 和 `buildInitialSelection`。
 - [x] 实现一键复制摘要：默认 no head data；插入头型后追加 head girth / eye。
 
@@ -83,7 +83,6 @@
 - 新建: `src/components/body-builder/PartsAtelier.vue`
 - 新建: `src/components/body-builder/HeadPartSelector.vue`
 - 新建: `src/components/body-builder/MeasurementSummary.vue`
-- 新建: `src/components/body-builder/MeasurementSources.vue`
 - 新建: `src/components/body-builder/BodyCodeCopy.vue`
 - 修改: `src/pages/BodyBuilderPage.vue`
 - 修改: `src/styles/`
@@ -93,7 +92,7 @@
 - [x] 实现所有身体槽位手动切换。
 - [x] 实现未选槽位 `Obitsu default` 展示。
 - [x] 实现头型选择和“插入头部数据”开关。
-- [x] 实现尺寸汇总、来源面板、缺失项面板。
+- [x] 实现尺寸汇总和缺失项状态；来源面板已按后续约束移除。
 - [x] 实现配件阁卡片列表。
 - [x] 实现一键复制和剪贴板 fallback。
 - [x] 补充响应式样式。
@@ -113,9 +112,11 @@
 - 修改: `spec/global/features.md`
 - 修改: `spec/global/architecture.md`
 - 修改: `spec/global/constraints.md`
+- 新建: `spec/feature_20260618_F001_mjd-body-builder/part-sources.md`
 
 **执行步骤:**
 - [x] 清理本功能 spec 中具体来源名、URL、平台、作者和截图来源说明。
+- [x] 新增 `part-sources.md`，来源只供维护者核对，不进入网页。
 - [x] 更新 `spec/global/features.md` 登记“配件阁 / 拼娃尺寸”。
 - [x] 更新 `spec/global/architecture.md` 记录新增静态资料文件和尺寸计算工具。
 - [x] 更新 `spec/global/constraints.md` 记录来源脱敏和静态校验约束。
@@ -136,5 +137,5 @@
 - [x] 默认 `GHH`。
 - [x] 头围默认不出现。
 - [x] 选择 M 头并开启头部数据后显示 head girth / eye size。
-- [x] 来源展示统一为“网络数据”。
+- [x] 网页不展示来源说明。
 - [x] 一键复制不包含来源 URL、平台名或作者名。

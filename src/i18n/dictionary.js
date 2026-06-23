@@ -103,7 +103,6 @@ export const dictionary = {
     bodyBuilderSubtitle: '按配件自选组合，查看当前尺寸和复制摘要。',
     bodyBuilderBubble: '我可以生成身体配置数据哦！',
     current: '当前',
-    networkData: '网络数据',
     pending: '待补充',
     bodyCode: '组合码',
     copyData: '复制数据',
@@ -114,7 +113,6 @@ export const dictionary = {
     presetSelect: '预设',
     selectedParts: '自选配件',
     measurementSummary: '尺寸汇总',
-    sourceSummary: '来源说明',
     partsAtelier: '配件阁',
     headData: '头型数据',
     missingData: '资料缺口'
@@ -222,7 +220,6 @@ export const dictionary = {
     bodyBuilderSubtitle: 'Choose parts, review measurements, and copy the current summary.',
     bodyBuilderBubble: 'I can generate body setup data!',
     current: 'Current',
-    networkData: 'Network data',
     pending: 'Pending',
     bodyCode: 'Body code',
     copyData: 'Copy data',
@@ -233,7 +230,6 @@ export const dictionary = {
     presetSelect: 'Preset',
     selectedParts: 'Selected parts',
     measurementSummary: 'Measurements',
-    sourceSummary: 'Sources',
     partsAtelier: 'Parts Atelier',
     headData: 'Head data',
     missingData: 'Missing data'
@@ -341,7 +337,6 @@ export const dictionary = {
     bodyBuilderSubtitle: 'パーツを選択し、現在の寸法とコピー用まとめを確認します。',
     bodyBuilderBubble: 'ボディ構成データを作れるよ！',
     current: '現在',
-    networkData: 'ネット資料',
     pending: '未補完',
     bodyCode: 'ボディコード',
     copyData: 'コピー',
@@ -352,7 +347,6 @@ export const dictionary = {
     presetSelect: 'プリセット',
     selectedParts: '選択パーツ',
     measurementSummary: '寸法一覧',
-    sourceSummary: '資料',
     partsAtelier: 'パーツアトリエ',
     headData: 'ヘッド情報',
     missingData: '未補完データ'

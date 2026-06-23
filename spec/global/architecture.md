@@ -17,8 +17,8 @@
 - **状态层:** `src/stores/preferences.js` 管理语言与主题；`src/stores/library.js` 管理筛选、详情、图片失败和记录派生数据。
 - **页面层:** `src/pages/` 保存页面组件，`src/components/` 保存侧边栏、筛选、卡片、详情、轮播和 `body-builder/` 配件阁组件。
 - **样式系统:** `src/styles/index.css` 汇总 `tokens/base/layout/pages/detail/body-builder/footer/drawer/responsive` 分层样式，保持选择器顺序以降低视觉回归风险。
-- **数据源:** `src/data/records.json` 是运行时打包进 JS 的馆藏索引；`src/data/bodyParts.json`、`src/data/headParts.json` 和 `src/data/partSources.json` 是配件阁静态尺寸资料；`public/details/{detailKey}.html` 是详情页按需 fetch 的静态 HTML。
-- **计算工具:** `src/utils/bodyCode.js` 负责组合码解析、默认选择和复制摘要；`src/utils/measurements.js` 负责尺寸汇总、来源脱敏展示和缺失项识别。
+- **数据源:** `src/data/records.json` 是运行时打包进 JS 的馆藏索引；`src/data/bodyParts.json`、`src/data/headParts.json` 是配件阁运行时静态尺寸资料；`src/data/partSources.json` 仅供校验脚本引用，不进入网页展示链路；`public/details/{detailKey}.html` 是详情页按需 fetch 的静态 HTML。
+- **计算工具:** `src/utils/bodyCode.js` 负责组合码解析、默认选择和复制摘要；`src/utils/measurements.js` 负责尺寸汇总和缺失项识别，不读取来源说明。
 - **原始档案:** `records/` 保存原始图片、`record.docx` 和部分 `record.md`。
 
 ## 数据流
@@ -30,7 +30,7 @@
 3. `records/{folder}/images` 经 `prepare-public.mjs` 复制到 `public/media/{safeFolder}/`。
 4. Vite 构建时把 `public/` 原样复制到 `dist/`，同时把 `src/data/records.json` 打包进应用 JS。
 5. 用户点击条目后，`useLibraryStore` 读取 `activeRecord.detailKey`，从 `details/{detailKey}.html` 中取 HTML，经 `sanitizeHtml()` 过滤后由详情页渲染。
-6. 用户进入配件阁后，页面读取打包内的 `bodyParts.json`、`headParts.json`、`partSources.json`，在浏览器内完成组合码和尺寸计算。
+6. 用户进入配件阁后，页面读取打包内的 `bodyParts.json` 和 `headParts.json`，在浏览器内完成组合码和尺寸计算；来源说明只维护在 `spec/feature_20260618_F001_mjd-body-builder/part-sources.md`。
 
 ## 外部集成
 
@@ -42,4 +42,4 @@
 本项目无后端服务、数据库或容器运行时。部署产物为 `dist/` 静态文件，包含 HTML、JS、CSS、`media/` 和 `details/` 等公共资源。
 
 ---
-*最后更新: 2026-06-18 — 增加配件阁静态资料与计算工具*
+*最后更新: 2026-06-23 — 配件来源改为 Markdown 维护，不进入网页展示链路*

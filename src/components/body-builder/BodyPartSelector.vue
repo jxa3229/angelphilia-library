@@ -1,5 +1,5 @@
 <template>
-  <section class="builder-panel">
+  <section class="builder-panel selector-panel">
     <div class="panel-title">
       <h3>{{ copy.selectedParts }}</h3>
     </div>

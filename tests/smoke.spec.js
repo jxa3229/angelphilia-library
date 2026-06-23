@@ -34,3 +34,27 @@ test('switches language and theme preferences', async ({ page }) => {
   await page.locator('.theme-row button').nth(1).click()
   await expect(page.locator('.app-shell')).toHaveAttribute('data-theme', 'dark')
 })
+
+test('keeps the body builder compact on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/#/body-builder')
+
+  await expect(page.locator('.code-panel')).toBeVisible()
+  await expect(page.locator('.selector-panel')).toBeVisible()
+  await expect(page.locator('.measurement-panel')).toBeVisible()
+  await expect(page.locator('.atelier-panel')).toBeHidden()
+
+  const layout = await page.evaluate(() => {
+    const top = (selector) => document.querySelector(selector).getBoundingClientRect().top
+    return {
+      hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+      codeTop: top('.code-panel'),
+      selectorTop: top('.selector-panel'),
+      measurementTop: top('.measurement-panel')
+    }
+  })
+
+  expect(layout.hasHorizontalOverflow).toBe(false)
+  expect(layout.codeTop).toBeLessThan(layout.selectorTop)
+  expect(layout.selectorTop).toBeLessThan(layout.measurementTop)
+})

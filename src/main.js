@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import { ElButton } from 'element-plus/es/components/button/index.mjs'
 import { ElCarousel, ElCarouselItem } from 'element-plus/es/components/carousel/index.mjs'
 import { ElConfigProvider } from 'element-plus/es/components/config-provider/index.mjs'
+import { ElDialog } from 'element-plus/es/components/dialog/index.mjs'
 import { ElEmpty } from 'element-plus/es/components/empty/index.mjs'
 import { ElIcon } from 'element-plus/es/components/icon/index.mjs'
 import { ElInput } from 'element-plus/es/components/input/index.mjs'
@@ -23,6 +24,7 @@ const elementComponents = [
   ElCarousel,
   ElCarouselItem,
   ElConfigProvider,
+  ElDialog,
   ElEmpty,
   ElIcon,
   ElInput,

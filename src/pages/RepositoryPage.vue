@@ -3,7 +3,7 @@
     <h2>{{ copy.repoHeading }}</h2>
     <p>
       {{ copy.repoLinkPrefix }}
-      <a :href="copy.repoUrl" target="_blank" rel="noopener noreferrer">{{ copy.repoLinkLabel }}</a>
+      <span>{{ copy.repoLinkLabel }}</span>
       {{ copy.repoLinkSuffix }}
     </p>
     <p>{{ copy.openText }}</p>

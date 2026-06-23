@@ -2,7 +2,7 @@
 
 ## 状态
 
-- 状态：待实施
+- 状态：已由 `spec/feature_20260618_F001_mjd-body-builder/` 落地
 - 类型：功能性新增
 - 目标：先建立官方/可核验的身体配件尺寸底表，再新增用户可自行更换身体配件的组合计算页。
 
@@ -122,5 +122,9 @@
 
 ## 备注
 
-- 本计划已按“功能性新增”标注，作为后续实现的执行依据。
+- 本计划已按“功能性新增”标注，并已转化为 feature spec 实施：
+  - `spec/feature_20260618_F001_mjd-body-builder/spec-design.md`
+  - `spec/feature_20260618_F001_mjd-body-builder/spec-plan.md`
+  - `src/pages/BodyBuilderPage.vue`
+  - `src/data/bodyParts.json`、`src/data/headParts.json`、`src/data/partSources.json`
 - 计划文件保存于 `optimization/`，不放入 `spec/`。

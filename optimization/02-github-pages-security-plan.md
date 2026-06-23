@@ -21,7 +21,7 @@
 风险等级：高。
 
 建议：
-- 构建期在 `scripts/extract-docx-details.mjs` 对 mammoth 输出 HTML 做白名单 sanitize。
+- 构建期在 `scripts/extract-docx-details.mjs` 对 `record.md` 生成的 HTML 做白名单 sanitize。
 - 浏览器端 `RecordDetail.vue` 渲染前再调用 `sanitizeHtml()` 做防御性处理。
 - 白名单只允许内容展示所需标签，例如 `p`、`h1-h4`、`ul`、`ol`、`li`、`strong`、`em`、`a`、`img`、`table`、`thead`、`tbody`、`tr`、`th`、`td`。
 - 禁止 `script`、`style`、`iframe`、`object`、`embed`、内联事件属性和 `javascript:` URL。

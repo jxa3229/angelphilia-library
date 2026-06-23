@@ -20,9 +20,9 @@
       <el-table-column prop="head" :label="copy.tableHead" min-width="140" />
       <el-table-column prop="body" :label="copy.tableBody" min-width="170" />
       <el-table-column prop="skin" :label="copy.tableSkin" min-width="150" />
-      <el-table-column :label="copy.tableFolder" min-width="210">
+      <el-table-column :label="copy.tableFolder" min-width="140">
         <template #default="{ row }">
-          <button class="plain-link" type="button" @click="openRecord(row)">{{ row.folder }}</button>
+          <button class="plain-link" type="button" @click="openRecord(row)">{{ row.detailKey || row.folder }}</button>
         </template>
       </el-table-column>
     </el-table>

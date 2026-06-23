@@ -2,11 +2,11 @@ import { cp, mkdir, readFile, rm } from 'node:fs/promises'
 import path from 'node:path'
 
 const root = process.cwd()
-const recordsFile = path.join(root, 'src', 'data', 'records.json')
+const privateManifestFile = path.join(root, '.cache', 'library-records-private.json')
 const sourceRoot = path.join(root, 'records')
 const targetRoot = path.join(root, 'public', 'media')
 const transientWindowsErrors = new Set(['ENOTEMPTY', 'EBUSY', 'EPERM'])
-const records = JSON.parse(await readFile(recordsFile, 'utf8'))
+const records = JSON.parse(await readFile(privateManifestFile, 'utf8'))
 
 await mkdir(path.dirname(targetRoot), { recursive: true })
 await removeWithRetry(targetRoot)
@@ -15,8 +15,8 @@ await mkdir(targetRoot, { recursive: true })
 let copied = 0
 
 for (const record of records) {
-  if (!record.folder || !record.safeFolder) continue
-  await cp(path.join(sourceRoot, record.folder), path.join(targetRoot, record.safeFolder), { recursive: true })
+  if (!record.sourceFolder || !record.safeFolder) continue
+  await cp(path.join(sourceRoot, record.sourceFolder), path.join(targetRoot, record.safeFolder), { recursive: true })
   copied += 1
 }
 

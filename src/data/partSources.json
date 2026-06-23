@@ -1,0 +1,28 @@
+[
+  {
+    "sourceId": "network-body-size-chart",
+    "label": "网络数据",
+    "level": "C",
+    "note": "网络测量资料整理",
+    "toleranceCm": 1
+  },
+  {
+    "sourceId": "network-head-girth-chart",
+    "label": "网络数据",
+    "level": "C",
+    "note": "网络测量资料整理",
+    "toleranceCm": 0.5
+  },
+  {
+    "sourceId": "network-eye-size-chart",
+    "label": "网络数据",
+    "level": "C",
+    "note": "网络测量资料整理"
+  },
+  {
+    "sourceId": "network-obitsu-baseline",
+    "label": "网络数据",
+    "level": "A",
+    "note": "网络公开资料整理"
+  }
+]

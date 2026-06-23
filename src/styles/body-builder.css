@@ -1,0 +1,263 @@
+.body-builder-page {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 48px;
+}
+
+.builder-hero,
+.builder-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.builder-hero {
+  padding: 22px;
+}
+
+.builder-hero > div:first-child span,
+.code-panel span,
+.panel-title span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.builder-hero h2 {
+  margin: 6px 0 8px;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+  font-size: clamp(28px, 3vw, 42px);
+  letter-spacing: 0;
+}
+
+.builder-hero p,
+.code-panel p,
+.part-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.copy-preview {
+  white-space: pre-line;
+}
+
+.builder-layout {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+.builder-workspace {
+  grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr) minmax(260px, 1fr);
+}
+
+.builder-column {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.builder-column.wide {
+  min-width: 0;
+}
+
+.builder-panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.panel-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.panel-title h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+  font-size: 20px;
+}
+
+.full-control {
+  width: 100%;
+}
+
+.preset-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.el-select-dropdown__item small {
+  display: block;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.part-selector-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.part-control {
+  display: grid;
+  gap: 6px;
+}
+
+.part-control > span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.code-panel {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 22px;
+  border-color: color-mix(in srgb, var(--primary) 38%, var(--line));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, transparent), transparent 42%),
+    var(--surface);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+}
+
+.code-panel strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--primary);
+  font-size: clamp(44px, 4vw, 64px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.code-panel .el-button {
+  min-height: 42px;
+  font-weight: 800;
+}
+
+.head-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.head-facts span,
+.source-list span,
+.source-list small {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.measurement-table,
+.measurement-table .el-table__inner-wrapper,
+.measurement-table .el-table__body-wrapper,
+.measurement-table .el-table__header-wrapper,
+.measurement-table tr,
+.measurement-table th.el-table__cell,
+.measurement-table td.el-table__cell {
+  background: var(--surface-strong) !important;
+  color: var(--ink) !important;
+}
+
+.measurement-table .el-tag {
+  margin-left: 8px;
+}
+
+.builder-measurements .builder-panel:first-child {
+  min-height: 420px;
+}
+
+.builder-controls {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.builder-status {
+  position: sticky;
+  top: 16px;
+}
+
+.builder-controls .builder-panel,
+.builder-status .builder-panel {
+  box-shadow: none;
+}
+
+.source-list,
+.missing-list,
+.atelier-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.source-list div {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.source-list strong {
+  min-width: 0;
+}
+
+.missing-list {
+  margin-top: 16px;
+}
+
+.missing-list h4 {
+  margin: 0;
+}
+
+.atelier-grid {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+
+.part-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.part-card.active {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary-soft) 62%, var(--surface));
+}
+
+.part-card strong,
+.part-card span {
+  display: block;
+}
+
+.part-card span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+

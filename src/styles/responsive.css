@@ -1,0 +1,296 @@
+@media (max-width: 1280px) {
+  .masthead {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead-copy {
+    justify-content: flex-start;
+  }
+
+  .masthead-copy h1 {
+    font-size: clamp(32px, 5vw, 54px);
+  }
+
+  .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1080px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .side-nav {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding: 14px 16px;
+  }
+
+  .recent-list {
+    display: none;
+  }
+
+  .brand-block {
+    padding-bottom: 12px;
+  }
+
+  .brand-block strong {
+    font-size: 20px;
+  }
+
+  .segmented,
+  .theme-row {
+    grid-template-columns: repeat(3, minmax(70px, 1fr));
+    margin-top: 12px;
+  }
+
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin: 14px 0 0;
+  }
+
+  .toc a {
+    min-height: 40px;
+    display: grid;
+    place-items: center;
+    padding: 8px 6px;
+    text-align: center;
+  }
+
+  .main-panel {
+    height: auto;
+    min-height: 0;
+    overflow: auto;
+  }
+
+  .main-panel.route-overview,
+  .main-panel.route-index,
+  .main-panel.route-repository {
+    overflow: hidden;
+  }
+
+  .detail-page {
+    height: auto;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead,
+  .filters,
+  .builder-hero,
+  .builder-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-controls,
+  .builder-status {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1280px) {
+  .builder-workspace {
+    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  }
+
+  .builder-controls {
+    grid-column: 1 / -1;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .builder-controls .part-selector-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1080px) {
+  .side-nav {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(188px, auto) 114px;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px 12px;
+  }
+
+  .brand-block {
+    min-width: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .brand-block span {
+    font-size: 10px;
+  }
+
+  .brand-block strong {
+    max-width: 100%;
+    margin-top: 2px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .segmented,
+  .theme-row,
+  .toc {
+    margin-top: 0;
+  }
+
+  .segmented {
+    grid-template-columns: repeat(3, minmax(58px, 1fr));
+  }
+
+  .theme-row {
+    grid-template-columns: repeat(3, 34px);
+    justify-content: end;
+  }
+
+  .segmented button,
+  .theme-row button,
+  .toc a {
+    min-height: 38px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
+
+  .toc {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .toc a {
+    overflow: hidden;
+    padding: 8px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .main-panel {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .main-panel.route-overview,
+  .main-panel.route-index,
+  .main-panel.route-repository {
+    overflow: auto;
+  }
+
+  .main-panel.route-overview {
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .masthead {
+    grid-template-rows: auto auto;
+    min-height: auto;
+  }
+
+  .masthead-copy {
+    justify-content: flex-start;
+  }
+
+  .masthead-copy h1 {
+    font-size: clamp(34px, 5vw, 54px);
+  }
+
+  .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-strip div {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .main-panel {
+    height: auto;
+    overflow: visible;
+    padding: 18px 12px 34px;
+  }
+
+  .main-panel.route-overview,
+  .main-panel.route-index,
+  .main-panel.route-repository {
+    overflow: visible;
+  }
+
+  .detail-head {
+    display: grid;
+  }
+
+  .toc {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .masthead-copy,
+  .metadata-panel,
+  .scope-text,
+  .notice-panel,
+  .relation-panel,
+  .library-section,
+  .index-section,
+  .repo-section {
+    padding: 18px;
+  }
+
+  .relation-list {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-head {
+    display: grid;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .source-list div {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .image-button img {
+    transition: none;
+  }
+}

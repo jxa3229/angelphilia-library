@@ -26,5 +26,6 @@
 
 ### 后续事项
 
-- CSS 已通过 `src/styles/index.css` 聚合，后续可继续拆分为 tokens/base/layout/components/pages/responsive。
-- 可在后续独立任务中增加 Playwright/Vitest 最小回归用例与 CI audit/build 检查。
+- CSS 已拆分到 `src/styles/` 分层文件，并由 `src/styles/index.css` 汇总。
+- 已增加 Playwright smoke、CI audit/build 检查和配件资料校验。
+- Element Plus icons 改为组件按需 import，页面路由改为 lazy imports，主 JS chunk 由约 1072KB 降至约 502KB。

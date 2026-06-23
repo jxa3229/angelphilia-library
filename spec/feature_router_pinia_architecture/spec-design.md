@@ -37,7 +37,7 @@
 ## 实现要点
 
 - 先安装依赖并注册 `pinia`、`router`，再迁移页面和状态，避免一次性混合改动无法定位。
-- 保留现有 DOM class 名和 `src/styles.css`，新增 `src/styles/index.css` 仅做聚合入口，降低视觉回归风险。
+- 保留现有 DOM class 名，`src/styles/index.css` 汇总分层 CSS 文件，降低视觉回归风险。
 - `IndexPage` 点击记录后跳转到 `library` 并复用 `activeRecord` 打开详情。
 - `LibraryPage` 使用 `main-panel` 引用保存和恢复详情返回时的滚动位置。
 - `vite.config.js` 的 `base: process.env.BASE_PATH || '/'` 和 GitHub Actions Pages 权限不变。

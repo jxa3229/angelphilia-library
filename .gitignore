@@ -1,8 +1,11 @@
 node_modules/
+.cache/
 dist/
 public/records/
 public/media/
 public/details/
 public/details.json
 *.log
+test-results/
+playwright-report/
 .DS_Store

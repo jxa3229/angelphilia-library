@@ -2,11 +2,11 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 const root = process.cwd()
-const recordsFile = path.join(root, 'src', 'data', 'records.json')
+const privateManifestFile = path.join(root, '.cache', 'library-records-private.json')
 const outputDir = path.join(root, 'public', 'details')
 const legacyOutputFile = path.join(root, 'public', 'details.json')
 
-const records = JSON.parse(await readFile(recordsFile, 'utf8'))
+const records = JSON.parse(await readFile(privateManifestFile, 'utf8'))
 
 await rm(legacyOutputFile, { force: true })
 await rm(outputDir, { recursive: true, force: true })
@@ -24,10 +24,10 @@ for (const record of records) {
 console.log(`Extracted ${extracted} record details to ${path.relative(root, outputDir)}`)
 
 async function extractMarkdownDetail(record) {
-  if (!record.folder) return ''
+  if (!record.sourceFolder) return ''
 
   try {
-    const markdown = await readFile(path.join(root, 'records', record.folder, 'record.md'), 'utf8')
+    const markdown = await readFile(path.join(root, 'records', record.sourceFolder, 'record.md'), 'utf8')
     return markdownToHtml(markdown)
   } catch {
     return ''

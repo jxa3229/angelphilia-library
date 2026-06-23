@@ -14,7 +14,7 @@
         <h2>{{ copy.metadata }}</h2>
         <dl>
           <div><dt>{{ copy.organizer }}</dt><dd>影青(HeavyRain_3229)</dd></div>
-          <div><dt>{{ copy.updated }}</dt><dd>2026-06-11</dd></div>
+          <div><dt>{{ copy.updated }}</dt><dd>{{ copy.lastUpdated }}</dd></div>
           <div><dt>{{ copy.repository }}</dt><dd>github.com/jxa3229/angelphilia-library</dd></div>
           <div><dt>{{ copy.scopeLabel }}</dt><dd>{{ copy.scopeValue }}</dd></div>
         </dl>

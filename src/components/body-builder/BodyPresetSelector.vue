@@ -1,5 +1,5 @@
 <template>
-  <section class="builder-panel">
+  <section class="builder-panel preset-panel">
     <div class="panel-title">
       <h3>{{ copy.presetSelect }}</h3>
       <span>{{ currentCode }}</span>

@@ -1,7 +1,3 @@
-import sources from '../data/partSources.json'
-
-const sourceMap = new Map(sources.map((source) => [source.sourceId || source.id, source]))
-
 function hasKnownMeasurementValue(measurement) {
   return typeof measurement?.value === 'number'
 }
@@ -9,10 +5,6 @@ function hasKnownMeasurementValue(measurement) {
 export function formatMeasurementValue(measurement) {
   if (!hasKnownMeasurementValue(measurement)) return '待补充'
   return `${measurement.value}${measurement.unit || 'cm'}`
-}
-
-export function getSourceLabel(sourceId) {
-  return sourceMap.get(sourceId)?.label || '网络数据'
 }
 
 export function getToleranceText(measurement) {
@@ -43,7 +35,6 @@ export function buildMeasurementSummary({ selection, parts, measurementFields, h
       value: measurement?.value ?? null,
       unit: measurement?.unit || 'cm',
       displayValue: formatMeasurementValue(measurement),
-      source: measurement?.sourceId ? getSourceLabel(measurement.sourceId) : '待补充',
       tolerance: getToleranceText(measurement),
       isDefault: Boolean(part?.isDefault),
       status: hasKnownMeasurementValue(measurement) ? 'known' : 'pending'
@@ -60,7 +51,6 @@ export function buildMeasurementSummary({ selection, parts, measurementFields, h
       value: headMeasurement?.value ?? null,
       unit: headMeasurement?.unit || 'cm',
       displayValue: formatMeasurementValue(headMeasurement),
-      source: headMeasurement?.sourceId ? getSourceLabel(headMeasurement.sourceId) : '待补充',
       tolerance: getToleranceText(headMeasurement),
       isDefault: false,
       status: hasKnownMeasurementValue(headMeasurement) ? 'known' : 'pending'
@@ -68,18 +58,6 @@ export function buildMeasurementSummary({ selection, parts, measurementFields, h
   }
 
   return rows
-}
-
-export function buildSourceRows(summaryRows = []) {
-  return summaryRows
-    .filter((row) => row.status === 'known')
-    .map((row) => ({
-      key: row.key,
-      field: row.label,
-      source: row.source,
-      tolerance: row.tolerance || '无',
-      note: row.isDefault ? 'Obitsu default' : '当前选择'
-    }))
 }
 
 export function buildMissingRows(summaryRows = []) {

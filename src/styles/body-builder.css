@@ -154,8 +154,7 @@
 }
 
 .head-facts span,
-.source-list span,
-.source-list small {
+.head-facts small {
   padding: 4px 8px;
   border-radius: 999px;
   background: var(--primary-soft);
@@ -201,34 +200,9 @@
   box-shadow: none;
 }
 
-.source-list,
-.missing-list,
 .atelier-grid {
   display: grid;
   gap: 10px;
-}
-
-.source-list div {
-  display: grid;
-  grid-template-columns: minmax(120px, 1fr) auto auto;
-  gap: 8px;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface-strong);
-}
-
-.source-list strong {
-  min-width: 0;
-}
-
-.missing-list {
-  margin-top: 16px;
-}
-
-.missing-list h4 {
-  margin: 0;
 }
 
 .atelier-grid {

@@ -1,5 +1,5 @@
 <template>
-  <section class="builder-panel">
+  <section class="builder-panel atelier-panel">
     <div class="panel-title">
       <h3>{{ copy.partsAtelier }}</h3>
       <span>{{ parts.length }}</span>

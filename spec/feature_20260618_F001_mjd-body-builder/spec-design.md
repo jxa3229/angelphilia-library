@@ -6,10 +6,10 @@
 
 本功能命名为“配件阁 / Parts Atelier”，首版不做 3D 拼装、不新增后端、不新增运行时外部请求。
 
-## 来源脱敏原则
+## 来源记录原则
 
-- UI、JSON、spec 和复制内容不写具体网站、平台、链接、作者或截图来源。
-- 用户可见来源统一显示“网络数据”。
+- UI 和复制内容不写具体网站、平台、链接、作者或截图来源，也不提供来源说明面板。
+- 配件数据来源单独维护在 `part-sources.md`，供维护者核对，不作为网页内容。
 - 内部保留泛化 `sourceId`：`network-body-size-chart`、`network-head-girth-chart`、`network-eye-size-chart`、`network-obitsu-baseline`。
 - `level` 可保留 A/B/C/D/E 用于内部排序，但 UI 不解释具体出处。
 - 一键复制只包含当前配置和尺寸摘要，不包含来源。
@@ -23,9 +23,8 @@
 4. 用户可通过 preset 或部件选择器切换所有身体槽位。
 5. 头型默认不选，`includeHeadMeasurements=false`；默认尺寸汇总和复制摘要不包含头围。
 6. 用户选择头型并打开“插入头部数据”后，尺寸汇总显示头围，头型区显示 eye size。
-7. 来源面板只显示“网络数据”、误差或“待补充”。
-8. 一键复制默认输出 `Body GHH / default Obitsu frame+arms+shins+hands+feet / no head data`。
-9. 插入 M 头后复制摘要追加 `head M / head girth 17.4cm / eye 12/6,14/6,14/7`。
+7. 一键复制默认输出 `Body GHH / default Obitsu frame+arms+shins+hands+feet / no head data`。
+8. 插入 M 头后复制摘要追加 `head M / head girth 17.4cm / eye 12/6,14/6,14/7`。
 
 ## 数据模型
 
@@ -33,7 +32,7 @@
 
 - `src/data/bodyParts.json`：身体配件、默认 `GHH`、Obitsu default、尺寸字段。
 - `src/data/headParts.json`：头型、头围和 eye size。
-- `src/data/partSources.json`：泛化来源元数据。
+- `src/data/partSources.json`：泛化来源元数据，仅供校验脚本使用。
 
 `partSources.json` 结构：
 
@@ -89,7 +88,6 @@
 - `BodyPartSelector.vue`：按槽位选择身体部件并标注当前项。
 - `HeadPartSelector.vue`：选择头型、显示头围和 eye size，控制是否插入头部数据。
 - `MeasurementSummary.vue`：当前配置尺寸汇总。
-- `MeasurementSources.vue`：来源脱敏展示和缺失项。
 - `PartsAtelier.vue`：配件阁卡片，展示所有可选配件和已知尺寸。
 - `BodyCodeCopy.vue`：组合码、一键复制和剪贴板 fallback。
 
@@ -109,7 +107,7 @@
 - [ ] 头型默认不选，默认不显示头围。
 - [ ] 选择 M 头并开启头部数据后显示 17.4cm 头围和 `12/6,14/6,14/7` eye size。
 - [ ] P 型头 eye size 显示“待补充”。
-- [ ] 来源展示统一为“网络数据”，只附误差信息或“待补充”。
+- [ ] 网页不展示来源说明；来源只记录在 `part-sources.md`。
 - [ ] 一键复制不包含来源 URL、平台名或作者名。
 - [ ] `npm run validate:body-parts` 通过。
 - [ ] `npm run build` 通过。

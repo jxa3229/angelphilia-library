@@ -1,5 +1,5 @@
 <template>
-  <section class="builder-panel">
+  <section class="builder-panel head-panel">
     <div class="panel-title">
       <h3>{{ copy.headData }}</h3>
       <el-switch

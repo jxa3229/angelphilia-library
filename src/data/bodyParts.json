@@ -88,6 +88,14 @@
       }
     },
     {
+      "id": "upper-b-network",
+      "type": "B",
+      "category": "upperTorso",
+      "label": "Type-B 胸",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
       "id": "upper-c2-network",
       "type": "C2",
       "category": "upperTorso",
@@ -206,6 +214,14 @@
       }
     },
     {
+      "id": "lower-b-network",
+      "type": "B",
+      "category": "lowerTorso",
+      "label": "Type-B 腰臀",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
       "id": "lower-c-network",
       "type": "C",
       "category": "lowerTorso",
@@ -224,6 +240,14 @@
         "waistCircumference": { "value": 13.1, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
         "hipCircumference": { "value": 21.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
       }
+    },
+    {
+      "id": "lower-c2-network",
+      "type": "C2",
+      "category": "lowerTorso",
+      "label": "Type-C2 腰臀",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
     },
     {
       "id": "lower-g-network",
@@ -256,19 +280,18 @@
       }
     },
     {
+      "id": "thigh-b-network",
+      "type": "B",
+      "category": "thigh",
+      "label": "Type-B 大腿",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
       "id": "thigh-c-network",
       "type": "C",
       "category": "thigh",
       "label": "Type-C 大腿",
-      "measurements": {
-        "thighCircumference": { "value": 13.6, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
-      }
-    },
-    {
-      "id": "thigh-c1-network",
-      "type": "C1",
-      "category": "thigh",
-      "label": "Type-C1 大腿",
       "measurements": {
         "thighCircumference": { "value": 13.6, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
       }
@@ -301,6 +324,30 @@
       }
     },
     {
+      "id": "shin-b-network",
+      "type": "B",
+      "category": "shin",
+      "label": "Type-B 小腿",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
+      "id": "shin-c-network",
+      "type": "C",
+      "category": "shin",
+      "label": "Type-C 小腿",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
+      "id": "shin-i-network",
+      "type": "I",
+      "category": "shin",
+      "label": "Type-I 小腿",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
       "id": "shin-obitsu-50-network",
       "type": "Obitsu",
       "category": "shin",
@@ -311,6 +358,30 @@
       }
     },
     {
+      "id": "upper-arm-b-network",
+      "type": "B",
+      "category": "upperArm",
+      "label": "Type-B 上臂",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
+      "id": "upper-arm-i-network",
+      "type": "I",
+      "category": "upperArm",
+      "label": "Type-I 上臂",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
+      "id": "upper-arm-l-network",
+      "type": "L",
+      "category": "upperArm",
+      "label": "Type-L 上臂",
+      "measurements": {},
+      "notes": "商品规格写作腕/Type-L，先按上臂槽位记录，尺寸待补充"
+    },
+    {
       "id": "upper-arm-obitsu-50-network",
       "type": "Obitsu",
       "category": "upperArm",
@@ -319,6 +390,30 @@
       "measurements": {
         "upperArmCircumference": { "value": 6.3, "unit": "cm", "sourceId": "network-obitsu-baseline" }
       }
+    },
+    {
+      "id": "forearm-b-network",
+      "type": "B",
+      "category": "forearm",
+      "label": "Type-B 下臂",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
+      "id": "forearm-i-network",
+      "type": "I",
+      "category": "forearm",
+      "label": "Type-I 下臂",
+      "measurements": {},
+      "notes": "型号已在商品规格中确认，尺寸待补充"
+    },
+    {
+      "id": "forearm-l-network",
+      "type": "L",
+      "category": "forearm",
+      "label": "Type-L 下臂",
+      "measurements": {},
+      "notes": "商品规格写作腕/Type-L，先按下臂槽位记录，尺寸待补充"
     },
     {
       "id": "forearm-obitsu-50-network",

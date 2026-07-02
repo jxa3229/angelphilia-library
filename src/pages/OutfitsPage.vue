@@ -45,7 +45,7 @@
         <div class="outfit-card-body">
           <div class="record-meta">
             <span>#{{ item.id }}</span>
-            <span>{{ item.categoryLabel }}</span>
+            <span>{{ outfitCategory(item) }}</span>
           </div>
           <h3>
             <button type="button" @click="openItem(item)">{{ translatedTitle(item) }}</button>
@@ -91,7 +91,7 @@
           </div>
           <div>
             <dt>{{ copy.allOutfitCategories }}</dt>
-            <dd>{{ activeItem.categoryLabel }}</dd>
+            <dd>{{ outfitCategory(activeItem) }}</dd>
           </div>
           <div v-if="activeItem.model">
             <dt>{{ copy.partModel }}</dt>
@@ -124,6 +124,7 @@ import { Refresh } from '@element-plus/icons-vue'
 import outfits from '../data/outfits.json'
 import { usePreferencesStore } from '../stores/preferences'
 import { assetUrl } from '../utils/assetUrl'
+import { outfitCategoryLabel, sortOutfitCategories } from '../utils/outfitCategory'
 import { translateOutfitDescription, translateOutfitTitle } from '../utils/outfitText'
 import { unique } from '../utils/records'
 
@@ -142,21 +143,23 @@ const selectedStatus = ref('')
 const activeItem = ref(null)
 const isDrawerOpen = ref(false)
 
-const categories = computed(() => unique(outfits.map((item) => item.categoryLabel)).sort())
+const categories = computed(() => sortOutfitCategories(unique(outfits.map(outfitCategoryLabel))))
 const statuses = computed(() => unique(outfits.map((item) => item.status)).sort())
 const filteredItems = computed(() => {
   const keyword = query.value.trim().toLowerCase()
   return outfits.filter((item) => {
+    const category = outfitCategory(item)
     const haystack = [
       item.id,
       item.title,
       item.model,
       item.categoryLabel,
+      category,
       item.priceText,
       item.description
     ].join(' ').toLowerCase()
     return (!keyword || haystack.includes(keyword))
-      && (!selectedCategory.value || item.categoryLabel === selectedCategory.value)
+      && (!selectedCategory.value || category === selectedCategory.value)
       && (!selectedStatus.value || item.status === selectedStatus.value)
   })
 })
@@ -181,6 +184,10 @@ function translatedTitle(item) {
 
 function translatedDescription(item) {
   return translateOutfitDescription(item?.description)
+}
+
+function outfitCategory(item) {
+  return outfitCategoryLabel(item)
 }
 
 function openItem(item) {

@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-07-02T05:33:37.637Z",
+  "totalRecords": 321,
+  "legacyRecords": 172,
+  "realartRecords": 149,
+  "parsedCount": 293,
+  "manualReviewCount": 28,
+  "parsedRate": 0.9128,
+  "note": "bodyCode 使用核心三段：上胴 + 下胴 + フトモモ；スネ/腕/手/足保存在 bodyComposition 但不计入 XXX code。"
+}

@@ -1,5 +1,11 @@
 # Angelphilia Library 更新日志
 
+## 2026-07-02
+
+- 优化拼娃尺寸表格展示，移除冗余 tag / 备注列，并为举例素体补充型号与跳转链接。
+- 新增 RealArt / JiWu / YAMATO 旧档案同步与审计脚本，补充整娃来源 URL、素体 bodyCode 和来源说明。
+- 将整娃核心三段 bodyCode 覆盖率提升到 293 / 321，剩余 28 条保留人工复核清单。
+
 ## 2026-06-22
 
 - 完成优化收尾：样式层拆分为 `tokens/base/layout/pages/detail/body-builder/footer/drawer/responsive`。

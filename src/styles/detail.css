@@ -78,3 +78,20 @@
   margin-bottom: 22px;
 }
 
+.external-detail {
+  display: grid;
+  gap: 14px;
+}
+
+.external-detail p {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+.external-detail a {
+  width: fit-content;
+  color: var(--primary);
+  font-weight: 800;
+}
+

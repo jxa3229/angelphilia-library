@@ -20,7 +20,12 @@
       </div>
 
       <div class="builder-column builder-status">
-        <BodyCodeCopy :code="bodyCode" :summary="copySummary" :copy="copy" />
+        <BodyCodeCopy
+          :code="bodyCode"
+          :summary="copySummary"
+          :copy="copy"
+          :matching-body-exhibits="matchingBodyExhibits"
+        />
 
         <BodyPresetSelector
           v-model="selectedPresetId"
@@ -52,13 +57,59 @@
         />
       </div>
     </div>
+
+    <section class="builder-panel realart-parts-panel">
+      <div class="panel-title">
+        <div>
+          <span>Real Art Project</span>
+          <h3>{{ copy.realartPartsHeading }}</h3>
+        </div>
+        <el-button
+          text
+          type="primary"
+          class="model-toggle"
+          :icon="showAllModels ? ArrowUp : ArrowDown"
+          @click="showAllModels = !showAllModels"
+        >
+          {{ showAllModels ? copy.hideAllModels : copy.showAllModels }}
+        </el-button>
+      </div>
+      <p class="preset-note">{{ showAllModels ? copy.realartPartsSubtitle : copy.realartPartsCollapsed }}</p>
+
+      <div v-show="showAllModels">
+        <el-table :data="realartParts" stripe height="420" class="measurement-table parts-model-table">
+          <el-table-column prop="id" label="ID" width="76" />
+          <el-table-column prop="displayKindLabel" :label="copy.allOutfitCategories" width="140" />
+          <el-table-column :label="copy.partModel" min-width="160">
+            <template #default="{ row }">
+              <el-tag v-if="row.displayKind === 'bodyExhibit' && row.bodyTypes?.length" size="small" effect="plain">
+                {{ row.bodyTypes.join(' / ') }}
+              </el-tag>
+              <el-tag v-else-if="row.model" size="small" effect="plain">{{ row.model }}</el-tag>
+              <span v-else>{{ copy.unknown }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="title" :label="copy.sourceItem" min-width="320" />
+          <el-table-column prop="priceText" :label="copy.metadata" min-width="130" />
+          <el-table-column min-width="120">
+            <template #default="{ row }">
+              <el-button link type="primary" tag="a" :href="row.sourceUrl" target="_blank" rel="noreferrer">
+                {{ copy.sourcePage }}
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
+    </section>
   </section>
 </template>
 
 <script setup>
 import { computed, reactive, ref, watch } from 'vue'
+import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
 import bodyData from '../data/bodyParts.json'
 import headParts from '../data/headParts.json'
+import realartParts from '../data/realartParts.json'
 import records from '../data/records.json'
 import BodyCodeCopy from '../components/body-builder/BodyCodeCopy.vue'
 import BodyPartSelector from '../components/body-builder/BodyPartSelector.vue'
@@ -73,6 +124,7 @@ import { buildMeasurementCopyText, buildMeasurementSummary } from '../utils/meas
 const preferences = usePreferencesStore()
 const copy = computed(() => preferences.copy)
 const selectedPresetId = ref(bodyData.presets[0]?.id || '')
+const showAllModels = ref(false)
 const selection = reactive(buildInitialSelection(bodyData))
 
 const partSlots = [
@@ -108,6 +160,13 @@ const partsByCategory = computed(() => {
 
 const selectedHead = computed(() => headParts.find((head) => head.id === selection.head) || null)
 const bodyCode = computed(() => generateBodyCode(selection, bodyData.parts))
+const selectedCoreTypes = computed(() => {
+  return ['upperTorso', 'lowerTorso', 'thigh'].map((category) => {
+    return bodyData.parts.find((part) => part.id === selection[category])?.type || ''
+  })
+})
+const bodyExhibits = computed(() => realartParts.filter((item) => item.displayKind === 'bodyExhibit'))
+const matchingBodyExhibits = computed(() => bodyExhibits.value.filter((item) => matchesCurrentBody(item)))
 const selectedPartIds = computed(() => {
   return Object.entries(selection)
     .filter(([key, value]) => key !== 'head' && key !== 'includeHeadMeasurements' && value)
@@ -148,5 +207,14 @@ function selectHead(headId) {
 
 function toggleHeadData(value) {
   selection.includeHeadMeasurements = Boolean(value && selection.head)
+}
+
+function matchesCurrentBody(item) {
+  if (item.bodyCode) return item.bodyCode === bodyCode.value
+
+  const itemTypes = Array.isArray(item.bodyTypes) ? item.bodyTypes : []
+  const [upperType, lowerType, thighType] = selectedCoreTypes.value
+  if (!upperType || !itemTypes.includes(upperType)) return false
+  return itemTypes.includes(lowerType) || itemTypes.includes(thighType)
 }
 </script>

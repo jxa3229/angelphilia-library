@@ -1,0 +1,80 @@
+[
+  {
+    "recordPath": "records/2011_Sonico_VMF50 Tiger Parka set/record.md",
+    "sourceUrl": "https://www.azone-int.co.jp/?jcd=2002822680000&sid=cct203",
+    "sourceType": "azone-product-page",
+    "sourceLine": "ボディ ： vmf50 Type-Aボディ 彩色済み （OBITSU50インナーフレーム仕様）"
+  },
+  {
+    "recordPath": "records/2012_Angel Philia Sonico Babydoll ver/record.md",
+    "sourceUrl": "https://www.azone-int.co.jp/?sid=cct203&jcd=2002293550000",
+    "sourceType": "azone-product-page",
+    "sourceLine": "ボディ ： vmf50 Type-Aボディ 彩色済み （OBITSU50インナーフレーム仕様）"
+  },
+  {
+    "recordPath": "records/2008_Ikkitousen Kanu Unchou 50cm figure/record.md",
+    "sourceUrl": "https://www.azone-int.co.jp/?sid=cct203&jcd=4535255090255",
+    "sourceType": "azone-product-page",
+    "sourceLine": "ボディ ： vmf50 Type-Bボディ 彩色済み （OBITSU50インナーフレーム仕様）"
+  },
+  {
+    "recordPath": "records/2009_Ikkitousen Kanu Unchou Nurse Ver/record.md",
+    "sourceUrl": "https://www.azone-int.co.jp/?sid=cct203&jcd=4535255090323",
+    "sourceType": "azone-product-page",
+    "sourceLine": "ボディ ： vmf50 Type-Bボディ 彩色済み （OBITSU50インナーフレーム仕様）"
+  },
+  {
+    "recordPath": "records/2009_VMF50 #1 MIU/record.md",
+    "sourceUrl": "https://quarantotto.biz/angelphilia/%e3%80%90angel-philia%e3%80%91miu-664.html",
+    "sourceType": "quarantotto-product-page",
+    "sourceLine": "ボディ： 上胴・下胴・フトモモ・スネ・上腕・下腕/Type-B、手首/オビツ開き手・持ち手、足首/オビツ５０、成型色/ホワイティ"
+  },
+  {
+    "recordPath": "records/2012_Dollcore Image Girl #2 羅魅阿 LAMIA/record.md",
+    "sourceUrl": "https://azoneosaka.blog.fc2.com/blog-entry-995.html?sp=",
+    "sourceType": "azoneosaka-fc2-page",
+    "sourceLine": "ボディ：外装/vmf50Type-G ノーマル肌、インナーフォーム/オビツ50仕様"
+  },
+  {
+    "recordPath": "records/2014_Angel Philia CATWOMAN DOLL/record.md",
+    "sourceUrl": "https://quarantotto.biz/angelphilia/%E3%80%90angel-philia%E3%80%91catwoman%E3%80%80doll-587.html",
+    "sourceType": "quarantotto-product-page",
+    "sourceLine": "ボディ ：上胴/Type-F2、下胴/Type-C、フトモモ/Type-C、スネ/オビツ50、足首/ヒール足、腕/オビツ50、手首/持ち手・開き手（デザインハンド）、成型色/ホワイティ"
+  },
+  {
+    "recordPath": "records/YAMATO_Pink Drops #5 罹亞奈 RIANA VMF50 old entry/record.md",
+    "sourceUrl": "https://www.worthpoint.com/worthopedia/pink-drops-liana-hybrid-bust-version-1795613469",
+    "sourceType": "manual-skip",
+    "skipReason": "record.md contains FaithZ outer body part references for RIANA-related parts, not confirmed full doll body composition."
+  },
+  {
+    "recordPath": "records/YAMATO_VMF50 #1 MIU Reissue/record.md",
+    "sourceUrl": "records/2009_VMF50 #1 MIU/record.md",
+    "sourceType": "local-same-name-inheritance",
+    "sourceLine": "ボディ：上胴・下胴・フトモモ・スネ・上腕・下腕/Type-B、手首/オビツ開き手・持ち手、足首/オビツ50"
+  },
+  {
+    "recordPath": "records/YAMATO_VMF50 #1 MIU Tan Skin/record.md",
+    "sourceUrl": "records/2009_VMF50 #1 MIU/record.md",
+    "sourceType": "local-same-name-inheritance",
+    "sourceLine": "ボディ：上胴・下胴・フトモモ・スネ・上腕・下腕/Type-B、手首/オビツ開き手・持ち手、足首/オビツ50"
+  },
+  {
+    "recordPath": "records/2011_VMF50 #10 SAYO/record.md",
+    "sourceUrl": "records/2018_SAYO/record.md",
+    "sourceType": "local-same-name-inheritance",
+    "sourceLine": "ボディ：上胴/Type-H、下胴/Type-H、フトモモ/Type-H、スネ/Type-C、上腕/オビツ50、下腕/オビツ50"
+  },
+  {
+    "recordPath": "records/2015-01-31_Pink Drops #11 紗鵺香/record.md",
+    "sourceUrl": "records/2026_JiWu_【Angel Philia】Pink Drops #11 紗鵺香（SAYAKA）Soft Skin 預購/record.md",
+    "sourceType": "local-same-number-name-inheritance",
+    "sourceLine": "ボディ：胸/Type-G、腹/Type-C、大腿/Type-C、小腿/Type-C、手臂/OB50、腳/高跟腳"
+  },
+  {
+    "recordPath": "records/YAMATO_Pink Drops #4 紗友莉 SAYURI VMF50 old entry/record.md",
+    "sourceUrl": "records/2015-07-25_Pink Drops #4 紗友莉/record.md",
+    "sourceType": "local-same-number-name-inheritance",
+    "sourceLine": "ボディ：上胴/Type-H2、下胴・フトモモ/Type-C、スネ/Type-C、上腕・下腕/オビツ50、足首/ヒールタイプ"
+  }
+]

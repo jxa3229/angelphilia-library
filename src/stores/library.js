@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import records from '../data/records.json'
+import realartArchive from '../data/realartArchive.json'
 import { assetUrl } from '../utils/assetUrl'
 import { compareYear, unique } from '../utils/records'
 
@@ -15,7 +16,7 @@ export const useLibraryStore = defineStore('library', () => {
   const detailLoadingKey = ref('')
   const detailErrors = ref({})
 
-  const allRecords = records
+  const allRecords = [...records, ...realartArchive]
   const groups = computed(() => unique(allRecords.map((item) => item.group)).sort())
   const years = computed(() => unique(allRecords.map((item) => item.year)).sort(compareYear))
   const recentRecords = computed(() => [...allRecords].sort((a, b) => compareYear(b.year, a.year)).slice(0, 8))

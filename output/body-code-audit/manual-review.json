@@ -1,0 +1,714 @@
+[
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2008",
+    "group": "AngelPhilia",
+    "number": "未记",
+    "name": "呂蒙子明メイド服Ver.",
+    "title": "Ikkitousen Ryomou Shimei Maid Ver",
+    "body": "YAMATO 角色联动完成品",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2008_Ikkitousen Ryomou Shimei Maid Ver/record.md",
+      "line": ""
+    },
+    "folder": "r-32471885e1c28236",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2008_Ikkitousen Ryomou Shimei Maid Ver/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2009",
+    "group": "VMF50",
+    "number": "#2",
+    "name": "RISA",
+    "title": "VMF50 #2 RISA",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2009_VMF50 #2 RISA/record.md",
+      "line": ""
+    },
+    "folder": "r-e892a42c32e11907",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2009_VMF50 #2 RISA/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2009",
+    "group": "VMF50",
+    "number": "#3",
+    "name": "MIKI",
+    "title": "VMF50 #3 MIKI",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2009_VMF50 #3 MIKI/record.md",
+      "line": ""
+    },
+    "folder": "r-f07abbf40a010370",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2009_VMF50 #3 MIKI/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2009",
+    "group": "VMF50",
+    "number": "#4",
+    "name": "YUMI",
+    "title": "VMF50 #4 YUMI",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2009_VMF50 #4 YUMI/record.md",
+      "line": ""
+    },
+    "folder": "r-ba6ba574f3a1da8d",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2009_VMF50 #4 YUMI/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2010",
+    "group": "VMF50",
+    "number": "#5",
+    "name": "AMI",
+    "title": "VMF50 #5 AMI",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #5 AMI/record.md",
+      "line": ""
+    },
+    "folder": "r-e2d18997db66222f",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #5 AMI/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2010",
+    "group": "VMF50",
+    "number": "#6",
+    "name": "NAO",
+    "title": "VMF50 #6 NAO",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #6 NAO/record.md",
+      "line": ""
+    },
+    "folder": "r-90117cacf0040cca",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #6 NAO/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2010",
+    "group": "VMF50",
+    "number": "#7",
+    "name": "MIHO",
+    "title": "VMF50 #7 MIHO",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #7 MIHO/record.md",
+      "line": ""
+    },
+    "folder": "r-e345a085501316a2",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #7 MIHO/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2010",
+    "group": "VMF50",
+    "number": "#8",
+    "name": "ERI",
+    "title": "VMF50 #8 ERI",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #8 ERI/record.md",
+      "line": ""
+    },
+    "folder": "r-e06af46f59490d38",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2010_VMF50 #8 ERI/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2011",
+    "group": "VMF50",
+    "number": "#11",
+    "name": "MAKO",
+    "title": "VMF50 #11 MAKO",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2011_VMF50 #11 MAKO/record.md",
+      "line": ""
+    },
+    "folder": "r-9d2e7382601730b9",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2011_VMF50 #11 MAKO/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2011",
+    "group": "VMF50",
+    "number": "#9",
+    "name": "SHIHO",
+    "title": "VMF50 #9 SHIHO",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2011_VMF50 #9 SHIHO/record.md",
+      "line": ""
+    },
+    "folder": "r-684320971ec10e7f",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2011_VMF50 #9 SHIHO/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2012",
+    "group": "RealArtProject",
+    "number": "#1",
+    "name": "伽琉羅 KARURA",
+    "title": "Dollcore Image Girl #1 伽琉羅 KARURA",
+    "body": "vmf50 / Dollcore 完成品",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://www.suruga-ya.jp/kaitori/kaitori_detail/990016103",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2012_Dollcore Image Girl #1 伽琉羅 KARURA/record.md",
+      "line": ""
+    },
+    "folder": "r-859d28fe6ac45e0d",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2012_Dollcore Image Girl #1 伽琉羅 KARURA/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2012",
+    "group": "VMF50",
+    "number": "#12",
+    "name": "KANA",
+    "title": "VMF50 #12 KANA",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2012_VMF50 #12 KANA/record.md",
+      "line": ""
+    },
+    "folder": "r-8c122d50c4593afd",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2012_VMF50 #12 KANA/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2012",
+    "group": "VMF50",
+    "number": "#13",
+    "name": "MIKO",
+    "title": "VMF50 #13 MIKO",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://myfigurecollection.net/entry/32014",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2012_VMF50 #13 MIKO/record.md",
+      "line": ""
+    },
+    "folder": "r-8052f4a981c75638",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2012_VMF50 #13 MIKO/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2014",
+    "group": "RealArtProject",
+    "number": "#9",
+    "name": "紫珠紅",
+    "title": "Pink Drops #9 紫珠紅",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2014-09-02_Pink Drops #9 紫珠紅/record.md",
+      "line": ""
+    },
+    "folder": "r-52d60eb7a850077c",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2014-09-02_Pink Drops #9 紫珠紅/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2014-09-02_Pink Drops #9 紫珠紅\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2015",
+    "group": "RealArtProject",
+    "number": "#9",
+    "name": "紫珠紅",
+    "title": "Pink Drops #9 紫珠紅",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2015-05-23_Pink Drops #9 紫珠紅/record.md",
+      "line": ""
+    },
+    "folder": "r-7e3608f7f3718e79",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2015-05-23_Pink Drops #9 紫珠紅/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2015-05-23_Pink Drops #9 紫珠紅\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2015",
+    "group": "RealArtProject",
+    "number": "#9",
+    "name": "紫珠紅 SHIZUKU",
+    "title": "Pink Drops #9 紫珠紅 SHIZUKU",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2015-05-28_Pink Drops #9 紫珠紅 SHIZUKU/record.md",
+      "line": ""
+    },
+    "folder": "r-b8bcd5ffbae39e63",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2015-05-28_Pink Drops #9 紫珠紅 SHIZUKU/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2015-05-28_Pink Drops #9 紫珠紅 SHIZUKU\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2016",
+    "group": "RealArtProject",
+    "number": "#9",
+    "name": "紫珠紅",
+    "title": "Pink Drops #9 紫珠紅 ver.2",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2016-10-29_Pink Drops #9 紫珠紅 ver.2/record.md",
+      "line": ""
+    },
+    "folder": "r-14dbce8f16c99b5b",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2016-10-29_Pink Drops #9 紫珠紅 ver.2/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2016-10-29_Pink Drops #9 紫珠紅 ver.2\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2018",
+    "group": "RealArtProject",
+    "number": "#9",
+    "name": "紫珠紅",
+    "title": "Pink Drops #9 紫珠紅 ver.3",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2018-08-26_Pink Drops #9 紫珠紅 ver.3/record.md",
+      "line": ""
+    },
+    "folder": "r-8041cef77c6dbc59",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2018-08-26_Pink Drops #9 紫珠紅 ver.3/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2018-08-26_Pink Drops #9 紫珠紅 ver.3\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2020",
+    "group": "AngelPhilia",
+    "number": "",
+    "name": "A 柑奈",
+    "title": "A 柑奈 20200512",
+    "body": "未明",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2020-05-12_A 柑奈/record.md",
+      "line": ""
+    },
+    "folder": "r-b62456f20bd9c414",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2020-05-12_A 柑奈/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2020-05-12_A 柑奈\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2020",
+    "group": "AngelPhilia",
+    "number": "",
+    "name": "B 柑奈",
+    "title": "B 柑奈 20200512",
+    "body": "ひとつのヘッドでペチャ胸ボディと巨乳ボディがお楽しみいただ…",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2020-05-12_B 柑奈/record.md",
+      "line": ""
+    },
+    "folder": "r-05f501e7e283172e",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2020-05-12_B 柑奈/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2020-05-12_B 柑奈\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2020",
+    "group": "AngelPhilia",
+    "number": "",
+    "name": "Cボディ＆紗鵺香",
+    "title": "Cボディ＆紗鵺香 20201108",
+    "body": "Cボディ＆紗鵺香 20201108 / 来源类型：RAP_…",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2020-11-08_Cボディ＆紗鵺香/record.md",
+      "line": ""
+    },
+    "folder": "r-6efd46ae811fbfa4",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2020-11-08_Cボディ＆紗鵺香/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2020-11-08_Cボディ＆紗鵺香\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2021",
+    "group": "RealArtProject",
+    "number": "#55",
+    "name": "七瀬：スーパーホワイティボディ",
+    "title": "Pink Drops #55 七瀬：スーパーホワイティボディ 20210212",
+    "body": "Pink Drops #55 七瀬：スーパーホワイティボデ…",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2021-02-12_Pink Drops #55 七瀬：スーパーホワイティボディ/record.md",
+      "line": ""
+    },
+    "folder": "r-06bc64749285973e",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2021-02-12_Pink Drops #55 七瀬：スーパーホワイティボディ/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2021-02-12_Pink Drops #55 七瀬：スーパーホワイティボディ\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2021",
+    "group": "RealArtProject",
+    "number": "#55",
+    "name": "七瀬：スーパーホワイティボディ",
+    "title": "Pink Drops #55 七瀬：スーパーホワイティボディ 20210823",
+    "body": "Pink Drops #55 七瀬：スーパーホワイティボデ…",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2021-08-23_Pink Drops #55 七瀬：スーパーホワイティボディ/record.md",
+      "line": ""
+    },
+    "folder": "r-09a6be8d48f947b3",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2021-08-23_Pink Drops #55 七瀬：スーパーホワイティボディ/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2021-08-23_Pink Drops #55 七瀬：スーパーホワイティボディ\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2025",
+    "group": "RealArtProject",
+    "number": "",
+    "name": "メアリ",
+    "title": "【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売",
+    "body": "ボディメイクには体と手の両方が含まれます。 / 材質：外皮…",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://jiwudoc.myshopify.com/products/%E3%82%A8%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AB%E3%83%95%E3%82%A3%E3%83%AA%E3%82%A2-%E3%83%94%E3%83%B3%E3%82%AF%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%82%B9-80-%E3%83%A1%E3%82%A2%E3%83%AA-%E3%82%BD%E3%83%95%E3%83%88%E3%82%B9%E3%82%AD%E3%83%B3-%E4%BA%88%E7%B4%84%E8%B2%A9%E5%A3%B2",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売/record.md",
+      "line": ""
+    },
+    "folder": "r-9a19e444206f5a9e",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2025_JiWu_【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "2025",
+    "group": "RealArtProject",
+    "number": "",
+    "name": "小夢",
+    "title": "【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売",
+    "body": "ボディメイクには体と手の両方が含まれます。 / 材質：外皮…",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://jiwudoc.myshopify.com/products/%E3%82%A8%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AB%E3%83%95%E3%82%A3%E3%83%AA%E3%82%A2-%E3%83%94%E3%83%B3%E3%82%AF%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%82%B9-79-%E5%B0%8F%E5%A4%A2-%E3%82%84%E3%82%8F%E3%82%89%E3%81%8B%E8%82%8C-%E4%BA%88%E7%B4%84%E8%B2%A9%E5%A3%B2",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売/record.md",
+      "line": ""
+    },
+    "folder": "r-1a5fa5afd6c98193",
+    "externalProductId": "",
+    "reason": "重新读取 record.md 失败：源文件不存在或路径不匹配",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売/record.md",
+      "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売\\record.md'"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "未明",
+    "group": "VMF50",
+    "number": "#2",
+    "name": "RISA 褐色肌",
+    "title": "YAMATO_VMF50 #2 RISA Tan Skin",
+    "body": "VMF50 Original Image Girl 变体",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/YAMATO_VMF50 #2 RISA Tan Skin/record.md",
+      "line": ""
+    },
+    "folder": "r-98a4c302e76b9f77",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/YAMATO_VMF50 #2 RISA Tan Skin/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "未明",
+    "group": "AngelPhilia",
+    "number": "未记",
+    "name": "リン・ミンメイ",
+    "title": "Macross Lynn Minmay 50cm figure",
+    "body": "vmf50 角色联动完成品",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2009_Macross Lynn Minmay 50cm figure/record.md",
+      "line": ""
+    },
+    "folder": "r-cfcd02f815ff1a99",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2009_Macross Lynn Minmay 50cm figure/record.md"
+    }
+  },
+  {
+    "status": "manual-review",
+    "dataset": "records.json",
+    "year": "未明",
+    "group": "AngelPhilia",
+    "number": "未记",
+    "name": "レイナ",
+    "title": "Queens Blade Reina action figure",
+    "body": "YAMATO / vmf 系角色联动完成品",
+    "bodyCode": "",
+    "source": "网络数据",
+    "sourceUrl": "https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/",
+    "bodyCodeSource": {
+      "type": "record.md",
+      "path": "records/2010_Queens Blade Reina action figure/record.md",
+      "line": ""
+    },
+    "folder": "r-ef655884b80b64fe",
+    "externalProductId": "",
+    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
+    "checkedSource": {
+      "type": "record.md",
+      "path": "records/2010_Queens Blade Reina action figure/record.md"
+    }
+  }
+]

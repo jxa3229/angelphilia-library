@@ -310,7 +310,8 @@
 }
 
 .main-panel.route-library,
-.main-panel.route-body-builder {
+.main-panel.route-body-builder,
+.main-panel.route-outfits {
   overflow: auto;
   scrollbar-gutter: stable;
 }

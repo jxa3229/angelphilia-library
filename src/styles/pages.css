@@ -11,7 +11,8 @@
 .scope-text,
 .library-section,
 .index-section,
-.repo-section {
+.repo-section,
+.outfits-section {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -130,13 +131,15 @@ dd {
 .notice-panel,
 .library-section,
 .index-section,
-.repo-section {
+.repo-section,
+.outfits-section {
   padding: 24px;
 }
 
 .library-section,
 .index-section,
-.repo-section {
+.repo-section,
+.outfits-section {
   margin-top: 0;
 }
 
@@ -148,7 +151,8 @@ dd {
 .scope-text p,
 .notice-panel p,
 .section-head p,
-.repo-section p {
+.repo-section p,
+.outfit-card p {
   margin: 10px 0 0;
   color: var(--muted);
 }
@@ -449,5 +453,122 @@ dd {
 
 .plain-link:hover {
   text-decoration: underline;
+}
+
+.outfits-filters {
+  grid-template-columns: minmax(240px, 1fr) repeat(2, minmax(150px, 190px));
+}
+
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.outfit-card {
+  display: grid;
+  grid-template-rows: 250px minmax(0, 1fr);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.outfit-image {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  width: 100%;
+  height: 250px;
+  padding: 0;
+  border: 0;
+  background: #1f2428;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.outfit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 220ms ease;
+}
+
+.outfit-image:hover img {
+  transform: scale(1.035);
+}
+
+.outfit-card-body {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 16px;
+}
+
+.outfit-card h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.outfit-card h3 button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.outfit-card h3 button:hover {
+  color: var(--primary);
+}
+
+.original-title {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.outfit-card p {
+  display: -webkit-box;
+  min-height: 72px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-height: 1.55;
+}
+
+.outfit-detail {
+  padding-bottom: 28px;
+}
+
+.outfit-detail .detail-carousel {
+  margin-top: 2px;
+}
+
+.outfit-detail dl {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.outfit-detail dd a {
+  color: var(--primary);
+  overflow-wrap: anywhere;
+}
+
+.outfit-description {
+  margin-top: 0;
+}
+
+.outfit-description h3 {
+  margin: 0 0 10px;
 }
 

@@ -15,6 +15,12 @@
         <div v-if="library.isDetailLoading(record)" class="detail-loading">{{ copy.loading }}</div>
         <div v-else-if="library.detailError(record, copy)" class="detail-error">{{ library.detailError(record, copy) }}</div>
         <div v-else-if="safeDetailHtml" v-html="safeDetailHtml"></div>
+        <div v-else-if="record.description" class="external-detail">
+          <p>{{ record.description }}</p>
+          <a v-if="record.sourceUrl" :href="record.sourceUrl" target="_blank" rel="noreferrer">
+            {{ copy.sourcePage }}
+          </a>
+        </div>
         <el-empty v-else :description="copy.noDetail" />
       </article>
     </div>

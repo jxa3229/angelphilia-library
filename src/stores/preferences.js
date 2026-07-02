@@ -12,6 +12,7 @@ export const usePreferencesStore = defineStore('preferences', () => {
     { route: 'overview', label: copy.value.navSummary },
     { route: 'library', label: copy.value.navLibrary },
     { route: 'body-builder', label: copy.value.navBodyBuilder, bubble: copy.value.bodyBuilderBubble },
+    { route: 'outfits', label: copy.value.navOutfits },
     { route: 'index', label: copy.value.navIndex },
     { route: 'repository', label: copy.value.navRepo }
   ])

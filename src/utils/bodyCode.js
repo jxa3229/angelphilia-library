@@ -89,6 +89,8 @@ export function buildCopySummary({ selection, parts, head, defaults }) {
 }
 
 export function bodyCodeFromRecord(record = {}) {
+  if (record.bodyCode) return String(record.bodyCode).trim().toUpperCase()
+
   const pieces = String(record.body || '')
     .split('/')
     .map((piece) => piece.trim().toUpperCase().replace(/^TYPE-?/, ''))

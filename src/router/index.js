@@ -5,6 +5,7 @@ const LibraryPage = () => import('../pages/LibraryPage.vue')
 const IndexPage = () => import('../pages/IndexPage.vue')
 const RepositoryPage = () => import('../pages/RepositoryPage.vue')
 const BodyBuilderPage = () => import('../pages/BodyBuilderPage.vue')
+const OutfitsPage = () => import('../pages/OutfitsPage.vue')
 
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,7 @@ export const router = createRouter({
     { path: '/overview', name: 'overview', component: OverviewPage },
     { path: '/library', name: 'library', component: LibraryPage },
     { path: '/body-builder', name: 'body-builder', component: BodyBuilderPage },
+    { path: '/outfits', name: 'outfits', component: OutfitsPage },
     { path: '/index', name: 'index', component: IndexPage },
     { path: '/repository', name: 'repository', component: RepositoryPage },
     { path: '/:pathMatch(.*)*', redirect: { name: 'overview' } }

@@ -411,6 +411,231 @@
   margin-bottom: 14px;
 }
 
+.part-preview-panel {
+  overflow: hidden;
+}
+
+.part-preview-toolbar,
+.part-preview-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.part-preview-toolbar .el-button {
+  margin-left: 0;
+}
+
+.preview-chip {
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.preview-chip:hover,
+.preview-chip:focus-visible,
+.preview-chip.active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+  outline: none;
+}
+
+.part-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.part-preview-card {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.part-preview-image {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary-soft) 52%, transparent), transparent 48%),
+    #f7f1ec;
+}
+
+.part-preview-image .el-image {
+  width: 100%;
+  height: 100%;
+}
+
+.part-preview-image .el-image__inner {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+
+.part-preview-image-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.part-preview-content {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.part-preview-card-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.part-preview-card-head strong {
+  color: var(--primary);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.part-preview-card-head span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.part-preview-title {
+  display: -webkit-box;
+  min-height: 42px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.55;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.part-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.part-preview-tags .el-tag {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.part-preview-measurement {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.part-preview-source {
+  width: fit-content;
+  max-width: 100%;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.part-preview-source:hover,
+.part-preview-source:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.part-preview-related {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.part-preview-related-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.part-preview-related-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.part-preview-related-link,
+.part-preview-related-more {
+  max-width: 100%;
+  padding: 3px 7px;
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary-soft) 42%, var(--surface));
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.part-preview-related-link:hover,
+.part-preview-related-link:focus-visible {
+  border-color: var(--primary);
+  text-decoration: underline;
+}
+
+.part-preview-related-more {
+  color: var(--muted);
+}
+
+.part-preview-empty {
+  margin: 16px 0 0;
+  padding: 14px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .parts-model-table .el-tag {
   white-space: normal;
 }

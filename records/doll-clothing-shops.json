@@ -1,0 +1,319 @@
+{
+  "metadata": {
+    "title": "VMF50 / Angel Philia / Pink Drops 48-50cm doll clothing and accessories shops",
+    "description": "除 Dollfie HK 外，可用于查找 VMF50、Angel Philia、Pink Drops、Obitsu 48-50cm、AZO2 等娃衣与配饰的在线网址记录。",
+    "lastChecked": "2026-07-08",
+    "notes": [
+      "购买前需逐项核对 bust、hip、thigh、foot size 等尺寸，Angel Philia 不同 body type 适配差异较大。",
+      "深色衣服建议使用防染衣或内衬，soft vinyl body 容易染色。",
+      "二手与平台型站点库存变化快，建议用 fitKeywords 中的关键词重复搜索。"
+    ]
+  },
+  "shops": [
+    {
+      "id": "faithz-angel-philia-clothes",
+      "name": "FaithZ - Angel Philia Clothes",
+      "url": "https://faithz.com/angel-philia-clothes-c-100_320.html",
+      "category": "new",
+      "platformType": "specialist_retailer",
+      "region": "Hong Kong / International",
+      "fitKeywords": [
+        "Angel Philia",
+        "VMF50",
+        "Pink Drops",
+        "48cm",
+        "50cm"
+      ],
+      "itemsToSearch": [
+        "clothes",
+        "outfit",
+        "wig",
+        "shoes",
+        "accessories"
+      ],
+      "notes": "Angel Philia / VMF50 正向品类较集中；若你说的 Dollfie HK 指的就是 FaithZ，则这项可视为已知渠道。",
+      "sourceConfidence": "high"
+    },
+    {
+      "id": "angel-philia-official-dress-more",
+      "name": "Angel Philia Official - Dress & More",
+      "url": "https://quarantotto.biz/angelphilia/category/item/itemgenre/itemcostume",
+      "category": "new",
+      "platformType": "official_store",
+      "region": "Japan",
+      "fitKeywords": [
+        "Angel Philia",
+        "Pink Drops",
+        "Quarantotto",
+        "50cm"
+      ],
+      "itemsToSearch": [
+        "official outfit",
+        "dress",
+        "wig",
+        "socks",
+        "shoes",
+        "accessories"
+      ],
+      "notes": "官方衣服与配饰来源，常有限量和售罄情况；海外购买通常需要确认直邮或使用日本转运。",
+      "sourceConfidence": "high"
+    },
+    {
+      "id": "parabox-doll-wear",
+      "name": "PARABOX - Doll Wear",
+      "url": "https://www.parabox.jp/eng_new/dollwear.html",
+      "category": "new",
+      "platformType": "specialist_retailer",
+      "region": "Japan",
+      "fitKeywords": [
+        "Obitsu 48",
+        "Obitsu 50",
+        "48cm female",
+        "50cm female",
+        "Angel Philia"
+      ],
+      "itemsToSearch": [
+        "doll wear",
+        "basic clothes",
+        "shoes",
+        "accessories"
+      ],
+      "notes": "主要面向 Parabox / Obitsu body。基础款适配机会较高，但 Angel Philia 大胸或宽臀 body 需额外核对尺寸。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "hobbysearch-azone-50cm",
+      "name": "HobbySearch / 1999 - Azone 50cm / 60cm",
+      "url": "https://www.1999.co.jp/eng/list/1751/7/1",
+      "category": "new",
+      "platformType": "hobby_retailer",
+      "region": "Japan / International",
+      "fitKeywords": [
+        "Azone 50cm",
+        "AZO2",
+        "Obitsu 50",
+        "Angel Philia",
+        "VMF50"
+      ],
+      "itemsToSearch": [
+        "Azone clothes",
+        "AZO2 outfit",
+        "50cm doll clothes",
+        "shoes"
+      ],
+      "notes": "Azone / AZO2 服装常用于近似 50cm body；AP body 曲线更夸张，紧身款需谨慎。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "fabric-friends-dolls-azone-50cm",
+      "name": "Fabric Friends & Dolls - Azone 50cm Parts and Accessories",
+      "url": "https://fabricfriendsdolls.com/index.php?cPath=959_1037&main_page=index",
+      "category": "new",
+      "platformType": "hobby_retailer",
+      "region": "United States",
+      "fitKeywords": [
+        "Azone 50cm",
+        "AZO2",
+        "Obitsu 50",
+        "48cm",
+        "50cm"
+      ],
+      "itemsToSearch": [
+        "shoes",
+        "boots",
+        "accessories",
+        "parts"
+      ],
+      "notes": "美国店，适合找 Azone 50 / AZO2 鞋子和配件；对 Angel Philia 的直接适配需看商品说明。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "mandarake-quarantotto-search",
+      "name": "Mandarake Online - Quarantotto / Angel Philia Search",
+      "url": "https://ekizo.mandarake.co.jp/order/listPage/serchNarrowWord?lang=en&narrowWordTarget=tag&serchWord=Quarantotto+",
+      "category": "second_hand",
+      "platformType": "second_hand_marketplace",
+      "region": "Japan / International",
+      "fitKeywords": [
+        "Quarantotto",
+        "Angel Philia",
+        "VMF50",
+        "Pink Drops"
+      ],
+      "itemsToSearch": [
+        "clothing set",
+        "outfit",
+        "body parts",
+        "wig",
+        "shoes"
+      ],
+      "notes": "二手官方衣服、整娃、配件、wig 偶尔出现；库存变化快。",
+      "sourceConfidence": "high"
+    },
+    {
+      "id": "dollyteria-angel-philia-search",
+      "name": "Dollyteria - Angel Philia Search",
+      "url": "https://www.dollyteria.com/product-list?keyword=angel%E3%80%80philia",
+      "category": "second_hand",
+      "platformType": "second_hand_store",
+      "region": "Japan",
+      "fitKeywords": [
+        "Angel Philia",
+        "VMF50",
+        "Obitsu 50",
+        "50cm"
+      ],
+      "itemsToSearch": [
+        "outfit",
+        "body parts",
+        "skin parts",
+        "shoes",
+        "wig"
+      ],
+      "notes": "日本二手店，适合搜 Angel Philia、VMF50 外皮、Obitsu50 鞋和 50cm 衣装；可能需要转运。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "yahoo-auctions-japan-angel-philia",
+      "name": "Yahoo! Auctions Japan - Angel Philia Search",
+      "url": "https://auctions.yahoo.co.jp/search/search?p=angel+philia",
+      "category": "auction",
+      "platformType": "auction_marketplace",
+      "region": "Japan",
+      "fitKeywords": [
+        "Angel Philia",
+        "Quarantotto",
+        "Pink Drops",
+        "VMF50",
+        "オビツ50"
+      ],
+      "itemsToSearch": [
+        "衣装",
+        "服",
+        "wig",
+        "body parts",
+        "shoes",
+        "accessories"
+      ],
+      "notes": "可通过 Buyee、ZenMarket、FromJapan 等代拍。成交价和成色差异大，需检查照片与卖家评价。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "etsy-angel-philia-doll-clothes",
+      "name": "Etsy - Angel Philia Doll Clothes",
+      "url": "https://www.etsy.com/market/angel_philia_doll_clothes",
+      "category": "handmade",
+      "platformType": "handmade_marketplace",
+      "region": "International",
+      "fitKeywords": [
+        "Angel Philia",
+        "VMF50",
+        "Obitsu 50",
+        "AZO2",
+        "50cm doll"
+      ],
+      "itemsToSearch": [
+        "handmade outfit",
+        "dress",
+        "lingerie",
+        "shoes",
+        "accessories"
+      ],
+      "notes": "手作衣服多；每个 seller 尺寸标准不同，购买前最好询问是否测试过 Angel Philia / VMF50 body。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "ebay-angel-philia-search",
+      "name": "eBay - Angel Philia Search",
+      "url": "https://www.ebay.com/shop/angel-philia?_nkw=angel+philia",
+      "category": "marketplace",
+      "platformType": "general_marketplace",
+      "region": "International",
+      "fitKeywords": [
+        "Angel Philia",
+        "VMF50",
+        "Pink Drops",
+        "Obitsu 50"
+      ],
+      "itemsToSearch": [
+        "outfit",
+        "swimsuit",
+        "wig",
+        "hat",
+        "body parts",
+        "accessories"
+      ],
+      "notes": "可找 AP/VMF50 配件、wig、泳装、帽子、外皮零件等；价格经常偏高，需比较日拍和 Mandarake。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "booth-pigg-doll",
+      "name": "BOOTH - Pigg Doll",
+      "url": "https://pigg-doll.booth.pm/items",
+      "category": "handmade",
+      "platformType": "creator_store",
+      "region": "Japan",
+      "fitKeywords": [
+        "オビツ50",
+        "ANGEL PHILIA",
+        "MDD",
+        "DD",
+        "50cm"
+      ],
+      "itemsToSearch": [
+        "wig",
+        "neck joint",
+        "outfit",
+        "accessories"
+      ],
+      "notes": "日系手作与配件店；可用 BOOTH 搜索日文关键词扩展更多创作者。",
+      "sourceConfidence": "medium"
+    },
+    {
+      "id": "angel-philia-official-retailer-links",
+      "name": "Angel Philia Official Retailer Links",
+      "url": "https://quarantotto.biz/angelphilia/%E3%83%AA%E3%83%B3%E3%82%AF",
+      "category": "retailer_directory",
+      "platformType": "official_directory",
+      "region": "Japan / Asia / International",
+      "fitKeywords": [
+        "Angel Philia",
+        "Pink Drops",
+        "Quarantotto",
+        "Taobao",
+        "DOLK"
+      ],
+      "itemsToSearch": [
+        "authorized retailer",
+        "Taobao shop",
+        "pre-order",
+        "official links"
+      ],
+      "notes": "官方链接页列出海外和亚洲零售商，包括 FaithZ Taobao、禧多DOLL、日本東京store、DOLK Taobao 等；适合作为核验真伪和寻找区域代理的入口。",
+      "sourceConfidence": "high"
+    }
+  ],
+  "searchKeywords": {
+    "english": [
+      "Angel Philia clothes",
+      "VMF50 outfit",
+      "Pink Drops doll clothes",
+      "Obitsu 50 clothes",
+      "48cm 50cm female doll clothes",
+      "AZO2 clothes"
+    ],
+    "japanese": [
+      "オビツ50 衣装",
+      "エンジェルフィリア 衣装",
+      "vmf50 衣装",
+      "ピンクドロップス 衣装"
+    ],
+    "chinese": [
+      "Angel Philia 娃衣",
+      "VMF50 娃衣",
+      "Pink Drops 娃衣",
+      "Obitsu50 服",
+      "50cm 娃衣"
+    ]
+  }
+}

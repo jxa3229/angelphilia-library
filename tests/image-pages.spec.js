@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-test('shares full-size originals and black variants with working copy and download links', async ({ page, context }) => {
+test('shares full-size originals and black variants with working copy and download links', async ({ page, context, baseURL }) => {
+  const assetBase = new URL(process.env.BASE_PATH || '/', baseURL).href
   const errors = []
   page.on('pageerror', (error) => errors.push(error.message))
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
@@ -13,9 +14,9 @@ test('shares full-size originals and black variants with working copy and downlo
     await expect(page.getByRole('link', { name: '下载 PNG' })).toHaveAttribute('download', `${id}.png`)
     await page.getByRole('button', { name: '复制图片直链', exact: true }).click()
     await expect(page.locator('.image-feedback')).toHaveText('链接已复制')
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`http://127.0.0.1:5107/images/${id}.png`)
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${assetBase}images/${id}.png`)
     await page.getByRole('button', { name: '复制分享页链接', exact: true }).click()
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`http://127.0.0.1:5107/#/image/${id}`)
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`${assetBase}#/image/${id}`)
     await page.getByRole('link', { name: '黑底版', exact: true }).click()
     await expect(page).toHaveURL(new RegExp(`#\/image\/${id}-dark$`))
     await expect(image).toHaveAttribute('src', new RegExp(`/images/${id}-dark.png$`))

@@ -8,6 +8,7 @@ const BodyBuilderPage = () => import('../pages/BodyBuilderPage.vue')
 const OutfitsPage = () => import('../pages/OutfitsPage.vue')
 const GlossaryPage = () => import('../pages/GlossaryPage.vue')
 const LimitedPage = () => import('../pages/LimitedPage.vue')
+const ImagePage = () => import('../pages/ImagePage.vue')
 
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,7 @@ export const router = createRouter({
     { path: '/index', name: 'index', component: IndexPage },
     { path: '/glossary', name: 'glossary', component: GlossaryPage },
     { path: '/repository', name: 'repository', component: RepositoryPage },
+    { path: '/image/:id', name: 'image', component: ImagePage },
     { path: '/:pathMatch(.*)*', redirect: { name: 'overview' } }
   ],
   scrollBehavior() {

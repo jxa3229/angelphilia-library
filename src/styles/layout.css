@@ -518,3 +518,7 @@
   overflow: auto;
 }
 
+.main-panel.route-image {
+  overflow: auto;
+}
+

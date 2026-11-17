@@ -68,21 +68,46 @@ const singleLetterColors = {
   R: '红色'
 }
 
-export function translateOutfitTitle(title) {
-  let translated = normalizeTitle(title)
+const englishPhrases = [
+  'Gingham waitress set', 'Pink wedding set DX', 'White wedding set DX',
+  'Long-sleeved gingham sailor uniform', 'Mission-school uniform', 'Fluffy hooded sweatshirt set',
+  'Sheer shirt & rainbow skirt set', 'Checker coat & FUNDOSI lingerie', 'Custom accessory',
+  'Stand-type accessory', 'Double-ended accessory', 'Medium-length wig', 'Bob wig',
+  'Wrap dress', 'Fluffy panda set', 'Short faux-fur coat', 'Japanese-style maid set',
+  'Short-sleeved sailor uniform', 'School uniform set', 'Waitress set', 'Wedding', 'Swimwear',
+  'Vinyl body parts', 'Upper torso', 'Lower torso', 'Painted', 'P strap', 'Type-R', 'Type-V',
+  'Clear black', 'Realistic color', 'Light blue', 'Light pink', 'Gray', 'Gray', 'White', 'Black',
+  'Pink', 'Blue', 'Yellow', 'Burgundy', 'Navy', 'Blond', 'Brown', 'Pink', 'Tan', 'Whitey', 'Super Whitey'
+]
+const englishColors = {
+  WBR: 'White/Brown', WLB: 'White/Light blue', WBL: 'White/Blue', WP: 'White/Pink',
+  WR: 'White/Red', WG: 'White/Green', BS: 'Black S', GS: 'Green S', B: 'Black', W: 'White',
+  P: 'Pink', BL: 'Blue', LB: 'Light blue', BR: 'Brown', G: 'Green', R: 'Red'
+}
+const localizedPhrases = new Map(phraseTranslations.map(([source, zh], index) => [
+  source.replace(/[Ａ-Ｚ０-９]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0xfee0)),
+  { zh, en: englishPhrases[index] }
+]))
+const phrasePattern = new RegExp([...localizedPhrases.keys()]
+  .sort((a, b) => b.length - a.length)
+  .map((text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g')
 
-  for (const [source, target] of phraseTranslations) {
-    translated = translated.replaceAll(source, target)
-  }
+export function translateOutfitTitle(title, lang = 'zh') {
+  if (lang === 'ja') return String(title || '')
+  const english = lang === 'en'
+  let translated = normalizeTitle(String(title || '').replaceAll('Pink Drops', '\uE000PD\uE001'), english ? englishColors : singleLetterColors)
+    .replaceAll('エンジェルフィリア', 'ANGEL PHILIA')
+    .replace(phrasePattern, (source) => localizedPhrases.get(source)[english ? 'en' : 'zh'])
+    .replaceAll('\uE000PD\uE001', 'Pink Drops')
 
   translated = translated
     .replace(/[「」｢｣]/g, '')
     .replace(/[（）]/g, (char) => (char === '（' ? '(' : ')'))
-    .replace(/セットDX/g, '套装 DX')
-    .replace(/セット/g, '套装')
-    .replace(/サイズ/g, '尺寸')
-    .replace(/価格/g, '价格')
-    .replace(/タイプ/g, '型')
+    .replace(/セットDX/g, english ? ' set DX' : '套装 DX')
+    .replace(/セット/g, english ? ' set' : '套装')
+    .replace(/サイズ/g, english ? ' size ' : '尺寸')
+    .replace(/価格/g, english ? ' price ' : '价格')
+    .replace(/タイプ/g, english ? ' type ' : '型')
     .replace(/：/g, ': ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -100,12 +125,12 @@ export function translateOutfitDescription(description) {
     .replace(/\s+/g, ' ')
     .trim()
 
-  return text.length > 220 ? `${text.slice(0, 220)}...` : text
+  return text
 }
 
-function normalizeTitle(title) {
+function normalizeTitle(title, colors) {
   return String(title || '')
     .replace(/[Ａ-Ｚ０-９]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0xfee0))
-    .replace(/([（(])([A-Z]{1,3})([)）])/g, (_, left, code, right) => `${left}${singleLetterColors[code] || code}${right}`)
-    .replace(/([A-Z]{1,3})$/, (code) => singleLetterColors[code] || code)
+    .replace(/([（(])([A-Z]{1,3})([)）])/g, (_, left, code, right) => `${left}${colors[code] || code}${right}`)
+    .replace(/([A-Z]{1,3})$/, (code) => colors[code] ? ` ${colors[code]}` : code)
 }

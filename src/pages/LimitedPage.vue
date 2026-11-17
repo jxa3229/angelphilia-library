@@ -1,6 +1,10 @@
 <template>
   <section class="limited-page" :lang="preferences.lang === 'zh' ? 'zh-CN' : preferences.lang" :aria-labelledby="activeRecord ? undefined : 'limited-title'">
-    <template v-if="!activeRecord">
+    <div v-if="invalidRecord" role="alert">
+      <el-empty :description="preferences.copy.recordNotFound" />
+      <el-button @click="closeRecord">{{ text.back }}</el-button>
+    </div>
+    <template v-else-if="!activeRecord">
       <header class="limited-header">
         <p class="limited-eyebrow">{{ text.eyebrow }}</p>
         <h1 id="limited-title">{{ text.title }}</h1>
@@ -52,13 +56,14 @@
 </template>
 
 <script setup>
-import { computed, nextTick, ref } from 'vue'
+import { computed, ref } from 'vue'
 import RecordCard from '../components/library/RecordCard.vue'
 import RecordDetail from '../components/library/RecordDetail.vue'
 import { useLibraryStore } from '../stores/library'
 import { usePreferencesStore } from '../stores/preferences'
 import { limitedCategories, limitedSearchText } from '../utils/limitedRecords'
 import { limitedCopy, localizedLimitedGuide, localizeLimitedRecord } from '../i18n/limited'
+import { useRecordRoute } from '../composables/useRecordRoute'
 
 const props = defineProps({ mainPanel: { type: Object, default: null } })
 const library = useLibraryStore()
@@ -72,12 +77,15 @@ const limitedTypes = computed(() => [
 ])
 const selectedType = ref('')
 const query = ref('')
-const activeRecord = ref(null)
-let savedScroll = { panel: 0, window: 0 }
 
 const limitedRecords = computed(() => library.allRecords.filter((record) => limitedCategories(record).length)
   .sort((a, b) => (Number.parseInt(b.year, 10) || 0) - (Number.parseInt(a.year, 10) || 0)
     || a.name.localeCompare(b.name, undefined, { numeric: true })))
+const { activeRecord, invalidRecord, openRecord, closeRecord } = useRecordRoute({
+  records: limitedRecords,
+  mainPanel: () => props.mainPanel,
+  onOpen: (record) => library.loadDetails(record)
+})
 const filteredRecords = computed(() => {
   const keyword = query.value.normalize('NFKC').trim().toLowerCase()
   return limitedRecords.value.filter((record) => (!selectedType.value || limitedCategories(record).includes(selectedType.value))
@@ -87,21 +95,6 @@ const filteredRecords = computed(() => {
 function countType(id) { return limitedRecords.value.filter((record) => limitedCategories(record).includes(id)).length }
 function resetFilters() { selectedType.value = ''; query.value = '' }
 
-async function openRecord(record) {
-  savedScroll = { panel: props.mainPanel?.scrollTop || 0, window: window.scrollY }
-  activeRecord.value = record
-  library.loadDetails(record)
-  await nextTick()
-  if (props.mainPanel) props.mainPanel.scrollTop = 0
-  window.scrollTo({ top: 0, behavior: 'instant' })
-}
-
-async function closeRecord() {
-  activeRecord.value = null
-  await nextTick()
-  if (props.mainPanel) props.mainPanel.scrollTop = savedScroll.panel || 0
-  window.scrollTo({ top: savedScroll.window || 0, behavior: 'instant' })
-}
 </script>
 
 <style scoped>

@@ -4,6 +4,17 @@ const LABELS = {
   shoes: '\u978b\u5b50',
   accessory: '\u5176\u4ed6\u914d\u4ef6'
 }
+const LOCALIZED_LABELS = {
+  zh: LABELS,
+  en: { clothing: 'Clothing', wig: 'Wigs', shoes: 'Shoes', accessory: 'Accessories' },
+  ja: { clothing: '衣装', wig: 'ウィッグ', shoes: '靴', accessory: 'その他の小物' }
+}
+
+export const outfitCategoryKeys = ['clothing', 'wig', 'shoes', 'accessory']
+
+export function categoryLabel(key, lang = 'zh') {
+  return (LOCALIZED_LABELS[lang] || LABELS)[key] || key
+}
 
 const CATEGORY_ORDER = [
   LABELS.clothing,
@@ -17,15 +28,19 @@ const WIG_PATTERN = /\u30a6\u30a3\u30c3\u30b0|\u30d8\u30a2|\u304b\u3064\u3089|wi
 const SHOE_PATTERN = /\u9774|\u30b7\u30e5\u30fc\u30ba|\u30b9\u30cb\u30fc\u30ab\u30fc|\u30d6\u30fc\u30c4|\u30d1\u30f3\u30d7\u30b9|\u30d2\u30fc\u30eb|\u30df\u30e5\u30fc\u30eb|\u30b5\u30f3\u30c0\u30eb|\u30ed\u30fc\u30d5\u30a1\u30fc|boots?|shoes?|sneakers?|pumps?|heels?|mules?|sandals?|loafers?/i
 const CLOTHING_PATTERN = /\u30ef\u30f3\u30d4|\u30c9\u30ec\u30b9|\u5236\u670d|\u6c34\u7740|\u670d|\u30d6\u30e9|\u30d6\u30eb\u30de|\u30b9\u30ab\u30fc\u30c8|\u30d1\u30f3\u30c4|\u30b7\u30e7\u30fc\u30c4|\u30e9\u30f3\u30b8\u30a7\u30ea\u30fc|\u30bd\u30c3\u30af\u30b9|\u30cb\u30fc\u30bd\u30c3\u30af\u30b9|\u30bf\u30a4\u30c4|\u30ec\u30fc\u30b9\u30a2\u30c3\u30d7|\u30b8\u30e3\u30fc\u30b8|\u30c0\u30a4\u30ca\u30fc|dress|skirt|socks?|tights?|lingerie|swim/i
 
-export function outfitCategoryLabel(item) {
+export function outfitCategoryKey(item) {
   const title = String(item?.title || '')
   const text = `${title} ${item?.description || ''}`
 
-  if (WIG_PATTERN.test(title)) return LABELS.wig
-  if (SHOE_PATTERN.test(title)) return LABELS.shoes
-  if (ACCESSORY_PATTERN.test(title)) return LABELS.accessory
-  if (CLOTHING_PATTERN.test(text) || item?.category === 'outfit') return LABELS.clothing
-  return LABELS.accessory
+  if (WIG_PATTERN.test(title)) return 'wig'
+  if (SHOE_PATTERN.test(title)) return 'shoes'
+  if (ACCESSORY_PATTERN.test(title)) return 'accessory'
+  if (CLOTHING_PATTERN.test(text) || item?.category === 'outfit') return 'clothing'
+  return 'accessory'
+}
+
+export function outfitCategoryLabel(item, lang = 'zh') {
+  return categoryLabel(outfitCategoryKey(item), lang)
 }
 
 export function sortOutfitCategories(categories) {

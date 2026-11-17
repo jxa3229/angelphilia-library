@@ -1,19 +1,19 @@
 <template>
-  <article class="glossary-page" lang="zh-CN" aria-labelledby="glossary-title">
+  <article class="glossary-page" :lang="preferences.lang === 'zh' ? 'zh-Hans' : preferences.lang" aria-labelledby="glossary-title">
     <header class="glossary-header">
-      <p class="glossary-eyebrow">LIBRARY GUIDE · 品牌档案</p>
-      <h1 id="glossary-title">品牌与运营术语</h1>
-      <p class="glossary-intro">从 VMF50 到 Angel Philia，读懂品牌、企划方与素体技术之间的关系。</p>
+      <p class="glossary-eyebrow">{{ text.eyebrow }}</p>
+      <h1 id="glossary-title">{{ text.title }}</h1>
+      <p class="glossary-intro">{{ text.intro }}</p>
     </header>
 
-    <nav class="glossary-sections" aria-label="本页章节">
+    <nav class="glossary-sections" :aria-label="text.navigation">
       <button v-for="section in sections" :key="section.id" type="button" @click="goToSection(section.id)">
         {{ section.label }}
       </button>
     </nav>
 
     <section id="glossary-brands" class="glossary-section" aria-labelledby="brands-title">
-      <h2 id="brands-title"><span>01</span> 名称释义</h2>
+      <h2 id="brands-title"><span>01</span> {{ text.headings[0] }}</h2>
       <div class="glossary-brand-grid">
         <section v-for="brand in brandGlossary.brands" :key="brand.name" class="glossary-brand">
           <span class="glossary-kind">{{ brand.kind }}</span>
@@ -21,7 +21,7 @@
           <p class="glossary-subtitle">{{ brand.subtitle }}</p>
           <p>{{ brand.text }}</p>
           <p class="glossary-detail">{{ brand.detail }}</p>
-          <div class="glossary-citations" aria-label="相关资料">
+          <div class="glossary-citations" :aria-label="text.references">
             <a v-for="id in brand.sources" :key="id" :href="sourceById[id].url" target="_blank" rel="noopener noreferrer">
               {{ sourceById[id].label }} ↗
             </a>
@@ -31,8 +31,8 @@
     </section>
 
     <section id="glossary-relations" class="glossary-section" aria-labelledby="relations-title">
-      <h2 id="relations-title"><span>02</span> 品牌关系速读</h2>
-      <p class="glossary-caption">按厂商、品牌、企划与技术层次阅读，合作关系不直接代表公司股权关系。</p>
+      <h2 id="relations-title"><span>02</span> {{ text.headings[1] }}</h2>
+      <p class="glossary-caption">{{ text.caption }}</p>
       <dl class="glossary-relations">
         <div v-for="relation in brandGlossary.relations" :key="relation.from">
           <dt>{{ relation.from }}</dt>
@@ -42,13 +42,13 @@
     </section>
 
     <section id="glossary-history" class="glossary-section" aria-labelledby="history-title">
-      <h2 id="history-title"><span>03</span> 历史沿革</h2>
+      <h2 id="history-title"><span>03</span> {{ text.headings[2] }}</h2>
       <ol class="glossary-timeline">
         <li v-for="event in brandGlossary.timeline" :key="event.period">
           <span class="glossary-period">{{ event.period }}</span>
           <div>
             <h3>{{ event.title }}</h3><p>{{ event.text }}</p>
-            <div class="glossary-citations" aria-label="历史参考资料">
+            <div class="glossary-citations" :aria-label="text.references">
               <a v-for="id in event.sources" :key="id" :href="sourceById[id].url" target="_blank" rel="noopener noreferrer">
                 {{ sourceById[id].label }} ↗
               </a>
@@ -59,7 +59,7 @@
     </section>
 
     <section id="glossary-terms" class="glossary-section" aria-labelledby="terms-title">
-      <h2 id="terms-title"><span>04</span> 技术与销售术语</h2>
+      <h2 id="terms-title"><span>04</span> {{ text.headings[3] }}</h2>
       <dl class="glossary-terms">
         <div v-for="term in brandGlossary.terms" :key="term.name">
           <dt>{{ term.name }}</dt><dd>{{ term.text }}</dd>
@@ -68,7 +68,7 @@
     </section>
 
     <section id="glossary-operations" class="glossary-section" aria-labelledby="operations-title">
-      <h2 id="operations-title"><span>05</span> 运营方式</h2>
+      <h2 id="operations-title"><span>05</span> {{ text.headings[4] }}</h2>
       <section v-for="operation in brandGlossary.operations" :key="operation.name" class="glossary-operation">
         <h3>{{ operation.name }}</h3><p>{{ operation.text }}</p>
         <div class="glossary-citations">
@@ -80,7 +80,7 @@
     </section>
 
     <section id="glossary-sources" class="glossary-section" aria-labelledby="sources-title">
-      <h2 id="sources-title"><span>06</span> 参考来源</h2>
+      <h2 id="sources-title"><span>06</span> {{ text.headings[5] }}</h2>
       <ul class="glossary-sources">
         <li v-for="source in glossarySources" :key="source.id">
           <span>{{ source.type }}</span>
@@ -92,19 +92,20 @@
 </template>
 
 <script setup>
-import { brandGlossary, glossarySources } from '../data/brandGlossary'
+import { computed } from 'vue'
+import { localizedGlossary } from '../i18n/glossary'
+import { usePreferencesStore } from '../stores/preferences'
 
 defineProps({ mainPanel: { type: Object, default: null } })
 
-const sourceById = Object.fromEntries(glossarySources.map((source) => [source.id, source]))
-const sections = [
-  { id: 'glossary-brands', label: '名称释义' },
-  { id: 'glossary-relations', label: '品牌关系' },
-  { id: 'glossary-history', label: '历史沿革' },
-  { id: 'glossary-terms', label: '常用术语' },
-  { id: 'glossary-operations', label: '运营方式' },
-  { id: 'glossary-sources', label: '参考来源' }
-]
+const preferences = usePreferencesStore()
+const glossary = computed(() => localizedGlossary(preferences.lang))
+const brandGlossary = computed(() => glossary.value.data)
+const glossarySources = computed(() => glossary.value.sources)
+const text = computed(() => glossary.value.copy)
+const sourceById = computed(() => Object.fromEntries(glossarySources.value.map((source) => [source.id, source])))
+const sections = computed(() => ['brands', 'relations', 'history', 'terms', 'operations', 'sources']
+  .map((id, index) => ({ id: `glossary-${id}`, label: text.value.headings[index] })))
 
 function goToSection(id) {
   document.getElementById(id)?.scrollIntoView({ block: 'start', behavior: 'instant' })

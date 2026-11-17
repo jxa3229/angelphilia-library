@@ -5,6 +5,7 @@ const allowedTags = new Set([
 ])
 
 const globalAttributes = new Set(['class', 'title'])
+const removedTags = new Set(['script', 'style', 'iframe', 'object', 'embed', 'template', 'svg', 'math'])
 const tagAttributes = {
   a: new Set(['href', 'target', 'rel']),
   img: new Set(['src', 'alt', 'title']),
@@ -29,11 +30,13 @@ function sanitizeNode(node) {
     }
 
     if (child.nodeType === Node.ELEMENT_NODE) {
-      sanitizeElement(child)
-    }
-
-    if (child.childNodes.length) {
+      if (removedTags.has(child.tagName.toLowerCase())) {
+        child.remove()
+        continue
+      }
+      // 必须在展开未知父标签前清理其后代，避免移出的节点跳过白名单。
       sanitizeNode(child)
+      sanitizeElement(child)
     }
   }
 }
@@ -65,7 +68,7 @@ function sanitizeElement(element) {
 function isUnsafeUrlAttribute(name, value) {
   if (!['href', 'src'].includes(name)) return false
   const normalized = value.trim().replace(/[\u0000-\u001F\u007F\s]+/g, '').toLowerCase()
-  if (normalized.startsWith('javascript:')) return true
-  if (normalized.startsWith('data:text/html')) return true
-  return false
+  if (!normalized || normalized.startsWith('#')) return false
+  const scheme = normalized.match(/^([a-z][a-z0-9+.-]*):/)?.[1]
+  return Boolean(scheme && !(name === 'href' ? ['https', 'http', 'mailto'] : ['https', 'http']).includes(scheme))
 }

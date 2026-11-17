@@ -45,11 +45,22 @@ jobs:
       - name: Validate body parts data
         run: npm run validate:body-parts
 
-      - name: Run smoke tests
-        run: npm run test:e2e
+      - name: Run unit tests
+        run: npm run test:unit
 
       - name: Build site
         run: npm run build
+
+      - name: Check generated summary and cached covers
+        run: |
+          node scripts/summarize-library.mjs --check
+          node scripts/cache-catalog-covers.mjs --check
+
+      - name: Test production site on Pages base path
+        run: npm run test:e2e -- --workers=1
+        env:
+          PLAYWRIGHT_PREVIEW: '1'
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5108/angelphilia-library/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -8,8 +8,8 @@
 - 分类：VMF50 早期整娃 / YAMATO Original Concept Image Girl
 - 编号：#2
 - 名称：RISA
-- 头部：公开资料未完整确认
-- Body：公开资料未完整确认
+- 头部：Type-D（用户补充）
+- Body：D/D/D/D（用户补充：全 D 体）
 - 肤色：公开资料未完整确认
 
 ### 图片
@@ -24,6 +24,7 @@
 标题：Yamato VMF50 Original Concept Image Girl #2 RISA
 查询说明：早期 YAMATO VMF50 记录；以编号和名称作为稳定检索入口。
 联动说明：前史入口。
+规格补充：用户补充 RISA 是全 D 体；头部也可按 Type-D 头处理。
 
 ### 来源说明
 - [VMF50 - Classifications — MyFigureCollection.net](https://myfigurecollection.net/entry/32014)
@@ -39,8 +40,8 @@
 - 分類：VMF50 早期整娃 / YAMATO Original Concept Image Girl
 - 番号：#2
 - 名称：RISA
-- ヘッド：公开资料未完整确认
-- ボディ：公开资料未完整确认
+- ヘッド：Type-D（ユーザー補足）
+- ボディ：D/D/D/D（ユーザー補足：全 D 体）
 - 成型色：公开资料未完整确认
 
 ### 画像
@@ -55,6 +56,7 @@
 タイトル：Yamato VMF50 Original Concept Image Girl #2 RISA
 検索メモ：早期YAMATO VMF50の記録。番号と名前を検索キーとして保留。
 連動メモ：前史入口。
+仕様補足：ユーザー補足により、RISA は全 D 体として扱う。ヘッドも Type-D 相当として扱う。
 
 ### 出典
 - [VMF50 - Classifications — MyFigureCollection.net](https://myfigurecollection.net/entry/32014)

@@ -9,7 +9,7 @@ const SLOT_LABELS = {
   forearm: '下腕',
   arm: '腕',
   hand: '手',
-  foot: '足'
+  foot: '足首'
 }
 
 export function parseBodyCompositionFromText(value, options = {}) {
@@ -84,6 +84,7 @@ export function normalizeBodyType(value) {
   if (vmfMatch) return vmfMatch[1]
 
   if (/OBITSU\s*50|OB50|オビツ\s*50/.test(text)) return 'Obitsu50'
+  if (/ノーマル足|NORMAL\s*FOOT|NORMAL足/.test(text)) return 'NormalFoot'
   if (/HEEL|ヒール|跟鞋脚|跟鞋腳/.test(text)) return 'Heel'
   return ''
 }

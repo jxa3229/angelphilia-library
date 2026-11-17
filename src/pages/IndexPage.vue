@@ -17,6 +17,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="variant" :label="copy.tableVariant" min-width="170" />
+      <el-table-column prop="headType" :label="copy.tableHeadType" width="108" />
       <el-table-column prop="head" :label="copy.tableHead" min-width="140" />
       <el-table-column prop="body" :label="copy.tableBody" min-width="170" />
       <el-table-column prop="skin" :label="copy.tableSkin" min-width="150" />

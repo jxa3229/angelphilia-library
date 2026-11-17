@@ -29,31 +29,6 @@
     "dataset": "records.json",
     "year": "2009",
     "group": "VMF50",
-    "number": "#2",
-    "name": "RISA",
-    "title": "VMF50 #2 RISA",
-    "body": "未明",
-    "bodyCode": "",
-    "source": "网络数据",
-    "sourceUrl": "https://myfigurecollection.net/entry/32014",
-    "bodyCodeSource": {
-      "type": "record.md",
-      "path": "records/2009_VMF50 #2 RISA/record.md",
-      "line": ""
-    },
-    "folder": "r-e892a42c32e11907",
-    "externalProductId": "",
-    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
-    "checkedSource": {
-      "type": "record.md",
-      "path": "records/2009_VMF50 #2 RISA/record.md"
-    }
-  },
-  {
-    "status": "manual-review",
-    "dataset": "records.json",
-    "year": "2009",
-    "group": "VMF50",
     "number": "#3",
     "name": "MIKI",
     "title": "VMF50 #3 MIKI",
@@ -634,31 +609,6 @@
       "type": "record.md",
       "path": "records/2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売/record.md",
       "error": "ENOENT: no such file or directory, open 'D:\\Project\\angelphilia-library\\records\\2025_JiWu_【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売\\record.md'"
-    }
-  },
-  {
-    "status": "manual-review",
-    "dataset": "records.json",
-    "year": "未明",
-    "group": "VMF50",
-    "number": "#2",
-    "name": "RISA 褐色肌",
-    "title": "YAMATO_VMF50 #2 RISA Tan Skin",
-    "body": "VMF50 Original Image Girl 变体",
-    "bodyCode": "",
-    "source": "网络数据",
-    "sourceUrl": "https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/",
-    "bodyCodeSource": {
-      "type": "record.md",
-      "path": "records/YAMATO_VMF50 #2 RISA Tan Skin/record.md",
-      "line": ""
-    },
-    "folder": "r-98a4c302e76b9f77",
-    "externalProductId": "",
-    "reason": "重新检阅 record.md 后仍未解析到完整三段配置",
-    "checkedSource": {
-      "type": "record.md",
-      "path": "records/YAMATO_VMF50 #2 RISA Tan Skin/record.md"
     }
   },
   {

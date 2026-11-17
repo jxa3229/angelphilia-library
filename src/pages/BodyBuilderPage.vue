@@ -121,63 +121,24 @@
       </div>
 
       <div v-if="filteredPreviewCards.length" class="part-preview-grid">
-        <article v-for="item in filteredPreviewCards" :key="item.id" class="part-preview-card">
-          <div class="part-preview-image">
-            <el-image
-              v-if="item.imageUrl"
-              :src="item.imageUrl"
-              :preview-src-list="[item.imageUrl]"
-              fit="contain"
-              loading="lazy"
-              :alt="item.title"
-            >
-              <template #error>
-                <div class="part-preview-image-empty">{{ copy.noImage }}</div>
-              </template>
-            </el-image>
-            <div v-else class="part-preview-image-empty">{{ copy.noImage }}</div>
-          </div>
-          <div class="part-preview-content">
-            <div class="part-preview-card-head">
-              <strong>Type-{{ item.type }}</strong>
-              <span>{{ slotLabel(item.slot) }}</span>
-            </div>
-            <p class="part-preview-title">{{ item.title }}</p>
-            <div class="part-preview-tags">
-              <el-tag v-if="item.skin" size="small" effect="plain">{{ item.skin }}</el-tag>
-              <el-tag v-if="item.finish" size="small" effect="plain">{{ item.finish }}</el-tag>
-              <el-tag v-if="item.priceText" size="small" effect="plain">{{ item.priceText }}</el-tag>
-            </div>
-            <p v-if="measurementText(item)" class="part-preview-measurement">
-              {{ measurementText(item) }}
-            </p>
-            <a v-if="item.sourceUrl" class="part-preview-source" :href="item.sourceUrl" target="_blank" rel="noreferrer">
-              {{ copy.sourcePage }} · {{ item.source }}
-            </a>
-            <span v-else class="part-preview-source">{{ item.source }}</span>
-            <div v-if="item.relatedRecords?.length" class="part-preview-related">
-              <span class="part-preview-related-label">{{ copy.relatedArchiveRecords }}</span>
-              <div class="part-preview-related-list">
-                <a
-                  v-for="record in item.relatedRecords"
-                  :key="record.id"
-                  class="part-preview-related-link"
-                  :href="record.sourceUrl"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {{ record.label }}
-                </a>
-                <span v-if="item.relatedTotal > item.relatedRecords.length" class="part-preview-related-more">
-                  +{{ item.relatedTotal - item.relatedRecords.length }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </article>
+        <CatalogCard v-for="item in filteredPreviewCards" :key="item.id" class="part-preview-card"
+          :image="item.imageUrl" :year="item.year" :name="item.title" @open="openPreview(item)" />
       </div>
 
       <p v-else class="part-preview-empty">{{ copy.partPreviewEmpty }}</p>
+      <ProductDetailDrawer v-model="isPreviewOpen" :name="activePreview?.title || copy.partPreviewHeading"
+        :images="activePreview?.imageUrl ? [activePreview.imageUrl] : []" :fields="previewFields">
+        <div v-if="activePreview?.relatedRecords?.length" class="part-preview-related">
+          <span class="part-preview-related-label">{{ copy.relatedArchiveRecords }}</span>
+          <div class="part-preview-related-list">
+            <a v-for="record in activePreview.relatedRecords" :key="record.id" class="part-preview-related-link"
+              :href="record.sourceUrl" target="_blank" rel="noopener noreferrer">{{ record.label }}</a>
+            <span v-if="activePreview.relatedTotal > activePreview.relatedRecords.length" class="part-preview-related-more">
+              +{{ activePreview.relatedTotal - activePreview.relatedRecords.length }}
+            </span>
+          </div>
+        </div>
+      </ProductDetailDrawer>
     </section>
 
     <section class="builder-panel realart-parts-panel">
@@ -242,6 +203,8 @@ import BodyPresetSelector from '../components/body-builder/BodyPresetSelector.vu
 import HeadPartSelector from '../components/body-builder/HeadPartSelector.vue'
 import MeasurementSummary from '../components/body-builder/MeasurementSummary.vue'
 import PartsAtelier from '../components/body-builder/PartsAtelier.vue'
+import CatalogCard from '../components/shared/CatalogCard.vue'
+import ProductDetailDrawer from '../components/shared/ProductDetailDrawer.vue'
 import { usePreferencesStore } from '../stores/preferences'
 import { buildInitialSelection, buildPresetDescriptions, generateBodyCode } from '../utils/bodyCode'
 import { buildMeasurementCopyText, buildMeasurementSummary } from '../utils/measurements'
@@ -253,6 +216,23 @@ const showAllModels = ref(false)
 const activePreviewSlot = ref('head')
 const activePreviewType = ref('all')
 const activePreviewSkin = ref('all')
+const activePreview = ref(null)
+const isPreviewOpen = ref(false)
+const previewFields = computed(() => {
+  const item = activePreview.value
+  if (!item) return []
+  return [
+    { label: copy.value.tableYear, value: item.year },
+    { label: copy.value.partModel, value: `Type-${item.type}` },
+    { label: copy.value.allOutfitCategories, value: slotLabel(item.slot) },
+    { label: copy.value.tableSkin, value: item.skin ? skinLabel(item.skin) : '' },
+    { label: copy.value.tableVariant, value: item.finish },
+    { label: copy.value.metadata, value: item.priceText },
+    { label: copy.value.measurementSummary, value: measurementText(item) },
+    { label: copy.value.sourcePage, value: item.source, href: item.sourceUrl }
+  ]
+})
+function openPreview(item) { activePreview.value = item; isPreviewOpen.value = true }
 const selection = reactive(buildInitialSelection(bodyData))
 const previewSkinOrder = ['Whity', 'Super Whitey', 'Tan']
 
@@ -331,6 +311,7 @@ const headPreviewCards = computed(() => {
     const head = headByType.get(preview.type) || {}
     return {
       id: preview.id,
+      year: preview.year || '',
       slot: 'head',
       type: preview.type,
       title: preview.title || `${head.label || `Type-${preview.type}`} ${copy.value.headModelRecord}`,
@@ -383,6 +364,7 @@ const archiveReferenceCards = computed(() => {
         skin,
         finish: copy.value.localArchiveReference,
         priceText: record.year || '',
+        year: record.year || '',
         source: record.source,
         sourceUrl: record.sourceUrl,
         imageUrl: record.imageUrl,

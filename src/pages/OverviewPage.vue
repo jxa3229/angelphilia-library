@@ -14,7 +14,14 @@
         <h2>{{ copy.metadata }}</h2>
         <dl>
           <div><dt>{{ copy.organizer }}</dt><dd>影青(HeavyRain_3229)</dd></div>
-          <div><dt>{{ copy.updated }}</dt><dd>{{ copy.lastUpdated }}</dd></div>
+          <div>
+            <dt>{{ copy.updated }}</dt>
+            <dd>
+              <button class="update-date-link" type="button" aria-haspopup="dialog" :aria-label="`${copy.updated} ${changelog.latestDate} · ${copy.updateLogTitle}`" @click="changelog.open">
+                <time :datetime="changelog.latestDate">{{ changelog.latestDate }}</time>
+              </button>
+            </dd>
+          </div>
           <div><dt>{{ copy.repository }}</dt><dd>github.com/jxa3229/angelphilia-library</dd></div>
           <div><dt>{{ copy.scopeLabel }}</dt><dd>{{ copy.scopeValue }}</dd></div>
         </dl>
@@ -22,10 +29,7 @@
     </section>
 
     <section class="stat-strip" aria-label="Library statistics">
-      <div v-for="stat in stats" :key="stat.label">
-        <span>{{ stat.label }}</span>
-        <strong>{{ stat.value }}</strong>
-      </div>
+      <StatCard v-for="stat in stats" :key="stat.label" :label="stat.label" :value="stat.value" />
     </section>
 
     <section class="scope-text">
@@ -48,10 +52,13 @@ import { useRouter } from 'vue-router'
 import { Right } from '@element-plus/icons-vue'
 import { useLibraryStore } from '../stores/library'
 import { usePreferencesStore } from '../stores/preferences'
+import StatCard from '../components/shared/StatCard.vue'
+import { useChangelogStore } from '../stores/changelog'
 
 const router = useRouter()
 const preferences = usePreferencesStore()
 const library = useLibraryStore()
+const changelog = useChangelogStore()
 const copy = computed(() => preferences.copy)
 const stats = computed(() => library.stats(copy.value))
 
@@ -62,3 +69,9 @@ defineProps({
   }
 })
 </script>
+
+<style scoped>
+.update-date-link { min-height: 32px; padding: 0; border: 0; background: transparent; color: var(--primary); font: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.update-date-link:hover { color: var(--accent); }
+.update-date-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+</style>

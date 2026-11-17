@@ -8,8 +8,8 @@
 - 分类：新的旧娃 / VMF50 变体
 - 编号：#2
 - 名称：RISA 褐色肌
-- 头部：公开资料未完整确认
-- Body：VMF50 Original Image Girl 变体
+- 头部：Type-D（用户补充）
+- Body：D/D/D/D（用户补充：全 D 体）
 - 肤色：褐色
 
 ### 图片
@@ -21,6 +21,7 @@
 查询说明：JohnnyJoy 展开列表单独列出 RISA 褐色肌；先作为肤色变体旧记录。
 差异备注：肤色变体；暂缺规格差异，先不并入普通 RISA。
 联动说明：非联动；作为新的旧娃记录。
+规格补充：用户补充 RISA 是全 D 体；头部也可按 Type-D 头处理。
 
 ### 来源说明
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)
@@ -37,8 +38,8 @@
 - 分類：新的旧娃 / VMF50 变体
 - 番号：#2
 - 名称：RISA 褐色肌
-- ヘッド：公开资料未完整确认
-- ボディ：VMF50 Original Image Girl 变体
+- ヘッド：Type-D（ユーザー補足）
+- ボディ：D/D/D/D（ユーザー補足：全 D 体）
 - 成型色：褐色
 
 ### 画像
@@ -50,6 +51,7 @@
 検索メモ：JohnnyJoy一覧に RISA 褐色肌が別掲。肌色違いの旧記録として追加。
 差分メモ：肤色变体；暂缺规格差异，先不并入普通 RISA。
 連動メモ：非联动；作为新的旧娃记录。
+仕様補足：ユーザー補足により、RISA は全 D 体として扱う。ヘッドも Type-D 相当として扱う。
 
 ### 出典
 - [JohnnyJoy やまと/YAMATO vmf50 買取一覧](https://johnny-joy.jp/purchase/doll/%E3%82%84%E3%81%BE%E3%81%A8%E3%83%BByamatovmf50/)

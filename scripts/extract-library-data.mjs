@@ -9,6 +9,7 @@ const outputFile = path.join(root, 'src', 'data', 'records.json')
 const privateManifestFile = path.join(root, '.cache', 'library-records-private.json')
 const sourceWebReviewFile = path.join(root, 'output', 'body-code-audit', 'source-web-review.json')
 const bodyCompositionOverridesFile = path.join(root, 'output', 'body-code-audit', 'body-composition-overrides.json')
+const headTypeOverridesFile = path.join(root, 'output', 'body-code-audit', 'head-type-overrides.json')
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif'])
 
 const html = await readFile(sourceFile, 'utf8')
@@ -23,6 +24,7 @@ const sourceUrlOverrides = await readSourceUrlOverrides()
 const confirmedSourceUrls = await readConfirmedSourceUrls()
 const sourceWebBodyCompositions = await readSourceWebBodyCompositions()
 const bodyCompositionOverrides = await readBodyCompositionOverrides()
+const headTypeOverrides = await readHeadTypeOverrides()
 const records = []
 const privateRecords = []
 
@@ -33,6 +35,7 @@ for (const sourceRecord of sourceRecords) {
   const safeImageUrl = toSafeAssetPath(sourceRecord, safeFolder, sourceRecord.imageUrl || images[0])
   const detailKey = safeFolder
   const bodyComposition = await parseRecordBodyComposition(sourceRecord)
+  const headType = resolveHeadType(sourceRecord)
 
   records.push({
     year: sourceRecord.year,
@@ -43,6 +46,7 @@ for (const sourceRecord of sourceRecords) {
     title: sourceRecord.title,
     variant: sourceRecord.variant,
     head: sourceRecord.head,
+    headType,
     body: sourceRecord.body,
     bodyCode: bodyComposition?.code || '',
     bodyComposition: bodyComposition?.parts || null,
@@ -258,4 +262,37 @@ async function readBodyCompositionOverrides() {
   } catch {
     return new Map()
   }
+}
+
+async function readHeadTypeOverrides() {
+  try {
+    const overrides = JSON.parse(await readFile(headTypeOverridesFile, 'utf8'))
+    return new Map(
+      overrides
+        .filter((record) => record.recordPath && record.headType)
+        .map((record) => [record.recordPath, normalizeHeadType(record.headType)])
+    )
+  } catch {
+    return new Map()
+  }
+}
+
+function resolveHeadType(record) {
+  const override = headTypeOverrides.get(record.recordPath)
+  if (override) return override
+
+  return normalizeHeadType(record.head)
+}
+
+function normalizeHeadType(value) {
+  const text = String(value || '').trim()
+  if (!text || ['未明', '公開資料未完整確認', '公开资料未完整确认'].includes(text)) return ''
+
+  const direct = text.match(/^(?:Type[-\s]*)?([A-Z][0-9]?)$/i)
+  if (direct) return direct[1].toUpperCase()
+
+  const obitsu = text.match(/(?:Obitsu|OBITSU|オビツ)\s*50[-－\s]*(0[0-9])/i)
+  if (obitsu) return `Obitsu50-${obitsu[1]}`
+
+  return ''
 }

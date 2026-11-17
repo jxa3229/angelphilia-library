@@ -8,6 +8,8 @@
       <el-button :icon="Refresh" @click="library.resetFilters">{{ copy.reset }}</el-button>
     </div>
 
+    <DollRoster v-show="!library.activeRecord" :records="library.allRecords" @open="openRecord" />
+
     <RecordDetail
       v-if="library.activeRecord"
       :record="library.activeRecord"
@@ -36,6 +38,7 @@ import { Refresh } from '@element-plus/icons-vue'
 import LibraryFilters from '../components/library/LibraryFilters.vue'
 import RecordCard from '../components/library/RecordCard.vue'
 import RecordDetail from '../components/library/RecordDetail.vue'
+import DollRoster from '../components/library/DollRoster.vue'
 import { useLibraryStore } from '../stores/library'
 import { usePreferencesStore } from '../stores/preferences'
 

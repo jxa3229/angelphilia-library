@@ -1,24 +1,31 @@
 import { computed, ref } from 'vue'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import records from '../data/records.json'
 import realartArchive from '../data/realartArchive.json'
+import limitedOfficial from '../data/limitedOfficial.json'
 import { assetUrl } from '../utils/assetUrl'
 import { compareYear, unique } from '../utils/records'
+import { normalizeRecordName } from '../utils/recordNames'
+import { recordHeadType, recordSkinTone } from '../utils/libraryFilters'
 
 export const useLibraryStore = defineStore('library', () => {
   const query = ref('')
   const selectedGroup = ref('')
   const selectedYear = ref('')
   const selectedSource = ref('')
+  const selectedHeadType = ref('')
+  const selectedSkinTone = ref('')
   const activeRecord = ref(null)
   const savedLibraryScroll = ref(0)
   const detailsCache = ref({})
   const detailLoadingKey = ref('')
   const detailErrors = ref({})
 
-  const allRecords = [...records, ...realartArchive]
+  const allRecords = [...records, ...realartArchive, ...limitedOfficial].map(normalizeRecordName)
   const groups = computed(() => unique(allRecords.map((item) => item.group)).sort())
   const years = computed(() => unique(allRecords.map((item) => item.year)).sort(compareYear))
+  const headTypes = computed(() => unique(allRecords.map(recordHeadType)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })))
+  const skinTones = computed(() => unique(allRecords.map(recordSkinTone)).sort())
   const recentRecords = computed(() => [...allRecords].sort((a, b) => compareYear(b.year, a.year)).slice(0, 8))
 
   function sources(unknown) {
@@ -37,6 +44,7 @@ export const useLibraryStore = defineStore('library', () => {
         record.title,
         record.variant,
         record.head,
+        record.headType,
         record.body,
         record.skin,
         record.source
@@ -46,6 +54,8 @@ export const useLibraryStore = defineStore('library', () => {
         && (!selectedGroup.value || record.group === selectedGroup.value)
         && (!selectedYear.value || record.year === selectedYear.value)
         && (!selectedSource.value || (record.source || unknown) === selectedSource.value)
+        && (!selectedHeadType.value || recordHeadType(record) === selectedHeadType.value)
+        && (!selectedSkinTone.value || recordSkinTone(record) === selectedSkinTone.value)
     })
   }
 
@@ -69,6 +79,8 @@ export const useLibraryStore = defineStore('library', () => {
     selectedGroup.value = ''
     selectedYear.value = ''
     selectedSource.value = ''
+    selectedHeadType.value = ''
+    selectedSkinTone.value = ''
   }
 
   function coverImage(record) {
@@ -142,9 +154,13 @@ export const useLibraryStore = defineStore('library', () => {
     selectedGroup,
     selectedYear,
     selectedSource,
+    selectedHeadType,
+    selectedSkinTone,
     activeRecord,
     groups,
     years,
+    headTypes,
+    skinTones,
     recentRecords,
     sources,
     filteredRecords,
@@ -159,6 +175,11 @@ export const useLibraryStore = defineStore('library', () => {
     clearActiveRecord,
     detailHtml,
     isDetailLoading,
-    detailError
+    detailError,
+    loadDetails
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useLibraryStore, import.meta.hot))
+}

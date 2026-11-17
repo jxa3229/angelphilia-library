@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test'
 
 test('shares full-size originals and black variants with working copy and download links', async ({ page, context, baseURL }) => {
-  const assetBase = new URL(process.env.BASE_PATH || '/', baseURL).href
+  const assetBase = new URL('./', baseURL).href
   const errors = []
   page.on('pageerror', (error) => errors.push(error.message))
   await context.grantPermissions(['clipboard-read', 'clipboard-write'])
   for (const id of ['doll-heads', 'bunny-outfits']) {
-    await page.goto(`/#/image/${id}`)
+    await page.goto(`./#/image/${id}`)
     const image = page.locator('.image-frame img')
     await expect(image).toBeVisible()
     await expect.poll(() => image.evaluate((element) => [element.naturalWidth, element.naturalHeight])).toEqual([1800, 2400])
@@ -30,7 +30,7 @@ test('shares full-size originals and black variants with working copy and downlo
 })
 
 test('keeps collage links in the hidden panel and preserves backgrounds and language switching', async ({ page }) => {
-  await page.goto('/#/overview')
+  await page.goto('./#/overview')
   await expect(page.locator('.overview-images')).toHaveCount(0)
   await expect(page.locator('.personal-image-tools')).toHaveCount(0)
   await expect(page.locator('.main-panel a[href*="/image/"]')).toHaveCount(0)
@@ -54,12 +54,12 @@ test('keeps collage links in the hidden panel and preserves backgrounds and lang
 })
 
 test('handles missing images, loading failures, retry and denied clipboard access', async ({ page }) => {
-  await page.goto('/#/image/unknown')
+  await page.goto('./#/image/unknown')
   await expect(page.getByRole('heading', { name: '没有找到这张图片' })).toBeVisible()
   await page.getByRole('link', { name: /返回图书馆速览/ }).click()
   await expect(page).toHaveURL(/#\/overview$/)
   await page.route('**/images/doll-heads.png', (route) => route.abort())
-  await page.goto('/#/image/doll-heads')
+  await page.goto('./#/image/doll-heads')
   await expect(page.getByRole('alert')).toContainText('图片加载失败')
   await page.unroute('**/images/doll-heads.png')
   await page.getByRole('button', { name: '重试', exact: true }).click()

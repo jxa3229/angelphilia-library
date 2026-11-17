@@ -1,11 +1,9 @@
 import { computed, ref } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import records from '../data/records.json'
-import realartArchive from '../data/realartArchive.json'
-import limitedOfficial from '../data/limitedOfficial.json'
+import summary from '../data/librarySummary.json'
+import { catalogRecords } from '../utils/catalogData'
 import { assetUrl } from '../utils/assetUrl'
 import { compareYear, unique } from '../utils/records'
-import { normalizeRecordName } from '../utils/recordNames'
 import { recordHeadType, recordSkinTone } from '../utils/libraryFilters'
 
 export const useLibraryStore = defineStore('library', () => {
@@ -21,20 +19,20 @@ export const useLibraryStore = defineStore('library', () => {
   const detailLoadingKey = ref('')
   const detailErrors = ref({})
 
-  const allRecords = [...records, ...realartArchive, ...limitedOfficial].map(normalizeRecordName)
-  const groups = computed(() => unique(allRecords.map((item) => item.group)).sort())
-  const years = computed(() => unique(allRecords.map((item) => item.year)).sort(compareYear))
-  const headTypes = computed(() => unique(allRecords.map(recordHeadType)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })))
-  const skinTones = computed(() => unique(allRecords.map(recordSkinTone)).sort())
-  const recentRecords = computed(() => [...allRecords].sort((a, b) => compareYear(b.year, a.year)).slice(0, 8))
+  const allRecords = catalogRecords
+  const groups = computed(() => unique(allRecords.value.map((item) => item.group)).sort())
+  const years = computed(() => unique(allRecords.value.map((item) => item.year)).sort(compareYear))
+  const headTypes = computed(() => unique(allRecords.value.map(recordHeadType)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })))
+  const skinTones = computed(() => unique(allRecords.value.map(recordSkinTone)).sort())
+  const recentRecords = summary.recentRecords
 
   function sources(unknown) {
-    return unique(allRecords.map((item) => item.source || unknown)).sort()
+    return unique(allRecords.value.map((item) => item.source || unknown)).sort()
   }
 
   function filteredRecords(unknown) {
     const keyword = query.value.trim().toLowerCase()
-    return allRecords.filter((record) => {
+    return allRecords.value.filter((record) => {
       const haystack = [
         record.year,
         record.group,
@@ -62,15 +60,15 @@ export const useLibraryStore = defineStore('library', () => {
   function resultText(copy) {
     return copy.resultCount
       .replace('{shown}', filteredRecords(copy.unknown).length)
-      .replace('{total}', allRecords.length)
+      .replace('{total}', allRecords.value.length)
   }
 
   function stats(copy) {
     return [
-      { label: copy.total, value: allRecords.length },
-      { label: copy.yearSpan, value: `${years.value[0]}-${years.value[years.value.length - 2] || years.value.at(-1)}` },
-      { label: copy.imageCount, value: allRecords.filter((item) => recordImages(item).length).length },
-      { label: copy.groupCount, value: groups.value.length }
+      { label: copy.total, value: summary.total },
+      { label: copy.yearSpan, value: summary.yearSpan || copy.unknown },
+      { label: copy.imageCount, value: summary.imageCount },
+      { label: copy.groupCount, value: summary.groupCount }
     ]
   }
 

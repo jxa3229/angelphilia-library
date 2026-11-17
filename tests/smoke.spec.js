@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/#/overview')
+  await page.goto('./#/overview')
   await page.evaluate(() => localStorage.clear())
   await page.reload()
   await expect(page.getByRole('heading', { name: /Angelphilia/ })).toBeVisible()
@@ -38,7 +38,8 @@ test('combines head model and skin filters, preserves selections and resets them
   await expect(page.locator('.record-card')).toHaveCount(0)
   await expect(page.getByText('没有匹配条目', { exact: true })).toBeVisible()
   await page.getByRole('button', { name: '重置', exact: true }).click()
-  await expect(page.locator('.record-card')).toHaveCount(328)
+  await expect(page.locator('.record-card')).toHaveCount(24)
+  await expect(page.locator('.library-load-more')).toContainText('24 / 328')
   await expect(page.locator('.filters')).toContainText('全部头型号')
   await expect(page.locator('.filters')).toContainText('全部肤色')
   await head.press('Enter')
@@ -112,7 +113,7 @@ test('browses the collapsed brand directory and preserves it when returning from
 test('reuses simple cards and keeps outfit and part specifications in details', async ({ page }) => {
   const errors = []
   page.on('pageerror', (error) => errors.push(error.message))
-  await page.goto('/#/limited')
+  await page.goto('./#/limited')
   await expect(page.locator('.record-card')).toHaveCount(24)
   await page.getByPlaceholder('搜索编号、角色、OSD、FCD…').fill('#119')
   await page.locator('.record-card h3 button').click()
@@ -125,7 +126,7 @@ test('reuses simple cards and keeps outfit and part specifications in details', 
   await page.getByRole('button', { name: '返回限定档案', exact: true }).click()
   await expect(page.locator('.limited-toolbar input')).toHaveValue('#119')
 
-  await page.goto('/#/outfits')
+  await page.goto('./#/outfits')
   const outfit = page.locator('.outfit-card').first()
   await expect(outfit.locator('.catalog-card-year')).toHaveText('未明')
   await expect(outfit.locator('dl, .el-tag, p')).toHaveCount(0)
@@ -134,7 +135,7 @@ test('reuses simple cards and keeps outfit and part specifications in details', 
   await expect(page.locator('.el-drawer:visible .product-description')).toBeVisible()
   await page.locator('.el-drawer:visible .el-drawer__close-btn').click()
 
-  await page.goto('/#/body-builder')
+  await page.goto('./#/body-builder')
   await page.locator('.part-preview-card h3 button').first().click()
   await expect(page.locator('.el-drawer:visible .metadata-list')).toContainText('头型')
   await expect(page.locator('.el-drawer:visible .metadata-list')).toContainText('尺寸汇总')
@@ -199,7 +200,7 @@ test('switches language and theme preferences', async ({ page }) => {
 
 test('keeps the body builder compact on mobile', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto('/#/body-builder')
+  await page.goto('./#/body-builder')
 
   await expect(page.locator('.code-panel')).toBeVisible()
   await expect(page.locator('.selector-panel')).toBeVisible()

@@ -14,7 +14,7 @@
         <el-option
           v-for="category in categories"
           :key="category"
-          :label="category"
+          :label="categoryLabel(category, preferences.lang)"
           :value="category"
         />
       </el-select>
@@ -31,8 +31,12 @@
     <el-empty v-if="filteredItems.length === 0" :description="copy.empty" />
 
     <div v-else class="outfit-grid">
-      <CatalogCard v-for="item in filteredItems" :key="item.id" class="outfit-card"
-        :image="item.imageUrl" :year="item.year" :name="translatedTitle(item)" @open="openItem(item)" />
+      <CatalogCard v-for="(item, index) in visibleItems" :key="item.id" class="outfit-card"
+        :image="item.imageUrl" :priority="index < 4" :year="item.year" :name="translatedTitle(item)" @open="openItem(item)" />
+    </div>
+    <div v-if="filteredItems.length" class="outfits-load-more">
+      <p aria-live="polite">{{ copy.libraryVisibleCount.replace('{shown}', visibleItems.length).replace('{total}', filteredItems.length) }}</p>
+      <el-button v-if="visibleItems.length < filteredItems.length" @click="visibleCount += 24">{{ copy.loadMoreRecords }}</el-button>
     </div>
 
     <ProductDetailDrawer
@@ -43,19 +47,21 @@
       :fields="detailFields"
       :description="activeItem ? translatedDescription(activeItem) : ''"
       :description-label="copy.outfitDescription"
+      description-lang="ja"
+      :description-note="copy.originalJapaneseNotes"
       class="outfit-detail-drawer"
     />
   </section>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Refresh } from '@element-plus/icons-vue'
 import outfits from '../data/outfits.json'
 import { usePreferencesStore } from '../stores/preferences'
 import CatalogCard from '../components/shared/CatalogCard.vue'
 import ProductDetailDrawer from '../components/shared/ProductDetailDrawer.vue'
-import { outfitCategoryLabel, sortOutfitCategories } from '../utils/outfitCategory'
+import { categoryLabel, outfitCategoryKey, outfitCategoryKeys, outfitCategoryLabel } from '../utils/outfitCategory'
 import { translateOutfitDescription, translateOutfitTitle } from '../utils/outfitText'
 import { unique } from '../utils/records'
 
@@ -73,27 +79,27 @@ const selectedCategory = ref('')
 const selectedStatus = ref('')
 const activeItem = ref(null)
 const isDrawerOpen = ref(false)
+const visibleCount = ref(24)
+watch([query, selectedCategory, selectedStatus], () => { visibleCount.value = 24 })
 
-const categories = computed(() => sortOutfitCategories(unique(outfits.map(outfitCategoryLabel))))
+const categories = outfitCategoryKeys.filter((key) => outfits.some((item) => outfitCategoryKey(item) === key))
 const statuses = computed(() => unique(outfits.map((item) => item.status)).sort())
+const searchableItems = outfits.map((item) => ({
+  item,
+  category: outfitCategoryKey(item),
+  text: [item.id, item.title, item.model, item.categoryLabel, item.priceText, item.description,
+    ...['zh', 'en', 'ja'].flatMap((lang) => [translateOutfitTitle(item.title, lang), outfitCategoryLabel(item, lang)])
+  ].join(' ').normalize('NFKC').toLowerCase()
+}))
 const filteredItems = computed(() => {
-  const keyword = query.value.trim().toLowerCase()
-  return outfits.filter((item) => {
-    const category = outfitCategory(item)
-    const haystack = [
-      item.id,
-      item.title,
-      item.model,
-      item.categoryLabel,
-      category,
-      item.priceText,
-      item.description
-    ].join(' ').toLowerCase()
-    return (!keyword || haystack.includes(keyword))
+  const keyword = query.value.normalize('NFKC').trim().toLowerCase()
+  return searchableItems.filter(({ item, category, text }) => {
+    return (!keyword || text.includes(keyword))
       && (!selectedCategory.value || category === selectedCategory.value)
       && (!selectedStatus.value || item.status === selectedStatus.value)
-  })
+  }).map(({ item }) => item)
 })
+const visibleItems = computed(() => filteredItems.value.slice(0, visibleCount.value))
 const resultText = computed(() => copy.value.outfitsResultCount
   .replace('{shown}', filteredItems.value.length)
   .replace('{total}', outfits.length))
@@ -123,7 +129,7 @@ function statusLabel(status) {
 }
 
 function translatedTitle(item) {
-  return translateOutfitTitle(item?.title)
+  return translateOutfitTitle(item?.title, preferences.lang)
 }
 
 function translatedDescription(item) {
@@ -131,7 +137,7 @@ function translatedDescription(item) {
 }
 
 function outfitCategory(item) {
-  return outfitCategoryLabel(item)
+  return outfitCategoryLabel(item, preferences.lang)
 }
 
 function openItem(item) {
@@ -139,3 +145,8 @@ function openItem(item) {
   isDrawerOpen.value = true
 }
 </script>
+
+<style scoped>
+.outfits-load-more { display: grid; justify-items: center; gap: 8px; padding: 24px 0; color: var(--muted); font-size: 14px; }
+.outfits-load-more .el-button { min-height: 44px; }
+</style>

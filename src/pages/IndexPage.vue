@@ -35,6 +35,7 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLibraryStore } from '../stores/library'
 import { usePreferencesStore } from '../stores/preferences'
+import { recordRouteId } from '../composables/useRecordRoute'
 
 const router = useRouter()
 const library = useLibraryStore()
@@ -49,8 +50,7 @@ defineProps({
   }
 })
 
-async function openRecord(record) {
-  await router.push({ name: 'library' })
-  library.openRecord(record, 0)
+function openRecord(record) {
+  return router.push({ name: 'library', query: { record: recordRouteId(record) } })
 }
 </script>

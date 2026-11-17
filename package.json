@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "sync:data": "node scripts/extract-library-data.mjs",
+    "sync:summary": "node scripts/summarize-library.mjs",
     "sync:details": "node scripts/extract-docx-details.mjs",
     "prepare:public": "node scripts/prepare-public.mjs",
     "validate:body-parts": "node scripts/validate-body-parts.mjs",
+    "cache:catalog-covers": "node scripts/cache-catalog-covers.mjs",
+    "test:unit": "node scripts/test-unit.mjs",
     "test:e2e": "playwright test",
-    "dev": "npm run sync:data && npm run sync:details && npm run prepare:public && vite --host 127.0.0.1",
-    "build": "npm run sync:data && npm run sync:details && npm run prepare:public && vite build",
+    "dev": "npm run sync:data && npm run sync:summary && npm run sync:details && npm run prepare:public && vite --host 127.0.0.1",
+    "build": "npm run sync:data && npm run sync:summary && npm run sync:details && npm run prepare:public && vite build",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {

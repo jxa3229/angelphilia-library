@@ -4,6 +4,11 @@
       <SideNav />
 
       <main ref="mainPanelRef" class="main-panel" :class="`route-${routeName}`">
+        <p v-if="navigationLoading" class="navigation-status" role="status">{{ preferences.copy.pageLoading }}</p>
+        <div v-if="navigationFailure" class="navigation-status" role="alert">
+          <p>{{ preferences.copy.pageLoadFailed }}</p>
+          <el-button @click="retryNavigation">{{ preferences.copy.retryPage }}</el-button>
+        </div>
         <RouterView v-slot="{ Component }">
           <component :is="Component" :main-panel="mainPanelRef" />
         </RouterView>
@@ -25,6 +30,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { navigationLoading, navigationFailure, retryNavigation } from './router'
 import SideNav from './components/layout/SideNav.vue'
 import PurchaseLinksDialog from './components/shared/PurchaseLinksDialog.vue'
 import ChangelogDialog from './components/shared/ChangelogDialog.vue'
@@ -93,3 +99,7 @@ onBeforeUnmount(() => {
   resetZeroPressCount()
 })
 </script>
+
+<style scoped>
+.navigation-status { padding: 14px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); overflow-wrap: anywhere; }
+</style>

@@ -4,7 +4,8 @@ import { dictionary } from '../i18n/dictionary'
 import { languages } from '../i18n/languages'
 
 export const usePreferencesStore = defineStore('preferences', () => {
-  const lang = ref(localStorage.getItem('library-lang') || 'zh')
+  const savedLang = localStorage.getItem('library-lang')
+  const lang = ref(Object.hasOwn(dictionary, savedLang) ? savedLang : 'zh')
   const theme = ref(localStorage.getItem('library-theme') || 'system')
 
   const copy = computed(() => dictionary[lang.value] || dictionary.zh)
@@ -18,7 +19,10 @@ export const usePreferencesStore = defineStore('preferences', () => {
     { route: 'glossary', label: copy.value.navGlossary }
   ])
 
-  watch(lang, (value) => localStorage.setItem('library-lang', value))
+  watch(lang, (value) => {
+    localStorage.setItem('library-lang', value)
+    document.documentElement.lang = { zh: 'zh-Hans', en: 'en', ja: 'ja' }[value] || 'zh-Hans'
+  }, { immediate: true })
   watch(theme, (value) => {
     localStorage.setItem('library-theme', value)
     applyTheme(value)

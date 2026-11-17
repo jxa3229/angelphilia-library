@@ -6,7 +6,8 @@
       <MetadataList :fields="fields" />
       <section v-if="description" class="notice-panel product-description">
         <h3>{{ descriptionLabel || copy.metadata }}</h3>
-        <p>{{ description }}</p>
+        <p v-if="descriptionNote" class="original-note">{{ descriptionNote }}</p>
+        <p :lang="descriptionLang || undefined">{{ description }}</p>
       </section>
       <slot />
     </article>
@@ -25,6 +26,8 @@ defineProps({
   images: { type: Array, default: () => [] },
   fields: { type: Array, default: () => [] },
   description: { type: String, default: '' },
+  descriptionLang: { type: String, default: '' },
+  descriptionNote: { type: String, default: '' },
   descriptionLabel: { type: String, default: '' }
 })
 const preferences = usePreferencesStore()

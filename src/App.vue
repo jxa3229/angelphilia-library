@@ -7,7 +7,13 @@
         <RouterView v-slot="{ Component }">
           <component :is="Component" :main-panel="mainPanelRef" />
         </RouterView>
-        <footer>{{ preferences.copy.footer }}</footer>
+        <footer>
+          <span>{{ preferences.copy.footer }}</span>
+          <span>
+            {{ preferences.copy.footerContact }}
+            <a class="contact-link" href="mailto:talon3229@163.com">talon3229@163.com</a>
+          </span>
+        </footer>
       </main>
 
       <PurchaseLinksDialog v-model="showPurchaseLinks" />

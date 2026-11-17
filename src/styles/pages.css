@@ -181,11 +181,6 @@ dd {
   letter-spacing: 0;
 }
 
-.overview-notice {
-  display: grid;
-  align-content: start;
-}
-
 .repo-disclosure {
   display: grid;
   gap: 14px;

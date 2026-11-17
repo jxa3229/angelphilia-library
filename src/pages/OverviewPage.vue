@@ -24,6 +24,13 @@
           </div>
           <div><dt>{{ copy.repository }}</dt><dd>github.com/jxa3229/angelphilia-library</dd></div>
           <div><dt>{{ copy.scopeLabel }}</dt><dd>{{ copy.scopeValue }}</dd></div>
+          <div>
+            <dt>{{ copy.contactLabel }}</dt>
+            <dd>
+              <a class="contact-link" href="mailto:talon3229@163.com">talon3229@163.com</a>
+              <p class="contact-hint">{{ copy.contactHint }}</p>
+            </dd>
+          </div>
         </dl>
       </div>
     </section>
@@ -32,28 +39,9 @@
       <StatCard v-for="stat in stats" :key="stat.label" :label="stat.label" :value="stat.value" />
     </section>
 
-    <section class="overview-images" aria-labelledby="overview-images-heading">
-      <div class="overview-images-heading">
-        <h2 id="overview-images-heading">{{ collageCopy.heading }}</h2>
-        <p>{{ collageCopy.intro }}</p>
-      </div>
-      <div class="overview-image-links">
-        <RouterLink v-for="image in sharedImages" :key="image.id" :to="{ name: 'image', params: { id: image.id } }">
-          <span>{{ image.title[language] }}</span><span aria-hidden="true">↗</span>
-        </RouterLink>
-      </div>
-    </section>
-
     <section class="scope-text">
       <h2>{{ copy.scopeHeading }}</h2>
       <p>{{ copy.scopeText }}</p>
-    </section>
-
-    <section class="notice-panel overview-notice">
-      <span>{{ copy.importantLabel }}</span>
-      <h2>{{ copy.officialNoticeTitle }}</h2>
-      <p>{{ copy.officialNoticeSummary }}</p>
-      <p>{{ copy.officialRelationSummary }}</p>
     </section>
   </template>
 </template>
@@ -66,7 +54,7 @@ import { useLibraryStore } from '../stores/library'
 import { usePreferencesStore } from '../stores/preferences'
 import StatCard from '../components/shared/StatCard.vue'
 import { useChangelogStore } from '../stores/changelog'
-import { sharedImages, imageCopy } from '../data/sharedImages'
+import { sharedImages } from '../data/sharedImages'
 import { assetUrl } from '../utils/assetUrl'
 
 const router = useRouter()
@@ -75,8 +63,6 @@ const library = useLibraryStore()
 const changelog = useChangelogStore()
 const copy = computed(() => preferences.copy)
 const stats = computed(() => library.stats(copy.value))
-const language = computed(() => imageCopy[preferences.lang] ? preferences.lang : 'zh')
-const collageCopy = computed(() => imageCopy[language.value])
 
 defineProps({
   mainPanel: {
@@ -96,14 +82,7 @@ defineProps({
 .overview-masthead :is(dt, .notice) { color: #e0dce1; }
 .overview-masthead .masthead-copy > p { color: #d4b786; }
 .overview-masthead .update-date-link { color: #a9ecdf; }
-.overview-images { margin-top: 14px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.overview-images h2 { margin: 0; font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif; font-size: 24px; }
-.overview-images p { margin: 8px 0 18px; color: var(--muted); }
-.overview-image-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.overview-image-links a { display: flex; justify-content: space-between; gap: 12px; align-items: center; min-height: 52px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-strong); color: var(--ink); }
-.overview-image-links a:hover { border-color: var(--primary); }
-.overview-image-links a:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
-@media (max-width: 600px) { .overview-image-links { grid-template-columns: 1fr; } }
+.contact-hint { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
 .update-date-link { min-height: 32px; padding: 0; border: 0; background: transparent; color: var(--primary); font: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .update-date-link:hover { color: var(--accent); }
 .update-date-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }

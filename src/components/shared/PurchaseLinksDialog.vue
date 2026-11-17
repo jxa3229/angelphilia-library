@@ -19,6 +19,16 @@
       </div>
     </template>
 
+    <section class="personal-image-tools">
+      <h3>{{ collageCopy.heading }}</h3>
+      <p>{{ collageCopy.intro }}</p>
+      <div>
+        <RouterLink v-for="image in sharedImages" :key="image.id" :to="{ name: 'image', params: { id: image.id } }" @click="visible = false">
+          {{ image.title[language] }} ↗
+        </RouterLink>
+      </div>
+    </section>
+
     <div class="purchase-dialog-tools">
       <el-input
         v-model="query"
@@ -64,8 +74,13 @@
 import { computed, onBeforeUnmount, ref } from 'vue'
 import shopData from '../../../records/doll-clothing-shops.json'
 import ShopLinkCard from './ShopLinkCard.vue'
+import { sharedImages, imageCopy } from '../../data/sharedImages'
+import { usePreferencesStore } from '../../stores/preferences'
 
 const visible = defineModel({ type: Boolean, default: false })
+const preferences = usePreferencesStore()
+const language = computed(() => imageCopy[preferences.lang] ? preferences.lang : 'zh')
+const collageCopy = computed(() => imageCopy[language.value])
 const query = ref('')
 const activeCategory = ref('all')
 
@@ -170,3 +185,12 @@ function unbindOverlayClose() {
 
 onBeforeUnmount(unbindOverlayClose)
 </script>
+
+<style scoped>
+.personal-image-tools { margin-bottom: 20px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; }
+.personal-image-tools h3 { margin: 0; }
+.personal-image-tools p { margin: 8px 0 12px; color: var(--muted); }
+.personal-image-tools > div { display: flex; flex-wrap: wrap; gap: 12px; }
+.personal-image-tools a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.personal-image-tools a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+</style>

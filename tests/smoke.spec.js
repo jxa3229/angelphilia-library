@@ -150,7 +150,7 @@ test('reuses simple cards and keeps outfit and part specifications in details', 
 test('collapses repository navigation and shares the update log with the overview date', async ({ page }) => {
   const more = page.locator('.nav-more')
   await expect(more).not.toHaveAttribute('open')
-  await expect(page.getByRole('link', { name: '仓库说明', exact: true })).toBeHidden()
+  await expect(page.getByRole('link', { name: '关于项目与联系反馈', exact: true })).toBeHidden()
   const date = page.locator('.update-date-link')
   await expect(date).toHaveText('2026-11-17')
   await expect(date.locator('time')).toHaveAttribute('datetime', '2026-11-17')
@@ -172,7 +172,7 @@ test('collapses repository navigation and shares the update log with the overvie
   await dialog.locator('.el-dialog__headerbtn').click()
   await expect(dialog).toBeHidden()
   await more.locator('summary').click()
-  await page.getByRole('link', { name: '仓库说明', exact: true }).click()
+  await page.getByRole('link', { name: '关于项目与联系反馈', exact: true }).click()
   await expect(page).toHaveURL(/#\/repository/)
   await page.getByRole('link', { name: '图书馆速览', exact: true }).click()
   await page.getByRole('button', { name: 'English', exact: true }).click()

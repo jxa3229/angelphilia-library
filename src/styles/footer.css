@@ -1,6 +1,11 @@
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
   margin-top: 10px;
   color: var(--muted);
   text-align: center;
+  overflow-wrap: anywhere;
 }
 

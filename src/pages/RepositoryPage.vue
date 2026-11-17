@@ -1,18 +1,15 @@
 <template>
   <section class="repo-section">
     <h2>{{ copy.repoHeading }}</h2>
-    <p>
-      {{ copy.repoLinkPrefix }}
-      <span>{{ copy.repoLinkLabel }}</span>
-      {{ copy.repoLinkSuffix }}
-    </p>
-    <p>{{ copy.openText }}</p>
+    <p>{{ copy.repoLinkPrefix }}<a class="contact-link" :href="copy.repoUrl" target="_blank" rel="noopener noreferrer">{{ copy.repoLinkLabel }}</a>{{ copy.repoLinkSuffix }}</p>
+    <p>{{ copy.openText }}<a class="contact-link" href="mailto:talon3229@163.com"><strong>talon3229@163.com</strong></a>{{ copy.repoIssuePrefix }}<a class="contact-link" :href="copy.repoUrl + '/issues'" target="_blank" rel="noopener noreferrer">{{ copy.repoIssueLabel }}</a>{{ copy.repoIssueSuffix }}</p>
 
     <div class="repo-disclosure">
       <section class="notice-panel">
         <span>{{ copy.importantLabel }}</span>
         <h3>{{ copy.officialNoticeTitle }}</h3>
         <p v-for="item in copy.officialNoticeParagraphs" :key="item">{{ item }}</p>
+        <p>{{ copy.copyrightNotice }} <a class="contact-link" href="mailto:talon3229@163.com">talon3229@163.com</a> {{ copy.contactSuffix }}</p>
       </section>
 
       <section class="relation-panel">

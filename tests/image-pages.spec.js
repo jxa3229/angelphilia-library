@@ -29,14 +29,20 @@ test('shares full-size originals and black variants with working copy and downlo
   expect(errors).toEqual([])
 })
 
-test('overview uses both black backgrounds and exposes both image pages in all languages', async ({ page }) => {
+test('keeps collage links in the hidden panel and preserves backgrounds and language switching', async ({ page }) => {
   await page.goto('/#/overview')
-  await expect(page.locator('.overview-image-links a')).toHaveCount(2)
+  await expect(page.locator('.overview-images')).toHaveCount(0)
+  await expect(page.locator('.personal-image-tools')).toHaveCount(0)
+  await expect(page.locator('.main-panel a[href*="/image/"]')).toHaveCount(0)
   const backgrounds = await page.locator('.overview-masthead > div').evaluateAll((elements) => elements.map((element) => getComputedStyle(element, '::before').backgroundImage))
   expect(backgrounds[0]).toContain('/images/doll-heads-dark.webp')
   expect(backgrounds[1]).toContain('/images/bunny-outfits-dark.webp')
-  await page.locator('.overview-image-links a').first().click()
+  await page.keyboard.type('000')
+  await expect(page.locator('.purchase-links-dialog')).toBeVisible()
+  await expect(page.locator('.personal-image-tools a')).toHaveCount(2)
+  await page.locator('.personal-image-tools a').first().click()
   await expect(page).toHaveURL(/#\/image\/doll-heads$/)
+  await expect(page.locator('.purchase-links-dialog')).toHaveCount(0)
   await page.getByRole('button', { name: 'English', exact: true }).click()
   await expect(page.getByRole('heading', { name: 'Doll portraits · 35 faces' })).toBeVisible()
   await page.getByRole('button', { name: '日本語', exact: true }).click()

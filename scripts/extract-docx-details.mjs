@@ -3,10 +3,14 @@ import path from 'node:path'
 
 const root = process.cwd()
 const privateManifestFile = path.join(root, '.cache', 'library-records-private.json')
+const realartArchiveFile = path.join(root, 'src', 'data', 'realartArchive.json')
 const outputDir = path.join(root, 'public', 'details')
 const legacyOutputFile = path.join(root, 'public', 'details.json')
 
-const records = JSON.parse(await readFile(privateManifestFile, 'utf8'))
+const records = [
+  ...JSON.parse(await readFile(privateManifestFile, 'utf8')),
+  ...await readRealartDetailRecords()
+]
 
 await rm(legacyOutputFile, { force: true })
 await rm(outputDir, { recursive: true, force: true })
@@ -22,6 +26,22 @@ for (const record of records) {
 }
 
 console.log(`Extracted ${extracted} record details to ${path.relative(root, outputDir)}`)
+
+async function readRealartDetailRecords() {
+  try {
+    const archiveRecords = JSON.parse(await readFile(realartArchiveFile, 'utf8'))
+    return archiveRecords
+      .filter((record) => record.detailKey && record.folder)
+      .map((record) => ({
+        detailKey: record.detailKey,
+        sourceFolder: record.folder,
+        recordPath: `records/${record.folder}/record.md`,
+        sourceUrl: record.sourceUrl || ''
+      }))
+  } catch {
+    return []
+  }
+}
 
 async function extractMarkdownDetail(record) {
   if (!record.sourceFolder) return ''

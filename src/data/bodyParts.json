@@ -250,6 +250,17 @@
       "notes": "型号已在商品规格中确认，尺寸待补充"
     },
     {
+      "id": "lower-c3-network",
+      "type": "C3",
+      "category": "lowerTorso",
+      "label": "Type-C3 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 13.1, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 21.5, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      },
+      "notes": "RealArtProject 下胴 Type-C3 商品标注兼容 Type-C；腰臀尺寸沿用 Type-C/C1 尺寸表"
+    },
+    {
       "id": "lower-g-network",
       "type": "G",
       "category": "lowerTorso",
@@ -268,6 +279,17 @@
         "waistCircumference": { "value": 15, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
         "hipCircumference": { "value": 24, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
       }
+    },
+    {
+      "id": "lower-h2-network",
+      "type": "H2",
+      "category": "lowerTorso",
+      "label": "Type-H2 腰臀",
+      "measurements": {
+        "waistCircumference": { "value": 15, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 },
+        "hipCircumference": { "value": 24, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      },
+      "notes": "RealArtProject 下胴 Type-H2 商品标注兼容 Type-H；腰臀尺寸沿用 Type-H 尺寸表"
     },
     {
       "id": "lower-i-network",
@@ -295,6 +317,16 @@
       "measurements": {
         "thighCircumference": { "value": 13.6, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
       }
+    },
+    {
+      "id": "thigh-c1-network",
+      "type": "C1",
+      "category": "thigh",
+      "label": "Type-C1 大腿",
+      "measurements": {
+        "thighCircumference": { "value": 13.6, "unit": "cm", "sourceId": "network-body-size-chart", "toleranceCm": 1 }
+      },
+      "notes": "尺寸表 C1 行给出大腿围；Type-C 大腿同值展示"
     },
     {
       "id": "thigh-g-network",

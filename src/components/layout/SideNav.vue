@@ -17,8 +17,13 @@
         @click="handleNav(item.route)"
       >
         <span>{{ item.label }}</span>
-        <strong v-if="item.bubble" class="comic-bubble">{{ item.bubble }}</strong>
       </RouterLink>
+      <details class="nav-more">
+        <summary>{{ copy.moreNavigation }}</summary>
+        <RouterLink :to="{ name: 'repository' }" :class="{ active: route.name === 'repository' }" @click="handleNav('repository')">
+          <span>{{ copy.navRepo }}</span>
+        </RouterLink>
+      </details>
     </nav>
 
     <section class="recent-list" aria-labelledby="recent-title">
@@ -34,52 +39,29 @@
       </button>
     </section>
 
-    <button class="changelog-trigger" type="button" @click="openChangelog">
+    <button class="changelog-trigger" type="button" @click="changelog.open">
       <span aria-hidden="true">+</span>
       {{ copy.updateLogTitle }}
     </button>
 
-    <el-dialog
-      v-model="isChangelogOpen"
-      :title="copy.updateLogTitle"
-      width="min(560px, calc(100vw - 32px))"
-      class="changelog-dialog"
-      append-to-body
-    >
-      <ol class="changelog-dialog-list" :class="{ 'is-full': isFullChangelog }">
-        <li v-for="entry in visibleUpdateLogEntries" :key="`${entry.date}-${entry.text}`">
-          <time :datetime="entry.date">{{ entry.date }}</time>
-          <p>{{ entry.text }}</p>
-        </li>
-      </ol>
-      <template #footer>
-        <button class="changelog-dialog-link" type="button" @click="isFullChangelog = !isFullChangelog">
-          {{ isFullChangelog ? copy.updateLogShowRecent : copy.updateLogShowAll }}
-        </button>
-      </template>
-    </el-dialog>
   </aside>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 import ThemeSwitcher from './ThemeSwitcher.vue'
 import { useLibraryStore } from '../../stores/library'
 import { usePreferencesStore } from '../../stores/preferences'
+import { useChangelogStore } from '../../stores/changelog'
 
 const route = useRoute()
 const router = useRouter()
 const preferences = usePreferencesStore()
 const library = useLibraryStore()
+const changelog = useChangelogStore()
 const copy = computed(() => preferences.copy)
-const isChangelogOpen = ref(false)
-const isFullChangelog = ref(false)
-const visibleUpdateLogEntries = computed(() => {
-  const entries = copy.value.updateLogEntries || []
-  return isFullChangelog.value ? entries : entries.slice(0, 3)
-})
 
 function handleNav(routeName) {
   if (routeName !== 'library') {
@@ -92,8 +74,11 @@ function focusRecord(record) {
   router.push({ name: 'library' })
 }
 
-function openChangelog() {
-  isFullChangelog.value = false
-  isChangelogOpen.value = true
-}
 </script>
+
+<style scoped>
+.nav-more > summary { min-height: 44px; padding: 10px; border-radius: 8px; color: var(--muted); cursor: pointer; }
+.nav-more > summary:hover { background: var(--primary-soft); }
+.nav-more > summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.nav-more > a { display: block; margin-top: 4px; }
+</style>

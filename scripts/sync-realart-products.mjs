@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { normalizeBodyText, parseBodyCompositionFromText } from './body-composition.mjs'
@@ -75,6 +76,8 @@ function toArchiveRecord(product, rawProduct = product) {
   const year = inferYear(product.id)
   const bodyComposition = parseBodyCompositionFromText(rawProduct.description, { source: 'realart-products.json' })
     || inheritedOriginalSetComposition(rawProduct)
+  const folder = `realart-${product.id}`
+  const hasLocalRecord = existsSync(path.join(root, 'records', folder, 'record.md'))
   return {
     year,
     group: 'PinkDrops',
@@ -84,7 +87,8 @@ function toArchiveRecord(product, rawProduct = product) {
     title: product.title,
     variant: parsed.variant || statusLabel(product.status),
     head: parsed.name || '公開資料未完整確認',
-    body: product.model || '公開資料未完整確認',
+    headType: inferDollHeadType(rawProduct) || inheritedOriginalSetHeadType(rawProduct),
+    body: formatBodyDisplay(bodyComposition) || product.model || '公開資料未完整確認',
     bodyCode: bodyComposition?.code || '',
     bodyComposition: bodyComposition?.parts || null,
     bodyCodeSource: bodyComposition
@@ -94,15 +98,15 @@ function toArchiveRecord(product, rawProduct = product) {
           line: bodyComposition.sourceLine
         }
       : null,
-    skin: inferSkin(product.title),
+    skin: inferSkin(product.title, rawProduct.description),
     source: product.source,
     sourceUrl: product.sourceUrl,
-    folder: `realart-${product.id}`,
+    folder,
     imageUrl: product.imageUrl,
     images: product.images,
-    safeFolder: `realart-${product.id}`,
+    safeFolder: folder,
     safeImages: product.images,
-    detailKey: '',
+    detailKey: hasLocalRecord ? folder : '',
     safeImageUrl: product.imageUrl,
     description: product.description,
     externalProductId: product.id
@@ -139,6 +143,13 @@ function inheritedOriginalSetComposition(product) {
   }
 }
 
+function inheritedOriginalSetHeadType(product) {
+  if (!isOriginalSet(product)) return ''
+
+  const baseProduct = findBaseDollProduct(product)
+  return baseProduct ? inferHeadType(baseProduct.model) : ''
+}
+
 function findBaseDollProduct(product) {
   const number = product.title.match(/Pink\s*Drops\s*#\s*(\d+)/i)?.[1]
   const name = normalizeComparableName(parseDollTitle(product.title).name)
@@ -171,12 +182,29 @@ function normalizeComparableName(value) {
     .trim()
 }
 
-function inferSkin(title) {
-  if (/スーパーホワイティ/.test(title)) return 'Super Whitey'
-  if (/ホワイティ|白肌/.test(title)) return 'Whitey'
-  if (/褐色/.test(title)) return '褐色'
-  if (/ノーマル/.test(title)) return 'Normal Skin'
+function inferSkin(title, description = '') {
+  const text = `${title || ''} ${description || ''}`
+  if (/スーパーホワイティ/.test(text)) return 'Super Whitey'
+  if (/ホワイティ|白肌/.test(text)) return 'Whitey'
+  if (/褐色/.test(text)) return '褐色'
+  if (/ノーマル/.test(text)) return 'Normal Skin'
   return '公開資料未完整確認'
+}
+
+function inferDollHeadType(product) {
+  const text = normalizeBodyText(product.description || '')
+  const headMatch = text.match(/(?:ヘッド|HEAD)\s*[:：]?\s*(?:TYPE\s*-?\s*)?([A-Z][0-9]?)/)
+  if (headMatch) return headMatch[1].toUpperCase()
+
+  return inferHeadType(product.model)
+}
+
+function inferHeadType(model) {
+  const text = String(model || '').trim()
+  if (!text || text === '公開資料未完整確認') return ''
+
+  const match = text.match(/^(?:Type[-\s]*|タイプ\s*)([A-Z][0-9]?)/i)
+  return match ? match[1].toUpperCase() : ''
 }
 
 function inferYear(id) {
@@ -192,6 +220,29 @@ function inferYear(id) {
   if (numericId >= 120) return '2018'
   if (numericId >= 80) return '2017'
   return '2016'
+}
+
+function formatBodyDisplay(bodyComposition) {
+  const parts = bodyComposition?.parts
+  if (!parts) return ''
+
+  const sourceLine = bodyComposition.sourceLine || ''
+  const slots = ['upperTorso', 'lowerTorso', 'thigh', 'shin', 'upperArm', 'forearm', 'foot']
+  return slots
+    .filter((slot) => parts[slot]?.type)
+    .map((slot) => `${parts[slot].label}/${formatBodyPartType(parts[slot], sourceLine)}`)
+    .join('、')
+}
+
+function formatBodyPartType(part, sourceLine = '') {
+  const type = part.type || ''
+  if (/^[A-Z][0-9]?$/.test(type)) return `Type-${type}`
+  if (type === 'Heel') return 'ヒール足'
+  if (type === 'NormalFoot') {
+    const suffix = /マグネット|MAGNET/.test(normalizeBodyText(sourceLine)) ? '・マグネットなし' : ''
+    return `ノーマル足(Obitsu50${suffix})`
+  }
+  return type
 }
 
 function isReference(product) {

@@ -31,90 +31,20 @@
     <el-empty v-if="filteredItems.length === 0" :description="copy.empty" />
 
     <div v-else class="outfit-grid">
-      <article v-for="item in filteredItems" :key="item.id" class="outfit-card">
-        <button
-          class="outfit-image"
-          type="button"
-          :aria-label="item.title"
-          @click="openItem(item)"
-        >
-          <img v-if="item.imageUrl" :src="assetUrl(item.imageUrl)" :alt="translatedTitle(item)" loading="lazy" />
-          <span v-else>{{ copy.noImage }}</span>
-        </button>
-
-        <div class="outfit-card-body">
-          <div class="record-meta">
-            <span>#{{ item.id }}</span>
-            <span>{{ outfitCategory(item) }}</span>
-          </div>
-          <h3>
-            <button type="button" @click="openItem(item)">{{ translatedTitle(item) }}</button>
-          </h3>
-          <small class="original-title">{{ item.title }}</small>
-          <p>{{ translatedDescription(item) }}</p>
-
-          <div class="tags">
-            <el-tag v-if="item.model" size="small" effect="plain">{{ item.model }}</el-tag>
-            <el-tag size="small" type="info" effect="plain">{{ item.priceText || copy.unknown }}</el-tag>
-          </div>
-        </div>
-      </article>
+      <CatalogCard v-for="item in filteredItems" :key="item.id" class="outfit-card"
+        :image="item.imageUrl" :year="item.year" :name="translatedTitle(item)" @open="openItem(item)" />
     </div>
 
-    <el-drawer
+    <ProductDetailDrawer
       v-model="isDrawerOpen"
-      :title="activeItem ? translatedTitle(activeItem) : copy.outfitDetail"
-      size="min(720px, 100vw)"
+      :name="activeItem ? translatedTitle(activeItem) : copy.outfitDetail"
+      :subtitle="activeItem?.title || ''"
+      :images="activeImages"
+      :fields="detailFields"
+      :description="activeItem ? translatedDescription(activeItem) : ''"
+      :description-label="copy.outfitDescription"
       class="outfit-detail-drawer"
-      append-to-body
-    >
-      <article v-if="activeItem" class="drawer-content outfit-detail">
-        <p class="original-title">{{ activeItem.title }}</p>
-
-        <el-carousel
-          v-if="activeImages.length > 0"
-          class="detail-carousel"
-          height="min(58vh, 560px)"
-          indicator-position="outside"
-          arrow="always"
-        >
-          <el-carousel-item v-for="image in activeImages" :key="image">
-            <img :src="assetUrl(image)" :alt="translatedTitle(activeItem)" />
-          </el-carousel-item>
-        </el-carousel>
-        <div v-else class="drawer-empty-image">{{ copy.noImage }}</div>
-
-        <dl>
-          <div>
-            <dt>{{ copy.tableNumber }}</dt>
-            <dd>#{{ activeItem.id }}</dd>
-          </div>
-          <div>
-            <dt>{{ copy.allOutfitCategories }}</dt>
-            <dd>{{ outfitCategory(activeItem) }}</dd>
-          </div>
-          <div v-if="activeItem.model">
-            <dt>{{ copy.partModel }}</dt>
-            <dd>{{ activeItem.model }}</dd>
-          </div>
-          <div>
-            <dt>{{ copy.metadata }}</dt>
-            <dd>{{ activeItem.priceText || copy.unknown }}</dd>
-          </div>
-          <div>
-            <dt>{{ copy.productSourceLink }}</dt>
-            <dd>
-              <a :href="activeItem.sourceUrl" target="_blank" rel="noreferrer">{{ activeItem.sourceUrl }}</a>
-            </dd>
-          </div>
-        </dl>
-
-        <section class="notice-panel outfit-description">
-          <h3>{{ copy.outfitDescription }}</h3>
-          <p>{{ translatedDescription(activeItem) }}</p>
-        </section>
-      </article>
-    </el-drawer>
+    />
   </section>
 </template>
 
@@ -123,7 +53,8 @@ import { computed, ref } from 'vue'
 import { Refresh } from '@element-plus/icons-vue'
 import outfits from '../data/outfits.json'
 import { usePreferencesStore } from '../stores/preferences'
-import { assetUrl } from '../utils/assetUrl'
+import CatalogCard from '../components/shared/CatalogCard.vue'
+import ProductDetailDrawer from '../components/shared/ProductDetailDrawer.vue'
 import { outfitCategoryLabel, sortOutfitCategories } from '../utils/outfitCategory'
 import { translateOutfitDescription, translateOutfitTitle } from '../utils/outfitText'
 import { unique } from '../utils/records'
@@ -166,7 +97,20 @@ const filteredItems = computed(() => {
 const resultText = computed(() => copy.value.outfitsResultCount
   .replace('{shown}', filteredItems.value.length)
   .replace('{total}', outfits.length))
-const activeImages = computed(() => Array.isArray(activeItem.value?.images) ? activeItem.value.images : [])
+const activeImages = computed(() => activeItem.value?.images?.length ? activeItem.value.images : [activeItem.value?.imageUrl].filter(Boolean))
+const detailFields = computed(() => {
+  const item = activeItem.value
+  if (!item) return []
+  return [
+    { label: copy.value.tableYear, value: item.year },
+    { label: copy.value.tableNumber, value: `#${item.id}` },
+    { label: copy.value.allOutfitCategories, value: outfitCategory(item) },
+    { label: copy.value.partModel, value: item.model },
+    { label: copy.value.metadata, value: item.priceText },
+    { label: copy.value.allStatuses, value: statusLabel(item.status) },
+    { label: copy.value.productSourceLink, value: item.sourceUrl, href: item.sourceUrl }
+  ]
+})
 
 function resetFilters() {
   query.value = ''

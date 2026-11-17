@@ -23,56 +23,26 @@
     <div class="code-panel-summary-row">
       <p class="copy-preview">{{ summary }}</p>
       <div v-if="matchingBodyExhibits.length" class="code-panel-preview-list">
-        <article
+        <CatalogCard
           v-for="item in matchingBodyExhibits"
           :key="item.id"
           class="code-panel-preview-card"
-        >
-          <el-image
-            v-if="imagePreviewList(item).length"
-            :src="imagePreviewList(item)[0]"
-            :preview-src-list="imagePreviewList(item)"
-            fit="contain"
-            preview-teleported
-            class="code-panel-preview-image"
-          />
-          <div class="code-panel-preview-meta">
-            <span>#{{ item.id }} {{ item.displayKindLabel }}</span>
-            <p v-if="bodyCodeLabel(item)" class="code-panel-preview-model">
-              {{ copy.partModel }}: {{ bodyCodeLabel(item) }}
-            </p>
-            <p v-if="item.model" class="code-panel-preview-source-model">{{ item.model }}</p>
-            <a
-              v-if="item.sourceUrl"
-              class="code-panel-preview-title code-panel-preview-link"
-              :href="item.sourceUrl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {{ item.title }}
-            </a>
-            <strong v-else class="code-panel-preview-title">{{ item.title }}</strong>
-            <a
-              v-if="item.sourceUrl"
-              class="code-panel-source-link"
-              :href="item.sourceUrl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {{ copy.sourcePage }}
-            </a>
-          </div>
-        </article>
+          :image="imagePreviewList(item)[0] || ''" :year="item.year" :name="item.title" @open="openExhibit(item)"
+        />
       </div>
     </div>
     <el-button type="primary" :icon="CopyDocument" @click="copySummary">{{ copy.copyData }}</el-button>
+    <ProductDetailDrawer v-model="isExhibitOpen" :name="activeExhibit?.title || copy.currentBodyExhibitsHeading"
+      :images="activeExhibit ? imagePreviewList(activeExhibit) : []" :fields="exhibitFields" :description="activeExhibit?.description || ''" />
   </section>
 </template>
 
 <script setup>
 import { ElMessage } from 'element-plus'
+import { computed, ref } from 'vue'
 import { CopyDocument } from '@element-plus/icons-vue'
-import { assetUrl } from '../../utils/assetUrl'
+import CatalogCard from '../shared/CatalogCard.vue'
+import ProductDetailDrawer from '../shared/ProductDetailDrawer.vue'
 
 const props = defineProps({
   code: { type: String, required: true },
@@ -81,9 +51,26 @@ const props = defineProps({
   matchingBodyExhibits: { type: Array, default: () => [] }
 })
 
+const activeExhibit = ref(null)
+const isExhibitOpen = ref(false)
+const exhibitFields = computed(() => {
+  const item = activeExhibit.value
+  if (!item) return []
+  return [
+    { key: 'year', label: props.copy.tableYear, value: item.year },
+    { key: 'number', label: props.copy.tableNumber, value: `#${item.id}` },
+    { key: 'category', label: props.copy.allOutfitCategories, value: item.displayKindLabel },
+    { key: 'composition', label: props.copy.bodyCode, value: bodyCodeLabel(item) },
+    { key: 'model', label: props.copy.partModel, value: item.model },
+    { key: 'price', label: props.copy.metadata, value: item.priceText },
+    { key: 'source', label: props.copy.sourcePage, value: item.source || item.sourceUrl, href: item.sourceUrl }
+  ]
+})
+function openExhibit(item) { activeExhibit.value = item; isExhibitOpen.value = true }
+
 function imagePreviewList(item) {
   const images = Array.isArray(item.images) && item.images.length ? item.images : [item.imageUrl]
-  return images.filter(Boolean).map((image) => assetUrl(image))
+  return images.filter(Boolean)
 }
 
 function bodyCodeLabel(item) {

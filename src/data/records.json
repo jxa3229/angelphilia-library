@@ -8,6 +8,7 @@
     "title": "Ikkitousen Ryomou Shimei Maid Ver",
     "variant": "ver.2",
     "head": "呂蒙子明 角色联动款",
+    "headType": "",
     "body": "YAMATO 角色联动完成品",
     "bodyCode": "",
     "bodyComposition": null,
@@ -48,6 +49,7 @@
     "title": "Ikkitousen Kanu Unchou 50cm figure",
     "variant": "通常/未明",
     "head": "関羽雲長 角色联动款",
+    "headType": "B",
     "body": "vmf50 角色联动完成品",
     "bodyCode": "BBB",
     "bodyComposition": {
@@ -117,6 +119,7 @@
     "title": "VMF50 #1 MIU",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "Obitsu50-01",
     "body": "未明",
     "bodyCode": "BBB",
     "bodyComposition": {
@@ -152,7 +155,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/オビツ50"
       }
     },
@@ -190,14 +193,48 @@
     "name": "RISA",
     "title": "VMF50 #2 RISA",
     "variant": "通常/未明",
-    "head": "未明",
-    "body": "未明",
-    "bodyCode": "",
-    "bodyComposition": null,
+    "head": "D",
+    "headType": "D",
+    "body": "D/D/D/D",
+    "bodyCode": "DDD",
+    "bodyComposition": {
+      "upperTorso": {
+        "type": "D",
+        "label": "上胴",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "lowerTorso": {
+        "type": "D",
+        "label": "下胴",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "thigh": {
+        "type": "D",
+        "label": "フトモモ",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "shin": {
+        "type": "D",
+        "label": "スネ",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "upperArm": {
+        "type": "D",
+        "label": "上腕",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "forearm": {
+        "type": "D",
+        "label": "下腕",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      }
+    },
     "bodyCodeSource": {
-      "type": "record.md",
-      "path": "records/2009_VMF50 #2 RISA/record.md",
-      "line": ""
+      "type": "body-composition-overrides.json",
+      "path": "output/body-code-audit/body-composition-overrides.json",
+      "sourceType": "user-note",
+      "sourceUrl": "",
+      "line": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
     },
     "skin": "公开资料未完整确认",
     "source": "网络数据",
@@ -233,6 +270,7 @@
     "title": "VMF50 #3 MIKI",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -269,6 +307,7 @@
     "title": "VMF50 #4 YUMI",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -303,6 +342,7 @@
     "title": "Ikkitousen Kanu Unchou Nurse Ver",
     "variant": "ver.2",
     "head": "関羽雲長 角色联动款",
+    "headType": "B",
     "body": "vmf50 角色联动完成品",
     "bodyCode": "BBB",
     "bodyComposition": {
@@ -374,6 +414,7 @@
     "title": "VMF50 #5 AMI",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -408,6 +449,7 @@
     "title": "VMF50 #6 NAO",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -442,6 +484,7 @@
     "title": "VMF50 #7 MIHO",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -476,6 +519,7 @@
     "title": "VMF50 #8 ERI",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -510,6 +554,7 @@
     "title": "VMF50 #10 SAYO",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -583,6 +628,7 @@
     "title": "VMF50 #11 MAKO",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -625,6 +671,7 @@
     "title": "VMF50 #9 SHIHO",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -659,6 +706,7 @@
     "title": "Sonico_VMF50 Tiger Parka set",
     "variant": "通常/未明",
     "head": "Sonico 角色联动款",
+    "headType": "",
     "body": "VMF50 系联动套装",
     "bodyCode": "AAA",
     "bodyComposition": {
@@ -730,6 +778,7 @@
     "title": "Dollcore Image Girl #1 伽琉羅 KARURA",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "vmf50 / Dollcore 完成品",
     "bodyCode": "",
     "bodyComposition": null,
@@ -764,6 +813,7 @@
     "title": "VMF50 #12 KANA",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -808,6 +858,7 @@
     "title": "VMF50 #13 MIKO",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -842,6 +893,7 @@
     "title": "Dollcore Image Girl #2 羅魅阿 LAMIA",
     "variant": "通常/未明",
     "head": "K",
+    "headType": "K",
     "body": "G",
     "bodyCode": "GGG",
     "bodyComposition": {
@@ -907,6 +959,7 @@
     "title": "Angel Philia Sonico Babydoll ver",
     "variant": "ver.2",
     "head": "Sonico 角色联动款",
+    "headType": "",
     "body": "Angel Philia 联动完成品",
     "bodyCode": "AAA",
     "bodyComposition": {
@@ -978,6 +1031,7 @@
     "title": "Dollcore Image Girl #3 紗鵺香 SAYAKA",
     "variant": "通常/未明",
     "head": "N",
+    "headType": "N",
     "body": "G/未明/未明/未明",
     "bodyCode": "GCC",
     "bodyComposition": {
@@ -1033,6 +1087,7 @@
     "title": "Dollcore Image Girl #4 絽媚奈 ROMINA",
     "variant": "通常/未明",
     "head": "K",
+    "headType": "K",
     "body": "C3/未明/未明/未明",
     "bodyCode": "C3CC",
     "bodyComposition": {
@@ -1058,7 +1113,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足パーツ/ヒール足"
       }
     },
@@ -1095,6 +1150,7 @@
     "title": "Pink Drops #6 紫織麗",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5C2H",
     "bodyComposition": {
@@ -1130,7 +1186,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●インナーフレーム/オビツ48 ●サイズ/全高約48CM ●オプション/デザインハンド3種/開き手・握り手・持ち手"
       }
     },
@@ -1188,6 +1244,7 @@
     "title": "Angel Philia CATWOMAN DOLL",
     "variant": "通常/未明",
     "head": "CATWOMAN 角色联动款",
+    "headType": "",
     "body": "Angel Philia 联动完成品",
     "bodyCode": "F2CC",
     "bodyComposition": {
@@ -1213,7 +1270,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足"
       },
       "arm": {
@@ -1257,6 +1314,7 @@
     "title": "Pink Drops 摩璃奈",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3CC",
     "bodyComposition": {
@@ -1287,7 +1345,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ 成型色 /ホワイティ オプション/開き手・持ち手・握り手 ※足首はヒールタイプになりますので"
       }
     },
@@ -1363,6 +1421,7 @@
     "title": "Pink Drops #10 穂乃花",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -1393,7 +1452,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール 足 サイズ/全高約48CM インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 ＋ピース手"
       }
     },
@@ -1465,6 +1524,7 @@
     "title": "Pink Drops #7 摩雫媚",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -1495,7 +1555,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手＋ ピース手 ベロパーツ 成型色/褐色 材質/外装/PVC"
       }
     },
@@ -1551,6 +1611,7 @@
     "title": "Pink Drops #8 伽栖魅",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3C2C",
     "bodyComposition": {
@@ -1586,7 +1647,7 @@
       },
       "foot": {
         "type": "C3",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 特別付属品/下胴TYPE-C3"
       }
     },
@@ -1656,6 +1717,7 @@
     "title": "Pink Drops #9 紫珠紅",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -1714,6 +1776,7 @@
     "title": "【ANGEL PHILIA】CHICA",
     "variant": "通常/未明",
     "head": "J",
+    "headType": "J",
     "body": "C5/C2/C/C",
     "bodyCode": "C5C2C",
     "bodyComposition": {
@@ -1744,7 +1807,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ 手/持ち手・握り手・開き手"
       }
     },
@@ -1781,6 +1844,7 @@
     "title": "【ANGEL PHILIA】MERU",
     "variant": "通常/未明",
     "head": "G",
+    "headType": "G",
     "body": "F/C/C/C",
     "bodyCode": "FCC",
     "bodyComposition": {
@@ -1845,6 +1909,7 @@
     "title": "【ANGEL PHILIA】MIU",
     "variant": "通常/未明",
     "head": "Obitsu50-01",
+    "headType": "Obitsu50-01",
     "body": "B/B/B/B",
     "bodyCode": "BBB",
     "bodyComposition": {
@@ -1880,7 +1945,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/オビツ50"
       }
     },
@@ -1917,6 +1982,7 @@
     "title": "【ANGEL PHILIA】NEMU",
     "variant": "通常/未明",
     "head": "G",
+    "headType": "G",
     "body": "F/C/C/C",
     "bodyCode": "FCC",
     "bodyComposition": {
@@ -1981,6 +2047,7 @@
     "title": "【ANGEL PHILIA】Sayoko",
     "variant": "通常/未明",
     "head": "M",
+    "headType": "M",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -2016,7 +2083,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足"
       }
     },
@@ -2057,6 +2124,7 @@
     "title": "【ANGEL PHILIA】亲子坐标套装",
     "variant": "通常/未明",
     "head": "M",
+    "headType": "M",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -2092,7 +2160,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足"
       }
     },
@@ -2129,6 +2197,7 @@
     "title": "【ANGEL PHILIA】 椛 ★★受注予約商品★★",
     "variant": "予約/Pre-order",
     "head": "M",
+    "headType": "M",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -2164,7 +2233,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ"
       }
     },
@@ -2209,6 +2278,7 @@
     "title": "Pink Drops #11 紗鵺香",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "GCC",
     "bodyComposition": {
@@ -2312,6 +2382,7 @@
     "title": "Pink Drops #12 夜狐",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "Q",
     "body": "未明",
     "bodyCode": "C5C2C",
     "bodyComposition": {
@@ -2347,7 +2418,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -2409,6 +2480,7 @@
     "title": "Pink Drops #13 桃香",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "G",
     "body": "未明",
     "bodyCode": "GCC",
     "bodyComposition": {
@@ -2444,7 +2516,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -2510,6 +2582,7 @@
     "title": "Pink Drops #14 恋麦",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -2540,7 +2613,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -2608,6 +2681,7 @@
     "title": "Pink Drops #15 愛紅",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "G",
     "body": "未明",
     "bodyCode": "GGG",
     "bodyComposition": {
@@ -2638,7 +2712,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足/開き手・握り手・持ち手 ●インナーフレーム/オビツ50 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -2696,6 +2770,7 @@
     "title": "Pink Drops #16 伽琉羅",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "EEE",
     "bodyComposition": {
@@ -2726,7 +2801,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/オビツ50/開き手・握り手・持ち手 ●インナーフレーム/オビツ50 ●成型色/ノーマル肌 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -2792,6 +2867,7 @@
     "title": "Pink Drops #17 琴音",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "M",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -2819,6 +2895,11 @@
         "type": "Obitsu50",
         "label": "腕",
         "sourceText": "腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手"
       }
     },
     "bodyCodeSource": {
@@ -2893,6 +2974,7 @@
     "title": "Pink Drops #18 絽媚奈",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "K",
     "body": "未明",
     "bodyCode": "C3CC",
     "bodyComposition": {
@@ -2923,7 +3005,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 仕様 ●成型色/褐色 ●材質/外装及びヘッド/PVC"
       }
     },
@@ -2997,6 +3079,7 @@
     "title": "Pink Drops #19 MONICA",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "K",
     "body": "页面标题：グラマラスボディの「Pink Drops #19…",
     "bodyCode": "AAA",
     "bodyComposition": {
@@ -3032,7 +3115,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足/開き手・握り手・持ち手 ●インナーフレーム/オビツ50 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -3096,6 +3179,7 @@
     "title": "Pink Drops #4 紗友莉",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H2CC",
     "bodyComposition": {
@@ -3131,7 +3215,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ"
       }
     },
@@ -3195,6 +3279,7 @@
     "title": "Pink Drops #9 紫珠紅",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -3255,6 +3340,7 @@
     "title": "Pink Drops #9 紫珠紅 SHIZUKU",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -3299,6 +3385,7 @@
     "title": "ONEセレクションドール_No24",
     "variant": "通常/未明",
     "head": "H",
+    "headType": "H",
     "body": "H2/C/C/C",
     "bodyCode": "H2CC",
     "bodyComposition": {
@@ -3360,6 +3447,7 @@
     "title": "ONEセレクションドール_No25",
     "variant": "通常/未明",
     "head": "O",
+    "headType": "O",
     "body": "F/C2/C/C",
     "bodyCode": "FFC",
     "bodyComposition": {
@@ -3385,7 +3473,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/オビツ50 手首/デザインハンド ■ウィッグ MILKY BROND ※サイズ/約7インチ ■衣 装 MEOW PLAYGROUND PINKSILENT WHITE"
       }
     },
@@ -3426,6 +3514,7 @@
     "title": "ONEセレクションドール_No26",
     "variant": "通常/未明",
     "head": "J",
+    "headType": "J",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -3451,7 +3540,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ 手首/デザインハンド ■ウィッグ ひめかずら MSサイズ ※サイズ/約7インチ ■衣 装 SILENT WHITE ＜セット内容＞ トップス/スカート/アームアクセサリー/ソックス ■シューズ クリスタルミュール ■おまけ 魔法のステッキ ■材 質 ・ヘッド/PVC ・インナーフレーム/ABS・POM ・衣装/布製 ★価 格 ￥65"
       }
     },
@@ -3492,6 +3581,7 @@
     "title": "ONEセレクションドール_No29",
     "variant": "通常/未明",
     "head": "J",
+    "headType": "J",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -3549,6 +3639,7 @@
     "title": "ONEセレクションドール_No30",
     "variant": "通常/未明",
     "head": "H",
+    "headType": "H",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -3608,6 +3699,7 @@
     "title": "【ANGEL PHILIA】凛<Rin> ★限量版道具★",
     "variant": "通常/未明",
     "head": "J",
+    "headType": "J",
     "body": "F/C/C/C",
     "bodyCode": "FCC",
     "bodyComposition": {
@@ -3643,7 +3735,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ"
       }
     },
@@ -3688,6 +3780,7 @@
     "title": "【ANGEL PHILIA】专栏<RAN> ★限量预购商品★",
     "variant": "通常/未明",
     "head": "J",
+    "headType": "J",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -3723,7 +3816,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ"
       }
     },
@@ -3768,6 +3861,7 @@
     "title": "玲奈 LENA",
     "variant": "通常/未明",
     "head": "M",
+    "headType": "M",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -3803,7 +3897,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ"
       }
     },
@@ -3844,6 +3938,7 @@
     "title": "Pink Drops #10 穂乃花",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -3874,7 +3969,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール 足 サイズ/全高約48CM インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 ＋ピース手"
       }
     },
@@ -3932,6 +4027,7 @@
     "title": "Pink Drops #17 琴音 Soft Skin",
     "variant": "SoftSkin",
     "head": "未明",
+    "headType": "M",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -3959,6 +4055,11 @@
         "type": "Obitsu50",
         "label": "腕",
         "sourceText": "腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手"
       }
     },
     "bodyCodeSource": {
@@ -4017,6 +4118,7 @@
     "title": "Pink Drops #23 胡桃",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -4052,7 +4154,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●インナーフレーム/オビツ48 ●サイズ/全高約48CM ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●材質/外装/PVC"
       }
     },
@@ -4122,6 +4224,7 @@
     "title": "Pink Drops #7 摩雫媚",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -4152,7 +4255,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手＋ ピース手 ベロパーツ 成型色/褐色 材質/外装/PVC"
       }
     },
@@ -4214,6 +4317,7 @@
     "title": "Pink Drops #8 伽栖魅",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3C2C",
     "bodyComposition": {
@@ -4249,7 +4353,7 @@
       },
       "foot": {
         "type": "C3",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 特別付属品/下胴TYPE-C3"
       }
     },
@@ -4315,6 +4419,7 @@
     "title": "Pink Drops #9 紫珠紅 ver.2",
     "variant": "SoftSkin / ver.2 / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -4381,6 +4486,7 @@
     "title": "AKI",
     "variant": "ver.2",
     "head": "L",
+    "headType": "L",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -4413,6 +4519,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足/ノーマル足"
       }
     },
     "bodyCodeSource": {
@@ -4450,6 +4561,7 @@
     "title": "小夜子",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -4482,6 +4594,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足/ノーマル足タイプ インナーフレーム/オビツ48.5CM仕様 成型色/ホワイティ ※外皮ソフビパーツはすべて彩色済です。 ※足にはマグネットは入っておりません。 ※足マグネット用の鉄板丸ベースは付属しません。 材質/外装及びヘッドパーツ/PVC"
       }
     },
     "bodyCodeSource": {
@@ -4519,6 +4636,7 @@
     "title": "Pink Drops #3 綺亞羅 Soft Skin",
     "variant": "SoftSkin",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H3HH",
     "bodyComposition": {
@@ -4551,6 +4669,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -4607,6 +4730,7 @@
     "title": "EMMA",
     "variant": "SoftSkin",
     "head": "J",
+    "headType": "J",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -4639,6 +4763,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足/ノーマル足タイプ"
       },
       "hand": {
         "type": "Heel",
@@ -4681,6 +4810,7 @@
     "title": "SAYO",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -4713,6 +4843,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足/ノーマル足タイプ"
       },
       "hand": {
         "type": "Heel",
@@ -4753,6 +4888,7 @@
     "title": "葵",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -4785,6 +4921,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足/ノーマル足タイプ"
       },
       "hand": {
         "type": "Heel",
@@ -4829,6 +4970,7 @@
     "title": "薫",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "C3/H/H/C",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -4861,6 +5003,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足/ノーマル足タイプ"
       },
       "hand": {
         "type": "Heel",
@@ -4903,6 +5050,7 @@
     "title": "Pink Drops #10 穂乃花",
     "variant": "SoftSkin",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -4933,7 +5081,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール 足 サイズ/全高約48CM インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 ＋ピース手"
       }
     },
@@ -4989,6 +5137,7 @@
     "title": "Pink Drops #23 胡桃",
     "variant": "SoftSkin",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -5024,7 +5173,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●インナーフレーム/オビツ48 ●サイズ/全高約48CM ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●材質/外装/PVC"
       }
     },
@@ -5118,6 +5267,7 @@
     "title": "Pink Drops #9 紫珠紅 ver.3",
     "variant": "ver.3 / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -5172,6 +5322,7 @@
     "title": "EMMY",
     "variant": "SoftSkin",
     "head": "J",
+    "headType": "J",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -5248,6 +5399,7 @@
     "title": "LENA",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "C5/C/C/C",
     "bodyCode": "C5CC",
     "bodyComposition": {
@@ -5283,7 +5435,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/APオリジナルヒールタイプ"
       }
     },
@@ -5324,6 +5476,7 @@
     "title": "エル",
     "variant": "SoftSkin",
     "head": "未明",
+    "headType": "Obitsu50-04",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -5396,6 +5549,7 @@
     "title": "愛菜",
     "variant": "通常/未明",
     "head": "H",
+    "headType": "H",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -5474,6 +5628,7 @@
     "title": "Pink Drops #17 琴音 ｿﾌﾄｽｷﾝver.",
     "variant": "SoftSkin / ver.2",
     "head": "未明",
+    "headType": "M",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -5501,6 +5656,11 @@
         "type": "Obitsu50",
         "label": "腕",
         "sourceText": "腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手"
       }
     },
     "bodyCodeSource": {
@@ -5559,6 +5719,7 @@
     "title": "Pink Drops #6 紫織麗 SoftSkin",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5C2H",
     "bodyComposition": {
@@ -5594,7 +5755,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●インナーフレーム/オビツ48 ●サイズ/全高約48CM ●オプション/デザインハンド3種/開き手・握り手・持ち手"
       }
     },
@@ -5650,6 +5811,7 @@
     "title": "A 柑奈 20200512",
     "variant": "A",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "",
     "bodyComposition": null,
@@ -5692,6 +5854,7 @@
     "title": "B 柑奈 20200512",
     "variant": "B",
     "head": "未明",
+    "headType": "",
     "body": "ひとつのヘッドでペチャ胸ボディと巨乳ボディがお楽しみいただ…",
     "bodyCode": "",
     "bodyComposition": null,
@@ -5730,6 +5893,7 @@
     "title": "Cボディ＆紗鵺香 20201108",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "Cボディ＆紗鵺香 20201108 / 来源类型：RAP_…",
     "bodyCode": "",
     "bodyComposition": null,
@@ -5772,6 +5936,7 @@
     "title": "Full Coordinate Doll Type-EMMA",
     "variant": "通常/未明",
     "head": "J",
+    "headType": "J",
     "body": "未明/G/G/B",
     "bodyCode": "GGG",
     "bodyComposition": {
@@ -5802,7 +5967,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒール足 ■成型色 褐色"
       }
     },
@@ -5837,6 +6002,7 @@
     "title": "Full Coordinate Doll Type-LENA",
     "variant": "通常/未明",
     "head": "M",
+    "headType": "M",
     "body": "未明/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -5867,7 +6033,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒール足 ■成型色 褐色"
       }
     },
@@ -5902,6 +6068,7 @@
     "title": "Full Coordinate Doll _ ANGEL PHILIA Elle",
     "variant": "SoftSkin / B",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -5957,6 +6124,7 @@
     "title": "Full Coordinate Doll _ ANGEL PHILIA Kurumi",
     "variant": "SoftSkin / A",
     "head": "S",
+    "headType": "S",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -5987,7 +6155,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ"
       }
     },
@@ -6022,6 +6190,7 @@
     "title": "KAORU",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "未明/C2/H/未明",
     "bodyCode": "H2C2H",
     "bodyComposition": {
@@ -6052,7 +6221,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ 手/デザインハンド3種〜持ち手・握りて・開き手 インナーフレーム/オビツ48.5CM仕様"
       }
     },
@@ -6091,6 +6260,7 @@
     "title": "Lena",
     "variant": "SoftSkin / ver.2",
     "head": "M",
+    "headType": "M",
     "body": "C5/C2/H/未明",
     "bodyCode": "C5C2H",
     "bodyComposition": {
@@ -6116,7 +6286,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ 手/ デザインハンド インナーフレーム/オビツ48.5CM仕様 成型色 /ホワイティ ※外皮ソフビパーツはすべて彩色済みです ※足にはマグネットは入っておりません ※足マグネット用の鉄板丸ベースは付属しません 材質/外装・ヘッドパーツ/PVC"
       }
     },
@@ -6153,6 +6323,7 @@
     "title": "MAYA",
     "variant": "SoftSkin",
     "head": "L",
+    "headType": "L",
     "body": "C5/C2/H/C",
     "bodyCode": "C5C2H",
     "bodyComposition": {
@@ -6188,7 +6359,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ ヒールタイプ"
       }
     },
@@ -6227,6 +6398,7 @@
     "title": "MONA 02",
     "variant": "SoftSkin / Super Whity",
     "head": "M",
+    "headType": "M",
     "body": "H/H/H/未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -6252,7 +6424,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ ※オプション/ヒールタイプ 手/ デザインハンド/持ち手"
       },
       "hand": {
@@ -6298,6 +6470,7 @@
     "title": "葵",
     "variant": "SoftSkin / ver.2",
     "head": "M",
+    "headType": "M",
     "body": "H2/C2/H/未明",
     "bodyCode": "H2C2H",
     "bodyComposition": {
@@ -6323,7 +6496,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ ＊オプション/ヒールタイプ足 手/50CM交換用手セット2 ※商品写真で使用している手パーツは"
       }
     },
@@ -6362,6 +6535,7 @@
     "title": "Pink Drops #3 綺亞羅 ver.2",
     "variant": "SoftSkin / ver.2 / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H3HH",
     "bodyComposition": {
@@ -6394,6 +6568,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -6462,6 +6641,7 @@
     "title": "Pink Drops #52 友梨奈：SoftSkin 20201111",
     "variant": "SoftSkin",
     "head": "未明",
+    "headType": "",
     "body": "ボディ構成においては人気の高い外皮ボディパーツから新たにチ…",
     "bodyCode": "H3C2H",
     "bodyComposition": {
@@ -6497,7 +6677,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ●インナーフレーム/オビツ48 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -6543,6 +6723,7 @@
     "title": "Pink Drops #53 朱里：日焼け跡ボディ 20201210",
     "variant": "日焼け跡",
     "head": "未明",
+    "headType": "",
     "body": "Pink Drops #53 朱里：日焼け跡ボディ 202…",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -6575,6 +6756,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/ピース手・指し手・開き手"
       }
     },
     "bodyCodeSource": {
@@ -6619,6 +6805,7 @@
     "title": "Elle(エル)ぷちっリニューアルタイプ0.5",
     "variant": "SoftSkin / 0.5",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/C2/H/C",
     "bodyCode": "H2C2H",
     "bodyComposition": {
@@ -6648,8 +6835,8 @@
         "sourceText": "腕/ OBITSU50"
       },
       "foot": {
-        "type": "Heel",
-        "label": "足",
+        "type": "NormalFoot",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ ※オプション/ノーマル足"
       }
     },
@@ -6688,6 +6875,7 @@
     "title": "Emmy",
     "variant": "SoftSkin",
     "head": "J",
+    "headType": "J",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -6754,6 +6942,7 @@
     "title": "Kumi",
     "variant": "SoftSkin",
     "head": "S",
+    "headType": "S",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -6784,7 +6973,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ"
       }
     },
@@ -6825,6 +7014,7 @@
     "title": "Pink Drops #10 穂乃花：A20210707",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -6855,7 +7045,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール 足 サイズ/全高約48CM インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 ＋ピース手"
       }
     },
@@ -6901,6 +7091,7 @@
     "title": "Pink Drops #10 穂乃花：B20210707",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "人気のむっちり大福胸（上胴/Type-Ｈ5褐色ver.2：…",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -6931,7 +7122,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール 足 サイズ/全高約48CM インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 ＋ピース手"
       }
     },
@@ -6977,6 +7168,7 @@
     "title": "Pink Drops #3 綺亞羅：20210315",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "ナチュラルメイクのおとなしい表情とボディのアンバランスが魅…",
     "bodyCode": "H3HH",
     "bodyComposition": {
@@ -7009,6 +7201,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -7053,6 +7250,7 @@
     "title": "Pink Drops #35 真由美：A20210408",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "GHH",
     "bodyComposition": {
@@ -7083,7 +7281,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ ヒール足 インナーフレーム /オビツ48 サイズ /全高約48CM オプション /デザインハンド3種/開き手・握り手・持ち手 成型色/褐色 材質/外装/PVC"
       }
     },
@@ -7129,6 +7327,7 @@
     "title": "Pink Drops #35 真由美：B20210408",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "GHH",
     "bodyComposition": {
@@ -7159,7 +7358,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ ヒール足 インナーフレーム /オビツ48 サイズ /全高約48CM オプション /デザインハンド3種/開き手・握り手・持ち手 成型色/褐色 材質/外装/PVC"
       }
     },
@@ -7205,6 +7404,7 @@
     "title": "Pink Drops #54 楓：A 20210112",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H5C2H",
     "bodyComposition": {
@@ -7240,7 +7440,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ●インナーフレーム/オビツ48 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -7286,6 +7486,7 @@
     "title": "Pink Drops #54 楓：B 20210112",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H5C2H",
     "bodyComposition": {
@@ -7321,7 +7522,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ●インナーフレーム/オビツ48 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -7367,6 +7568,7 @@
     "title": "Pink Drops #55 七瀬：スーパーホワイティボディ 20210212",
     "variant": "Super Whity",
     "head": "未明",
+    "headType": "",
     "body": "Pink Drops #55 七瀬：スーパーホワイティボデ…",
     "bodyCode": "",
     "bodyComposition": null,
@@ -7409,6 +7611,7 @@
     "title": "Pink Drops #55 七瀬：スーパーホワイティボディ 20210823",
     "variant": "Super Whity",
     "head": "未明",
+    "headType": "",
     "body": "Pink Drops #55 七瀬：スーパーホワイティボデ…",
     "bodyCode": "",
     "bodyComposition": null,
@@ -7451,6 +7654,7 @@
     "title": "Pink Drops #56 結花：A 20210310",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "キュートな表情と小胸＆デカ尻ボディ / 妄想MAXのオンナ…",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -7486,7 +7690,7 @@
       },
       "foot": {
         "type": "C5",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/握り手・開き手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ＊ 上胴/TYPE-C5は紫織麗・夜孤・CCセット等で使用 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -7532,6 +7736,7 @@
     "title": "Pink Drops #56 結花：B 20210310",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -7567,7 +7772,7 @@
       },
       "foot": {
         "type": "C5",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/握り手・開き手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ＊ 上胴/TYPE-C5は紫織麗・夜孤・CCセット等で使用 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -7613,6 +7818,7 @@
     "title": "Pink Drops #57 涼香：A20210507",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "まさに妄想MAXのボディですｗ！ / 整理说明 / 本记录…",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -7648,7 +7854,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド6種 開き手・握り手・持ち手/＆ピース手・指し手・開き手/"
       }
     },
@@ -7694,6 +7900,7 @@
     "title": "Pink Drops #57 涼香：B20210507",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "クビレのきいた少し腰を引いたボディラインや、 / 合わせ目…",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -7729,7 +7936,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド6種 開き手・握り手・持ち手/＆ピース手・指し手・開き手/"
       }
     },
@@ -7775,6 +7982,7 @@
     "title": "Pink Drops #58 翼：20210607",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H5HH",
     "bodyComposition": {
@@ -7807,6 +8015,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -7851,6 +8064,7 @@
     "title": "Pink Drops #59 小夏：A 20210906",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "むっちり下半身の褐色ボディ! 小夏(コナツ)chanデスｗ…",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -7922,6 +8136,7 @@
     "title": "Pink Drops #59 小夏：B 20210906",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -7993,6 +8208,7 @@
     "title": "Pink Drops #60 悠里：A 20211004",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "PinkDropsシリーズならではのミラクルボディ！ /…",
     "bodyCode": "H5CC",
     "bodyComposition": {
@@ -8025,6 +8241,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ●インナーフレーム/オビツ48 ●成型色/スーパーホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -8069,6 +8290,7 @@
     "title": "Pink Drops #60 悠里：B 20211004",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H5CC",
     "bodyComposition": {
@@ -8101,6 +8323,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ●インナーフレーム/オビツ48 ●成型色/スーパーホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -8145,6 +8372,7 @@
     "title": "Pink Drops #61 水姫：A 20211108",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "H4/未明/未明/未明",
     "bodyCode": "H4HH",
     "bodyComposition": {
@@ -8216,6 +8444,7 @@
     "title": "Pink Drops #61 水姫：B 20211108",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H4HH",
     "bodyComposition": {
@@ -8287,6 +8516,7 @@
     "title": "Pink Drops #62 梓：20211206",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "GHH",
     "bodyComposition": {
@@ -8358,6 +8588,7 @@
     "title": "Pink Drops #7 摩雫媚：A20210810",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "カワユイ褐色ボディの摩雫媚(マナミ)chanデスｗ！ /…",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -8388,7 +8619,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手＋ ピース手 ベロパーツ 成型色/褐色 材質/外装/PVC"
       }
     },
@@ -8434,6 +8665,7 @@
     "title": "Pink Drops #7 摩雫媚：B20210810",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -8464,7 +8696,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手＋ ピース手 ベロパーツ 成型色/褐色 材質/外装/PVC"
       }
     },
@@ -8510,6 +8742,7 @@
     "title": "Elle",
     "variant": "SoftSkin",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -8581,6 +8814,7 @@
     "title": "Ellie",
     "variant": "SoftSkin",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -8652,6 +8886,7 @@
     "title": "Ellie_2",
     "variant": "SoftSkin",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -8682,7 +8917,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ ※オプション/ノーマルタイプ"
       }
     },
@@ -8719,6 +8954,7 @@
     "title": "Emma",
     "variant": "SoftSkin",
     "head": "J",
+    "headType": "J",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -8786,6 +9022,7 @@
     "title": "Kumi",
     "variant": "SoftSkin / ver.2",
     "head": "S",
+    "headType": "S",
     "body": "C3/H/H/C",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -8816,7 +9053,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ"
       }
     },
@@ -8853,6 +9090,7 @@
     "title": "Mikako",
     "variant": "SoftSkin",
     "head": "R",
+    "headType": "R",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -8883,7 +9121,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ ヒールタイプ"
       }
     },
@@ -8924,6 +9162,7 @@
     "title": "Riko",
     "variant": "SoftSkin",
     "head": "S",
+    "headType": "S",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -8954,7 +9193,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ"
       }
     },
@@ -8993,6 +9232,7 @@
     "title": "White Ellie 2022",
     "variant": "SoftSkin / Super Whity / 0.5",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/C2/C/C",
     "bodyCode": "H2C2C",
     "bodyComposition": {
@@ -9023,7 +9263,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ ※オプション/ヒールタイプ"
       }
     },
@@ -9062,6 +9302,7 @@
     "title": "葵",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "C5/H/H/C",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -9092,7 +9333,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ"
       }
     },
@@ -9135,6 +9376,7 @@
     "title": "薫",
     "variant": "SoftSkin / ver.3",
     "head": "M",
+    "headType": "M",
     "body": "G/H/H/C",
     "bodyCode": "GHH",
     "bodyComposition": {
@@ -9201,6 +9443,7 @@
     "title": "Pink Drops #10 穂乃花ver.2：20220810",
     "variant": "ver.2",
     "head": "未明",
+    "headType": "",
     "body": "むっちり下半身の褐色ボディ! 穂乃花(ホノカ)chanデス…",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -9231,7 +9474,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール 足 サイズ/全高約48CM インナーフレーム/オビツ48 オプション/デザインハンド3種/開き手・握り手・持ち手 ＋ピース手"
       }
     },
@@ -9277,6 +9520,7 @@
     "title": "Pink Drops #15 愛紅ver2.：20221209",
     "variant": "ver.2",
     "head": "未明",
+    "headType": "G",
     "body": "G",
     "bodyCode": "GGG",
     "bodyComposition": {
@@ -9307,7 +9551,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足/開き手・握り手・持ち手 ●インナーフレーム/オビツ50 ●成型色/褐色 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -9353,6 +9597,7 @@
     "title": "Pink Drops #30 愛実ver.2：20220606",
     "variant": "ver.2",
     "head": "O",
+    "headType": "O",
     "body": "未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -9380,6 +9625,11 @@
         "type": "Obitsu50",
         "label": "腕",
         "sourceText": "腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●インナーフレーム/オビツ48 ●サイズ/全高約48CM ●オプション/デザインハンド3種/開き手・握り手・持ち手"
       }
     },
     "bodyCodeSource": {
@@ -9424,6 +9674,7 @@
     "title": "Pink Drops #32 静香プチリニューアルver：20220907",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "クール＆キュートなメイクにボディはいろんな装いも可能な小胸…",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -9456,6 +9707,11 @@
         "type": "Obitsu50",
         "label": "下腕",
         "sourceText": "上腕・下腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/開き手・握り手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
     "bodyCodeSource": {
@@ -9500,6 +9756,7 @@
     "title": "Pink Drops #56 結花プチリニューアルver.：20221107",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "キュートな表情と小胸＆デカ尻ボディ / 妄想MAXのオンナ…",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -9535,7 +9792,7 @@
       },
       "foot": {
         "type": "C5",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒール足 ●オプション/デザインハンド3種/握り手・開き手・持ち手 ●インナーフレーム/オビツ48 ●成型色/ホワイティ ＊ 上胴/TYPE-C5は紫織麗・夜孤・CCセット等で使用 ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -9581,6 +9838,7 @@
     "title": "Pink Drops #63 麗香：20220111",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -9652,6 +9910,7 @@
     "title": "Pink Drops #64 真登香：20220207",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "Pink Dropsのオンナノコならではのアメイジングボデ…",
     "bodyCode": "H3HH",
     "bodyComposition": {
@@ -9723,6 +9982,7 @@
     "title": "Pink Drops #65 里美：20220704",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -9750,6 +10010,11 @@
         "type": "Obitsu50",
         "label": "腕",
         "sourceText": "腕/オビツ50"
+      },
+      "foot": {
+        "type": "NormalFoot",
+        "label": "足首",
+        "sourceText": "足首/ノーマル足 ●インナーフレーム/オビツ48 ●サイズ/全高約48CM ●オプション/オビツ製作所オリジナルハンド3種/指さし手・開き手・ピース手"
       }
     },
     "bodyCodeSource": {
@@ -9794,6 +10059,7 @@
     "title": "Pink Drops #66 里緒奈スーパーホワイティ：20221006",
     "variant": "Super Whity",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "HC2C",
     "bodyComposition": {
@@ -9828,8 +10094,8 @@
         "sourceText": "上腕・下腕/オビツ50"
       },
       "foot": {
-        "type": "Heel",
-        "label": "足",
+        "type": "NormalFoot",
+        "label": "足首",
         "sourceText": "足首/ノーマル足 ●オプション/デザインハンド3種/持ち手・開き手・握り手 ・ヒール足 ●インナーフレーム/オビツ48 ●成型色/スーパーホワイティ ◆ 材質 /外装及びヘッド/PVC"
       }
     },
@@ -9875,6 +10141,7 @@
     "title": "AKO",
     "variant": "SoftSkin",
     "head": "G",
+    "headType": "G",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -9941,6 +10208,7 @@
     "title": "AP Type-Iボディ 褐色",
     "variant": "SoftSkin",
     "head": "I",
+    "headType": "I",
     "body": "I/I/I/I",
     "bodyCode": "III",
     "bodyComposition": {
@@ -9976,7 +10244,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ＆ヒールタイプ"
       },
       "hand": {
@@ -10022,6 +10290,7 @@
     "title": "Ellie 0.5",
     "variant": "SoftSkin / 0.5",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -10086,6 +10355,7 @@
     "title": "HANA",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "C5/H/H/C",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -10152,6 +10422,7 @@
     "title": "LENA 0.5",
     "variant": "SoftSkin / 0.5",
     "head": "M",
+    "headType": "M",
     "body": "C3/H/H/C",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -10182,7 +10453,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ&ヒールタイプ"
       }
     },
@@ -10221,6 +10492,7 @@
     "title": "Noa",
     "variant": "SoftSkin",
     "head": "G",
+    "headType": "G",
     "body": "C5/H/H/C",
     "bodyCode": "C5HH",
     "bodyComposition": {
@@ -10285,6 +10557,7 @@
     "title": "Yuri",
     "variant": "SoftSkin",
     "head": "H",
+    "headType": "H",
     "body": "C3/H/H/C",
     "bodyCode": "C3HH",
     "bodyComposition": {
@@ -10353,6 +10626,7 @@
     "title": "乃音(NONO)",
     "variant": "SoftSkin",
     "head": "T",
+    "headType": "T",
     "body": "H2/H/H/未明",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -10417,6 +10691,7 @@
     "title": "小夜",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "F/C/C/C",
     "bodyCode": "FCC",
     "bodyComposition": {
@@ -10483,6 +10758,7 @@
     "title": "愛菜",
     "variant": "SoftSkin",
     "head": "H",
+    "headType": "H",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -10547,6 +10823,7 @@
     "title": "Elle",
     "variant": "SoftSkin / 0.5",
     "head": "Obitsu50-04",
+    "headType": "Obitsu50-04",
     "body": "H2/H/H/C",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -10613,6 +10890,7 @@
     "title": "Kumi",
     "variant": "SoftSkin / Super Whity",
     "head": "S",
+    "headType": "S",
     "body": "H2/H/H/未明",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -10633,7 +10911,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ※オプション/ヒールタイプ"
       },
       "upperArm": {
@@ -10682,6 +10960,7 @@
     "title": "RIKO",
     "variant": "SoftSkin",
     "head": "S",
+    "headType": "S",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -10712,7 +10991,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ヒールタイプ"
       }
     },
@@ -10753,6 +11032,7 @@
     "title": "Type-Iボディ ホワイティ",
     "variant": "SoftSkin",
     "head": "M",
+    "headType": "M",
     "body": "I/I/I/I",
     "bodyCode": "III",
     "bodyComposition": {
@@ -10788,7 +11068,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ＆ヒールタイプ"
       },
       "hand": {
@@ -10834,6 +11114,7 @@
     "title": "瑠音(RURU)",
     "variant": "SoftSkin",
     "head": "T",
+    "headType": "T",
     "body": "H/H/H/未明",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -10902,6 +11183,7 @@
     "title": "【Angel Philia】Pink Drops #76 MIKURU Soft Skin 予約受付中",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "J",
+    "headType": "J",
     "body": "ボディメイクはボディとハンドの両方に含まれます。 / 材質…",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -10982,6 +11264,7 @@
     "title": "乃音(NONO)0.5",
     "variant": "SoftSkin / 0.5",
     "head": "T",
+    "headType": "T",
     "body": "I/I/I/I",
     "bodyCode": "III",
     "bodyComposition": {
@@ -11017,7 +11300,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ ※オプション/ヒール足 ※足にはマグネットは入っておりません ※足マグネット用の鉄板丸ベースは付属しません ■成型色 /ホワイティ★外皮はメイク済み ■材質/外皮/ PVC"
       }
     },
@@ -11060,6 +11343,7 @@
     "title": "瑠音(RURU)0.5",
     "variant": "SoftSkin / 0.5",
     "head": "T",
+    "headType": "T",
     "body": "I/I/I/I",
     "bodyCode": "III",
     "bodyComposition": {
@@ -11095,7 +11379,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ ※オプション/ヒール足 ※足にはマグネットは入っておりません ※足マグネット用の鉄板丸ベースは付属しません ■内部フレーム/オビツ50 ※48CM仕様 ■成型色 /褐色 ★外皮はメイク済み ■材質/外皮/ PVC"
       }
     },
@@ -11136,6 +11420,7 @@
     "title": "【エンジェルフィリア】ピンクドロップス #80 メアリ ソフトスキン 予約販売",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "ボディメイクには体と手の両方が含まれます。 / 材質：外皮…",
     "bodyCode": "",
     "bodyComposition": null,
@@ -11182,6 +11467,7 @@
     "title": "【エンジェルフィリア】ピンクドロップス #79 小夢 やわらか肌 予約販売",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "ボディメイクには体と手の両方が含まれます。 / 材質：外皮…",
     "bodyCode": "",
     "bodyComposition": null,
@@ -11228,6 +11514,7 @@
     "title": "【Angel Philia】Pink Drops #81 HIMARI Soft Skin Pre-order",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "M",
+    "headType": "M",
     "body": "H/H/C/C",
     "bodyCode": "HHC",
     "bodyComposition": {
@@ -11295,6 +11582,7 @@
     "title": "【Angel Philia】Pink Drops #82 RINA Soft Skin Pre-order",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "N",
+    "headType": "N",
     "body": "G/G/G/B",
     "bodyCode": "GGG",
     "bodyComposition": {
@@ -11375,6 +11663,7 @@
     "title": "【Angel Philia】Pink Drops #83 MITSUKI Soft Skin Pre-order",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "M",
+    "headType": "M",
     "body": "H/H/H/C",
     "bodyCode": "HHH",
     "bodyComposition": {
@@ -11442,6 +11731,7 @@
     "title": "音夢(NEMU) スーパーホワイティ",
     "variant": "SoftSkin / Super Whity",
     "head": "M",
+    "headType": "M",
     "body": "I/I/I/I",
     "bodyCode": "III",
     "bodyComposition": {
@@ -11472,7 +11762,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足/ノーマルタイプ ※オプション/ヒール足 ※足にはマグネットは入っておりません ※足マグネット用の鉄板丸ベースは付属しません ■内部フレーム/オビツ50 ※48CM仕様 ■成型色/スーパーホワイティ ■材質/ヘッド・外皮/ PVC"
       }
     },
@@ -11515,6 +11805,7 @@
     "title": "【Angel Philia】Pink Drops #11 紗鵺香（SAYAKA）Soft Skin 預購",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "GCC",
     "bodyComposition": {
@@ -11595,6 +11886,7 @@
     "title": "【Angel Philia】Pink Drops #37 優姬奈（YUKINA）Soft Skin 預購",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "未明",
+    "headType": "",
     "body": "未明",
     "bodyCode": "H2HH",
     "bodyComposition": {
@@ -11675,6 +11967,7 @@
     "title": "[Angel Philia] Pink Drops #84 MIKU Soft Skin Pre-order",
     "variant": "SoftSkin / 予約/Pre-order",
     "head": "K",
+    "headType": "K",
     "body": "G/G/G/B",
     "bodyCode": "GGG",
     "bodyComposition": {
@@ -11742,6 +12035,7 @@
     "title": "YAMATO_VMF50 #1 MIU Reissue",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "Obitsu50-01",
     "body": "VMF50 Original Image Girl 变体",
     "bodyCode": "BBB",
     "bodyComposition": {
@@ -11777,7 +12071,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/オビツ50"
       }
     },
@@ -11814,6 +12108,7 @@
     "title": "YAMATO_VMF50 #1 MIU Tan Skin",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "Obitsu50-01",
     "body": "VMF50 Original Image Girl 变体",
     "bodyCode": "BBB",
     "bodyComposition": {
@@ -11849,7 +12144,7 @@
       },
       "foot": {
         "type": "Obitsu50",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/オビツ50"
       }
     },
@@ -11885,14 +12180,48 @@
     "name": "RISA 褐色肌",
     "title": "YAMATO_VMF50 #2 RISA Tan Skin",
     "variant": "通常/未明",
-    "head": "未明",
-    "body": "VMF50 Original Image Girl 变体",
-    "bodyCode": "",
-    "bodyComposition": null,
+    "head": "D",
+    "headType": "D",
+    "body": "D/D/D/D",
+    "bodyCode": "DDD",
+    "bodyComposition": {
+      "upperTorso": {
+        "type": "D",
+        "label": "上胴",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "lowerTorso": {
+        "type": "D",
+        "label": "下胴",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "thigh": {
+        "type": "D",
+        "label": "フトモモ",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "shin": {
+        "type": "D",
+        "label": "スネ",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "upperArm": {
+        "type": "D",
+        "label": "上腕",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      },
+      "forearm": {
+        "type": "D",
+        "label": "下腕",
+        "sourceText": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
+      }
+    },
     "bodyCodeSource": {
-      "type": "record.md",
-      "path": "records/YAMATO_VMF50 #2 RISA Tan Skin/record.md",
-      "line": ""
+      "type": "body-composition-overrides.json",
+      "path": "output/body-code-audit/body-composition-overrides.json",
+      "sourceType": "user-note",
+      "sourceUrl": "",
+      "line": "彩色済み（ユーザー補足:RISA は全D体。ヘッドも TYPE-D 相当として扱う。）"
     },
     "skin": "褐色",
     "source": "网络数据",
@@ -11920,6 +12249,7 @@
     "title": "Macross Lynn Minmay 50cm figure",
     "variant": "通常/未明",
     "head": "リン・ミンメイ 角色联动款",
+    "headType": "",
     "body": "vmf50 角色联动完成品",
     "bodyCode": "",
     "bodyComposition": null,
@@ -11958,6 +12288,7 @@
     "title": "Queens Blade Reina action figure",
     "variant": "通常/未明",
     "head": "レイナ 角色联动款",
+    "headType": "",
     "body": "YAMATO / vmf 系角色联动完成品",
     "bodyCode": "",
     "bodyComposition": null,
@@ -11994,6 +12325,7 @@
     "title": "YAMATO_Pink Drops #4 紗友莉 SAYURI VMF50 old entry",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "YAMATO / vmf50 旧 Pink Drops",
     "bodyCode": "H2CC",
     "bodyComposition": {
@@ -12029,7 +12361,7 @@
       },
       "foot": {
         "type": "Heel",
-        "label": "足",
+        "label": "足首",
         "sourceText": "足首/ヒールタイプ"
       }
     },
@@ -12066,6 +12398,7 @@
     "title": "YAMATO_Pink Drops #5 罹亞奈 RIANA VMF50 old entry",
     "variant": "通常/未明",
     "head": "未明",
+    "headType": "",
     "body": "YAMATO / vmf50 旧 Pink Drops",
     "bodyCode": "",
     "bodyComposition": null,

@@ -11,6 +11,7 @@
       </main>
 
       <PurchaseLinksDialog v-model="showPurchaseLinks" />
+      <ChangelogDialog />
     </div>
   </el-config-provider>
 </template>
@@ -20,6 +21,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import SideNav from './components/layout/SideNav.vue'
 import PurchaseLinksDialog from './components/shared/PurchaseLinksDialog.vue'
+import ChangelogDialog from './components/shared/ChangelogDialog.vue'
 import { useLibraryStore } from './stores/library'
 import { usePreferencesStore } from './stores/preferences'
 

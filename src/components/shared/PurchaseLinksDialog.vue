@@ -47,21 +47,8 @@
     </div>
 
     <div class="purchase-links-grid">
-      <article v-for="shop in filteredShops" :key="shop.id" class="purchase-link-card">
-        <div class="purchase-link-card-head">
-          <div>
-            <span>{{ categoryLabel(shop.category) }}</span>
-            <h3>{{ shop.name }}</h3>
-          </div>
-        </div>
-
-        <p>{{ shop.notes }}</p>
-
-        <div class="purchase-card-footer">
-          <small>{{ shop.region }} · {{ platformLabel(shop.platformType) }} · {{ confidenceLabel(shop.sourceConfidence) }}</small>
-          <a :href="shop.url" target="_blank" rel="noreferrer noopener">打开网站</a>
-        </div>
-      </article>
+      <ShopLinkCard v-for="shop in filteredShops" :key="shop.id" :shop="shop"
+        :category="categoryLabel(shop.category)" :platform="platformLabel(shop.platformType)" :confidence="confidenceLabel(shop.sourceConfidence)" />
     </div>
 
     <section class="purchase-keywords" aria-label="搜索关键词">
@@ -76,6 +63,7 @@
 <script setup>
 import { computed, onBeforeUnmount, ref } from 'vue'
 import shopData from '../../../records/doll-clothing-shops.json'
+import ShopLinkCard from './ShopLinkCard.vue'
 
 const visible = defineModel({ type: Boolean, default: false })
 const query = ref('')

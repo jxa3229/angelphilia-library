@@ -19,20 +19,11 @@
     <p v-if="!showParts" class="preset-note">{{ copy.partsAtelierCollapsed }}</p>
 
     <div v-show="showParts" class="atelier-grid">
-      <article
+      <PartMeasurementCard
         v-for="part in parts"
         :key="part.id"
-        class="part-card"
-        :class="{ active: selectedIds.includes(part.id) }"
-      >
-        <div>
-          <strong>{{ part.label }}</strong>
-          <span>{{ labels[part.category] || part.category }}</span>
-        </div>
-        <el-tag v-if="part.isDefault" size="small" effect="plain">{{ copy.defaultObitsu }}</el-tag>
-        <el-tag v-else-if="selectedIds.includes(part.id)" size="small" type="success">{{ copy.current }}</el-tag>
-        <p>{{ measurementText(part) }}</p>
-      </article>
+        :part="part" :selected="selectedIds.includes(part.id)" :category-label="labels[part.category] || part.category" :copy="copy"
+      />
     </div>
   </section>
 </template>
@@ -40,6 +31,7 @@
 <script setup>
 import { ref } from 'vue'
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
+import PartMeasurementCard from './PartMeasurementCard.vue'
 
 defineProps({
   parts: { type: Array, required: true },
@@ -50,10 +42,4 @@ defineProps({
 
 const showParts = ref(false)
 
-function measurementText(part) {
-  const values = Object.values(part.measurements || {})
-    .filter((item) => typeof item.value === 'number')
-    .map((item) => `${item.value}${item.unit || 'cm'}`)
-  return values.length ? values.join(' / ') : '待补充'
-}
 </script>

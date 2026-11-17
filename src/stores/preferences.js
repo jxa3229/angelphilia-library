@@ -1,5 +1,5 @@
 import { computed, ref, watch } from 'vue'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { dictionary } from '../i18n/dictionary'
 import { languages } from '../i18n/languages'
 
@@ -11,10 +11,11 @@ export const usePreferencesStore = defineStore('preferences', () => {
   const navItems = computed(() => [
     { route: 'overview', label: copy.value.navSummary },
     { route: 'library', label: copy.value.navLibrary },
-    { route: 'body-builder', label: copy.value.navBodyBuilder, bubble: copy.value.bodyBuilderBubble },
+    { route: 'limited', label: copy.value.navLimited },
+    { route: 'body-builder', label: copy.value.navBodyBuilder },
     { route: 'outfits', label: copy.value.navOutfits },
     { route: 'index', label: copy.value.navIndex },
-    { route: 'repository', label: copy.value.navRepo }
+    { route: 'glossary', label: copy.value.navGlossary }
   ])
 
   watch(lang, (value) => localStorage.setItem('library-lang', value))
@@ -43,3 +44,7 @@ export const usePreferencesStore = defineStore('preferences', () => {
     applyTheme
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(usePreferencesStore, import.meta.hot))
+}

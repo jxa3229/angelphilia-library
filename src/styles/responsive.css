@@ -333,10 +333,6 @@
     grid-template-columns: 1fr;
   }
 
-  .outfit-detail dl {
-    grid-template-columns: 1fr;
-  }
-
   .atelier-grid {
     grid-template-columns: 1fr;
   }
@@ -497,41 +493,6 @@
   }
 }
 
-@media (max-width: 1080px) {
-  .toc a {
-    overflow: visible;
-  }
-
-  .toc a:hover,
-  .toc a:focus-visible {
-    z-index: 40;
-  }
-
-  .comic-bubble {
-    left: 50%;
-    top: calc(100% + 12px);
-    max-width: min(230px, calc(100vw - 32px));
-    transform: translate(-50%, 8px) rotate(-2deg) scale(0.96);
-  }
-
-  .comic-bubble::before {
-    left: 50%;
-    top: -11px;
-    transform: translateX(-50%) rotate(135deg);
-  }
-
-  .toc a:hover .comic-bubble,
-  .toc a:focus-visible .comic-bubble {
-    transform: translate(-50%, 0) rotate(-2deg) scale(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .image-button img {
-    transition: none;
-  }
+  html { scroll-behavior: auto; }
 }

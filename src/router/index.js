@@ -18,6 +18,7 @@ const BodyBuilderPage = () => import('../pages/BodyBuilderPage.vue')
 const OutfitsPage = () => import('../pages/OutfitsPage.vue')
 const GlossaryPage = () => import('../pages/GlossaryPage.vue')
 const LimitedPage = () => import('../pages/LimitedPage.vue')
+const OfficialFaceupsPage = () => import('../pages/OfficialFaceupsPage.vue')
 const ImagePage = () => import('../pages/ImagePage.vue')
 
 export const router = createRouter({
@@ -27,6 +28,7 @@ export const router = createRouter({
     { path: '/overview', name: 'overview', component: OverviewPage },
     { path: '/library', name: 'library', component: withCatalog(LibraryPage) },
     { path: '/limited', name: 'limited', component: withCatalog(LimitedPage) },
+    { path: '/official-faceups', name: 'official-faceups', component: OfficialFaceupsPage },
     { path: '/body-builder', name: 'body-builder', component: BodyBuilderPage },
     { path: '/outfits', name: 'outfits', component: OutfitsPage },
     { path: '/index', name: 'index', component: withCatalog(IndexPage) },

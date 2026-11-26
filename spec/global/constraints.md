@@ -36,6 +36,7 @@
 - **文件组织:** 新增数据生成能力优先放入 `scripts/`，不要把 docx 转换逻辑放到浏览器运行时。
 - **资源路径:** 本站图片包括 `media/{safeFolder}/...`、`catalog-covers/`、`outfits/` 和 `images/`，统一通过 `assetUrl()` 结合 `import.meta.env.BASE_URL` 生成部署路径；详情画廊允许保留原外站图片。
 - **列表与详情:** 馆藏和外装首批 24 条，追加展示不影响全量筛选。馆藏与限定详情以 `query.record` 保存稳定标识，支持刷新和历史导航；返回列表保留当前筛选与滚动。外装详情保留完整日文原文，不用摘要替代全文。
+- **长图集滚动与加载:** 桌面 `.main-panel` 默认隐藏溢出，新增长图集路由时须将该路由加入独立滚动样式。官妆实拍用固定比例占位和 `IntersectionObserver` 按可见区域请求 WebP 缩略图，点开预览后才请求原图。验证时在冷缓存下比较首屏请求，再用桌面滚轮和窄屏滚动确认最后一张缩略图能加载。
 - **配件阁数据:** `bodyParts.json`、`headParts.json` 和 `partSources.json` 必须保持静态可打包，所有非空尺寸值必须为 number、单位必须为 `cm` 且必须有泛化 `sourceId`。
 - **来源脱敏:** 配件阁网页 UI 和复制内容不得展示具体来源 URL、平台、作者、截图说明或“来源说明”面板；具体数据来源只允许单独记录在维护用 Markdown（当前为 `spec/feature_20260618_F001_mjd-body-builder/part-sources.md`）。`bodyParts.json`、`headParts.json` 仅保留泛化 `sourceId` 供校验；`Obitsu` 仅可作为配件体系名称或默认件名称出现。
 - **更新日志 UI:** 侧栏只保留低干扰入口；点击后必须在站内弹窗查看。弹窗默认只展示最近 3 条；“完整更新记录”只能在同一弹窗内切换全量列表，并使用弹窗内部滚动，不得跳转或外链到 Markdown 文件作为主要查看路径。

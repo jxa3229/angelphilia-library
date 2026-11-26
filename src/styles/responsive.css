@@ -288,7 +288,8 @@
 
   .main-panel.route-overview,
   .main-panel.route-index,
-  .main-panel.route-repository {
+  .main-panel.route-repository,
+  .main-panel.route-official-faceups {
     overflow: visible;
   }
 

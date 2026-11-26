@@ -8,13 +8,13 @@
     <ul class="faceups-grid">
       <li v-for="photo in photos" :key="photo.file">
         <button class="faceup-card" type="button" @click="selected = photo">
-          <span class="faceup-photo">
+          <span ref="photoSlots" class="faceup-photo" :data-file="photo.file">
             <img
+              v-if="requestedThumbnails.has(photo.file)"
               :src="assetUrl(`${folder}/thumbnails/${photo.file}.webp`)"
               :width="photo.width"
               :height="photo.height"
               alt=""
-              loading="lazy"
               decoding="async"
             />
           </span>
@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
 import { ElImageViewer } from 'element-plus/es/components/image-viewer/index.mjs'
 import photos from '../data/officialFaceups.json'
 import { usePreferencesStore } from '../stores/preferences'
@@ -51,6 +51,9 @@ import { assetUrl } from '../utils/assetUrl'
 
 const folder = 'images/official-faceups'
 const photographer = '神秘的花开花落'
+const photoSlots = useTemplateRef('photoSlots')
+const requestedThumbnails = ref(new Set())
+let thumbnailObserver
 const preferences = usePreferencesStore()
 const selected = ref(null)
 const downloading = ref(false)
@@ -70,6 +73,25 @@ const instructions = {
   }
 }
 const copy = computed(() => instructions[preferences.lang] || instructions.zh)
+
+onMounted(() => {
+  if (!window.IntersectionObserver) {
+    requestedThumbnails.value = new Set(photos.map(photo => photo.file))
+    return
+  }
+
+  thumbnailObserver = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue
+      requestedThumbnails.value.add(entry.target.dataset.file)
+      observer.unobserve(entry.target)
+    }
+  }, { rootMargin: '200px 0px' })
+
+  for (const slot of photoSlots.value) thumbnailObserver.observe(slot)
+})
+
+onBeforeUnmount(() => thumbnailObserver?.disconnect())
 
 async function downloadPhoto(photo) {
   downloading.value = true

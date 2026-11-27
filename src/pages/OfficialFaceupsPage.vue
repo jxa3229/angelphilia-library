@@ -7,7 +7,7 @@
 
     <ul class="faceups-grid">
       <li v-for="photo in photos" :key="photo.file">
-        <button class="faceup-card" type="button" @click="selected = photo">
+        <button class="faceup-card" type="button" @click="openPhoto(photo)">
           <span ref="photoSlots" class="faceup-photo" :data-file="photo.file">
             <img
               v-if="requestedThumbnails.has(photo.file)"
@@ -20,20 +20,28 @@
           </span>
           <span class="faceup-caption">
             <span class="faceup-name">{{ photo.name }}</span>
-            <span class="faceup-credit">{{ copy.credit }}{{ photographer }}</span>
+            <span class="faceup-credit">{{ copy.credit }}{{ photo.contributor || photographer }}</span>
           </span>
         </button>
+        <RouterLink
+          v-if="photo.recordId"
+          class="faceup-record"
+          :to="{ name: 'library', query: { record: photo.recordId } }"
+        >
+          {{ copy.viewRecord }}
+        </RouterLink>
       </li>
     </ul>
 
     <ElImageViewer
       v-if="selected"
-      :url-list="[assetUrl(`${folder}/${selected.file}`)]"
+      :url-list="previewUrls"
       teleported
+      @switch="activePhotoIndex = $event"
       @close="selected = null"
     >
       <div class="faceup-download">
-        <button type="button" :disabled="downloading" @click="downloadPhoto(selected)">
+        <button type="button" :disabled="downloading" @click="downloadPhoto">
           {{ downloading ? copy.preparing : copy.download }}
         </button>
         <p v-if="downloadFailed" role="alert">{{ copy.downloadFailed }}</p>
@@ -56,19 +64,24 @@ const requestedThumbnails = ref(new Set())
 let thumbnailObserver
 const preferences = usePreferencesStore()
 const selected = ref(null)
+const activePhotoIndex = ref(0)
+const previewFiles = computed(() => selected.value
+  ? [selected.value.file, ...(selected.value.additionalFiles || [])]
+  : [])
+const previewUrls = computed(() => previewFiles.value.map(file => assetUrl(`${folder}/${file}`)))
 const downloading = ref(false)
 const downloadFailed = ref(false)
 const instructions = {
   zh: {
-    intro: '点选照片查看高清原图。', credit: '图源：',
+    intro: '点选照片查看高清原图。', credit: '图源：', viewRecord: '查看馆藏档案',
     download: '下载带水印图片', preparing: '正在生成…', downloadFailed: '下载失败，请重试。'
   },
   en: {
-    intro: 'Select a photo to view it at full resolution.', credit: 'Photo source: ',
+    intro: 'Select a photo to view it at full resolution.', credit: 'Photo source: ', viewRecord: 'View collection record',
     download: 'Download with watermark', preparing: 'Preparing…', downloadFailed: 'Download failed. Please try again.'
   },
   ja: {
-    intro: '写真を選ぶと高解像度の画像を表示します。', credit: '写真提供：',
+    intro: '写真を選ぶと高解像度の画像を表示します。', credit: '写真提供：', viewRecord: '収蔵記録を見る',
     download: '透かし入りで保存', preparing: '生成中…', downloadFailed: '保存できませんでした。もう一度お試しください。'
   }
 }
@@ -93,12 +106,20 @@ onMounted(() => {
 
 onBeforeUnmount(() => thumbnailObserver?.disconnect())
 
-async function downloadPhoto(photo) {
+function openPhoto(photo) {
+  activePhotoIndex.value = 0
+  downloadFailed.value = false
+  selected.value = photo
+}
+
+async function downloadPhoto() {
+  const file = previewFiles.value[activePhotoIndex.value]
+  const contributor = selected.value.contributor || photographer
   downloading.value = true
   downloadFailed.value = false
   try {
     const image = new Image()
-    image.src = assetUrl(`${folder}/${photo.file}`)
+    image.src = assetUrl(`${folder}/${file}`)
     await image.decode()
 
     const canvas = document.createElement('canvas')
@@ -116,19 +137,19 @@ async function downloadPhoto(photo) {
     context.lineWidth = Math.max(1, shortEdge * 0.0025)
     context.strokeStyle = 'rgba(0, 0, 0, 0.45)'
     context.fillStyle = 'rgba(255, 255, 255, 0.7)'
-    const watermark = `图源：${photographer}`
+    const watermark = `图源：${contributor}`
     const x = canvas.width - inset
     const y = canvas.height - inset
     const maxWidth = canvas.width - 2 * inset
     context.strokeText(watermark, x, y, maxWidth)
     context.fillText(watermark, x, y, maxWidth)
 
-    const format = photo.file.endsWith('.png') ? 'image/png' : 'image/jpeg'
+    const format = file.endsWith('.png') ? 'image/png' : 'image/jpeg'
     const blob = await new Promise(resolve => canvas.toBlob(resolve, format, 0.95))
     if (!blob) throw new Error('Image export failed')
     const link = document.createElement('a')
     link.href = URL.createObjectURL(blob)
-    link.download = photo.file
+    link.download = file
     link.click()
     const url = link.href
     setTimeout(() => URL.revokeObjectURL(url), 1000)
@@ -171,9 +192,14 @@ async function downloadPhoto(photo) {
   list-style: none;
 }
 
+.faceups-grid > li {
+  display: flex;
+  flex-direction: column;
+}
+
 .faceup-card {
   width: 100%;
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -225,6 +251,13 @@ async function downloadPhoto(photo) {
 .faceup-credit {
   color: var(--muted);
   font-size: 0.75rem;
+}
+
+.faceup-record {
+  align-self: start;
+  margin: 8px 10px 0;
+  color: var(--primary);
+  font-size: 0.875rem;
 }
 
 .faceup-download {

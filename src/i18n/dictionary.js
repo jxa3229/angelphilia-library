@@ -17,6 +17,7 @@ export const dictionary = {
     updateLogShowAll: '完整更新记录',
     updateLogShowRecent: '只看最近 3 条',
     updateLogEntries: [
+      { date: '2026-11-28', text: '修复官妆实拍收录：将误标的 RISA 更正为凛 RIN，统一双语名称为中文在前、罗马字在后。48 张照片中有 47 张可直达馆藏档案，MISA 暂无独立档案。从实拍进入详情后可直接返回官妆实拍页。' },
       { date: '2026-11-25', text: '新增「官妆实拍收录」，可按名称浏览 47 张官妆照片并查看高清原图。每张照片标注图源「神秘的花开花落」，从大图预览下载时可在右下角加上图源水印。' },
       { date: '2026-11-17', text: '今日优化更新：新增限定档案、品牌与术语、分品牌角色名录及头型号/肤色筛选；统一卡片为图片、年份和名称，规格移入详情，补充限定翻译并修复下拉选项显示。优化速览黑底拼图背景与展示层级，移除重复声明和公开拼图入口；新增“关于项目与联系反馈”，补充资料卡及全站页脚邮箱、GitHub Issue 反馈入口；修正三语品牌名称并完善 RAP、VMF50 历史关系说明。项目说明默认收起，速览日期可打开共用更新日志。 本轮继续优化：本站缓存馆藏封面并支持失败重试，馆藏与外装按批展示；首页资料按需加载；修复详情 HTML 过滤、发行年份排序和外装正文截断；补充外装与术语页三语、可刷新的详情链接，并改为对生产构建运行回归测试。' },
       { date: '2026-07-03', text: '新增 AP 外装记录并缓存外装商品图到本地，外装分类和详情展示更稳定。' },
@@ -217,6 +218,7 @@ export const dictionary = {
     updateLogShowAll: 'Full update log',
     updateLogShowRecent: 'Show latest 3',
     updateLogEntries: [
+      { date: '2026-11-28', text: 'Fixed Official Face-ups: corrected RISA to Rin and placed Chinese names before romanized names on bilingual cards. 47 of 48 photos link directly to collection records. MISA has no standalone record yet. The record detail now links back to Official Face-ups.' },
       { date: '2026-11-17', text: 'Today’s improvements: added limited editions, brand terminology, brand-based character directories and head-model/skin-tone filters. Simplified cards to image, year and name, moved specifications into details, expanded translations and fixed dropdown options. Refined the overview with black-background collages and clearer content, removed the duplicate notice and public collage links, and added About & Contact with email links in the information card and site footer plus GitHub Issue feedback. Corrected brand names across all three languages and clarified RAP and VMF50 history. Project information is collapsed by default; the overview date opens the shared update log. Further improvements: cached collection covers with retry, batched collection and outfit lists, and deferred archive data loading. Fixed detail HTML filtering, release-year sorting and truncated outfit notes; expanded outfit and glossary localization, added refreshable detail links, and moved browser regression checks to production builds.' },
       { date: '2026-07-03', text: 'Added AP outfit records and cached outfit images locally for steadier categories and detail views.' },
       { date: '2026-11-25', text: 'Added Official Face-ups with 47 named photos and full-resolution previews. Each photo credits 神秘的花开花落, and the preview offers a download with the credit watermarked in the bottom-right corner.' },
@@ -416,6 +418,7 @@ export const dictionary = {
     updateLogShowAll: '完全な更新記録',
     updateLogShowRecent: '最近3件のみ',
     updateLogEntries: [
+      { date: '2026-11-28', text: '公式メイク写真を修正しました。RISA と誤記していた写真を凛 RIN に訂正し、併記する場合は漢字名、ローマ字表記の順に統一しました。48枚中47枚から収蔵記録を直接開けます。MISA の個別記録は未収録です。写真から開いた詳細画面には、公式メイク写真に戻るボタンを追加しました。' },
       { date: '2026-11-17', text: '本日の改善：限定アーカイブ、ブランド・用語解説、ブランド別キャラクター一覧、ヘッド型番・肌色フィルターを追加。カードを画像・年・名前に統一し、仕様を詳細へ移動。翻訳を補い、選択肢の表示を修正。概要の黒背景コラージュと情報配置を改善し、重複する声明と公開コラージュリンクを削除。「プロジェクトについて・お問い合わせ」を追加し、情報カード・全ページのフッターにメール、GitHub Issue による連絡先を整備。三言語のブランド名を修正し、RAP・VMF50 の沿革説明を補足。プロジェクト情報は初期状態で折りたたみ、概要の更新日から共通の更新ログを開けます。 追加改善：館蔵カバーのローカル保存と再試行、館蔵・衣装の段階表示、資料の遅延読み込みに対応しました。詳細 HTML のフィルター、発売年順、衣装説明の省略を修正し、衣装・用語の多言語表示、再読み込み可能な詳細リンク、本番ビルドの回帰テストを追加しました。' },
       { date: '2026-07-03', text: 'AP 外装記録を追加し、外装画像をローカルにキャッシュして分類と詳細表示を安定化。' },
       { date: '2026-07-02', text: '完成品アーカイブの body data を拡充し、ソース URL、bodyCode 対応、手動確認リストを追加。' },

@@ -13,12 +13,13 @@
     <RecordDetail
       v-if="activeRecord"
       :record="activeRecord"
-      @close="closeRecord"
+      :back-label="backLabel"
+      @close="returnToSource"
     />
 
     <div v-else-if="invalidRecord" role="alert">
       <el-empty :description="copy.recordNotFound" />
-      <el-button @click="closeRecord">{{ copy.backToLibrary }}</el-button>
+      <el-button @click="returnToSource">{{ backLabel }}</el-button>
     </div>
     <template v-else>
       <LibraryFilters />
@@ -43,6 +44,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { Refresh } from '@element-plus/icons-vue'
 import LibraryFilters from '../components/library/LibraryFilters.vue'
 import RecordCard from '../components/library/RecordCard.vue'
@@ -61,7 +63,11 @@ const props = defineProps({
 
 const library = useLibraryStore()
 const preferences = usePreferencesStore()
+const route = useRoute()
+const router = useRouter()
 const copy = computed(() => preferences.copy)
+const fromFaceups = computed(() => route.query.from === 'official-faceups')
+const backLabel = computed(() => fromFaceups.value ? copy.value.backToOfficialFaceups : copy.value.backToLibrary)
 const filteredRecords = computed(() => library.filteredRecords(copy.value.unknown))
 const batchSize = 24
 const visibleCount = ref(batchSize)
@@ -72,6 +78,15 @@ const { activeRecord, invalidRecord, openRecord, closeRecord } = useRecordRoute(
   onOpen: (record) => library.openRecord(record),
   onClose: () => library.clearActiveRecord()
 })
+
+function returnToSource() {
+  if (!fromFaceups.value) return closeRecord()
+  const previousPath = router.options.history.state.back
+  if (typeof previousPath === 'string' && router.resolve(previousPath).name === 'official-faceups') {
+    return router.back()
+  }
+  return router.replace({ name: 'official-faceups' })
+}
 
 watch(() => [library.query, library.selectedGroup, library.selectedYear, library.selectedSource, library.selectedHeadType, library.selectedSkinTone], () => { visibleCount.value = batchSize })
 

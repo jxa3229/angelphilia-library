@@ -26,7 +26,7 @@
         <RouterLink
           v-if="photo.recordId"
           class="faceup-record"
-          :to="{ name: 'library', query: { record: photo.recordId } }"
+          :to="{ name: 'library', query: { record: photo.recordId, from: 'official-faceups' } }"
         >
           {{ copy.viewRecord }}
         </RouterLink>
